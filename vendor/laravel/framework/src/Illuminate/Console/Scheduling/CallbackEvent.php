@@ -64,19 +64,21 @@ class CallbackEvent extends Event
             $this->removeMutex();
         });
 
+        parent::callBeforeCallbacks($container);
+
         try {
             $response = $container->call($this->callback, $this->parameters);
         } finally {
             $this->removeMutex();
-        }
 
-        parent::callAfterCallbacks($container);
+            parent::callAfterCallbacks($container);
+        }
 
         return $response;
     }
 
     /**
-     * Remove the mutex file from disk.
+     * Clear the mutex for the event.
      *
      * @return void
      */
@@ -90,11 +92,10 @@ class CallbackEvent extends Event
     /**
      * Do not allow the event to overlap each other.
      *
+     * @param  int  $expiresAt
      * @return $this
-     *
-     * @throws \LogicException
      */
-    public function withoutOverlapping()
+    public function withoutOverlapping($expiresAt = 1440)
     {
         if (! isset($this->description)) {
             throw new LogicException(
@@ -103,6 +104,8 @@ class CallbackEvent extends Event
         }
 
         $this->withoutOverlapping = true;
+
+        $this->expiresAt = $expiresAt;
 
         return $this->skip(function () {
             return $this->mutex->exists($this);
