@@ -69,11 +69,11 @@ return [
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
-            'host' => env('DB_HOST', 'localhost'),
-            'port' => env('DB_PORT', '1433'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'host' => 'ex-change.database.windows.net',
+            'port' => '1433',
+            'database' => 'ex-change',
+            'username' => 'haitao.sun',
+            'password' => 'Daihaosj87128',
             'charset' => 'utf8',
             'prefix' => '',
         ],
