@@ -6,10 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 class welcomeController extends Controller
 {
-	// public function __construct()
-	// {
-	// 	View::share(['page_name_active'=> 'mypagename']);
-	// }
+
 		public function index() {
 		    	 $users = DB::select('select * from dbo.users where userID = ?', [1]);
 					 \View::share(['page_name_active'=> 'home']);
