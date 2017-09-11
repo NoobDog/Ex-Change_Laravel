@@ -14,6 +14,6 @@ class welcomeController extends Controller
 		    	 $users = DB::select('select * from dbo.users where userID = ?', [1]);
 					 \View::share(['page_name_active'=> 'home']);
            $users = json_decode(json_encode($users),true);
-           return \View::make('welcome')->with('name',$users[0]['adminID']);
+           return \View::make('welcome')->with('name',$users[0]['userName']);
     }
 }
