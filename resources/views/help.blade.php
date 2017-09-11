@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="{{ asset('js/vue.js') }}"></script>
         <title>Ex-change</title>
-        <link rel="icon" type="image/png" href="{{asset('favicon.ico')}}"/>
+        <link rel="icon" type="image/png" href="{{asset('favicon.png')}}"/>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
