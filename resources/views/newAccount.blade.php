@@ -66,20 +66,30 @@
     <body>
         @include('header')
         <div class="flex-center position-ref full-height">
-            <!-- @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif -->
-
             <div class="content">
                 <div class="title m-b-md">
                     Laravel - New account
+                </div>
+                <div>
+                  <form action="">
+                    <div class="container">
+                      <label><b>Email</b></label>
+                      <input type="text" placeholder="Enter Email" name="email" required>
+
+                      <label><b>Password</b></label>
+                      <input type="password" placeholder="Enter Password" name="psw" required>
+
+                      <label><b>Repeat Password</b></label>
+                      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+                      <input type="checkbox" checked="checked"> Remember me
+                      <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+                      <div class="clearfix">
+                        <button type="button"  class="cancelbtn">Cancel</button>
+                        <button type="submit" class="signupbtn">Sign Up</button>
+                      </div>
+                    </div>
+                  </form>
                 </div>
 
 
