@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
 class welcomeController extends Controller
 {
 	// public function __construct()
@@ -11,8 +11,9 @@ class welcomeController extends Controller
 	// 	View::share(['page_name_active'=> 'mypagename']);
 	// }
 		public function index() {
-						\View::share(['page_name_active'=> 'home']);
-            $name = array('a'=>'welcome','b'=>'yoyo');
-            return \View::make('welcome')->with('name',$name);
-        }
+		    	 $users = DB::select('select * from dbo.users where userID = ?', [1]);
+					 \View::share(['page_name_active'=> 'home']);
+           $users = json_decode(json_encode($users),true);
+           return \View::make('welcome')->with('name',$users[0]['adminID']);
+    }
 }
