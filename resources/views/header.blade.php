@@ -22,7 +22,9 @@ li a, .dropbtn {
 li a:hover, .dropdown:hover .dropbtn {
     background-color: red;
 }
-
+li a:hover, .active {
+    background-color: red;
+}
 li.dropdown {
     display: inline-block;
 }
@@ -51,14 +53,21 @@ li.dropdown {
 }
 </style>
 <ul>
-  <li><a href="#home">Home</a></li>
-  <li><a href="#news">News</a></li>
-  <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
+  <li><a class="@if($page_name_active=='home')active @endif" href="{{url('/')}}">Home</a></li>
+  <li><a class="@if($page_name_active=='login')active @endif" href="{{url('/login')}}">Login</a></li>
+  <li><a class="@if($page_name_active=='newAccount')active @endif" href="{{url('/newAccount')}}">Create New Account</a></li>
+  <li><a class="@if($page_name_active=='help')active @endif" href="{{url('/help')}}">Help</a></li>
+
+  <!-- <li><a href="{{url('/')}}">Home</a></li>
+  <li><a href="{{url('/login')}}">Login</a></li>
+  <li><a href="{{url('/newAccount')}}">Create New Account</a></li>
+  <li><a href="{{url('/help')}}">Help</a></li> -->
+  <!-- <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Help</a>
     <div class="dropdown-content">
       <a href="#">Link 1</a>
       <a href="#">Link 2</a>
       <a href="#">Link 3</a>
     </div>
-  </li>
+  </li> -->
 </ul>

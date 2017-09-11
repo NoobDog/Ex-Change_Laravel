@@ -11,6 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+Route::get('/','welcomeController@index');
+Route::get('/login','loginController@index');
+Route::get('/newAccount','newAccountController@index');
+Route::get('/help','helpController@index');
+
+// Route::get('/login',function() {
+//     return view('login');
+// });
+// Route::get('/newAccount',function() {
+//     return view('newAccount');
+// });
+// Route::get('/help',function() {
+//     return view('help');
+// });
