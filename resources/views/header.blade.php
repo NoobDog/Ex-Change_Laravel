@@ -53,8 +53,12 @@ li.dropdown {
 }
 .navBar{
   margin-bottom: 50px;
+
 }
 </style>
+<div class="logo">
+  <img src="{{asset('img/ex-change_logo.jpg')}}" height="66px" width="100%">
+</div>
 <div class="navBar">
   <ul>
     <li><a class="@if($page_name_active=='home')active @endif" href="{{url('/')}}">Home</a></li>
