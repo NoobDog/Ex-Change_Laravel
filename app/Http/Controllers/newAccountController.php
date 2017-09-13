@@ -26,8 +26,15 @@ class newAccountController extends Controller
 						 $inputLastName = $request->input('lName');
 						 if($inputPassword == $inputPasswordRepeat) {
 							 $inputPasswordHashed = Hash::make($inputPassword);
-							 $checkUser = DB::select('SELECT * FROM users WHERE userEmail = ? AND userPassword = ?' , [$inputEmail , $inputPasswordHashed]);
-							 return $checkUser;
+							 $checkUser = DB::select('SELECT * FROM users WHERE userEmail = ?' , [$inputEmail]);
+							 if(is_null($checkUser)) {
+								 $newUserName = $inputFirstName.' '.$inputLastName;
+								 	DB::insert('ISERT INTO users (userName,userPassword,userEmail) values (?, ?, ?)', [$newUserName,$inputPasswordHashed,$inputEmail]);
+									return view('welcome',['page_name_active'=>'welcome']);
+							 } else {
+								 return view('newAccount',['page_name_active'=>'newAccount','errorMsg'=>'This user is already existed!']);
+							 }
+
 						 } else {
 							 return view('newAccount',['page_name_active'=>'newAccount']);
 
