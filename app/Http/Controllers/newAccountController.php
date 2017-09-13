@@ -29,7 +29,7 @@ class newAccountController extends Controller
 							 $checkUser = DB::select('SELECT * FROM users WHERE userEmail = ?' , [$inputEmail]);
 							 if(empty($checkUser)) {
 								 $newUserName = $inputFirstName.' '.$inputLastName;
-								 	DB::insert('ISERT INTO users (userName,userPassword,userEmail,adminID,userIP,userIcon,isWarning,isBlock,isVoid,roleTypeID) values (?, ?, ?)', [$newUserName,$inputPasswordHashed,$inputEmail,0,'::1','0',0,0,0,1]);
+								 	DB::insert('INSERT INTO users (userName,userPassword,userEmail,adminID,userIP,userIcon,isWarning,isBlock,isVoid,roleTypeID) values (?, ?, ?)', [$newUserName,$inputPasswordHashed,$inputEmail,0,'::1','0',0,0,0,1]);
 									return view('welcome',['page_name_active'=>'welcome']);
 							 } else {
 								 return view('newAccount',['page_name_active'=>'newAccount','errorMsg'=>'This user is already existed!']);
