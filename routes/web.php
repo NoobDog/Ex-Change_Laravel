@@ -19,7 +19,9 @@ Route::get('/','welcomeController@index');
 Route::get('/login','loginController@index');
 Route::post('/login',['as'=>'loginPost','uses'=>'loginController@getUser']);
 
+
 Route::get('/newAccount','newAccountController@index');
+Route::post('/newAccount',['as'=>'signUpCheck','uses'=>'newAccountController@checkValue']);
 Route::get('/help','helpController@index');
 
 // Route::get('/login',function() {

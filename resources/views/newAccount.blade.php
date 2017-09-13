@@ -134,7 +134,8 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
               <h2>Register</h2>
-              <form action="" style="border:1px solid #ccc" id="signinForm">
+                <form action="{{route('signUpCheck')}}" style="border:1px solid #ccc" id="signinForm" method="POST">
+                {{ csrf_field() }}
                 <div class="container">
                   <label><b>Email</b></label>
                   <input type="email" placeholder="Enter Email" name="email" required>
@@ -147,7 +148,6 @@
                   <input type="text" placeholder="First Name" name="fName" required>
                   <label><b>Last Name</b></label>
                   <input type="text" placeholder="Last Name" name="lName" required>
-                  <input type="checkbox" checked="checked"> Remember me
                   <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
                   <div class="clearfix">
@@ -160,3 +160,40 @@
         </div>
     </body>
 </html>
+
+<script>
+
+/*$('#signinForm').on('submit',function(e){
+  e.preventDefault();
+  var email = $(this).find('input[name=email]').val();
+  var password = $(this).find('input[name=psw]').val();
+  var repeatPassword = $(this).find('input[name=psw-repeat]').val();
+  var fName = $(this).find('input[name=fName]').val();
+  var lName = $(this).find('input[name=lName]').val();
+  var url = window.location.href;
+  var token = $(this).find('input[name=_token]').val();
+  console.log(email);
+  console.log(password);
+  console.log(repeatPassword);
+  console.log(token);
+  //console.log(url);
+
+  if(password === repeatPassword) {
+    $.ajaxSetup({
+        headers: {'X-CSRF-Token': token}
+    });
+    $.ajax({
+      type: "POST",
+      url: url,
+      data:['email':email],
+      success: function(msg) {
+          alert(msg);
+      }
+    });
+
+  } else {
+      alert('no match');
+  }
+})*/
+
+</script>

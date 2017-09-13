@@ -141,7 +141,7 @@
               	   <h1>Login</h1>
                     <form method="post" action="{{route('loginPost')}}">
                       {{ csrf_field() }}
-                    	 <input type="text" name="userEmail" placeholder="Email" required="required" />
+                    	 <input type="email" name="userEmail" placeholder="Email" required="required" />
                         <input type="password" name="passWord" placeholder="Password" required="required" />
                         <button type="submit" class="btn btn-primary btn-block btn-large">login</button>
 
