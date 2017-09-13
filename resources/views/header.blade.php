@@ -57,7 +57,7 @@ li.dropdown {
 }
 </style>
 <div class="logo">
-  <img src="{{asset('img/ex-change_logo.png')}}" height="66px" width="100%">
+  <img src="{{asset('img/ex-change_logo.jpg')}}" height="66px" width="100%">
 </div>
 <div class="navBar">
   <ul>
