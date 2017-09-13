@@ -20,12 +20,14 @@ class loginController extends Controller
 
 				 $inputEmail = $request->input('userEmail');
 				 $inputPasswordHashed = Hash::make($request->input('passWord'));
-				 //$users = DB::select('select * from dbo.users where userName = ?', [$name]);
+				 $user = DB::select('SELECT * FROM users WHERE userEmail = ? AND userPassword = ?', [$inputEmail,$inputPasswordHashed]);
+				 if(!empty($user)) {
+					 $user = json_decode(json_encode($user),true);
+					 Session::put('userName' , $user[0]['userName']);
+					 Session::put('userEmail' , $user[0]['userEmail']);
+					 Session::put('roleTypeID' , $user[0]['roleTypeID']);
+					 return view('welcome' , ['page_name_active' => 'welcome' , 'name' => Session::get('userName')]);
+				 }
 
-				//  if (Hash::check('haha', $passwordHashed)) {
-				//      return 'yesssss';
-				//  }
-				 //return view('login')->with('name',$name);
-				 return 'User: '.$inputEmail.' hashedPassword:'.$inputPasswordHashed;
 		}
 }

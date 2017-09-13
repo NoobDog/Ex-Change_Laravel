@@ -30,7 +30,11 @@ class newAccountController extends Controller
 							 if(empty($checkUser)) {
 								 $newUserName = $inputFirstName.' '.$inputLastName;
 								 	DB::insert('INSERT INTO users (userName,userPassword,userEmail,adminID,userIP,userIcon,isWarning,isBlock,isVoid,roleTypeID) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [$newUserName,$inputPasswordHashed,$inputEmail,0,'::1','0',0,0,0,1]);
-									return view('welcome',['page_name_active'=>'welcome']);
+									Session::put('userName', $newUserName);
+									Session::put('userEmail', $inputEmail);
+									Session::put('roleTypeID', 1);
+
+									return view('welcome',['page_name_active'=>'welcome','name'=>Session::get('userName')]);
 							 } else {
 								 return view('newAccount',['page_name_active'=>'newAccount','errorMsg'=>'This user is already existed!']);
 							 }

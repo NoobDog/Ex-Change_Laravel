@@ -88,4 +88,10 @@
             </div>
         </div>
     </body>
+
+    @if (Session::has('_token'))
+    <p>haha</p>
+    @else
+    <p>xixi</p>
+    @endif
 </html>
