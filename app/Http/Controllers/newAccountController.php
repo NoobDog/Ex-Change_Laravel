@@ -26,7 +26,7 @@ class newAccountController extends Controller
 						 $inputLastName = $request->input('lName');
 						 if($inputPassword == $inputPasswordRepeat) {
 							 $inputPasswordHashed = Hash::make($inputPassword);
-							 $checkUser = DB::select('SELECT * FROM users WHERE userEmail = ? AND userPassword' , [$inputEmail , $inputPasswordHashed]);
+							 $checkUser = DB::select('SELECT * FROM users WHERE userEmail = ? AND userPassword = ?' , [$inputEmail , $inputPasswordHashed]);
 							 return $checkUser;
 						 } else {
 							 return view('newAccount',['page_name_active'=>'newAccount']);
