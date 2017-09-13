@@ -75,7 +75,7 @@
             }
             /* Form */
             /* Full-width input fields */
-            input[type=text], input[type=password] {
+            input[type=text], input[type=password], input[type=email] {
                 width: 100%;
                 padding: 12px 20px;
                 margin: 8px 0;
@@ -137,16 +137,16 @@
               <form action="" style="border:1px solid #ccc" id="signinForm">
                 <div class="container">
                   <label><b>Email</b></label>
-                  <input type="text" placeholder="Enter Email" name="email" required>
-                  <label><b>Email</b></label>
-                  <input type="text" placeholder="Enter Email" name="email" required>
-                  <label><b>Email</b></label>
-                  <input type="text" placeholder="Enter Email" name="email" required>
+                  <input type="email" placeholder="Enter Email" name="email" required>
                   <label><b>Password</b></label>
                   <input type="password" placeholder="Enter Password" name="psw" required>
 
                   <label><b>Repeat Password</b></label>
                   <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+                  <label><b>First Name</b></label>
+                  <input type="text" placeholder="First Name" name="fName" required>
+                  <label><b>Last Name</b></label>
+                  <input type="text" placeholder="Last Name" name="lName" required>
                   <input type="checkbox" checked="checked"> Remember me
                   <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
