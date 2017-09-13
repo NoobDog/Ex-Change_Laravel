@@ -34,7 +34,7 @@ class newAccountController extends Controller
 									Session::put('userEmail', $inputEmail);
 									Session::put('roleTypeID', 1);
 
-									return view('welcome',['page_name_active'=>'welcome','name'=>Session::get('userName')]);
+									return view('welcome' , ['page_name_active' => 'welcome','name' => Session::get('userName')]);
 							 } else {
 								 return view('newAccount',['page_name_active'=>'newAccount','errorMsg'=>'This user is already existed!']);
 							 }
