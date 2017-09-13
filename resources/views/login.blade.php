@@ -4,11 +4,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="{{ asset('js/vue.js') }}"></script>
+        <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
         <title>Ex-change</title>
         <link rel="icon" type="image/png" href="{{asset('favicon.png')}}"/>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
+        <!--Font awesome-->
+        <link rel="stylesheet" href="{{asset('font-awesome/css/font-awesome.min.css')}}">
         <!-- Styles -->
         <style>
             html, body {
@@ -122,6 +124,9 @@
             	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg,  #670d10 0%,#092756 100%);
             	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );
             }
+            #forgotP {
+              color : white;
+            }
         </style>
     </head>
     <body>
@@ -131,13 +136,17 @@
                 <!-- <div class="title m-b-md">
                     Laravel - login
                 </div> -->
+
                 <div class="login">
               	   <h1>Login</h1>
-                    <form method="post">
-                    	 <input type="text" name="u" placeholder="Username" required="required" />
-                        <input type="password" name="p" placeholder="Password" required="required" />
-                        <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
+                    <form method="post" action="{{route('loginPost')}}">
+                      {{ csrf_field() }}
+                    	 <input type="text" name="userEmail" placeholder="Email" required="required" />
+                        <input type="password" name="passWord" placeholder="Password" required="required" />
+                        <button type="submit" class="btn btn-primary btn-block btn-large">login</button>
+
                     </form>
+                    <a href="" id ="forgotP">Forgot Password <i class="fa fa-question-circle-o" aria-hidden="true"></i></a>
               </div>
 
             </div>

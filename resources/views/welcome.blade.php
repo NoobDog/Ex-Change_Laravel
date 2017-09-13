@@ -64,6 +64,7 @@
         </style>
     </head>
     <script src="{{ asset('js/vue.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
     <body>
         @include('header')
         <div class="flex-center position-ref full-height">

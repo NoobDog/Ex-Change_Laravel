@@ -5,18 +5,30 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Ex-change</title>
         <link rel="icon" type="image/png" href="{{asset('favicon.png')}}"/>
+        <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
+        <!--Font awesome-->
+        <link rel="stylesheet" href="{{asset('font-awesome/css/font-awesome.min.css')}}">
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                /*color: #636b6f;*/
+                color: #ffe5e5;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
-                height: 100vh;
+                /*height: 100vh;*/
                 margin: 0;
+                width: 100%;
+                height:auto;
+                font-family: 'Open Sans', sans-serif;
+                background: #092756;
+                background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%),-moz-linear-gradient(top,  rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), -moz-linear-gradient(-45deg,  #670d10 0%, #092756 100%);
+                background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -webkit-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -webkit-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+                background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -o-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -o-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+                background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -ms-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -ms-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+                background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg,  #670d10 0%,#092756 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );
             }
 
             .full-height {
@@ -41,6 +53,7 @@
 
             .content {
                 text-align: center;
+                width: 60%;
             }
 
             .title {
@@ -97,6 +110,7 @@
             /* Add padding to container elements */
             .container {
                 padding: 16px;
+
             }
 
             /* Clear floats */
@@ -111,6 +125,7 @@
                 .cancelbtn, .signupbtn {
                    width: 100%;
                 }
+
         </style>
     </head>
     <script src="{{ asset('js/vue.js') }}"></script>
@@ -118,12 +133,15 @@
         @include('header')
         <div class="flex-center position-ref full-height">
             <div class="content">
-              <h2>Laravel - New account</h2>
-              <form action="" style="border:1px solid #ccc">
+              <h2>Register</h2>
+              <form action="" style="border:1px solid #ccc" id="signinForm">
                 <div class="container">
                   <label><b>Email</b></label>
                   <input type="text" placeholder="Enter Email" name="email" required>
-
+                  <label><b>Email</b></label>
+                  <input type="text" placeholder="Enter Email" name="email" required>
+                  <label><b>Email</b></label>
+                  <input type="text" placeholder="Enter Email" name="email" required>
                   <label><b>Password</b></label>
                   <input type="password" placeholder="Enter Password" name="psw" required>
 

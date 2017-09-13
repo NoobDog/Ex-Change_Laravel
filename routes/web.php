@@ -15,7 +15,10 @@
 //    return view('welcome');
 //});
 Route::get('/','welcomeController@index');
+
 Route::get('/login','loginController@index');
+Route::post('/login',['as'=>'loginPost','uses'=>'loginController@getUser']);
+
 Route::get('/newAccount','newAccountController@index');
 Route::get('/help','helpController@index');
 
