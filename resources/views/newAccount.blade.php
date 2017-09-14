@@ -163,37 +163,5 @@
 
 <script>
 
-/*$('#signinForm').on('submit',function(e){
-  e.preventDefault();
-  var email = $(this).find('input[name=email]').val();
-  var password = $(this).find('input[name=psw]').val();
-  var repeatPassword = $(this).find('input[name=psw-repeat]').val();
-  var fName = $(this).find('input[name=fName]').val();
-  var lName = $(this).find('input[name=lName]').val();
-  var url = window.location.href;
-  var token = $(this).find('input[name=_token]').val();
-  console.log(email);
-  console.log(password);
-  console.log(repeatPassword);
-  console.log(token);
-  //console.log(url);
-
-  if(password === repeatPassword) {
-    $.ajaxSetup({
-        headers: {'X-CSRF-Token': token}
-    });
-    $.ajax({
-      type: "POST",
-      url: url,
-      data:['email':email],
-      success: function(msg) {
-          alert(msg);
-      }
-    });
-
-  } else {
-      alert('no match');
-  }
-})*/
 
 </script>
