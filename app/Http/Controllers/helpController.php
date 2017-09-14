@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Http\RedirectResponse;
 class helpController extends Controller
 {
 	// public function __construct()

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use DB;
 use Session;
+use Illuminate\Http\RedirectResponse;
 class loginController extends Controller
 {
 	// public function __construct()
