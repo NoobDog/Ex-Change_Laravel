@@ -63,7 +63,7 @@ li.dropdown {
 <div class="navBar">
   <ul>
     <li class="dropdown">
-      <a href="javascript:void(0)" class="dropbtn @if($page_name_active=='home')active @endif">Welcome : {{Session::get('userName')}}</a>
+      <a href="{{url('/')}}" class="dropbtn @if($page_name_active=='home')active @endif">Welcome : {{Session::get('userName')}}</a>
       <div class="dropdown-content">
         <a href="#">User Profile</a>
         <a href="#">General</a>
