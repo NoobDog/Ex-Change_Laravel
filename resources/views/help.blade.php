@@ -94,4 +94,5 @@
     @else
     <p>xixi</p>
     @endif
+    {{print_r(Session::all())}}
 </html>
