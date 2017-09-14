@@ -29,7 +29,8 @@ class loginController extends Controller
 					 Session::put('userName' , $user[0]['userName']);
 					 Session::put('userEmail' , $user[0]['userEmail']);
 					 Session::put('roleTypeID' , $user[0]['roleTypeID']);
-					 return view('welcome' , ['page_name_active' => 'home' , 'name' => Session::get('userName')]);
+					 //return view('welcome' , ['page_name_active' => 'home' , 'name' => Session::get('userName')]);
+					 return redirect()->route('home');
 				 } else {
 					   return view('login',['page_name_active'=> 'login']);
 				 }

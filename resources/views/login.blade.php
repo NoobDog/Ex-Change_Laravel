@@ -1,3 +1,7 @@
+@if (Session::has('userName'))
+{{return redirect()->route('home');}}
+@else
+
 <html>
     <head>
         <meta charset="utf-8">
@@ -153,3 +157,4 @@
         </div>
     </body>
 </html>
+@endif
