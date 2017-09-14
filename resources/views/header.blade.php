@@ -59,6 +59,32 @@ li.dropdown {
 <div class="logo">
   <img src="{{asset('img/ex-change_logo.jpg')}}" height="66px" width="100%">
 </div>
+@if (Session::has('userName'))
+<div class="navBar">
+  <ul>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn @if($page_name_active=='home')active @endif">Welcome : {{Session::get('userName')}}</a>
+      <div class="dropdown-content">
+        <a href="#">User Profile</a>
+        <a href="#">General</a>
+        <a href="#">Privacy Settings</a>
+        <a href="#">Address Settings</a>
+      </div>
+    </li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn @if($page_name_active=='myEx-change')active @endif">My Ex-change</a>
+      <div class="dropdown-content">
+        <a href="#">My Bokks</a>
+        <a href="#">My Bank Information</a>
+        <a href="#">My Trade Information</a>
+        <a href="#">My Points</a>
+      </div>
+    </li>
+    <li><a class="@if($page_name_active=='help')active @endif" href="{{url('/help')}}">Help</a></li>
+    <li><a href="{{url('/help')}}">Logout</a></li>
+  </ul>
+</div>
+@else
 <div class="navBar">
   <ul>
     <li><a class="@if($page_name_active=='home')active @endif" href="{{url('/')}}">Home</a></li>
@@ -80,3 +106,4 @@ li.dropdown {
     </li> -->
   </ul>
 </div>
+@endif

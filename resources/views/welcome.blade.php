@@ -72,7 +72,8 @@
             <div class="content">
                 <div class="title m-b-md">
                   <i class="fa fa-ravelry" aria-hidden="true"></i>
-                  Welcome:{{$name}}
+                  @if (Session::has('userName'))
+                  {{Session::get('userName')}}
                 </div>
 
             </div>
