@@ -1,5 +1,5 @@
 @if (Session::has('userName'))
-{{redirect()->route('home');}}
+{{redirect()->route('home')}}
 @else
 
 <html>
