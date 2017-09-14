@@ -20,8 +20,7 @@ class loginController extends Controller
 			\View::share(['page_name_active'=> 'login']);
 
 				 $inputEmail = $request->input('userEmail');
-				 $inputPasswordHashed = Hash::make($request->input('passWord'));
-				 return md5($request->input('passWord'));
+				 $inputPasswordHashed = md5($request->input('passWord'));
 				 $user = DB::select('SELECT * FROM users WHERE userEmail = ? AND userPassword = ?', [$inputEmail,$inputPasswordHashed]);
 				 if(!empty($user)) {
 					 $user = json_decode(json_encode($user),true);
