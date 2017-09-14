@@ -74,6 +74,7 @@
                   <i class="fa fa-ravelry" aria-hidden="true"></i>
                   @if (Session::has('userName'))
                   {{Session::get('userName')}}
+                  @endif
                 </div>
 
             </div>
