@@ -14,7 +14,7 @@
 //Route::get('/', function () {
 //    return view('welcome');
 //});
-Route::get('/','welcomeController@index');
+Route::get('/',['as'=>'home','uses'=>'welcomeController@index']);
 
 Route::get('/login','loginController@index');
 Route::post('/login',['as'=>'loginPost','uses'=>'loginController@getUser']);
