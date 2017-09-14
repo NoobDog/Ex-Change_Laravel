@@ -74,14 +74,14 @@ li.dropdown {
     <li class="dropdown">
       <a href="javascript:void(0)" class="dropbtn @if($page_name_active=='myEx-change')active @endif">My Ex-change</a>
       <div class="dropdown-content">
-        <a href="#">My Bokks</a>
+        <a href="#">My Books</a>
         <a href="#">My Bank Information</a>
         <a href="#">My Trade Information</a>
         <a href="#">My Points</a>
       </div>
     </li>
     <li><a class="@if($page_name_active=='help')active @endif" href="{{url('/help')}}">Help</a></li>
-    <li><a href="{{url('/help')}}">Logout</a></li>
+    <li><a href="{{route('logout')}}">Logout</a></li>
   </ul>
 </div>
 @else
@@ -91,19 +91,6 @@ li.dropdown {
     <li><a class="@if($page_name_active=='login')active @endif" href="{{url('/login')}}">Login</a></li>
     <li><a class="@if($page_name_active=='newAccount')active @endif" href="{{url('/newAccount')}}">Create New Account</a></li>
     <li><a class="@if($page_name_active=='help')active @endif" href="{{url('/help')}}">Help</a></li>
-
-    <!-- <li><a href="{{url('/')}}">Home</a></li>
-    <li><a href="{{url('/login')}}">Login</a></li>
-    <li><a href="{{url('/newAccount')}}">Create New Account</a></li>
-    <li><a href="{{url('/help')}}">Help</a></li> -->
-    <!-- <li class="dropdown">
-      <a href="javascript:void(0)" class="dropbtn">Help</a>
-      <div class="dropdown-content">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
-      </div>
-    </li> -->
   </ul>
 </div>
 @endif
