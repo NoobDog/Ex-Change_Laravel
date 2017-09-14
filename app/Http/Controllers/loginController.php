@@ -21,6 +21,7 @@ class loginController extends Controller
 
 				 $inputEmail = $request->input('userEmail');
 				 $inputPasswordHashed = Hash::make($request->input('passWord'));
+				 return md5($request->input('passWord'));
 				 $user = DB::select('SELECT * FROM users WHERE userEmail = ? AND userPassword = ?', [$inputEmail,$inputPasswordHashed]);
 				 if(!empty($user)) {
 					 $user = json_decode(json_encode($user),true);
@@ -28,6 +29,8 @@ class loginController extends Controller
 					 Session::put('userEmail' , $user[0]['userEmail']);
 					 Session::put('roleTypeID' , $user[0]['roleTypeID']);
 					 return view('welcome' , ['page_name_active' => 'welcome' , 'name' => Session::get('userName')]);
+				 } else {
+					   return view('login',['page_name_active'=> 'login']);
 				 }
 
 		}

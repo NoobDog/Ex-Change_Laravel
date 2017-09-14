@@ -25,7 +25,7 @@ class newAccountController extends Controller
 						 $inputFirstName = $request->input('fName');
 						 $inputLastName = $request->input('lName');
 						 if($inputPassword == $inputPasswordRepeat) {
-							 $inputPasswordHashed = Hash::make($inputPassword);
+							 $inputPasswordHashed = md5($inputPassword);
 							 $checkUser = DB::select('SELECT * FROM users WHERE userEmail = ?' , [$inputEmail]);
 							 if(empty($checkUser)) {
 								 $newUserName = $inputFirstName.' '.$inputLastName;
