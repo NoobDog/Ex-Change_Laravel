@@ -1,5 +1,5 @@
 @if (Session::has('userName'))
-{{redirect()->route('home')}}
+<p>You do not have the permission to access this page!</p>
 @else
 
 <html>
