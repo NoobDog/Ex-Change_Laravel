@@ -65,19 +65,19 @@ li.dropdown {
     <li class="dropdown">
       <a href="{{url('/')}}" class="dropbtn @if($page_name_active=='home')active @endif">Welcome : {{Session::get('userName')}}</a>
       <div class="dropdown-content">
-        <a href="#"><i class="fa fa-user" aria-hidden="true"></i>User Profile</a>
-        <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i>General</a>
-        <a href="#"><i class="fa fa-lock" aria-hidden="true"></i>Privacy Settings</a>
-        <a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>Address Settings</a>
+        <a href="#"><i class="fa fa-user" aria-hidden="true"></i> User Profile</a>
+        <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i> General</a>
+        <a href="#"><i class="fa fa-lock" aria-hidden="true"></i> Privacy Settings</a>
+        <a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i> Address Settings</a>
       </div>
     </li>
     <li class="dropdown">
       <a href="javascript:void(0)" class="dropbtn @if($page_name_active=='myEx-change')active @endif">My Ex-change</a>
       <div class="dropdown-content">
-        <a href="#"><i class="fa fa-book" aria-hidden="true"></i>My Books</a>
-        <a href="#"><i class="fa fa-university" aria-hidden="true"></i>My Bank Information</a>
-        <a href="#"><i class="fa fa-trademark" aria-hidden="true"></i>My Trade Information</a>
-        <a href="#"><i class="fa fa-tint" aria-hidden="true"></i>My Points</a>
+        <a href="#"><i class="fa fa-book" aria-hidden="true"></i> My Books</a>
+        <a href="#"><i class="fa fa-university" aria-hidden="true"></i> My Bank Information</a>
+        <a href="#"><i class="fa fa-trademark" aria-hidden="true"></i> My Trade Information</a>
+        <a href="#"><i class="fa fa-tint" aria-hidden="true"></i> My Points</a>
       </div>
     </li>
     <li><a class="@if($page_name_active=='help')active @endif" href="{{url('/help')}}">Help</a></li>
