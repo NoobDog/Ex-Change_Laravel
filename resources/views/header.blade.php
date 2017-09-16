@@ -1,3 +1,4 @@
+
 <style>
 ul {
     list-style-type: none;
@@ -54,6 +55,7 @@ li.dropdown {
 .navBar{
   margin-bottom: 50px;
 
+
 }
 </style>
 <div class="logo">
@@ -77,7 +79,7 @@ li.dropdown {
         <a href="#"><i class="fa fa-book" aria-hidden="true"></i> My Books</a>
         <a href="#"><i class="fa fa-university" aria-hidden="true"></i> My Bank Information</a>
         <a href="#"><i class="fa fa-trademark" aria-hidden="true"></i> My Trade Information</a>
-        <a href="#"><i class="fa fa-tint" aria-hidden="true"></i> My Points</a>
+        <a href="#"><i class="fa fa-tint" aria-hidden="true"></i>  My Points</a>
       </div>
     </li>
     <li><a class="@if($page_name_active=='help')active @endif" href="{{url('/help')}}">Help</a></li>

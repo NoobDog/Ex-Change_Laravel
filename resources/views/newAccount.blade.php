@@ -10,6 +10,7 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <!--Font awesome-->
         <link rel="stylesheet" href="{{asset('font-awesome/css/font-awesome.min.css')}}">
+
         <!-- Styles -->
         <style>
             html, body {
@@ -29,6 +30,7 @@
                 background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -ms-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -ms-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
                 background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg,  #670d10 0%,#092756 100%);
                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );
+
             }
 
             .full-height {
@@ -54,6 +56,7 @@
             .content {
                 text-align: center;
                 width: 60%;
+
             }
 
             .title {
@@ -75,7 +78,7 @@
             }
             /* Form */
             /* Full-width input fields */
-            input[type=text], input[type=password], input[type=email] {
+            input[type=text], input[type=password], input[type=email], .questions {
                 width: 100%;
                 padding: 12px 20px;
                 margin: 8px 0;
@@ -111,6 +114,7 @@
             .container {
                 padding: 16px;
 
+
             }
 
             /* Clear floats */
@@ -125,10 +129,22 @@
                 .cancelbtn, .signupbtn {
                    width: 100%;
                 }
+            }
+            .questions {
+              height: 40px;
+            }
+            .errorMsg {
+              color: red;
+              text-align: left;
+              margin: 0px;
+              font-size: 15px;
 
+            }
         </style>
+
     </head>
     <script src="{{ asset('js/vue.js') }}"></script>
+
     <body>
         @include('header')
         <div class="flex-center position-ref full-height">
@@ -143,11 +159,32 @@
                   <input type="password" placeholder="Enter Password" name="psw" required>
 
                   <label><b>Repeat Password</b></label>
+                  <p id='passwordMatch' hidden="true" class='errorMsg'></p>
                   <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
                   <label><b>First Name</b></label>
                   <input type="text" placeholder="First Name" name="fName" required>
                   <label><b>Last Name</b></label>
                   <input type="text" placeholder="Last Name" name="lName" required>
+
+                  <label><b>Question 1</b></label>
+                  <select id="questionSelect1" name="questionSelect1" class="questions" required>
+                    <option value =''>Select A Question</option>
+                    @foreach ($questions_1 as $key => $quetion)
+                    <option value ='{{$key}}'>{{$quetion}}</option>
+                    @endforeach
+                  </select>
+                  <input type="text" placeholder="Question 1" name="question1" required>
+
+                  <label><b>Question 2</b></label>
+                  <select id="questionSelect2" name="questionSelect2" class="questions" required>
+                    <option value =''>Select A Question</option>
+                    @foreach ($questions_2 as $key => $quetion)
+                    <option value ='{{$key}}'>{{$quetion}}</option>
+                    @endforeach
+
+                  </select>
+                  <input type="text" placeholder="Question 2" name="question2" required>
+
                   <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
                   <div class="clearfix">
@@ -160,8 +197,18 @@
         </div>
     </body>
 </html>
-
 <script>
-
-
+  $('input[name="psw-repeat"]').off("input").on("input", function() {
+    var repeatValue = $(this).val();
+    var passwordValue = $('input[name="psw"]').val();
+    if(passwordValue != repeatValue) {
+        $('#passwordMatch').html('* Password does not match.');
+        $('#passwordMatch').show();
+        $('button[class="signupbtn"]').attr("disabled", true);
+    }
+    else {
+      $('#passwordMatch').hide();
+      $('button[class="signupbtn"]').attr("disabled", false);
+    }
+});
 </script>
