@@ -192,8 +192,8 @@
               </div>
               @elseif (isset($forgetPassword_securityQuestion))
                 <p>{{$userEmail}}</p>
-                <p>{{$userQuesti1}}</p>
-                <p>{{$userQuesti2}}</p>
+                <p>{{$userQuestion1}}</p>
+                <p>{{$userQuestion2}}</p>
               @else
                 <div class="login">
               	   <h1>Login</h1>
