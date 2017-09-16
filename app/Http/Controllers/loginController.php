@@ -9,10 +9,7 @@ use Session;
 use Illuminate\Http\RedirectResponse;
 class loginController extends Controller
 {
-	// public function __construct()
-	// {
-	// 	View::share(['page_name_active'=> 'mypagename']);
-	// }
+
 		public function index() {
 						\View::share(['page_name_active'=> 'login']);
 
@@ -34,6 +31,25 @@ class loginController extends Controller
 				 } else {
 					   return view('login',['page_name_active'=> 'login']);
 				 }
+
+		}
+		public function forgetPassword() {
+				return view('login',['page_name_active'=> 'login','forgetPassword'=>'true']);
+		}
+		public function forgetPassword_checkEmail(Request $request) {
+			$inputEmail = $request->input('forgetPassword_Email');
+			$user = DB::select('SELECT * FROM users WHERE userEmail = ?', [$inputEmail]);
+			if(!empty($user)) {
+				$user = json_decode(json_encode($user),true);
+				$userQuestion1 = $user[0]['userQuestion1'];
+				$userAnswer1 = $user[0]['userAnswer1'];
+				$userQuestion2 = $user[0]['userQuestion2'];
+				$userAnswer2 = $user[0]['userAnswer2'];
+				return view('login',['page_name_active'=> 'login','forgetPassword_securityQuestion'=>'true','userQuestion1'=>$userQuestion1,'userQuestion2'=>$userQuestion2,'userEmail'=>$inputEmail]);
+
+			} else {
+				 return view('login',['page_name_active'=> 'login','forgetPassword'=>'true','userErrorMsg'=>'The user does not exist.']);
+			}
 
 		}
 }

@@ -48,6 +48,7 @@
 
             .content {
                 text-align: center;
+
             }
 
             .title {
@@ -131,16 +132,69 @@
             #forgotP {
               color : white;
             }
+            /* my button */
+            .myButton {
+            -moz-box-shadow:inset 0px 1px 0px 0px #97c4fe;
+            -webkit-box-shadow:inset 0px 1px 0px 0px #97c4fe;
+            box-shadow:inset 0px 1px 0px 0px #97c4fe;
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #3d94f6), color-stop(1, #1e62d0));
+            background:-moz-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+            background:-webkit-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+            background:-o-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+            background:-ms-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+            background:linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3d94f6', endColorstr='#1e62d0',GradientType=0);
+            background-color:#3d94f6;
+            -moz-border-radius:6px;
+            -webkit-border-radius:6px;
+            border-radius:6px;
+            border:1px solid #337fed;
+            display:inline-block;
+            cursor:pointer;
+            color:#ffffff;
+            font-family:Arial;
+            font-size:15px;
+            font-weight:bold;
+            padding:6px 24px;
+            text-decoration:none;
+            text-shadow:0px 1px 0px #1570cd;
+            }
+            .myButton:hover {
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #1e62d0), color-stop(1, #3d94f6));
+            background:-moz-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+            background:-webkit-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+            background:-o-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+            background:-ms-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+            background:linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e62d0', endColorstr='#3d94f6',GradientType=0);
+            background-color:#1e62d0;
+            }
+            .myButton:active {
+            position:relative;
+            top:1px;
+            }
         </style>
     </head>
     <body>
         @include('header')
         <div class="flex-center position-ref full-height">
             <div class="content">
-                <!-- <div class="title m-b-md">
-                    Laravel - login
-                </div> -->
-
+              @if (isset($forgetPassword))
+              <div>
+                @if (isset($userErrorMsg))
+                  <p>{{$userErrorMsg}}</p>
+                @endif
+                <form method="post" action="{{route('forgetPassword_checkEmail')}}">
+                  {{ csrf_field() }}
+                  <input type="email" placeholder="Please Enter Your Email" name ="forgetPassword_Email" required/>
+                  <button type="submit" class="myButton" style="width:100%;">Next</button>
+                </form>
+              </div>
+              @elseif (isset($forgetPassword_securityQuestion))
+                <p>{{$userEmail}}</p>
+                <p>{{$userQuesti1}}</p>
+                <p>{{$userQuesti2}}</p>
+              @else
                 <div class="login">
               	   <h1>Login</h1>
                     <form method="post" action="{{route('loginPost')}}">
@@ -150,8 +204,9 @@
                         <button type="submit" class="btn btn-primary btn-block btn-large">login</button>
 
                     </form>
-                    <a href="" id ="forgotP">Forgot Password <i class="fa fa-question-circle-o" aria-hidden="true"></i></a>
-              </div>
+                    <a href="{{route('forgetPassword')}}" id ="forgotP">Forgot Password <i class="fa fa-question-circle-o" aria-hidden="true"></i></a>
+                </div>
+              @endif
 
             </div>
         </div>
