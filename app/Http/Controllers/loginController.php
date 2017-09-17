@@ -60,13 +60,21 @@ class loginController extends Controller
 			$userAnswer1 = strtolower($user[0]['userAnswer1']);
 			$userAnswer2 = strtolower($user[0]['userAnswer2']);
 			if($inputAnswer1 == $userAnswer1 && $inputAnswer2 == $userAnswer2) {
+
 				return view('login',['page_name_active'=> 'login','forgetPassword_setPassword'=>'true']);
+
 			} elseif($inputAnswer1 != $userAnswer1 && $inputAnswer2 != $userAnswer2) {
-				return view('login',['page_name_active'=> 'login','forgetPassword_securityQuestion'=>'true','question1Error'=>'The answer is not correct.','question2Error'=>'The answer is not correct.']);
+
+				return view('login',['page_name_active'=> 'login','forgetPassword_securityQuestion'=>'true','question1Error'=>'The answer is not correct.','question2Error'=>'The answer is not correct.','userEmail'=>$inputEmail]);
+
 			} elseif($inputAnswer1 == $userAnswer1 && $inputAnswer2 != $userAnswer2) {
-				return view('login',['page_name_active'=> 'login','forgetPassword_securityQuestion'=>'true','question2Error'=>'The answer is not correct.']);
+
+				return view('login',['page_name_active'=> 'login','forgetPassword_securityQuestion'=>'true','question2Error'=>'The answer is not correct.','userEmail'=>$inputEmail]);
+
 			} elseif($inputAnswer1 != $userAnswer1 && $inputAnswer2 == $userAnswer2) {
-				return view('login',['page_name_active'=> 'login','forgetPassword_securityQuestion'=>'true','question1Error'=>'The answer is not correct.']);
+
+				return view('login',['page_name_active'=> 'login','forgetPassword_securityQuestion'=>'true','question1Error'=>'The answer is not correct.','userEmail'=>$inputEmail]);
+
 			}
 		}
 
