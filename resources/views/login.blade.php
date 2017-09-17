@@ -207,7 +207,7 @@
                 </form>
               @elseif (isset($forgetPassword_setPassword))
                  <h1>Set Password</h1>
-                 <form method="post" action="{{route('forgetPassword_setPassword',userEmail)}}">
+                 <form method="post" action="{{route('forgetPassword_setPassword',$userEmail)}}">
                    {{ csrf_field() }}
                    <label><b>New Password</b></label>
                    <input type="password" name="passWord" required="required" />
