@@ -206,7 +206,16 @@
                   <button type="submit" class="myButton" style="width:100%;">Next</button>
                 </form>
               @elseif (isset($forgetPassword_setPassword))
-              <p>hahaha</p>
+                 <h1>Set Password</h1>
+                 <form method="post" action="{{route('forgetPassword_setPassword',userEmail)}}">
+                   {{ csrf_field() }}
+                   <label><b>New Password</b></label>
+                   <input type="password" name="passWord" required="required" />
+                   <label><b>Repeat Password</b></label>
+                   <p id='passwordMatch' hidden="true" style='color: red;text-align: left; font-size: 15px;'></p>
+                   <input type="password" name="rep-passWord" required="required" />
+                   <button type="submit" class="btn btn-primary btn-block btn-large finishButton">Done</button>
+                 </form>
               @else
                 <div class="login">
               	   <h1>Login</h1>
@@ -226,3 +235,18 @@
     </body>
 </html>
 @endif
+<script>
+$('input[name="rep-passWord"]').off("input").on("input", function() {
+  var repeatValue = $(this).val();
+  var passwordValue = $('input[name="passWord"]').val();
+  if(passwordValue != repeatValue) {
+      $('#passwordMatch').html('* Password does not match.');
+      $('#passwordMatch').show();
+      $('button[class="finishButton"]').attr("disabled", true);
+  }
+  else {
+    $('#passwordMatch').hide();
+    $('button[class="finishButton"]').attr("disabled", false);
+  }
+});
+</script>

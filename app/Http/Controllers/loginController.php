@@ -63,7 +63,7 @@ class loginController extends Controller
 			$userQuestion2 = $user[0]['userQuestion2'];
 			if($inputAnswer1 == $userAnswer1 && $inputAnswer2 == $userAnswer2) {
 
-				return view('login',['page_name_active'=> 'login','forgetPassword_setPassword'=>'true']);
+				return view('login',['page_name_active'=> 'login','forgetPassword_setPassword'=>'true','userEmail'=>$userEmail]);
 
 			} elseif($inputAnswer1 != $userAnswer1 && $inputAnswer2 != $userAnswer2) {
 
@@ -81,6 +81,11 @@ class loginController extends Controller
 				'question1Error'=>'The answer is not correct.','userEmail'=>$userEmail,'userQuestion1'=>$userQuestion1,'userQuestion2'=>$userQuestion2]);
 
 			}
+		}
+		public function forgetPassword_setPassword(Request $request, $userEmail) {
+			$newPassword = $request->input('passWord');
+			DB::update('UPDATE users SET userPassword = ? where userEmail = ?', [$newPassword, $userEmail]);
+			return redirect()->route('home');
 		}
 
 }
