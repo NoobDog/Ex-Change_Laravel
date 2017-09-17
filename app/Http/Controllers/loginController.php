@@ -59,21 +59,26 @@ class loginController extends Controller
 			$user = json_decode(json_encode($user),true);
 			$userAnswer1 = strtolower($user[0]['userAnswer1']);
 			$userAnswer2 = strtolower($user[0]['userAnswer2']);
+			$userQuestion1 = $user[0]['userQuestion1'];
+			$userQuestion2 = $user[0]['userQuestion2'];
 			if($inputAnswer1 == $userAnswer1 && $inputAnswer2 == $userAnswer2) {
 
 				return view('login',['page_name_active'=> 'login','forgetPassword_setPassword'=>'true']);
 
 			} elseif($inputAnswer1 != $userAnswer1 && $inputAnswer2 != $userAnswer2) {
 
-				return view('login',['page_name_active'=> 'login','forgetPassword_securityQuestion'=>'true','question1Error'=>'The answer is not correct.','question2Error'=>'The answer is not correct.','userEmail'=>$userEmail]);
+				return view('login',['page_name_active'=> 'login','forgetPassword_securityQuestion'=>'true','question1Error'=>'The answer is not correct.',
+						'question2Error'=>'The answer is not correct.','userEmail'=>$userEmail,'userQuestion1'=>$userQuestion1,'userQuestion2'=>$userQuestion2]);
 
 			} elseif($inputAnswer1 == $userAnswer1 && $inputAnswer2 != $userAnswer2) {
 
-				return view('login',['page_name_active'=> 'login','forgetPassword_securityQuestion'=>'true','question2Error'=>'The answer is not correct.','userEmail'=>$userEmail]);
+				return view('login',['page_name_active'=> 'login','forgetPassword_securityQuestion'=>'true',
+				'question2Error'=>'The answer is not correct.','userEmail'=>$userEmail,'userQuestion1'=>$userQuestion1,'userQuestion2'=>$userQuestion2]);
 
 			} elseif($inputAnswer1 != $userAnswer1 && $inputAnswer2 == $userAnswer2) {
 
-				return view('login',['page_name_active'=> 'login','forgetPassword_securityQuestion'=>'true','question1Error'=>'The answer is not correct.','userEmail'=>$userEmail]);
+				return view('login',['page_name_active'=> 'login','forgetPassword_securityQuestion'=>'true',
+				'question1Error'=>'The answer is not correct.','userEmail'=>$userEmail,'userQuestion1'=>$userQuestion1,'userQuestion2'=>$userQuestion2]);
 
 			}
 		}
