@@ -219,6 +219,9 @@
               @else
                 <div class="login">
               	   <h1>Login</h1>
+                   @if (isset($loginError))
+                    <p style="text-align: left; color: red; font-size: 15px;">{{$loginError}}</p>
+                   @endif
                     <form method="post" action="{{route('loginPost')}}">
                       {{ csrf_field() }}
                     	 <input type="email" name="userEmail" placeholder="Email" required="required" />

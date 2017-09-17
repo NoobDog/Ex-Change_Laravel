@@ -29,7 +29,7 @@ class loginController extends Controller
 					 //return view('welcome' , ['page_name_active' => 'home' , 'name' => Session::get('userName')]);
 					 return redirect()->route('home');
 				 } else {
-					   return view('login',['page_name_active'=> 'login']);
+					   return view('login',['page_name_active'=> 'login','loginError'=>'Account or Password is wrong, please login again.']);
 				 }
 
 		}
@@ -84,7 +84,13 @@ class loginController extends Controller
 		}
 		public function forgetPassword_setPassword(Request $request, $userEmail) {
 			$newPassword = $request->input('passWord');
-			DB::update('UPDATE users SET userPassword = ? where userEmail = ?', [$newPassword, $userEmail]);
+			$newPasswordHashed = md5($newPassword);
+			DB::update('UPDATE users SET userPassword = ? where userEmail = ?', [$newPasswordHashed, $userEmail]);
+			$user = DB::select('SELECT * FROM users WHERE userEmail = ?', [$userEmail]);
+			$user = json_decode(json_encode($user),true);
+			Session::put('userName' , $user[0]['userName']);
+			Session::put('userEmail' , $user[0]['userEmail']);
+			Session::put('roleTypeID' , $user[0]['roleTypeID']);
 			return redirect()->route('home');
 		}
 
