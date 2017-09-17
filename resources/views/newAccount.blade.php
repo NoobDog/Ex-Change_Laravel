@@ -195,7 +195,7 @@
                     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
                     <div class="clearfix">
-                      <button type="button" class="cancelbtn">Cancel</button>
+                      <a href="{{url('/')}}"><button type="button" class="cancelbtn">Cancel</button></a>
                       <button type="submit" class="signupbtn">Sign Up</button>
                     </div>
                   </div>
