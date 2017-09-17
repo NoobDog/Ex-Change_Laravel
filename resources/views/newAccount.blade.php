@@ -138,7 +138,13 @@
               text-align: left;
               margin: 0px;
               font-size: 15px;
-
+            }
+            .Register{
+              position: absolute;
+              top: 50;
+              bottom: 250;
+              left: 250;
+              right: 250;
             }
         </style>
 
@@ -149,50 +155,52 @@
         @include('header')
         <div class="flex-center position-ref full-height">
             <div class="content">
-              <h2>Register</h2>
-                <form action="{{route('signUpCheck')}}" style="border:1px solid #ccc" id="signinForm" method="POST">
-                {{ csrf_field() }}
-                <div class="container">
-                  <label><b>Email</b></label>
-                  <input type="email" placeholder="Enter Email" name="email" required>
-                  <label><b>Password</b></label>
-                  <input type="password" placeholder="Enter Password" name="psw" required>
+              <div class="Register">
+                <h2>Register</h2>
+                  <form action="{{route('signUpCheck')}}" style="border:1px solid #ccc" id="signinForm" method="POST">
+                  {{ csrf_field() }}
+                  <div class="container">
+                    <label><b>Email</b></label>
+                    <input type="email" placeholder="Enter Email" name="email" required>
+                    <label><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
 
-                  <label><b>Repeat Password</b></label>
-                  <p id='passwordMatch' hidden="true" class='errorMsg'></p>
-                  <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-                  <label><b>First Name</b></label>
-                  <input type="text" placeholder="First Name" name="fName" required>
-                  <label><b>Last Name</b></label>
-                  <input type="text" placeholder="Last Name" name="lName" required>
+                    <label><b>Repeat Password</b></label>
+                    <p id='passwordMatch' hidden="true" class='errorMsg'></p>
+                    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+                    <label><b>First Name</b></label>
+                    <input type="text" placeholder="First Name" name="fName" required>
+                    <label><b>Last Name</b></label>
+                    <input type="text" placeholder="Last Name" name="lName" required>
 
-                  <label><b>Question 1</b></label>
-                  <select id="questionSelect1" name="questionSelect1" class="questions" required>
-                    <option value =''>Select A Question</option>
-                    @foreach ($questions_1 as $key => $quetion)
-                    <option value ='{{$key}}'>{{$quetion}}</option>
-                    @endforeach
-                  </select>
-                  <input type="text" placeholder="Question 1" name="question1" required>
+                    <label><b>Question 1</b></label>
+                    <select id="questionSelect1" name="questionSelect1" class="questions" required>
+                      <option value =''>Select A Question</option>
+                      @foreach ($questions_1 as $key => $quetion)
+                      <option value ='{{$key}}'>{{$quetion}}</option>
+                      @endforeach
+                    </select>
+                    <input type="text" placeholder="Question 1" name="question1" required>
 
-                  <label><b>Question 2</b></label>
-                  <select id="questionSelect2" name="questionSelect2" class="questions" required>
-                    <option value =''>Select A Question</option>
-                    @foreach ($questions_2 as $key => $quetion)
-                    <option value ='{{$key}}'>{{$quetion}}</option>
-                    @endforeach
+                    <label><b>Question 2</b></label>
+                    <select id="questionSelect2" name="questionSelect2" class="questions" required>
+                      <option value =''>Select A Question</option>
+                      @foreach ($questions_2 as $key => $quetion)
+                      <option value ='{{$key}}'>{{$quetion}}</option>
+                      @endforeach
 
-                  </select>
-                  <input type="text" placeholder="Question 2" name="question2" required>
+                    </select>
+                    <input type="text" placeholder="Question 2" name="question2" required>
 
-                  <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+                    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
-                  <div class="clearfix">
-                    <button type="button" class="cancelbtn">Cancel</button>
-                    <button type="submit" class="signupbtn">Sign Up</button>
+                    <div class="clearfix">
+                      <button type="button" class="cancelbtn">Cancel</button>
+                      <button type="submit" class="signupbtn">Sign Up</button>
+                    </div>
                   </div>
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
         </div>
     </body>
