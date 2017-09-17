@@ -52,8 +52,7 @@ class loginController extends Controller
 			}
 
 		}
-		public function forgetPassword_checkSecurityQuestions($userEmail) {
-			Request $request;
+		public function forgetPassword_checkSecurityQuestions(Request $request, $userEmail) {
 			$inputAnswer1 = $request->input('forgetPassword_Answer1');
 			$inputAnswer2 = $request->input('forgetPassword_Answer2');
 
