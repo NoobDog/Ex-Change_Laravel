@@ -180,20 +180,25 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
               @if (isset($forgetPassword))
-              <div>
-                @if (isset($userErrorMsg))
-                  <p>{{$userErrorMsg}}</p>
-                @endif
-                <form method="post" action="{{route('forgetPassword_checkEmail')}}">
-                  {{ csrf_field() }}
-                  <input type="email" placeholder="Please Enter Your Email" name ="forgetPassword_Email" required/>
+                <div>
+                  @if (isset($userErrorMsg))
+                    <p>{{$userErrorMsg}}</p>
+                  @endif
+                  <form method="post" action="{{route('forgetPassword_checkEmail')}}">
+                    {{ csrf_field() }}
+                    <input type="email" placeholder="Please Enter Your Email" name ="forgetPassword_Email" required/>
+                    <button type="submit" class="myButton" style="width:100%;">Next</button>
+                  </form>
+                </div>
+              @elseif (isset($forgetPassword_securityQuestion))
+                <form method="post" action="{{route('forgetPassword_checkSecurityQuestions')}}">
+                  <p style="color:white;"><b>{{$userEmail}}</b></p>
+                  <p style="color:white;"><b>{{$userQuestion1}}</b></p>
+                  <input type="text" placeholder="Please Enter Your Answer" name ="forgetPassword_Answer1" required/>
+                  <p style="color:white;"><b>{{$userQuestion2}}</b></p>
+                  <input type="text" placeholder="Please Enter Your Answer" name ="forgetPassword_Answer2" required/>
                   <button type="submit" class="myButton" style="width:100%;">Next</button>
                 </form>
-              </div>
-              @elseif (isset($forgetPassword_securityQuestion))
-                <p>{{$userEmail}}</p>
-                <p>{{$userQuestion1}}</p>
-                <p>{{$userQuestion2}}</p>
               @else
                 <div class="login">
               	   <h1>Login</h1>

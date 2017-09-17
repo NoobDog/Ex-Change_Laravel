@@ -19,6 +19,9 @@ Route::post('/login',['as'=>'loginPost','uses'=>'loginController@getUser']);
 //forget password page.
 Route::get('/login/forgetPassword',['as'=>'forgetPassword','uses'=>'loginController@forgetPassword']);
 Route::post('/login/forgetPassword',['as'=>'forgetPassword_checkEmail','uses'=>'loginController@forgetPassword_checkEmail']);
+Route::post('/login/forgetPassword/{userEmail}',['as'=>'forgetPassword_checkSecurityQuestions','uses'=>'loginController@forgetPassword_checkSecurityQuestions']);
+
+
 
 Route::get('/newAccount','newAccountController@index');
 Route::post('/newAccount',['as'=>'signUpCheck','uses'=>'newAccountController@checkValue']);
