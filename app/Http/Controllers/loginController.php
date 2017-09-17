@@ -56,7 +56,7 @@ class loginController extends Controller
 			$inputAnswer1 = $request->input('forgetPassword_Answer1');
 			$inputAnswer2 = $request->input('forgetPassword_Answer2');
 
-			return 'inputAnswer1: '.$inputAnswer1.' inputAnswer2: '.$inputAnswer2.' userAnswer1'.$userAnswer1.' userAnswer2: '.$userAnswer2.' userEmail: ';
+			return 'inputAnswer1: '.$inputAnswer1.' inputAnswer2: '.$inputAnswer2.' userAnswer1'.$userAnswer1.' userAnswer2: '.$userAnswer2;
 		}
 
 }
