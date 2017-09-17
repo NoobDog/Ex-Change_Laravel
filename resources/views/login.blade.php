@@ -191,7 +191,8 @@
                   </form>
                 </div>
               @elseif (isset($forgetPassword_securityQuestion))
-                <form method="post" action="{{route('forgetPassword_checkSecurityQuestions')}}">
+                <form method="post" action="{{route('forgetPassword_checkSecurityQuestions',['userEmail'=>$userEmail])}}">
+                  {{ csrf_field() }}
                   <p style="color:white;"><b>{{$userEmail}}</b></p>
                   <p style="color:white;"><b>{{$userQuestion1}}</b></p>
                   <input type="text" placeholder="Please Enter Your Answer" name ="forgetPassword_Answer1" required/>
