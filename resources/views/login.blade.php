@@ -195,12 +195,12 @@
                   {{ csrf_field() }}
                   <p style="color:white;"><b>{{$userQuestion1}}</b></p>
                   @if (isset($question1Error))
-                    <p style="color:red; text-size:15px;">{{$question1Error}}</p>
+                    {{$question1Error}}
                   @endif
                   <input type="text" placeholder="Please Enter Your Answer" name ="forgetPassword_Answer1" required/>
                   <p style="color:white;"><b>{{$userQuestion2}}</b></p>
                   @if (isset($question2Error))
-                    <p style="color:red; text-size:15px;">{{$question2Error}}</p>
+                    {{$question2Error}}
                   @endif
                   <input type="text" placeholder="Please Enter Your Answer" name ="forgetPassword_Answer2" required/>
                   <button type="submit" class="myButton" style="width:100%;">Next</button>
