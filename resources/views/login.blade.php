@@ -193,13 +193,20 @@
               @elseif (isset($forgetPassword_securityQuestion))
                 <form method="post" action="{{route('forgetPassword_checkSecurityQuestions',$userEmail)}}">
                   {{ csrf_field() }}
-                  <p style="color:white;"><b>{{$userEmail}}</b></p>
                   <p style="color:white;"><b>{{$userQuestion1}}</b></p>
+                  @if (isset($question1Error))
+                    <p style="color:red; text-size:15px;"><{{$question1Error}}/p>
+                  @endif
                   <input type="text" placeholder="Please Enter Your Answer" name ="forgetPassword_Answer1" required/>
                   <p style="color:white;"><b>{{$userQuestion2}}</b></p>
+                  @if (isset($question2Error))
+                    <p style="color:red; text-size:15px;"><{{$question2Error}}/p>
+                  @endif
                   <input type="text" placeholder="Please Enter Your Answer" name ="forgetPassword_Answer2" required/>
                   <button type="submit" class="myButton" style="width:100%;">Next</button>
                 </form>
+              @elseif (isset($forgetPassword_setPassword))
+              <p>hahaha</p>
               @else
                 <div class="login">
               	   <h1>Login</h1>

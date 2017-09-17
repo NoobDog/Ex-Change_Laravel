@@ -53,10 +53,21 @@ class loginController extends Controller
 
 		}
 		public function forgetPassword_checkSecurityQuestions(Request $request , $userEmail) {
-			$inputAnswer1 = $request->input('forgetPassword_Answer1');
-			$inputAnswer2 = $request->input('forgetPassword_Answer2');
-
-			return 'inputAnswer1: '.$inputAnswer1.' inputAnswer2: '.$inputAnswer2.' userEmail'.$userEmail;
+			$inputAnswer1 = strtolower($request->input('forgetPassword_Answer1'));
+			$inputAnswer2 = strtolower($request->input('forgetPassword_Answer2'));
+			$user = DB::select('SELECT * FROM users WHERE userEmail = ?', [$userEmail]);
+			$user = json_decode(json_encode($user),true);
+			$userAnswer1 = strtolower($user[0]['userAnswer1']);
+			$userAnswer2 = strtolower($user[0]['userAnswer2']);
+			if($inputAnswer1 == $userAnswer1 && $inputAnswer2 == $userAnswer2) {
+				return view('login',['page_name_active'=> 'login','forgetPassword_setPassword'=>'true']);
+			} elseif($inputAnswer1 != $userAnswer1 && $inputAnswer2 != $userAnswer2) {
+				return view('login',['page_name_active'=> 'login','forgetPassword_securityQuestion'=>'true','question1Error'=>'The answer is not correct.','question2Error'=>'The answer is not correct.']);
+			} elseif($inputAnswer1 == $userAnswer1 && $inputAnswer2 != $userAnswer2) {
+				return view('login',['page_name_active'=> 'login','forgetPassword_securityQuestion'=>'true','question2Error'=>'The answer is not correct.']);
+			} elseif($inputAnswer1 != $userAnswer1 && $inputAnswer2 == $userAnswer2) {
+				return view('login',['page_name_active'=> 'login','forgetPassword_securityQuestion'=>'true','question1Error'=>'The answer is not correct.']);
+			}
 		}
 
 }
