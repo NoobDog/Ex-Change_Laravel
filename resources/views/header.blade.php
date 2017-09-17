@@ -84,6 +84,7 @@ li.dropdown {
     </li>
     <li><a class="@if($page_name_active=='help')active @endif" href="{{url('/help')}}">Help</a></li>
     <li><a href="{{route('logout')}}">Logout</a></li>
+    <li style="float:right;"><a href="#"><i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i></a></li>
   </ul>
 </div>
 @else
@@ -93,6 +94,7 @@ li.dropdown {
     <li><a class="@if($page_name_active=='login')active @endif" href="{{url('/login')}}">Login</a></li>
     <li><a class="@if($page_name_active=='newAccount')active @endif" href="{{url('/newAccount')}}">Create New Account</a></li>
     <li><a class="@if($page_name_active=='help')active @endif" href="{{url('/help')}}">Help</a></li>
+    <li style="float:right;"><a href="{{url('/login')}}"><i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i></a></li>
   </ul>
 </div>
 @endif
