@@ -28,4 +28,6 @@ Route::get('/newAccount','newAccountController@index');
 Route::post('/newAccount',['as'=>'signUpCheck','uses'=>'newAccountController@checkValue']);
 Route::get('/help','helpController@index');
 
+Route::get('/myBooks','myBooksController@index');
+
 Route::get('/logout',['as'=>'logout','uses'=>'welcomeController@logout']);
