@@ -28,7 +28,9 @@ li a:hover, .active {
 li.dropdown {
     display: inline-block;
 }
-
+.subActive {
+    background-color: red;
+}
 .dropdown-content {
     display: none;
     position: absolute;
@@ -75,7 +77,7 @@ li.dropdown {
     <li class="dropdown">
       <a href="javascript:void(0)" class="dropbtn @if($page_name_active=='myEx-change')active @endif">My Ex-change</a>
       <div class="dropdown-content">
-        <a href="{{url('/myBooks')}}" class="dropbtn @if($page_name_active=='myEx-change')active @endif"><i class="fa fa-book" aria-hidden="true"></i> My Books</a>
+        <a href="{{url('/myBooks')}}" class="dropbtn @if($page_name_active=='myEx-change')subActive @endif"><i class="fa fa-book" aria-hidden="true"></i> My Books</a>
         <a href="#"><i class="fa fa-university" aria-hidden="true"></i> My Bank Information</a>
         <a href="#"><i class="fa fa-trademark" aria-hidden="true"></i> My Trade Information</a>
         <a href="#"><i class="fa fa-tint" aria-hidden="true"></i>  My Points</a>
