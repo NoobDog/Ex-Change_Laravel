@@ -162,6 +162,8 @@
                   <input type="text" name="bookEdition" placeholder="Book Edition" required="required" /><br>
                   <label><b>Book Description</b></label>
                   <input type="textarea" name="bookDescription" placeholder="Book Description" required="required" /><br>
+                  <label><b>Upload Image</b></label>
+                  <input type="file" name="fileToUpload" id="fileToUpload"><br>
                   <button type="submit" class ='myButton'>Submit</button>
 
                 </form>
