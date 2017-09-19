@@ -146,6 +146,7 @@
                 </div>
                 @if (empty($userBooks))
                     <p>This user has no any book</p>
+                    <a href="{{route('getAddBookForm')}}"><button class ='myButton'>Add New book</button></a>
                 @else
                     <p>yes books</p>
                 @endif
