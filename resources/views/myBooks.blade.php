@@ -145,10 +145,19 @@
                     My Books
                 </div>
                 @if (isset($getAddBookForm))
-                <p>get form</p>
+                <h1>Add New Book</h1>
                 <form action="{{route('postAddBookForm')}}" style="border:1px solid #ccc" id="signinForm" method="POST">
                   {{csrf_field()}}
-                  <button  type="submit">Submit</button>
+
+                  <input type="text" name="bookName" placeholder="Book Name" required="required" />
+                  <input type="text" name="bookTitle" placeholder="Book Title" required="required" />
+                  <input type="text" name="bookAuthor" placeholder="Book Author" required="required" />
+                  <input type="date" name="bookDate" placeholder="Book Date" required="required" />
+                  <input type="text" name="bookPublisher" placeholder="Book Publisher" required="required" />
+                  <input type="text" name="bookEdition" placeholder="Book Edition" required="required" />
+                  <input type="textarea" name="bookDescription" placeholder="Book Description" required="required" />
+                  <button type="submit" class ='myButton'>Submit</button>
+
                 </form>
 
                 @else

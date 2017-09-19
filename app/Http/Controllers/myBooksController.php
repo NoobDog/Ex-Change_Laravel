@@ -23,7 +23,14 @@ class myBooksController extends Controller
 				 return view('myBooks',['page_name_active'=> 'myEx-change','getAddBookForm'=>'true']);
 		}
 		public function addNewBook(Request $request) {
-				 return 'haha';
+				 $bookName = $request->input('bookName');
+				 $bookTitle = $request->input('bookTitle');
+				 $bookAuthor = $request->input('bookAuthor');
+				 $bookDate = $request->input('bookDate');
+				 $bookPublisher = $request->input('bookPublisher');
+				 $bookEdition = $request->input('bookEdition');
+				 $bookDescription = $request->input('bookDescription');
+				 return $bookName .' '. $bookTitle. ' '.$bookAuthor.' '.$bookDate.' '.$bookPublisher.' '.$bookEdition.' '.$bookDescription;
 		}
 
 
