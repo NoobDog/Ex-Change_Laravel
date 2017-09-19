@@ -146,10 +146,9 @@
                 </div>
                 @if (isset($getAddBookForm))
                 <p>get form</p>
-                <form action="{{route('signUpCheck')}}" style="border:1px solid #ccc" id="signinForm" method="POST">
+                <form action="{{route('postAddBookForm','addNewBook')}}" style="border:1px solid #ccc" id="signinForm" method="POST">
                   {{csrf_field()}}
                   <button  type="submit">Submit</button>
-
                 </form>
 
                 @else

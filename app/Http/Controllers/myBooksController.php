@@ -23,7 +23,7 @@ class myBooksController extends Controller
 			if($addBook == null) {
 				 return view('myBooks',['page_name_active'=> 'myEx-change','getAddBookForm'=>'true']);
 			} else {
-				
+				return $addBook;
 			}
 
 		}
