@@ -135,17 +135,20 @@
 
     <body>
         @include('header')
-        <form class="search" >
+        <!-- <form class="search" >
           <input type="text" class="searchTerm"/>
-          <!-- <input type="button" class="myButton" value="Search"/> -->
           <button class="myButton">Search</button>
-        </form>
+        </form> -->
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <div class="title m-b-md">
-                  <i class="fa fa-ravelry" aria-hidden="true"></i>
                     My Books
                 </div>
+                @if (empty($userBooks))
+                    <p>This user has no any book</p>
+                @elseif
+                    <p>yes books</p>
+                @endif
             </div>
         </div>
     </body>
