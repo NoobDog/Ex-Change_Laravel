@@ -150,6 +150,10 @@
                 @else
                     <p>yes books</p>
                 @endif
+
+                $if (isset($getAddBookForm))
+                <p>get form</p>
+                @endif
             </div>
         </div>
     </body>
