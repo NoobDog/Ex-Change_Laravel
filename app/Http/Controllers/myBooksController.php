@@ -19,13 +19,11 @@ class myBooksController extends Controller
 			 $userBooks = json_decode(json_encode($userBooks),true);
        return \View::make('myBooks',['userBooks' => $userBooks]);
     }
-		public function addNewBook($addBook = null) {
-			if($addBook == null) {
+		public function triggerAddNewBook() {
 				 return view('myBooks',['page_name_active'=> 'myEx-change','getAddBookForm'=>'true']);
-			} else {
-				return $addBook;
-			}
-
+		}
+		public function addNewBook(Request $request) {
+				 return 'haha';
 		}
 
 
