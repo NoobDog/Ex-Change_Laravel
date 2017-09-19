@@ -146,7 +146,7 @@
                 </div>
                 @if (empty($userBooks))
                     <p>This user has no any book</p>
-                @elseif
+                @else
                     <p>yes books</p>
                 @endif
             </div>
