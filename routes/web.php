@@ -29,5 +29,6 @@ Route::get('/help','helpController@index');
 //my books page.
 Route::get('/myBooks','myBooksController@index');
 Route::get('/myBooks/addNewBook',['as'=>'getAddBookForm', 'uses'=>'myBooksController@addNewBook']);
+Route::post('/myBooks/addNewBook',['as'=>'postAddBookForm', 'uses'=>'myBooksController@addNewBook']);
 //loutout
 Route::get('/logout',['as'=>'logout','uses'=>'welcomeController@logout']);

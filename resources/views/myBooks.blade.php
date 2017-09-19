@@ -144,16 +144,24 @@
                 <div class="title m-b-md">
                     My Books
                 </div>
-                @if (empty($userBooks))
-                    <p>This user has no any book</p>
-                    <a href="{{route('getAddBookForm')}}"><button class ='myButton'>Add New book</button></a>
-                @else
-                    <p>yes books</p>
-                @endif
-
                 @if (isset($getAddBookForm))
                 <p>get form</p>
-                @endif
+                <form action="{{route('signUpCheck')}}" style="border:1px solid #ccc" id="signinForm" method="POST">
+                  {{csrf_field()}}
+                  <button  type="submit">Submit</button>
+
+                </form>
+
+                @else
+                  @if (isset($userBooks))
+                    @if (empty($userBooks))
+                        <p>This user has no any book</p>
+                        <a href="{{route('getAddBookForm')}}"><button class ='myButton'>Add New book</button></a>
+                    @else
+                        <p>yes books</p>
+                    @endif
+                  @endif
+               @endif
             </div>
         </div>
     </body>
