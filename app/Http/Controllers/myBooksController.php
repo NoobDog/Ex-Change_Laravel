@@ -30,7 +30,8 @@ class myBooksController extends Controller
 				 $bookPublisher = $request->input('bookPublisher');
 				 $bookEdition = $request->input('bookEdition');
 				 $bookDescription = $request->input('bookDescription');
-				 return $bookName .' '. $bookTitle. ' '.$bookAuthor.' '.$bookDate.' '.$bookPublisher.' '.$bookEdition.' '.$bookDescription;
+				 $imgFile = $request->file('bookImage');
+				 return $bookName .' '. $bookTitle. ' '.$bookAuthor.' '.$bookDate.' '.$bookPublisher.' '.$bookEdition.' '.$bookDescription.' '.$imgFile;
 		}
 
 
