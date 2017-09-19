@@ -146,16 +146,22 @@
                 </div>
                 @if (isset($getAddBookForm))
                 <h1>Add New Book</h1>
-                <form action="{{route('postAddBookForm')}}" style="border:1px solid #ccc" id="signinForm" method="POST">
+                <form action="{{route('postAddBookForm')}}" style="border:1px solid #ccc" id="addNebookForm" method="POST">
                   {{csrf_field()}}
-
-                  <input type="text" name="bookName" placeholder="Book Name" required="required" />
-                  <input type="text" name="bookTitle" placeholder="Book Title" required="required" />
-                  <input type="text" name="bookAuthor" placeholder="Book Author" required="required" />
-                  <input type="date" name="bookDate" placeholder="Book Date" required="required" />
-                  <input type="text" name="bookPublisher" placeholder="Book Publisher" required="required" />
-                  <input type="text" name="bookEdition" placeholder="Book Edition" required="required" />
-                  <input type="textarea" name="bookDescription" placeholder="Book Description" required="required" />
+                  <label><b>Book Name</b></label>
+                  <input type="text" name="bookName" placeholder="Book Name" required="required" /><br>
+                  <label><b>Book Type</b></label>
+                  <input type="text" name="bookTitle" placeholder="Book Type" required="required" /><br>
+                  <label><b>Book Author</b></label>
+                  <input type="text" name="bookAuthor" placeholder="Book Author" required="required" /><br>
+                  <label><b>Book Date</b></label>
+                  <input type="date" name="bookDate" placeholder="Book Date" required="required" /><br>
+                  <label><b>Book Publisher</b></label>
+                  <input type="text" name="bookPublisher" placeholder="Book Publisher" required="required" /><br>
+                  <label><b>Book Edition</b></label>
+                  <input type="text" name="bookEdition" placeholder="Book Edition" required="required" /><br>
+                  <label><b>Book Description</b></label>
+                  <input type="textarea" name="bookDescription" placeholder="Book Description" required="required" /><br>
                   <button type="submit" class ='myButton'>Submit</button>
 
                 </form>
