@@ -148,7 +148,7 @@
                   {{Session::get('userName')}}
                   @endif
                 </div>
-<button class="myButton">testing</button>
+
             </div>
         </div>
     </body>

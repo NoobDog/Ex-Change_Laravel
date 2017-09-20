@@ -146,7 +146,7 @@
                 </div>
                 @if (isset($getAddBookForm))
                 <h1>Add New Book</h1>
-                <form action="{{route('postAddBookForm')}}" style="border:1px solid #ccc" id="addNebookForm" method="POST">
+                <form action="{{route('postAddBookForm')}}" style="border:1px solid #ccc" id="addNebookForm" method="POST" enctype="multipart/form-data">
                   {{csrf_field()}}
                   <!-- <label><b>Book Name</b></label>
                   <input type="text" name="bookName" placeholder="Book Name" /><br>
