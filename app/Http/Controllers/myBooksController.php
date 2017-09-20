@@ -30,9 +30,14 @@ class myBooksController extends Controller
 				 $bookPublisher = $request->input('bookPublisher');
 				 $bookEdition = $request->input('bookEdition');
 				 $bookDescription = $request->input('bookDescription');
-				 $imgFile = $request->file('bookImage');
 
-				 return $imgFile->getSize();
+				 if( $request->hasFile('bookImage') ) {
+		        $imgFile = $request->file('bookImage');
+		         // Now you have your file in a variable that you can do things with
+						  return $imgFile->getSize();
+		     }
+
+
 		}
 
 
