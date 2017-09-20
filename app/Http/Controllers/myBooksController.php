@@ -32,12 +32,11 @@ class myBooksController extends Controller
 				 $bookDescription = $request->input('bookDescription');
 
 				 if( $request->hasFile('bookImage') ) {
-		        $imgFile = $request->file('bookImage');
+		        $imgFile =  $request->file('bookImage')->getClientOriginalExtension();
 		         // Now you have your file in a variable that you can do things with
-						  return $imgFile->getSize();
+						  return 'yes';
 		     }
-
-
+				 return 'no!';
 		}
 
 
