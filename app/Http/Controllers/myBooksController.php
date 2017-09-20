@@ -31,8 +31,8 @@ class myBooksController extends Controller
 				 $bookEdition = $request->input('bookEdition');
 				 $bookDescription = $request->input('bookDescription');
 
-				 if( $request->hasFile('bookImage') ) {
-		        $imgFile =  $request->file('bookImage')->getClientOriginalExtension();
+				 if( $request->hasFile('file') ) {
+		        $imgFile =  $request->file('file')->getClientOriginalExtension();
 		         // Now you have your file in a variable that you can do things with
 						  return 'yes';
 		     }
