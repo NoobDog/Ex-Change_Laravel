@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Hash;
 use Session;
-use Illuminate\Http\File;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\RedirectResponse;
 class myBooksController extends Controller
 {
