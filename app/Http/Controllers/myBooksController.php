@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Hash;
 use Session;
+use File;
 use Illuminate\Http\RedirectResponse;
 class myBooksController extends Controller
 {
@@ -34,7 +35,7 @@ class myBooksController extends Controller
 				 if( $request->hasFile('file') ) {
 		        $imgFile =  $request->file('file');
 		         // Now you have your file in a variable that you can do things with
-	
+
 							if(!File::exists(public_path('/users'))) {
 							    // path does not exist
 									$path = public_path().'/users/'.Session::get('userEmail');;
