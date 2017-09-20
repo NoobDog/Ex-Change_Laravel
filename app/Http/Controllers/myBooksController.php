@@ -39,7 +39,7 @@ class myBooksController extends Controller
 							if(!File::exists(public_path('/users'))) {
 							    // path does not exist
 									$path = public_path().'/users/'.Session::get('userEmail');;
-									File::makeDirectory($path '0777', true);
+									File::makeDirectory($path, 0777, true);
 									$imgFile->move($path);
 							} else {
 									$path = public_path().'/users/'.Session::get('userEmail');;
