@@ -36,7 +36,7 @@ class myBooksController extends Controller
 		         // Now you have your file in a variable that you can do things with
 						  return 'yes';
 		     }
-				 return 'no!';
+				 return $request;
 		}
 
 
