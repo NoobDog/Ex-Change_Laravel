@@ -31,8 +31,8 @@ class myBooksController extends Controller
 				 $bookEdition = $request->input('bookEdition');
 				 $bookDescription = $request->input('bookDescription');
 				 $imgFile = $request->file('bookImage');
-				 
-				 return $imgFile->getClientOriginalName();
+
+				 return $imgFile->getSize();
 		}
 
 
