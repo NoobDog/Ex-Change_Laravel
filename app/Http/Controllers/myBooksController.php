@@ -31,22 +31,22 @@ class myBooksController extends Controller
 				 $bookPublisher = $request->input('bookPublisher');
 				 $bookEdition = $request->input('bookEdition');
 				 $bookDescription = $request->input('bookDescription');
-
-				 if( $request->hasFile('file') ) {
-		        $imgFile =  $request->file('file');
-		         // Now you have your file in a variable that you can do things with
-
-							if(!File::exists(public_path('/users'))) {
-							    // path does not exist
-									$path = public_path().'/users/'.Session::get('userEmail');;
-									File::makeDirectory($path, 0777, true);
-									$imgFile->move($path,$imgFile->getClientOriginalName());
-							} else {
-									$path = public_path().'/users/'.Session::get('userEmail');;
-									$imgFile->move($path,$imgFile->getClientOriginalName());
-							}
-		     }
-				 return 'no';
+				 $imgFile =  $request->file('file');
+				//  if( $request->hasFile('file') ) {
+		    //     $imgFile =  $request->file('file');
+		    //      // Now you have your file in a variable that you can do things with
+				 //
+				// 			if(!File::exists(public_path('/users'))) {
+				// 			    // path does not exist
+				// 					$path = public_path().'/users/'.Session::get('userEmail');;
+				// 					File::makeDirectory($path, 0777, true);
+				// 					$imgFile->move($path,$imgFile->getClientOriginalName());
+				// 			} else {
+				// 					$path = public_path().'/users/'.Session::get('userEmail');;
+				// 					$imgFile->move($path,$imgFile->getClientOriginalName());
+				// 			}
+		    //  }
+				 return $imgFile;
 		}
 
 
