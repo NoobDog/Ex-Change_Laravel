@@ -35,15 +35,15 @@ class myBooksController extends Controller
 				 if( $request->hasFile('file') ) {
 		        $imgFile =  $request->file('file');
 		         // Now you have your file in a variable that you can do things with
-						 $filename = $imgFile->getClientOriginalName();
+
 							if(!File::exists(public_path('/users'))) {
 							    // path does not exist
 									$path = public_path().'/users/'.Session::get('userEmail');;
 									File::makeDirectory($path, 0777, true);
-									$imgFile->move($path，$filename);
+									$imgFile->move($path，$imgFile->getClientOriginalName());
 							} else {
 									$path = public_path().'/users/'.Session::get('userEmail');;
-									$imgFile->move($path，$filename);
+									$imgFile->move($path，$imgFile->getClientOriginalName()ß);
 							}
 		     }
 				 return 'no';
