@@ -43,7 +43,7 @@ class myBooksController extends Controller
 									$imgFile->move($path,$imgFile->getClientOriginalName());
 							} else {
 									$path = public_path().'/users/'.Session::get('userEmail');;
-									$imgFile->move($path,$imgFile->getClientOriginalName()ß);
+									$imgFile->move($path,$imgFile->getClientOriginalName());
 							}
 		     }
 				 return 'no';
