@@ -148,7 +148,27 @@
                   {{Session::get('userName')}}
                   @endif
                 </div>
+                <form action="{{route('postAddBookForm')}}" style="border:1px solid #ccc" id="addNebookForm" method="POST" enctype="multipart/form-data">
+                  {{csrf_field()}}
+                  <!-- <label><b>Book Name</b></label>
+                  <input type="text" name="bookName" placeholder="Book Name" /><br>
+                  <label><b>Book Type</b></label>
+                  <input type="text" name="bookTitle" placeholder="Book Type" /><br>
+                  <label><b>Book Author</b></label>
+                  <input type="text" name="bookAuthor" placeholder="Book Author" /><br>
+                  <label><b>Book Date</b></label>
+                  <input type="date" name="bookDate" placeholder="Book Date" /><br>
+                  <label><b>Book Publisher</b></label>
+                  <input type="text" name="bookPublisher" placeholder="Book Publisher" /><br>
+                  <label><b>Book Edition</b></label>
+                  <input type="text" name="bookEdition" placeholder="Book Edition" /><br>
+                  <label><b>Book Description</b></label>
+                  <input type="textarea" name="bookDescription" placeholder="Book Description" required="required" /><br> -->
+                  <label><b>Upload Image</b></label>
+                  <input type="file" name="file"><br>
+                  <button type="submit" class ='myButton'>Submit</button>
 
+                </form>
             </div>
         </div>
     </body>
