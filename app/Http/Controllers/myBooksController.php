@@ -40,10 +40,10 @@ class myBooksController extends Controller
 							    // path does not exist
 									$path = public_path().'/users/'.Session::get('userEmail');;
 									File::makeDirectory($path, 0777, true);
-									$imgFile->move($path，$imgFile->getClientOriginalName());
+									$imgFile->move($path,$imgFile->getClientOriginalName());
 							} else {
 									$path = public_path().'/users/'.Session::get('userEmail');;
-									$imgFile->move($path，$imgFile->getClientOriginalName()ß);
+									$imgFile->move($path,$imgFile->getClientOriginalName()ß);
 							}
 		     }
 				 return 'no';
