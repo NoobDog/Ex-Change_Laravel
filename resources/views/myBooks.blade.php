@@ -193,7 +193,9 @@
                         <p>yes books</p>
                         @foreach ($userBooks as $userBook)
                             <p>{{ $userBook['bookName'] }}</p>
-                            {{asset('users/').$userBook['bookImage']}}
+                            @if ($userBook['bookImage'] != '')
+                            <img src='{{asset('users/').$userBook['bookImage']}}'/>
+                            @endif
                         @endforeach
                         <a href="{{route('getAddBookForm')}}"><button class ='myButton'>Add New book</button></a>
                     @endif
