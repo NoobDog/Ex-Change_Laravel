@@ -45,7 +45,7 @@ class myBooksController extends Controller
 									//insert to books table
 									DB::insert('INSERT INTO books (userID, bookName, bookType, bookTitle, bookPublisher, bookAuthor, bookEdition, bookDate,
 										bookImage, bookPrice, enableUserPoint, bookPoint, isVoid, private, bookDescription)
-										values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+										values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 										[$userID, $bookName, $bookType, $bookTitle, $bookPublisher, $bookAuthor, $bookEdition, $imgPath,
 											$bookPrice, '0', '', '0', '0', $bookDescription]
 									);
@@ -57,7 +57,7 @@ class myBooksController extends Controller
 									//insert to books table
 									DB::insert('INSERT INTO books (userID, bookName, bookType, bookTitle, bookPublisher, bookAuthor, bookEdition, bookDate,
 										bookImage, bookPrice, enableUserPoint, bookPoint, isVoid, private, bookDescription)
-										values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+										values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 										[$userID, $bookName, $bookType, $bookTitle, $bookPublisher, $bookAuthor, $bookEdition, $imgPath,
 											$bookPrice, '0', '', '0', '0', $bookDescription]
 									);
@@ -67,7 +67,7 @@ class myBooksController extends Controller
 					 //insert to books table
 					 DB::insert('INSERT INTO books (userID, bookName, bookType, bookTitle, bookPublisher, bookAuthor, bookEdition, bookDate,
 						 bookImage, bookPrice, enableUserPoint, bookPoint, isVoid, private, bookDescription)
-						 values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+						 values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 						 [$userID, $bookName, $bookType, $bookTitle, $bookPublisher, $bookAuthor, $bookEdition, $imgPath,
 							 $bookPrice, '0', '', '0', '0', $bookDescription]
 					 );

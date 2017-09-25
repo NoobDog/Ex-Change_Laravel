@@ -130,6 +130,20 @@
             position:relative;
             top:1px;
             }
+            .addBookInput {
+              width: 100%;
+              padding: 12px 20px;
+              margin: 8px 0;
+              box-sizing: border-box;
+            }
+            .inputfile {
+            	width: 0.1px;
+            	height: 0.1px;
+            	opacity: 0;
+            	overflow: hidden;
+            	position: absolute;
+            	z-index: -1;
+            }
         </style>
     </head>
 
@@ -149,23 +163,23 @@
                 <form action="{{route('postAddBookForm')}}" style="border:1px solid #ccc" id="addNebookForm" method="POST" enctype="multipart/form-data">
                   {{csrf_field()}}
                   <label><b>Book Type</b></label>
-                  <input type="text" name="bookType" placeholder="Book Type" /><br>
+                  <input type="text" name="bookType" placeholder="Book Type" class="addBookInput"/><br>
                   <label><b>Book Name</b></label>
-                  <input type="text" name="bookName" placeholder="Book Name" /><br>
+                  <input type="text" name="bookName" placeholder="Book Name" class="addBookInput"/><br>
                   <label><b>Book Title</b></label>
-                  <input type="text" name="bookTitle" placeholder="Book Title" /><br>
+                  <input type="text" name="bookTitle" placeholder="Book Title" class="addBookInput"/><br>
                   <label><b>Book Author</b></label>
-                  <input type="text" name="bookAuthor" placeholder="Book Author" /><br>
+                  <input type="text" name="bookAuthor" placeholder="Book Author" class="addBookInput"/><br>
                   <label><b>Book Date</b></label>
-                  <input type="date" name="bookDate" placeholder="Book Date" /><br>
+                  <input type="date" name="bookDate" placeholder="Book Date" class="addBookInput"/><br>
                   <label><b>Book Publisher</b></label>
-                  <input type="text" name="bookPublisher" placeholder="Book Publisher" /><br>
+                  <input type="text" name="bookPublisher" placeholder="Book Publisher" class="addBookInput"/><br>
                   <label><b>Book Edition</b></label>
-                  <input type="text" name="bookEdition" placeholder="Book Edition" /><br>
+                  <input type="text" name="bookEdition" placeholder="Book Edition" class="addBookInput"/><br>
                   <label><b>Book Description</b></label>
-                  <input type="textarea" name="bookDescription" placeholder="Book Description" required="required" /><br>
+                  <input type="textarea" name="bookDescription" placeholder="Book Description" class="addBookInput"/><br>
                   <label><b>Upload Image</b></label>
-                  <input type="file" name="file" accept="image/*"/><br>
+                  <input type="file" name="file" accept="image/*" class="inputfile"/><br>
                   <button type="submit" class ='myButton'>Submit</button>
 
                 </form>
