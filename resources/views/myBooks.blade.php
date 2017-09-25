@@ -193,7 +193,7 @@
                         <p>yes books</p>
                         @foreach ($userBooks as $userBook)
                             <p>{{ $userBook['bookName'] }}</p>
-                            
+                            <img src="{{asset(users/).$userBook['bookImage']}}"/>
                         @endforeach
                         <a href="{{route('getAddBookForm')}}"><button class ='myButton'>Add New book</button></a>
                     @endif
