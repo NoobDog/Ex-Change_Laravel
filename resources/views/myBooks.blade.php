@@ -191,6 +191,10 @@
                         <a href="{{route('getAddBookForm')}}"><button class ='myButton'>Add New book</button></a>
                     @else
                         <p>yes books</p>
+                        @foreach ($userBooks as $userBook)
+                            <p>This is book {{ $userBook->bookName }}</p>
+                        @endforeach
+                        <a href="{{route('getAddBookForm')}}"><button class ='myButton'>Add New book</button></a>
                     @endif
                   @endif
                @endif
