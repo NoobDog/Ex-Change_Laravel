@@ -193,8 +193,8 @@
                         <p>yes books</p>
                         @foreach ($userBooks as $userBook)
                             <p>{{ $userBook['bookName'] }}</p>
-                    
-                              <img src="{{asset(users/).Session::get('userEmail').$userBook['bookImage']}}"/>
+
+                              <!-- <img src="{{asset(users/).Session::get('userEmail').$userBook['bookImage']}}"/> -->
 
 
                         @endforeach
