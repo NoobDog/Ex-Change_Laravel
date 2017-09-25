@@ -62,9 +62,13 @@ class newAccountController extends Controller
 										[$newUserName,$inputPasswordHashed,$inputEmail,0,'::1','0',0,0,0,1,$inputQuestion1,$inputAnswer1,
 										 $inputQuestion2,$inputAnswer2]
 									);
-									Session::put('userName', $newUserName);
-									Session::put('userEmail', $inputEmail);
-									Session::put('roleTypeID', 1);
+
+									$user = DB::select('SELECT * FROM users WHERE userEmail = ? AND userPassword = ?', [$inputEmail, $inputPasswordHashed]);
+									$user = json_decode(json_encode($user),true);
+									Session::put('userID' , $user[0]['userID']);
+									Session::put('userName', $user[0]['userName']);
+									Session::put('userEmail', $user[0]['userEmail']);
+									Session::put('roleTypeID', $user[0]['roleTypeID']);
 
 									//return view('welcome' , ['page_name_active' => 'home','name' => Session::get('userName')]);
 									return redirect()->route('home');

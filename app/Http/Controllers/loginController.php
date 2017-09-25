@@ -23,7 +23,7 @@ class loginController extends Controller
 				 $user = DB::select('SELECT * FROM users WHERE userEmail = ? AND userPassword = ?', [$inputEmail,$inputPasswordHashed]);
 				 if(!empty($user)) {
 					 $user = json_decode(json_encode($user),true);
-					 Session::put('userName' , $user[0]['userID']);
+					 Session::put('userID' , $user[0]['userID']);
 					 Session::put('userName' , $user[0]['userName']);
 					 Session::put('userEmail' , $user[0]['userEmail']);
 					 Session::put('roleTypeID' , $user[0]['roleTypeID']);
@@ -89,6 +89,7 @@ class loginController extends Controller
 			DB::update('UPDATE users SET userPassword = ? where userEmail = ?', [$newPasswordHashed, $userEmail]);
 			$user = DB::select('SELECT * FROM users WHERE userEmail = ?', [$userEmail]);
 			$user = json_decode(json_encode($user),true);
+			Session::put('userID' , $user[0]['userID']);
 			Session::put('userName' , $user[0]['userName']);
 			Session::put('userEmail' , $user[0]['userEmail']);
 			Session::put('roleTypeID' , $user[0]['roleTypeID']);
