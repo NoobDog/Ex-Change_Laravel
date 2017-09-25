@@ -24,29 +24,55 @@ class myBooksController extends Controller
 				 return view('myBooks',['page_name_active'=> 'myEx-change','getAddBookForm'=>'true']);
 		}
 		public function addNewBook(Request $request) {
-				 $bookName = $request->input('bookName');
-				 $bookTitle = $request->input('bookTitle');
-				 $bookAuthor = $request->input('bookAuthor');
-				 $bookDate = $request->input('bookDate');
-				 $bookPublisher = $request->input('bookPublisher');
-				 $bookEdition = $request->input('bookEdition');
-				 $bookDescription = $request->input('bookDescription');
-				 $imgFile =  $request->file('file');
-				//  if( $request->hasFile('file') ) {
-		    //     $imgFile =  $request->file('file');
-		    //      // Now you have your file in a variable that you can do things with
-				 //
-				// 			if(!File::exists(public_path('/users'))) {
-				// 			    // path does not exist
-				// 					$path = public_path().'/users/'.Session::get('userEmail');;
-				// 					File::makeDirectory($path, 0777, true);
-				// 					$imgFile->move($path,$imgFile->getClientOriginalName());
-				// 			} else {
-				// 					$path = public_path().'/users/'.Session::get('userEmail');;
-				// 					$imgFile->move($path,$imgFile->getClientOriginalName());
-				// 			}
-		    //  }
-				 return $imgFile;
+				 $bookName = $request->input('bookName') ?? '';
+				 $bookTitle = $request->input('bookTitle') ?? '';
+				 $bookTitle = $request->input('bookType') ?? '';
+				 $bookAuthor = $request->input('bookAuthor') ?? '';
+				 $bookDate = $request->input('bookDate') ?? '';
+				 $bookPublisher = $request->input('bookPublisher') ?? '';
+				 $bookEdition = $request->input('bookEdition') ?? '';
+				 $bookDescription = $request->input('bookDescription') ?? '';
+				 $imgFile =  $request->file('file') ?? '';
+				 $userID = Session::get('userID');
+				 if( $request->hasFile('file') ) {
+		        $imgFile =  $request->file('file');
+							if(!File::exists(public_path('/users/'.Session::get('userEmail')))) {
+							    // path does not exist
+									$path = public_path().'/users/'.Session::get('userEmail');
+									File::makeDirectory($path, 0777, true);
+									$imgFile->move($path,$imgFile->getClientOriginalName());
+									$imgPath = $path.'/'.$imgFile->getClientOriginalName();
+									//insert to books table
+									DB::insert('INSERT INTO books (userID, bookName, bookType, bookTitle, bookPublisher, bookAuthor, bookEdition, bookDate,
+										bookImage, bookPrice, enableUserPoint, bookPoint, isVoid, private, bookDescription)
+										values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+										[$userID, $bookName, $bookType, $bookTitle, $bookPublisher, $bookAuthor, $bookEdition, $imgPath,
+											$bookPrice, '0', '', '0', '0', $bookDescription]
+									);
+
+							} else {
+									$path = public_path().'/users/'.Session::get('userEmail');
+									$imgFile->move($path,$imgFile->getClientOriginalName());
+									$imgPath = $path.'/'.$imgFile->getClientOriginalName();
+									//insert to books table
+									DB::insert('INSERT INTO books (userID, bookName, bookType, bookTitle, bookPublisher, bookAuthor, bookEdition, bookDate,
+										bookImage, bookPrice, enableUserPoint, bookPoint, isVoid, private, bookDescription)
+										values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+										[$userID, $bookName, $bookType, $bookTitle, $bookPublisher, $bookAuthor, $bookEdition, $imgPath,
+											$bookPrice, '0', '', '0', '0', $bookDescription]
+									);
+							}
+		     } else {
+					 $imgPath = '';
+					 //insert to books table
+					 DB::insert('INSERT INTO books (userID, bookName, bookType, bookTitle, bookPublisher, bookAuthor, bookEdition, bookDate,
+						 bookImage, bookPrice, enableUserPoint, bookPoint, isVoid, private, bookDescription)
+						 values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+						 [$userID, $bookName, $bookType, $bookTitle, $bookPublisher, $bookAuthor, $bookEdition, $imgPath,
+							 $bookPrice, '0', '', '0', '0', $bookDescription]
+					 );
+				}
+				return $this->index();
 		}
 
 

@@ -148,10 +148,12 @@
                 <h1>Add New Book</h1>
                 <form action="{{route('postAddBookForm')}}" style="border:1px solid #ccc" id="addNebookForm" method="POST" enctype="multipart/form-data">
                   {{csrf_field()}}
+                  <label><b>Book Type</b></label>
+                  <input type="text" name="bookType" placeholder="Book Type" /><br>
                   <label><b>Book Name</b></label>
                   <input type="text" name="bookName" placeholder="Book Name" /><br>
-                  <label><b>Book Type</b></label>
-                  <input type="text" name="bookTitle" placeholder="Book Type" /><br>
+                  <label><b>Book Title</b></label>
+                  <input type="text" name="bookTitle" placeholder="Book Title" /><br>
                   <label><b>Book Author</b></label>
                   <input type="text" name="bookAuthor" placeholder="Book Author" /><br>
                   <label><b>Book Date</b></label>
