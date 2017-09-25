@@ -193,10 +193,10 @@
                         <p>yes books</p>
                         @foreach ($userBooks as $userBook)
                             <p>{{ $userBook['bookName'] }}</p>
-                            @if ($userBook['bookImage'] != '')
+                    
                               <img src="{{asset(users/).Session::get('userEmail').$userBook['bookImage']}}"/>
-                            @endif
-          
+
+
                         @endforeach
                         <a href="{{route('getAddBookForm')}}"><button class ='myButton'>Add New book</button></a>
                     @endif
