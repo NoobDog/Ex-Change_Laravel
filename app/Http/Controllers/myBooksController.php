@@ -33,6 +33,8 @@ class myBooksController extends Controller
 				 $bookEdition = $request->input('bookEdition') ?? '';
 				 $bookDescription = $request->input('bookDescription') ?? '';
 				 $imgFile =  $request->file('file') ?? '';
+				 $bookPrice = $request->input('bookPrice') ?? 0;
+				 $bookPoint = $request->input('bookPoint') ?? 0;
 				 $userID = Session::get('userID');
 				 if( $request->hasFile('file') ) {
 		        $imgFile =  $request->file('file');
