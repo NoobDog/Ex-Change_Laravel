@@ -192,7 +192,8 @@
                     @else
                         <p>yes books</p>
                         @foreach ($userBooks as $userBook)
-                            <p>This is book {{ $userBook['bookName'] }}</p>
+                            <p>{{ $userBook['bookName'] }}</p>
+                            <img src="{{$userBook['bookImage']}}"/>
                         @endforeach
                         <a href="{{route('getAddBookForm')}}"><button class ='myButton'>Add New book</button></a>
                     @endif
