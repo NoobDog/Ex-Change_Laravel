@@ -196,7 +196,7 @@
                             @if ($userBook['bookImage'] != '')
                               <img src="{{asset(users/).Session::get('userEmail').$userBook['bookImage']}}"/>
                             @endif
-                            <img src="{{$userBook['bookImage']}}"/>
+          
                         @endforeach
                         <a href="{{route('getAddBookForm')}}"><button class ='myButton'>Add New book</button></a>
                     @endif
