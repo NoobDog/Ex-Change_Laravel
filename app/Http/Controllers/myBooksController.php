@@ -43,7 +43,7 @@ class myBooksController extends Controller
 									$path = public_path().'/users/'.Session::get('userEmail');
 									File::makeDirectory($path, 0777, true);
 									$imgFile->move($path,$imgFile->getClientOriginalName());
-									$imgPath = $path.'/'.$imgFile->getClientOriginalName();
+									$imgPath = '/'.$imgFile->getClientOriginalName();
 									//insert to books table
 									DB::insert('INSERT INTO books (userID, bookName, bookType, bookTitle, bookPublisher, bookAuthor, bookEdition, bookDate,
 										bookImage, bookPrice, enableUserPoint, bookPoint, isVoid, private, bookDescription)
@@ -55,7 +55,7 @@ class myBooksController extends Controller
 							} else {
 									$path = public_path().'/users/'.Session::get('userEmail');
 									$imgFile->move($path,$imgFile->getClientOriginalName());
-									$imgPath = $path.'/'.$imgFile->getClientOriginalName();
+									$imgPath = '/'.$imgFile->getClientOriginalName();
 									//insert to books table
 									DB::insert('INSERT INTO books (userID, bookName, bookType, bookTitle, bookPublisher, bookAuthor, bookEdition, bookDate,
 										bookImage, bookPrice, enableUserPoint, bookPoint, isVoid, private, bookDescription)
