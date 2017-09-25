@@ -49,7 +49,7 @@ class myBooksController extends Controller
 										bookImage, bookPrice, enableUserPoint, bookPoint, isVoid, private, bookDescription)
 										values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 										[$userID, $bookName, $bookType, $bookTitle, $bookPublisher, $bookAuthor, $bookEdition, $bookDate, $imgPath,
-											$bookPrice, '0', '', '0', '0', $bookDescription]
+											$bookPrice, 0, 0, 0, 0, $bookDescription]
 									);
 
 							} else {
@@ -61,7 +61,7 @@ class myBooksController extends Controller
 										bookImage, bookPrice, enableUserPoint, bookPoint, isVoid, private, bookDescription)
 										values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 										[$userID, $bookName, $bookType, $bookTitle, $bookPublisher, $bookAuthor, $bookEdition, $bookDate, $imgPath,
-											$bookPrice, '0', '', '0', '0', $bookDescription]
+											$bookPrice, 0, 0, 0, 0, $bookDescription]
 									);
 							}
 		     } else {
@@ -71,7 +71,7 @@ class myBooksController extends Controller
 						 bookImage, bookPrice, enableUserPoint, bookPoint, isVoid, private, bookDescription)
 						 values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 						 [$userID, $bookName, $bookType, $bookTitle, $bookPublisher, $bookAuthor, $bookEdition, $bookDate, $imgPath,
-							 $bookPrice, '0', '', '0', '0', $bookDescription]
+							 $bookPrice, 0, 0, 0, 0, $bookDescription]
 					 );
 				}
 				return $this->index();
