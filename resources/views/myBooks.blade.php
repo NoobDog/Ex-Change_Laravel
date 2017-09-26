@@ -169,7 +169,7 @@
                   <label><b>Book Description</b></label>
                   <input type="textarea" name="bookDescription" placeholder="Book Description" class="addBookInput" required/><br>
                   <label><b>Upload Image</b></label>
-                    <input type="file" name="file" accept="image/*" class="addBookInput"/><br><br>
+                    <input type="file" name="file" accept="image/*" class="addBookInput" style="font-size: larger;"/>
                   <button type="submit" class ='myButton' style="width: 100%;">Submit</button>
                 </form>
 
