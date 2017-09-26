@@ -144,6 +144,32 @@
             	position: absolute;
             	z-index: -1;
             }
+            .uploadFile {
+                position: relative;
+                display: inline-block;
+                background: #D0EEFF;
+                border: 1px solid #99D3F5;
+                border-radius: 4px;
+                padding: 4px 12px;
+                overflow: hidden;
+                color: #1E88C7;
+                text-decoration: none;
+                text-indent: 0;
+                line-height: 20px;
+            }
+            .uploadFile input {
+                position: absolute;
+                font-size: 100px;
+                right: 0;
+                top: 0;
+                opacity: 0;
+            }
+            .uploadFile:hover {
+                background: #AADFFD;
+                border-color: #78C3F3;
+                color: #004974;
+                text-decoration: none;
+            }
         </style>
     </head>
 
@@ -156,23 +182,23 @@
                 <form action="{{route('postAddBookForm')}}" style="border:1px solid #ccc" id="addNebookForm" method="POST" enctype="multipart/form-data">
                   {{csrf_field()}}
                   <label><b>Book Type</b></label>
-                  <input type="text" name="bookType" placeholder="Book Type" class="addBookInput"/><br>
+                  <input type="text" name="bookType" placeholder="Book Type" class="addBookInput" required/><br>
                   <label><b>Book Name</b></label>
-                  <input type="text" name="bookName" placeholder="Book Name" class="addBookInput"/><br>
+                  <input type="text" name="bookName" placeholder="Book Name" class="addBookInput" required/><br>
                   <label><b>Book Title</b></label>
-                  <input type="text" name="bookTitle" placeholder="Book Title" class="addBookInput"/><br>
+                  <input type="text" name="bookTitle" placeholder="Book Title" class="addBookInput" required/><br>
                   <label><b>Book Author</b></label>
-                  <input type="text" name="bookAuthor" placeholder="Book Author" class="addBookInput"/><br>
+                  <input type="text" name="bookAuthor" placeholder="Book Author" class="addBookInput" required/><br>
                   <label><b>Book Date</b></label>
-                  <input type="date" name="bookDate" placeholder="Book Date" class="addBookInput"/><br>
+                  <input type="date" name="bookDate" placeholder="Book Date" class="addBookInput datepicker"  required/><br>
                   <label><b>Book Publisher</b></label>
-                  <input type="text" name="bookPublisher" placeholder="Book Publisher" class="addBookInput"/><br>
+                  <input type="text" name="bookPublisher" placeholder="Book Publisher" class="addBookInput" required/><br>
                   <label><b>Book Edition</b></label>
-                  <input type="text" name="bookEdition" placeholder="Book Edition" class="addBookInput"/><br>
+                  <input type="text" name="bookEdition" placeholder="Book Edition" class="addBookInput" required/><br>
                   <label><b>Book Description</b></label>
-                  <input type="textarea" name="bookDescription" placeholder="Book Description" class="addBookInput"/><br>
+                  <input type="textarea" name="bookDescription" placeholder="Book Description" class="addBookInput" required/><br>
                   <label><b>Upload Image</b></label>
-                  <input type="file" name="file" accept="image/*" /><br>
+                  <a href="" class="uploadFile"><input type="file" name="file" accept="image/*" /></a><br>
                   <button type="submit" class ='myButton'>Submit</button>
 
                 </form>
@@ -202,6 +228,6 @@
     </body>
 </html>
 <script>
-  $("input[name=*bookDate]").datepicker();
+  $(".datepicker").datepicker();
 
 </script>
