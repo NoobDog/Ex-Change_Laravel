@@ -168,9 +168,9 @@
                   <input type="text" name="bookEdition" placeholder="Book Edition" class="addBookInput" required/><br>
                   <label><b>Book Description</b></label>
                   <input type="textarea" name="bookDescription" placeholder="Book Description" class="addBookInput" required/><br>
-                  <label><b>Upload Image</b></label><br>
+                  <label><b>Upload Image</b></label>
                     <input type="file" name="file" accept="image/*" /><br><br>
-                  <button type="submit" class ='myButton'>Submit</button>
+                  <button type="submit" class ='myButton' style="width: 100%;">Submit</button>
                 </form>
 
                 @else
@@ -198,8 +198,8 @@
     </body>
 </html>
 <script>
-  $('.datepicker').datetimepicker({
-      format: 'dd/mm/yyyy'
-  });
+  // $('.datepicker').datetimepicker({
+  //     format: 'dd/mm/yyyy'
+  // });
 
 </script>
