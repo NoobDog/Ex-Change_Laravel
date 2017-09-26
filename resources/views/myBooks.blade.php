@@ -149,15 +149,8 @@
 
     <body>
         @include('header')
-        <!-- <form class="search" >
-          <input type="text" class="searchTerm"/>
-          <button class="myButton">Search</button>
-        </form> -->
         <div class="flex-center position-ref full-height">
             <div class="content">
-                <div class="title m-b-md">
-                    My Books
-                </div>
                 @if (isset($getAddBookForm))
                 <h1>Add New Book</h1>
                 <form action="{{route('postAddBookForm')}}" style="border:1px solid #ccc" id="addNebookForm" method="POST" enctype="multipart/form-data">
@@ -185,6 +178,9 @@
                 </form>
 
                 @else
+                <div class="title m-b-md">
+                    My Books
+                </div>
                   @if (isset($userBooks))
                     @if (empty($userBooks))
                         <p>This user has no any book</p>
@@ -205,3 +201,7 @@
         </div>
     </body>
 </html>
+<script>
+  $("input[name=*bookDate]").datepicker();
+
+</script>
