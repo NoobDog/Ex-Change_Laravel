@@ -141,40 +141,6 @@
               margin: 8px 0;
               box-sizing: border-box;
             }
-            .inputfile {
-            	width: 0.1px;
-            	height: 0.1px;
-            	opacity: 0;
-            	overflow: hidden;
-            	position: absolute;
-            	z-index: -1;
-            }
-            .uploadFile {
-                position: relative;
-                display: inline-block;
-                background: #D0EEFF;
-                border: 1px solid #99D3F5;
-                border-radius: 4px;
-                padding: 4px 12px;
-                overflow: hidden;
-                color: #1E88C7;
-                text-decoration: none;
-                text-indent: 0;
-                line-height: 20px;
-            }
-            .uploadFile input {
-                position: absolute;
-                font-size: 100px;
-                right: 0;
-                top: 0;
-                opacity: 0;
-            }
-            .uploadFile:hover {
-                background: #AADFFD;
-                border-color: #78C3F3;
-                color: #004974;
-                text-decoration: none;
-            }
         </style>
     </head>
 
@@ -202,10 +168,9 @@
                   <input type="text" name="bookEdition" placeholder="Book Edition" class="addBookInput" required/><br>
                   <label><b>Book Description</b></label>
                   <input type="textarea" name="bookDescription" placeholder="Book Description" class="addBookInput" required/><br>
-                  <label><b>Upload Image</b></label>
-                  <a href="" class="uploadFile"><input type="file" name="file" accept="image/*" /></a><br>
+                  <label><b>Upload Image</b></label><br>
+                    <input type="file" name="file" accept="image/*" /><br><br>
                   <button type="submit" class ='myButton'>Submit</button>
-
                 </form>
 
                 @else
@@ -233,6 +198,8 @@
     </body>
 </html>
 <script>
-  $(".datepicker").datepicker();
+  $('.datepicker').datetimepicker({
+      format: 'dd/mm/yyyy'
+  });
 
 </script>
