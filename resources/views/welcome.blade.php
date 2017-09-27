@@ -11,10 +11,9 @@
         <script src="{{ asset('js/jquery-easing.js') }}"></script>
         <script src="{{ asset('js/horizontal.js') }}"></script>
         <script src="{{ asset('js/modernizr.js') }}"></script>
+        <script type="text/javascript" src="{{asset('js/jquery-2.1.1.min.js')}}"></script>
+		    <script type="text/javascript" src="{{asset('js/jquery.als-1.7.min.js')}}"></script>
 
-
-        <script src="{{ asset('js/horizonScroll.js') }}"></script>
-        <script src="{{ asset('js/touchSwipe.js') }}"></script>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <!--Font awesome-->
@@ -223,57 +222,27 @@
                 <div>
                   {{print_r($books)}}
 
-                  <!-- <div class="items">
-                    <span class="thumbnail">
-                        <img src="http://placehold.it/500x400" alt="...">
-                        <h4>Product Tittle</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                        <hr class="line">
-                        <div class="row">
-                          <div class="col-md-6 col-sm-6">
-                            <p class="price">$29,90</p>
-                          </div>
-                          <div class="col-md-6 col-sm-6">
-                            <button class="btn btn-success right" > BUY ITEM</button>
-                          </div>
-
-                        </div>
-                    </span>
-                  </div> -->
-                  <header data-role="header" id="header">
-                      <nav class="menu">
-                          <ul>
-                              <li>
-                                  <a href="#section-section1"><span>Section</span></a>
-                              </li>
-                              <li>
-                                  <a href="#section-section2"><span>Section</span></a>
-                              </li>
-                              <li>
-                                  <a href="#section-section3"><span>Section</span></a>
-                              </li>
-                              <li>
-                                  <a href="#section-section4"><span>Section</span></a>
-                              </li>
-                          </ul>
-                      </nav>
-                  </header>
-
-                  <div class="horizon-prev"><img src="images/l-arrow.png"></div>
-                  <div class="horizon-next"><img src="images/r-arrow.png"></div>
-
-                  <section data-role="section" id="section-section1"></section>
-                  <section data-role="section" id="section-section2"></section>
-                  <section data-role="section" id="section-section3"></section>
-                  <section data-role="section" id="section-section4">
-                      <div class="go-to-2">Go to panel 2 via ID.</div>
-                  </section>
-
-                  <footer data-role="footer" id="footer"></footer>
-
-
-
-
+                  <div id="lista1" class="als-container">
+                    <span class="als-prev"><img src="images/thin_left_arrow_333.png" alt="prev" title="previous" /></span>
+                    <div class="als-viewport">
+                      <ul class="als-wrapper">
+                        <li class="als-item"><img src="images/als-images/calculator.png" alt="calculator" title="calculator" />calculator</li>
+                        <li class="als-item"><img src="images/als-images/light_bulb.png" alt="light bulb" title="light bulb" />light bulb</li>
+                        <li class="als-item"><img src="images/als-images/card.png" alt="card" title="card" />card</li>
+                        <li class="als-item"><img src="images/als-images/chess.png" alt="chess" title="chess" />chess</li>
+                        <li class="als-item"><img src="images/als-images/clock.png" alt="alarm clock" title="alarm clock" />alarm clock</li>
+                        <li class="als-item"><img src="images/als-images/cut.png" alt="scissors" title="scissors" />scissors</li>
+                        <li class="als-item"><img src="images/als-images/heart.png" alt="heart" title="heart" />heart</li>
+                        <li class="als-item"><img src="images/als-images/map.png" alt="pin" title="pin" />pin</li>
+                        <li class="als-item"><img src="images/als-images/mobile_phone.png" alt="mobile phone" title="mobile phone" />mobile phone</li>
+                        <li class="als-item"><img src="images/als-images/camera.png" alt="camera" title="camera" />camera</li>
+                        <li class="als-item"><img src="images/als-images/music_note.png" alt="music note" title="music note" />music note</li>
+                        <li class="als-item"><img src="images/als-images/protection.png" alt="umbrella" title="umbrella" />umbrella</li>
+                        <li class="als-item"><img src="images/als-images/television.png" alt="television" title="television" />television</li>
+                      </ul>
+                    </div>
+                    <span class="als-next"><img src="images/thin_right_arrow_333.png" alt="next" title="next" /></span>
+                  </div>
 
                 </div>
 
@@ -283,12 +252,47 @@
 </html>
 
 <script>
-  // By default, swipe is enabled.
-  $('section').horizon();
-  // If you do not want to include another plugin, TouchSwipe, you can set it to false in the default options by passing in the option as false.
-  //$('section').horizon({swipe: false});
-  $(document).on('click', '.go-to-2', function () {
-      $(document).horizon('scrollTo', 'section-section2');
-  });
 
+$(document).ready(function() 
+			{
+				$("#lista1").als({
+					visible_items: 4,
+					scrolling_items: 2,
+					orientation: "horizontal",
+					circular: "yes",
+					autoscroll: "no",
+					interval: 5000,
+					speed: 500,
+					easing: "linear",
+					direction: "right",
+					start_from: 0
+				});
+				
+				$("#lista2").als({
+					visible_items: 2,
+					scrolling_items: 1,
+					orientation: "vertical",
+					circular: "yes",
+					autoscroll: "no",
+					start_from: 1
+				});
+				
+				//logo hover
+				$("#logo_img").hover(function()
+				{
+					$(this).attr("src","images/als_logo_hover212x110.png");
+				},function()
+				{
+					$(this).attr("src","images/als_logo212x110.png");
+				});
+				
+				//logo click
+				$("#logo_img").click(function()
+				{
+					location.href = "http://als.musings.it/index.php";
+				});
+				
+				$("a[href^='http://']").attr("target","_blank");
+				$("a[href^='http://als']").attr("target","_self");
+			});
 </script>
