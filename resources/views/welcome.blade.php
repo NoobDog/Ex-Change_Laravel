@@ -276,7 +276,6 @@
           <input type="text" class="searchTerm"/>
           <button class="myButton">Search</button>
         </form>
-        <div class="flex-center position-ref full-height">
             <div class="content">
                 <div class="title m-b-md">
                   <i class="fa fa-book" aria-hidden="true"></i>
@@ -286,30 +285,27 @@
 
                   @endif
                 </div>
-            <div style="text-align:center;">
-              <div id="wrapper">
-                <div id="carousel">
-                  <ul>
-                    <li><span>Image1</span></li>
-                    <li><span>Image2</span></li>
-                    <li><span>Image3</span></li>
-                    <li><span>Image4</span></li>
-                    <li><span>Image5</span></li>
-                    <li><span>Image6</span></li>					
-                  </ul>
-                  <div class="clearfix"></div>
-                  <a id="prev" class="prev" href="#">&lt;</a>
-                  <a id="next" class="next" href="#">&gt;</a>
-                  <div id="pager" class="pager"></div>
+                <div style="text-align:center;">
+                  <div id="wrapper">
+                    <div id="carousel">
+                      <ul>
+                        <li><span>Image1</span></li>
+                        <li><span>Image2</span></li>
+                        <li><span>Image3</span></li>
+                        <li><span>Image4</span></li>
+                        <li><span>Image5</span></li>
+                        <li><span>Image6</span></li>					
+                      </ul>
+                      <div class="clearfix"></div>
+                      <a id="prev" class="prev" href="#">&lt;</a>
+                      <a id="next" class="next" href="#">&gt;</a>
+                      <div id="pager" class="pager"></div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-
-
-
 
             </div>
-        </div>
+      
     </body>
 </html>
 <script>
