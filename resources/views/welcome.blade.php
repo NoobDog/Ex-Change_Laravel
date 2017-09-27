@@ -266,33 +266,49 @@
                         </div>
                     </span>
                   </div> -->
+                  <div class="wrap">
+                    <div class="scrollbar">
+                      <div class="handle">
+                        <div class="mousearea"></div>
+                      </div>
+                    </div>
 
-<div class="pagespan container">
-		<div class="wrap">
-
-			<div class="scrollbar">
-				<div class="handle">
-					<div class="mousearea"></div>
-				</div>
-			</div>
-
-			<div class="frame" id="cyclepages">
-				<ul class="clearfix">
-					<li>Menu 0</li><li>Menu 1</li><li>Menu 2</li><li>Menu 3</li><li>Menu 4</li><li>Menu 5</li><li>Menu 6</li><li>Menu 7</li>
-					<li>Menu 8</li><li>Menu 9</li><li>Menu 10</li><li>Menu 11</li><li>Menu 12</li><li>Menu 13</li><li>Menu 14</li><li>Menu 15</li>
-					<li>Menu 16</li><li>Menu 17</li><li>Menu 18</li><li>Menu 19</li><li>Menu 20</li><li>Menu 21</li><li>Menu 22</li><li>Menu 23</li>
-					<li>Menu 24</li><li>Menu 25</li><li>Menu 26</li><li>Menu 27</li><li>Menu 28</li><li>Menu 29</li>
-				</ul>
-			</div>
-
-			<ul class="pages"></ul>
-
-			<div class="controls center">
-				<button class="btn prevPage"><i class="icon-chevron-left"></i><i class="icon-chevron-left"></i> Previous</button>
-				<button class="btn nextPage">Next <i class="icon-chevron-right"></i><i class="icon-chevron-right"></i></button>
-			</div>
-		</div>
-	</div>
+                    <div class="frame" id="basic">
+                      <ul class="clearfix">
+                        <li>0</li>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li>7</li>
+                        <li>8</li>
+                        <li>9</li>
+                        <li>10</li>
+                        <li>11</li>
+                        <li>12</li>
+                        <li>13</li>
+                        <li>14</li>
+                        <li>15</li>
+                        <li>16</li>
+                        <li>17</li>
+                        <li>18</li>
+                        <li>19</li>
+                        <li>20</li>
+                        <li>21</li>
+                        <li>22</li>
+                        <li>23</li>
+                        <li>24</li>
+                        <li>25</li>
+                        <li>26</li>
+                        <li>27</li>
+                        <li>28</li>
+                        <li>29</li>
+                      </ul>
+                    </div>
+                    <ul class="pages"></ul>
+                  </div>
 
 
 
