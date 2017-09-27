@@ -8,6 +8,9 @@
         <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
         <!-- sly -->
         <script src="{{ asset('js/sly.js') }}"></script>
+        <script src="{{ asset('js/jquery-easing.js') }}"></script>
+        <script src="{{ asset('js/horizontal.js') }}"></script>
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <!--Font awesome-->
@@ -710,6 +713,5 @@
       });
     }());
   });
-
 
 </script>
