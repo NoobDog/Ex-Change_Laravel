@@ -289,12 +289,15 @@
                   <div id="wrapper">
                     <div id="carousel">
                       <ul>
-                        <li><span>Image1</span></li>
+                        <!-- <li><span>Image1</span></li>
                         <li><span>Image2</span></li>
                         <li><span>Image3</span></li>
                         <li><span>Image4</span></li>
                         <li><span>Image5</span></li>
-                        <li><span>Image6</span></li>					
+                        <li><span>Image6</span></li>					 -->
+                        @foreach ($books => $book) 
+                        <li> <img src="{{asset('users').$book['bookImage']}}"><span>{{$book['bookName']}}</span></li>
+                        @endforeach
                       </ul>
                       <div class="clearfix"></div>
                       <a id="prev" class="prev" href="#">&lt;</a>
