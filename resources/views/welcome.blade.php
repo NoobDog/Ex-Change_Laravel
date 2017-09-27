@@ -11,8 +11,8 @@
         <script src="{{ asset('js/jquery-easing.js') }}"></script>
         <script src="{{ asset('js/horizontal.js') }}"></script>
         <script src="{{ asset('js/modernizr.js') }}"></script>
-        <script type="text/javascript" src="{{asset('js/jquery-2.1.1.min.js')}}"></script>
-		    <script type="text/javascript" src="{{asset('js/jquery.als-1.7.min.js')}}"></script>
+        <script src="{{asset('js/jquery-2.1.1.min.js')}}"></script>
+		    <script src="{{asset('js/jquery.als-1.7.min.js')}}"></script>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -280,19 +280,17 @@ $(document).ready(function()
 				//logo hover
 				$("#logo_img").hover(function()
 				{
-					$(this).attr("src","images/als_logo_hover212x110.png");
+					
 				},function()
 				{
-					$(this).attr("src","images/als_logo212x110.png");
+			
 				});
 				
 				//logo click
 				$("#logo_img").click(function()
 				{
-					location.href = "http://als.musings.it/index.php";
+
 				});
-				
-				$("a[href^='http://']").attr("target","_blank");
-				$("a[href^='http://als']").attr("target","_self");
+
 			});
 </script>
