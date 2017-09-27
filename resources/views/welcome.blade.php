@@ -11,9 +11,6 @@
         <script src="{{ asset('js/jquery-easing.js') }}"></script>
         <script src="{{ asset('js/horizontal.js') }}"></script>
         <script src="{{ asset('js/modernizr.js') }}"></script>
-        <script src="{{asset('js/jquery-2.1.1.min.js')}}"></script>
-		    <script src="{{asset('js/jquery.als-1.7.min.js')}}"></script>
-
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <!--Font awesome-->
@@ -222,27 +219,28 @@
                 <div>
                   {{print_r($books)}}
 
-                  <!-- <div id="lista1" class="als-container">
-                    <span class="als-prev"><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
-                    <div class="als-viewport">
-                      <ul class="als-wrapper">
-                        <li class="als-item"><i class="fa fa-bath" aria-hidden="true"></i>calculator</li>
-                        <li class="als-item"><i class="fa fa-bath" aria-hidden="true"></i>light bulb</li>
-                        <li class="als-item"><i class="fa fa-bath" aria-hidden="true"></i>card</li>
-                        <li class="als-item"><i class="fa fa-bath" aria-hidden="true"></i>chess</li>
-                        <li class="als-item"><i class="fa fa-bath" aria-hidden="true"></i>alarm clock</li>
-                        <li class="als-item"><i class="fa fa-bath" aria-hidden="true"></i>scissors</li>
-                        <li class="als-item"><i class="fa fa-bath" aria-hidden="true"></i>heart</li>
-                        <li class="als-item"><i class="fa fa-bath" aria-hidden="true"></i>pin</li>
-                        <li class="als-item"><i class="fa fa-bath" aria-hidden="true"></i>mobile phone</li>
-                        <li class="als-item"><i class="fa fa-bath" aria-hidden="true"></i>camera</li>
-                        <li class="als-item"><i class="fa fa-bath" aria-hidden="true"></i>music note</li>
-                        <li class="als-item"><i class="fa fa-bath" aria-hidden="true"></i>umbrella</li>
-                        <li class="als-item"><i class="fa fa-bath" aria-hidden="true"></i>television</li>
-                      </ul>
-                    </div>
-                    <span class="als-next"><i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+                  <!-- <div class="items">
+                    <span class="thumbnail">
+                        <img src="http://placehold.it/500x400" alt="...">
+                        <h4>Product Tittle</h4>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+                        <hr class="line">
+                        <div class="row">
+                          <div class="col-md-6 col-sm-6">
+                            <p class="price">$29,90</p>
+                          </div>
+                          <div class="col-md-6 col-sm-6">
+                            <button class="btn btn-success right" > BUY ITEM</button>
+                          </div>
+
+                        </div>
+                    </span>
                   </div> -->
+
+
+
+
+
 
                 </div>
 
@@ -253,44 +251,5 @@
 
 <script>
 
-$(document).ready(function() 
-			{
-				$("#lista1").als({
-					visible_items: 4,
-					scrolling_items: 2,
-					orientation: "horizontal",
-					circular: "yes",
-					autoscroll: "no",
-					interval: 5000,
-					speed: 500,
-					easing: "linear",
-					direction: "right",
-					start_from: 0
-				});
-				
-				$("#lista2").als({
-					visible_items: 2,
-					scrolling_items: 1,
-					orientation: "vertical",
-					circular: "yes",
-					autoscroll: "no",
-					start_from: 1
-				});
-				
-				//logo hover
-				$("#logo_img").hover(function()
-				{
-					
-				},function()
-				{
-			
-				});
-				
-				//logo click
-				$("#logo_img").click(function()
-				{
 
-				});
-
-			});
 </script>
