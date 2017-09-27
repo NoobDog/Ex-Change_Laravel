@@ -6,12 +6,6 @@
         <title>Ex-change</title>
         <link rel="icon" type="image/png" href="{{asset('favicon.png')}}"/>
         <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
-        <!-- sly -->
-        <script src="{{ asset('js/sly.js') }}"></script>
-        <script src="{{ asset('js/jquery-easing.js') }}"></script>
-        <script src="{{ asset('js/horizontal.js') }}"></script>
-        <script src="{{ asset('js/modernizr.js') }}"></script>
-
 
         <!-- include carouFredSel plugin -->
         <script type="text/javascript" language="javascript" src="{{asset('js/jquery.carouFredSel-6.2.1-packed.js')}}"></script>
@@ -138,71 +132,71 @@
             top:1px;
             }
 
-
+            /*  */
             .wrapper {
-				background-color: white;
-				width: 480px;
-				margin: 40px auto;
-				padding: 50px;
-				box-shadow: 0 0 5px #999;
-			}
-			.list_carousel {
-				background-color: #ccc;
-				margin: 0 0 30px 60px;
-				width: 360px;
-			}
-			.list_carousel ul {
-				margin: 0;
-				padding: 0;
-				list-style: none;
-				display: block;
-			}
-			.list_carousel li {
-				font-size: 40px;
-				color: #999;
-				text-align: center;
-				background-color: #eee;
-				border: 5px solid #999;
-				width: 50px;
-				height: 50px;
-				padding: 0;
-				margin: 6px;
-				display: block;
-				float: left;
-			}
-			.list_carousel.responsive {
-				width: auto;
-				margin-left: 0;
-			}
-			.clearfix {
-				float: none;
-				clear: both;
-			}
-			.prev {
-				float: left;
-				margin-left: 10px;
-			}
-			.next {
-				float: right;
-				margin-right: 10px;
-			}
-			.pager {
-				float: left;
-				width: 300px;
-				text-align: center;
-			}
-			.pager a {
-				margin: 0 5px;
-				text-decoration: none;
-			}
-			.pager a.selected {
-				text-decoration: underline;
-			}
-			.timer {
-				background-color: #999;
-				height: 6px;
-				width: 0px;
-			}
+              background-color: white;
+              width: 480px;
+              margin: 40px auto;
+              padding: 50px;
+              box-shadow: 0 0 5px #999;
+            }
+            .list_carousel {
+              background-color: #ccc;
+              margin: 0 0 30px 60px;
+              width: 100%;
+            }
+            .list_carousel ul {
+              margin: 0;
+              padding: 0;
+              list-style: none;
+              display: block;
+            }
+            .list_carousel li {
+              font-size: 40px;
+              color: #999;
+              text-align: center;
+              background-color: #eee;
+              border: 5px solid #999;
+              width: 50px;
+              height: 50px;
+              padding: 0;
+              margin: 6px;
+              display: block;
+              float: left;
+            }
+            .list_carousel.responsive {
+              width: auto;
+              margin-left: 0;
+            }
+            .clearfix {
+              float: none;
+              clear: both;
+            }
+            .prev {
+              float: left;
+              margin-left: 10px;
+            }
+            .next {
+              float: right;
+              margin-right: 10px;
+            }
+            .pager {
+              float: left;
+              width: 300px;
+              text-align: center;
+            }
+            .pager a {
+              margin: 0 5px;
+              text-decoration: none;
+            }
+            .pager a.selected {
+              text-decoration: underline;
+            }
+            .timer {
+              background-color: #999;
+              height: 6px;
+              width: 0px;
+            }
         </style>
     </head>
 
@@ -225,7 +219,7 @@
 
 
                 <div class="list_carousel">
-                  <ul id="foo2">
+                  <ul id="foo">
                     <li>c</li>
                     <li>a</li>
                     <li>r</li>
@@ -255,9 +249,8 @@
 </html>
 <script>
 		$(function() {
-
-				//	Scrolled by user interaction
-				$('#foo2').carouFredSel({
+				//Scrolled by user interaction
+				$('#foo').carouFredSel({
 					auto: false,
 					prev: '#prev2',
 					next: '#next2',
@@ -268,6 +261,5 @@
 						onTouch: true
 					}
 				});
-
 			});
 </script>
