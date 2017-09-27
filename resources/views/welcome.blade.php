@@ -122,7 +122,7 @@
             top:1px;
             }
         </style>
-    </head> 
+    </head>
 
     <body>
         @include('header')
@@ -136,10 +136,10 @@
                   <i class="fa fa-ravelry" aria-hidden="true"></i>
                   @if (Session::has('userName'))
                   {{Session::get('userName')}}
-                  {{print_r($books);}}
+                  {{print_r($books)}}
 
                   @else
-                  {{print_r($books);}}
+                  {{print_r($books)}}
 
                   @endif
                 </div>
