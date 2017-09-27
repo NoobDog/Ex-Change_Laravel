@@ -136,12 +136,15 @@
                   <i class="fa fa-ravelry" aria-hidden="true"></i>
                   @if (Session::has('userName'))
                   {{Session::get('userName')}}
-                  {{print_r($books)}}
+
 
                   @else
-                  {{print_r($books)}}
+
 
                   @endif
+                </div>
+                <div>
+                  {{print_r($books)}}
                 </div>
 
             </div>
