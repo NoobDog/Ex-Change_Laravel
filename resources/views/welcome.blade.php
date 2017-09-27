@@ -47,6 +47,8 @@
                 top: 18px;
             }
             .content {
+                height: 100%;
+                width: 100%;
                 text-align: center;
                 position: absolute;
             }
@@ -134,7 +136,7 @@
 
             /*  */
             #wrapper {
-              width: 735px;
+              width: 100%;
               height: 220px;
               margin: -110px 0 0 -367px;
               position: absolute;
@@ -143,7 +145,7 @@
             }
 
             #carousel {
-              width: 735px;
+              width: 100%;
               position:vrelative;
             }
             #carousel ul {
