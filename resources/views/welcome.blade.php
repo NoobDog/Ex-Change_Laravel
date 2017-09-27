@@ -6,6 +6,8 @@
         <title>Ex-change</title>
         <link rel="icon" type="image/png" href="{{asset('favicon.png')}}"/>
         <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+        <!-- sly -->
+        <script src="{{ asset('js/sly.js') }}"></script>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <!--Font awesome-->
@@ -39,6 +41,7 @@
             }
             .content {
                 text-align: center;
+                position: absolute;
             }
             .title {
                 font-size: 84px;
@@ -145,17 +148,11 @@
                 </div>
                 <div>
                   {{print_r($books)}}
-                  <div class="col-md-3 col-sm-6">
+
+                  <!-- <div class="items">
                     <span class="thumbnail">
                         <img src="http://placehold.it/500x400" alt="...">
                         <h4>Product Tittle</h4>
-                        <div class="ratings">
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star-empty"></span>
-                            </div>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
                         <hr class="line">
                         <div class="row">
@@ -168,7 +165,83 @@
 
                         </div>
                     </span>
-                  </div>
+                  </div> -->
+<div class="wrap">
+  <div class="scrollbar">
+    <div class="handle">
+      <div class="mousearea"></div>
+    </div>
+  </div>
+
+  <div class="frame" id="basic">
+    <ul class="clearfix">
+      <li>0</li>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+      <li>9</li>
+      <li>10</li>
+      <li>11</li>
+      <li>12</li>
+      <li>13</li>
+      <li>14</li>
+      <li>15</li>
+      <li>16</li>
+      <li>17</li>
+      <li>18</li>
+      <li>19</li>
+      <li>20</li>
+      <li>21</li>
+      <li>22</li>
+      <li>23</li>
+      <li>24</li>
+      <li>25</li>
+      <li>26</li>
+      <li>27</li>
+      <li>28</li>
+      <li>29</li>
+    </ul>
+  </div>
+
+  <ul class="pages"></ul>
+
+  <div class="controls center">
+    <button class="btn prevPage"><i class="icon-chevron-left"></i><i class="icon-chevron-left"></i> page</button>
+    <button class="btn prev"><i class="icon-chevron-left"></i> item</button>
+    <button class="btn backward"><i class="icon-chevron-left"></i> move</button>
+
+    <div class="btn-group">
+      <button class="btn toStart">toStart</button>
+      <button class="btn toCenter">toCenter</button>
+      <button class="btn toEnd">toEnd</button>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn toStart" data-item="10"><strong>10</strong> toStart</button>
+      <button class="btn toCenter" data-item="10"><strong>10</strong> toCenter</button>
+      <button class="btn toEnd" data-item="10"><strong>10</strong> toEnd</button>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn add"><i class="icon-plus-sign"></i></button>
+      <button class="btn remove"><i class="icon-minus-sign"></i></button>
+    </div>
+
+    <button class="btn forward">move <i class="icon-chevron-right"></i></button>
+    <button class="btn next">item <i class="icon-chevron-right"></i></button>
+    <button class="btn nextPage">page <i class="icon-chevron-right"></i><i class="icon-chevron-right"></i></button>
+  </div>
+</div>
+
+
+
+
+
                 </div>
 
             </div>
