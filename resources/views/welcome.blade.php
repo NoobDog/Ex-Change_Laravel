@@ -286,7 +286,7 @@
 
                   @endif
                 </div>
-
+            <div style="text-align:center;">
               <div id="wrapper">
                 <div id="carousel">
                   <ul>
@@ -303,6 +303,7 @@
                   <div id="pager" class="pager"></div>
                 </div>
               </div>
+            </div>
 
 
 
@@ -312,14 +313,12 @@
     </body>
 </html>
 <script>
-			$(function() {
-        
-                $('#carousel ul').carouFredSel({
-                  prev: '#prev',
-                  next: '#next',
-                  pagination: "#pager",
-                  scroll: 1000
-                });
-          
-              });
+  $(function() {
+    $('#carousel ul').carouFredSel({
+      prev: '#prev',
+      next: '#next',
+      pagination: "#pager",
+      scroll: 1000
+    });
+  });
 </script>
