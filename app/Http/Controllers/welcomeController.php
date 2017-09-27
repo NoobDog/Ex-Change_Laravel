@@ -11,9 +11,10 @@ class welcomeController extends Controller
 {
 
 		public function index() {
-		    	 //$users = DB::select('select * from dbo.users where userID = ?', [1]);
-					 \View::share(['page_name_active'=> 'home']);
-           //$users = json_decode(json_encode($users),true);
+		    	 $books = DB::select('select * from books');
+					 $books = json_decode(json_encode($books),true);
+					 \View::share(['page_name_active'=> 'home','books'=>$books]);
+
            return \View::make('welcome');
     }
         public function logout() {
