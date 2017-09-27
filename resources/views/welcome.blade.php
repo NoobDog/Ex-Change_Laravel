@@ -11,6 +11,10 @@
         <script src="{{ asset('js/jquery-easing.js') }}"></script>
         <script src="{{ asset('js/horizontal.js') }}"></script>
         <script src="{{ asset('js/modernizr.js') }}"></script>
+
+
+        <script src="{{ asset('js/horizonScroll.js') }}"></script>
+        <script src="{{ asset('js/touchSwipe.js') }}"></script>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <!--Font awesome-->
