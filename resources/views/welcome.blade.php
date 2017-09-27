@@ -11,6 +11,16 @@
         <script src="{{ asset('js/jquery-easing.js') }}"></script>
         <script src="{{ asset('js/horizontal.js') }}"></script>
         <script src="{{ asset('js/modernizr.js') }}"></script>
+
+
+        <!-- include carouFredSel plugin -->
+        <script type="text/javascript" language="javascript" src="{{asset('jquery.carouFredSel-6.2.1-packed.js')}}"></script>
+
+        <!-- optionally include helper plugins -->
+        <script type="text/javascript" language="javascript" src="{{asset('jquery.mousewheel.min.js')}}"></script>
+        <script type="text/javascript" language="javascript" src="{{asset('jquery.touchSwipe.min.js')}}"></script>
+        <script type="text/javascript" language="javascript" src="{{asset('jquery.transit.min.js')}}"></script>
+        <script type="text/javascript" language="javascript" src="{{asset('jquery.ba-throttle-debounce.min.js')}}"></script>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <!--Font awesome-->
@@ -129,7 +139,70 @@
             }
 
 
-           
+            .wrapper {
+				background-color: white;
+				width: 480px;
+				margin: 40px auto;
+				padding: 50px;
+				box-shadow: 0 0 5px #999;
+			}
+			.list_carousel {
+				background-color: #ccc;
+				margin: 0 0 30px 60px;
+				width: 360px;
+			}
+			.list_carousel ul {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				display: block;
+			}
+			.list_carousel li {
+				font-size: 40px;
+				color: #999;
+				text-align: center;
+				background-color: #eee;
+				border: 5px solid #999;
+				width: 50px;
+				height: 50px;
+				padding: 0;
+				margin: 6px;
+				display: block;
+				float: left;
+			}
+			.list_carousel.responsive {
+				width: auto;
+				margin-left: 0;
+			}
+			.clearfix {
+				float: none;
+				clear: both;
+			}
+			.prev {
+				float: left;
+				margin-left: 10px;
+			}
+			.next {
+				float: right;
+				margin-right: 10px;
+			}
+			.pager {
+				float: left;
+				width: 300px;
+				text-align: center;
+			}
+			.pager a {
+				margin: 0 5px;
+				text-decoration: none;
+			}
+			.pager a.selected {
+				text-decoration: underline;
+			}
+			.timer {
+				background-color: #999;
+				height: 6px;
+				width: 0px;
+			}
         </style>
     </head>
 
@@ -151,29 +224,28 @@
                 </div>
 
 
-                <div class="wrap">
-                  <h2>Centered <small>- activated or middle item is centered when possible</small></h2>
-
-                  <div class="scrollbar">
-                    <div class="handle">
-                      <div class="mousearea"></div>
-                    </div>
-                  </div>
-
-                  <div class="frame" id="centered">
-                    <ul class="clearfix">
-                      <li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li>
-                      <li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li><li>18</li>
-                      <li>19</li><li>20</li><li>21</li><li>22</li><li>23</li><li>24</li><li>25</li><li>26</li><li>27</li>
-                      <li>28</li><li>29</li>
-                    </ul>
-                  </div>
-
-                  <div class="controls center">
-                    <button class="btn prev"><i class="icon-chevron-left"></i> prev</button>
-                    <button class="btn next">next <i class="icon-chevron-right"></i></button>
-                  </div>
+                <div class="list_carousel">
+                  <ul id="foo2">
+                    <li>c</li>
+                    <li>a</li>
+                    <li>r</li>
+                    <li>o</li>
+                    <li>u</li>
+                    <li>F</li>
+                    <li>r</li>
+                    <li>e</li>
+                    <li>d</li>
+                    <li>S</li>
+                    <li>e</li>
+                    <li>l</li>
+                    <li> </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                  <a id="prev2" class="prev" href="#">&lt;</a>
+                  <a id="next2" class="next" href="#">&gt;</a>
+                  <div id="pager2" class="pager"></div>
                 </div>
+
 
 
 
@@ -182,12 +254,20 @@
     </body>
 </html>
 <script>
-var options = {
-	horizontal: 1,
-	itemNav: 'basic',
-	speed: 300,
-	mouseDragging: 1,
-	touchDragging: 1
-};
-var frame = new Sly('#frame', options).init();
+		$(function() {
+
+				//	Scrolled by user interaction
+				$('#foo2').carouFredSel({
+					auto: false,
+					prev: '#prev2',
+					next: '#next2',
+					pagination: "#pager2",
+					mousewheel: true,
+					swipe: {
+						onMouse: true,
+						onTouch: true
+					}
+				});
+
+			});
 </script>
