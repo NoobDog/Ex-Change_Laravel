@@ -127,11 +127,7 @@
 
 
 
-            /* Example wrapper */
-            .wrap {
-              position: relative;
-              margin: 3em 0;
-            }
+
             /* Frame */
             .frame {
               height: 250px;
