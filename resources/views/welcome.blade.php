@@ -296,8 +296,8 @@
                         <li><span>Image4</span></li>
                         <li><span>Image5</span></li>
                         <li><span>Image6</span></li>					
-                        @foreach ($books => $bookContent)
-                          @foreach ($bookContent => $book) 
+                        @foreach ($books as $id => $bookContent)
+                          @foreach ($bookContent $bookID => $book) 
                           <li> <img src="{{asset('users').$book['bookImage']}}"><span>{{$book['bookName']}}</span></li>
                           @endforeach
                         @endforeach
@@ -305,6 +305,7 @@
                       <div class="clearfix"></div>
                       <a id="prev" class="prev" href="#">&lt;</a>
                       <a id="next" class="next" href="#">&gt;</a>
+                      <br>
                       <div id="pager" class="pager"></div>
                     </div>
                   </div>
