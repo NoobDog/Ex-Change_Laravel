@@ -13,7 +13,7 @@ class welcomeController extends Controller
 		public function index() {
 		    	 $books = DB::select('select * from books');
 					 $books = json_decode(json_encode($books),true);
-					 \View::share(['page_name_active'=> 'home','books'=>$books[0]]);
+					 \View::share(['page_name_active'=> 'home','books'=>$books]);
 
            return \View::make('welcome'); 
     }
