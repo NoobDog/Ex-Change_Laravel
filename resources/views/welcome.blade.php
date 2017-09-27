@@ -295,8 +295,10 @@
                         <li><span>Image4</span></li>
                         <li><span>Image5</span></li>
                         <li><span>Image6</span></li>					 -->
-                        @foreach ($books => $book) 
-                        <li> <img src="{{asset('users').$book['bookImage']}}"><span>{{$book['bookName']}}</span></li>
+                        @foreach ($books => $bookContent)
+                          @foreach ($bookContent => $book) 
+                          <li> <img src="{{asset('users').$book['bookImage']}}"><span>{{$book['bookName']}}</span></li>
+                          @endforeach
                         @endforeach
                       </ul>
                       <div class="clearfix"></div>
