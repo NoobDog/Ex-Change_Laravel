@@ -15,7 +15,7 @@ class welcomeController extends Controller
 					 $books = json_decode(json_encode($books),true);
 					 \View::share(['page_name_active'=> 'home','books'=>$books]);
 
-           return \View::make('welcome');
+           return \View::make('welcome'); 
     }
         public function logout() {
           Session::flush();
