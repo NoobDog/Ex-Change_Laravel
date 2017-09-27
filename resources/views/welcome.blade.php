@@ -129,71 +129,7 @@
             }
 
 
-            header ul {
-                margin: 0;
-                padding: 0;
-                list-style: none;
-            }
-
-            header ul li {
-                display: inline-block;
-                padding: 0 20px;
-            }
-
-            header ul a {
-                font-weight: 700;
-                text-decoration: none;
-                color: #4d4d4d;
-                height: 50px;
-                display: block;
-                position: relative;
-            }
-
-            header ul a span {
-                position: relative;
-                top: 50%;
-                transform: translateY(-50%);
-                display: inline-block;
-            }
-
-            section {
-                float: left;
-                display: block;
-                height: 100%;
-                padding: 75px 0 0 0;
-                margin: 0;
-            }
-
-            #section-section1 {
-                background: #2c3e50;
-            }
-
-            #section-section2 {
-                background: #16a085;
-            }
-
-            #section-section3 {
-                background: #27ae60;
-            }
-
-            #section-section4 {
-                background: #c0392b;
-            }
-
-            .horizon-prev, .horizon-next {
-                position: fixed;
-                top: 50%;
-                margin-top: -24px;
-                z-index: 9999;
-            }
-
-            .horizon-prev {
-                left: 20px;
-            }
-
-            .horizon-next {
-                right: 20px;
-            }
+           
         </style>
     </head>
 
@@ -209,47 +145,12 @@
                   <i class="fa fa-book" aria-hidden="true"></i>
                   @if (Session::has('userName'))
                   {{Session::get('userName')}}
-
-
                   @else
 
-
                   @endif
-                </div>
-                <div>
-                  {{print_r($books)}}
-
-                  <!-- <div class="items">
-                    <span class="thumbnail">
-                        <img src="http://placehold.it/500x400" alt="...">
-                        <h4>Product Tittle</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                        <hr class="line">
-                        <div class="row">
-                          <div class="col-md-6 col-sm-6">
-                            <p class="price">$29,90</p>
-                          </div>
-                          <div class="col-md-6 col-sm-6">
-                            <button class="btn btn-success right" > BUY ITEM</button>
-                          </div>
-
-                        </div>
-                    </span>
-                  </div> -->
-
-
-
-
-
-
                 </div>
 
             </div>
         </div>
     </body>
 </html>
-
-<script>
-
-
-</script>
