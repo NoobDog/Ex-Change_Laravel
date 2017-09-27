@@ -1,5 +1,4 @@
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
 <style>
 ul {
     list-style-type: none;
