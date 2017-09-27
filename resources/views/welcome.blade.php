@@ -310,7 +310,7 @@
             </div>
 
               @foreach ($books as $bookID => $book) 
-             {{$book['bookName']}}
+             {{$book}}
           
             @endforeach
     </body>
