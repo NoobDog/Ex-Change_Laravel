@@ -14,13 +14,13 @@
 
 
         <!-- include carouFredSel plugin -->
-        <script type="text/javascript" language="javascript" src="{{asset('jquery.carouFredSel-6.2.1-packed.js')}}"></script>
+        <script type="text/javascript" language="javascript" src="{{asset('js/jquery.carouFredSel-6.2.1-packed.js')}}"></script>
 
         <!-- optionally include helper plugins -->
-        <script type="text/javascript" language="javascript" src="{{asset('jquery.mousewheel.min.js')}}"></script>
-        <script type="text/javascript" language="javascript" src="{{asset('jquery.touchSwipe.min.js')}}"></script>
-        <script type="text/javascript" language="javascript" src="{{asset('jquery.transit.min.js')}}"></script>
-        <script type="text/javascript" language="javascript" src="{{asset('jquery.ba-throttle-debounce.min.js')}}"></script>
+        <script type="text/javascript" language="javascript" src="{{asset('js/jquery.mousewheel.min.js')}}"></script>
+        <script type="text/javascript" language="javascript" src="{{asset('js/jquery.touchSwipe.min.js')}}"></script>
+        <script type="text/javascript" language="javascript" src="{{asset('js/jquery.transit.min.js')}}"></script>
+        <script type="text/javascript" language="javascript" src="{{asset('js/jquery.ba-throttle-debounce.min.js')}}"></script>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <!--Font awesome-->
