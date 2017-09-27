@@ -122,7 +122,7 @@
             top:1px;
             }
         </style>
-    </head>
+    </head> 
 
     <body>
         @include('header')

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Session;
 use Illuminate\Http\RedirectResponse;
 class welcomeController extends Controller
-{
+{ 
 
 		public function index() {
 		    	 $books = DB::select('select * from books');
