@@ -222,7 +222,7 @@
                 <div>
                   {{print_r($books)}}
 
-                  <div id="lista1" class="als-container">
+                  <!-- <div id="lista1" class="als-container">
                     <span class="als-prev"><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
                     <div class="als-viewport">
                       <ul class="als-wrapper">
@@ -242,7 +242,7 @@
                       </ul>
                     </div>
                     <span class="als-next"><i class="fa fa-arrow-right" aria-hidden="true"></i></span>
-                  </div>
+                  </div> -->
 
                 </div>
 
