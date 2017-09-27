@@ -133,7 +133,7 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <div class="title m-b-md">
-                  <i class="fa fa-ravelry" aria-hidden="true"></i>
+                  <i class="fa fa-book" aria-hidden="true"></i>
                   @if (Session::has('userName'))
                   {{Session::get('userName')}}
 
@@ -145,6 +145,30 @@
                 </div>
                 <div>
                   {{print_r($books)}}
+                  <div class="col-md-3 col-sm-6">
+                    <span class="thumbnail">
+                        <img src="http://placehold.it/500x400" alt="...">
+                        <h4>Product Tittle</h4>
+                        <div class="ratings">
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </div>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+                        <hr class="line">
+                        <div class="row">
+                          <div class="col-md-6 col-sm-6">
+                            <p class="price">$29,90</p>
+                          </div>
+                          <div class="col-md-6 col-sm-6">
+                            <button class="btn btn-success right" > BUY ITEM</button>
+                          </div>
+
+                        </div>
+                    </span>
+                  </div>
                 </div>
 
             </div>
