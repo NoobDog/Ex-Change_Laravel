@@ -133,69 +133,137 @@
             }
 
             /*  */
-            .wrapper {
-              background-color: white;
-              width: 480px;
-              margin: 40px auto;
-              padding: 50px;
-              box-shadow: 0 0 5px #999;
+            #wrapper {
+              width: 735px;
+              height: 220px;
+              margin: -110px 0 0 -367px;
+              position: absolute;
+              left: 50%;
+              top: 50%;
             }
-            .list_carousel {
-              background-color: #ccc;
-              margin: 0 0 30px 60px;
-              width: 100%;
+
+            #carousel {
+              width: 735px;
+              position:vrelative;
             }
-            .list_carousel ul {
-              margin: 0;
-              padding: 0;
+            #carousel ul {
               list-style: none;
               display: block;
+              margin: 0;
+              padding: 0;
             }
-            .list_carousel li {
+            #carousel li {
+              background: transparent url({{asset('img/carousel_polaroid.png')}}) no-repeat 0 0;
               font-size: 40px;
               color: #999;
               text-align: center;
-              background-color: #eee;
-              border: 5px solid #999;
-              width: 50px;
-              height: 50px;
+              display: block;
+              width: 232px;
+              height: 178px;
               padding: 0;
               margin: 6px;
-              display: block;
               float: left;
+              position: relative;
             }
-            .list_carousel.responsive {
-              width: auto;
-              margin-left: 0;
+
+            #carousel li img {
+              width: 201px;
+              height: 127px;
+              margin-top: 14px;
             }
+            
+            #carousel li span {
+              background: transparent url({{asset('img/carousel_shine.png')}}) no-repeat 0 0;
+              text-indent: -999px;
+              display: block;
+              overflow: hidden;
+              width: 201px;
+              height: 127px;
+              position: absolute;
+              z-index: 2;
+              top: 14px;
+              left: 16px;
+            }			
+
             .clearfix {
               float: none;
               clear: both;
             }
-            .prev {
-              float: left;
+            #carousel .prev, #carousel .next {
+              background: transparent url({{asset('img/carousel_control.png')}}) no-repeat 0 0;
+              text-indent: -999px;
+              display: block;
+              overflow: hidden;
+              width: 15px;
+              height: 21px;
               margin-left: 10px;
+              position: absolute;
+              top: 70px;				
             }
-            .next {
-              float: right;
-              margin-right: 10px;
+            #carousel .prev {
+              background-position: 0 0;
+              left: -30px;
             }
-            .pager {
-              float: left;
-              width: 300px;
+            #carousel .prev:hover {
+              left: -31px;
+            }			
+            #carousel .next {
+              background-position: -18px 0;
+              right: -20px;
+            }
+            #carousel .next:hover {
+              right: -21px;
+            }				
+            #carousel .pager {
               text-align: center;
+              margin: 0 auto;
             }
-            .pager a {
-              margin: 0 5px;
+            #carousel .pager a {
+              background: transparent url({{asset('img/carousel_control.png')}}) no-repeat -2px -32px;
               text-decoration: none;
+              text-indent: -999px;
+              display: inline-block;
+              overflow: hidden;
+              width: 8px;
+              height: 8px;
+              margin: 0 5px 0 0;
             }
-            .pager a.selected {
-              text-decoration: underline;
+            #carousel .pager a.selected {
+              background: transparent url({{asset('img/carousel_control.png')}}) no-repeat -12px -32px;
+              text-decoration: underline;				
             }
-            .timer {
-              background-color: #999;
-              height: 6px;
-              width: 0px;
+            
+            #source {
+              text-align: center;
+              width: 100%;
+              position: absolute;
+              bottom: 10px;
+              left: 0;
+            }
+            #source, #source a {
+              font-size: 12px;
+              color: #999;
+            }
+            
+            #donate-spacer {
+              height: 100%;
+            }
+            #donate {
+              border-top: 1px solid #999;
+              width: 750px;
+              padding: 50px 75px;
+              margin: 0 auto;
+              overflow: hidden;
+            }
+            #donate p, #donate form {
+              margin: 0;
+              float: left;
+            }
+            #donate p {
+              width: 650px;
+            }
+            #donate form {
+              width: 100px;
             }
         </style>
     </head>
@@ -217,28 +285,22 @@
                   @endif
                 </div>
 
-
-                <div class="list_carousel">
-                  <ul id="foo">
-                    <li>c</li>
-                    <li>a</li>
-                    <li>r</li>
-                    <li>o</li>
-                    <li>u</li>
-                    <li>F</li>
-                    <li>r</li>
-                    <li>e</li>
-                    <li>d</li>
-                    <li>S</li>
-                    <li>e</li>
-                    <li>l</li>
-                    <li> </li>
+              <div id="wrapper">
+                <div id="carousel">
+                  <ul>
+                    <li><span>Image1</span></li>
+                    <li><span>Image2</span></li>
+                    <li><span>Image3</span></li>
+                    <li><span>Image4</span></li>
+                    <li><span>Image5</span></li>
+                    <li><span>Image6</span></li>					
                   </ul>
                   <div class="clearfix"></div>
-                  <a id="prev2" class="prev" href="#">&lt;</a>
-                  <a id="next2" class="next" href="#">&gt;</a>
-                  <div id="pager2" class="pager"></div>
+                  <a id="prev" class="prev" href="#">&lt;</a>
+                  <a id="next" class="next" href="#">&gt;</a>
+                  <div id="pager" class="pager"></div>
                 </div>
+              </div>
 
 
 
@@ -248,18 +310,14 @@
     </body>
 </html>
 <script>
-		$(function() {
-				//Scrolled by user interaction
-				$('#foo').carouFredSel({
-					auto: false,
-					prev: '#prev2',
-					next: '#next2',
-					pagination: "#pager2",
-					mousewheel: true,
-					swipe: {
-						onMouse: true,
-						onTouch: true
-					}
-				});
-			});
+			$(function() {
+        
+                $('#carousel ul').carouFredSel({
+                  prev: '#prev',
+                  next: '#next',
+                  pagination: "#pager",
+                  scroll: 1000
+                });
+          
+              });
 </script>
