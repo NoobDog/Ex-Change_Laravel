@@ -223,25 +223,25 @@
                   {{print_r($books)}}
 
                   <div id="lista1" class="als-container">
-                    <span class="als-prev"><img src="images/thin_left_arrow_333.png" alt="prev" title="previous" /></span>
+                    <span class="als-prev"><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
                     <div class="als-viewport">
                       <ul class="als-wrapper">
-                        <li class="als-item"><img src="images/als-images/calculator.png" alt="calculator" title="calculator" />calculator</li>
-                        <li class="als-item"><img src="images/als-images/light_bulb.png" alt="light bulb" title="light bulb" />light bulb</li>
-                        <li class="als-item"><img src="images/als-images/card.png" alt="card" title="card" />card</li>
-                        <li class="als-item"><img src="images/als-images/chess.png" alt="chess" title="chess" />chess</li>
-                        <li class="als-item"><img src="images/als-images/clock.png" alt="alarm clock" title="alarm clock" />alarm clock</li>
-                        <li class="als-item"><img src="images/als-images/cut.png" alt="scissors" title="scissors" />scissors</li>
-                        <li class="als-item"><img src="images/als-images/heart.png" alt="heart" title="heart" />heart</li>
-                        <li class="als-item"><img src="images/als-images/map.png" alt="pin" title="pin" />pin</li>
-                        <li class="als-item"><img src="images/als-images/mobile_phone.png" alt="mobile phone" title="mobile phone" />mobile phone</li>
-                        <li class="als-item"><img src="images/als-images/camera.png" alt="camera" title="camera" />camera</li>
-                        <li class="als-item"><img src="images/als-images/music_note.png" alt="music note" title="music note" />music note</li>
-                        <li class="als-item"><img src="images/als-images/protection.png" alt="umbrella" title="umbrella" />umbrella</li>
-                        <li class="als-item"><img src="images/als-images/television.png" alt="television" title="television" />television</li>
+                        <li class="als-item"><i class="fa fa-bath" aria-hidden="true"></i>calculator</li>
+                        <li class="als-item"><i class="fa fa-bath" aria-hidden="true"></i>light bulb</li>
+                        <li class="als-item"><i class="fa fa-bath" aria-hidden="true"></i>card</li>
+                        <li class="als-item"><i class="fa fa-bath" aria-hidden="true"></i>chess</li>
+                        <li class="als-item"><i class="fa fa-bath" aria-hidden="true"></i>alarm clock</li>
+                        <li class="als-item"><i class="fa fa-bath" aria-hidden="true"></i>scissors</li>
+                        <li class="als-item"><i class="fa fa-bath" aria-hidden="true"></i>heart</li>
+                        <li class="als-item"><i class="fa fa-bath" aria-hidden="true"></i>pin</li>
+                        <li class="als-item"><i class="fa fa-bath" aria-hidden="true"></i>mobile phone</li>
+                        <li class="als-item"><i class="fa fa-bath" aria-hidden="true"></i>camera</li>
+                        <li class="als-item"><i class="fa fa-bath" aria-hidden="true"></i>music note</li>
+                        <li class="als-item"><i class="fa fa-bath" aria-hidden="true"></i>umbrella</li>
+                        <li class="als-item"><i class="fa fa-bath" aria-hidden="true"></i>television</li>
                       </ul>
                     </div>
-                    <span class="als-next"><img src="images/thin_right_arrow_333.png" alt="next" title="next" /></span>
+                    <span class="als-next"><i class="fa fa-arrow-right" aria-hidden="true"></i></span>
                   </div>
 
                 </div>
