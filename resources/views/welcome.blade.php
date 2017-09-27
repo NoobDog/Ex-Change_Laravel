@@ -10,7 +10,7 @@
         <script src="{{ asset('js/sly.js') }}"></script>
         <script src="{{ asset('js/jquery-easing.js') }}"></script>
         <script src="{{ asset('js/horizontal.js') }}"></script>
-
+        <script src="{{ asset('js/modernizr.js') }}"></script>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <!--Font awesome-->
@@ -289,13 +289,6 @@
 
 			<div class="controls center">
 				<button class="btn prevPage"><i class="icon-chevron-left"></i><i class="icon-chevron-left"></i> Previous</button>
-
-				<!-- <div class="btn-group">
-					<button class="btn pause"><i class="icon-pause"></i> pause</button>
-					<button class="btn resume"><i class="icon-play"></i> resume</button>
-					<button class="btn toggle"><i class="icon-pause"></i> toggle</button>
-				</div> -->
-
 				<button class="btn nextPage">Next <i class="icon-chevron-right"></i><i class="icon-chevron-right"></i></button>
 			</div>
 		</div>
