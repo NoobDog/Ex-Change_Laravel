@@ -21,35 +21,28 @@
                 height: 100vh;
                 margin: 0;
             }
-
             .full-height {
                 height: 100vh;
             }
-
             .flex-center {
                 align-items: center;
                 display: flex;
                 justify-content: center;
             }
-
             .position-ref {
                 position: relative;
             }
-
             .top-right {
                 position: absolute;
                 right: 10px;
                 top: 18px;
             }
-
             .content {
                 text-align: center;
             }
-
             .title {
                 font-size: 84px;
             }
-
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
@@ -59,7 +52,6 @@
                 text-decoration: none;
                 text-transform: uppercase;
             }
-
             .m-b-md {
                 margin-bottom: 30px;
             }
@@ -114,7 +106,6 @@
             padding:6px 24px;
             text-decoration:none;
             text-shadow:0px 1px 0px #1570cd;
-
             }
             .myButton:hover {
             background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #1e62d0), color-stop(1, #3d94f6));
@@ -137,7 +128,6 @@
         @include('header')
         <form class="search" >
           <input type="text" class="searchTerm"/>
-          <!-- <input type="button" class="myButton" value="Search"/> -->
           <button class="myButton">Search</button>
         </form>
         <div class="flex-center position-ref full-height">
@@ -146,6 +136,11 @@
                   <i class="fa fa-ravelry" aria-hidden="true"></i>
                   @if (Session::has('userName'))
                   {{Session::get('userName')}}
+
+
+                  @else
+
+
                   @endif
                 </div>
 
