@@ -439,8 +439,15 @@
     </body>
 </html>
 <script>
-  // $('.datepicker').datetimepicker({
-  //     format: 'dd/mm/yyyy'
-  // });
+  $(function() {
+    $('#carousel ul').carouFredSel({
+      prev: '#prev',
+      next: '#next',
+      pagination: "#pager",
+      scroll: 1000,
+      auto: false
+    });
+    
+  });
 
 </script>
