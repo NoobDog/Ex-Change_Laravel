@@ -294,8 +294,13 @@
                       <ul>
                         @foreach ($books as $bookID => $book) 
                         <li><img src="{{asset('users/'.$book['bookImage'])}}">
-                        <button>test</button>
-                        <span>{{$book['bookImage']}}</span></li>
+                          <span></span>
+                          <p>{{$book['bookName']}</p>
+                          <p>{{$book['bookTitle']}</p>
+                          <p>{{$book['bookPrice']}</p>
+                          <button>test</button>
+                         
+                        </li>
                         @endforeach
                       </ul>
                       <div class="clearfix"></div>
