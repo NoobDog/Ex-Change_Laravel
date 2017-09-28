@@ -384,9 +384,9 @@
                             <p style="font-size: medium;"><strong>$ {{$book['bookPrice']}} CAD</strong></p>
                             <p style="font-size: x-small;">{{$book['bookDescription']}}</P>
                           </p>
-                          <a href="{{route('bookDetail',$book)}}"><button class="itemButton">View</button></a>
+                          <a href="{{route('bookDetail',$book['bookID'])}}"><button class="itemButton">View</button></a>
                           <a href='#'><button class="itemButton1">Add to Cart</button></a>
-                          <a href="{{route('bookDetail',$book)}}"><span></span></a>
+                          <a href="{{route('bookDetail',$book['bookID'])}}"><span></span></a>
                         </li>
                         @endforeach
                       </ul>
