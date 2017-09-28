@@ -88,10 +88,11 @@
                 </div>
 
                 @if (Session::has('userName'))
-                    <div class="bookDetail">
-                        <img src="{{asset('users/'.$book['bookImage'])}}">
-                        <p>{{$book['bookName']}}</p>
-                    </div>
+                <div class="bookDetail">
+                    <img src="{{asset('users/'.$book['bookImage'])}}">
+                    <strong><p>{{$book['bookName']}}</p></strong>
+                    <p>by <strong>{{$book['bookAuthor']}}</strong></p>
+                </div>
                 @else
                     <div class="bookDetail">
                         <img src="{{asset('users/'.$book['bookImage'])}}">
