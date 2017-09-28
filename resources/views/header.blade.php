@@ -12,7 +12,7 @@
     float: left;
 }
 
-.nb li a, .dropbtn {
+.nb li a, .nb .dropbtn {
     display: inline-block;
     color: white;
     text-align: center;
@@ -20,17 +20,17 @@
     text-decoration: none;
 }
 
-.nb li a:hover, .dropdown:hover .dropbtn {
+.nb li a:hover, .nb .dropdown:hover .nb .dropbtn {
     background-color: red;
 }
-.nb li a:hover, .active {
+.nb li a:hover, .nb .active {
     background-color: red;
 }
 .nb li.dropdown {
     display: inline-block;
 }
 
-.dropdown-content {
+.nb .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
@@ -39,7 +39,7 @@
     z-index: 1;
 }
 
-.dropdown-content a {
+.nb .dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
@@ -47,9 +47,9 @@
     text-align: left;
 }
 
-.dropdown-content a:hover {background-color: #f1f1f1}
+.nb .dropdown-content a:hover {background-color: #f1f1f1}
 
-.dropdown:hover .dropdown-content {
+.nb .dropdown:hover .dropdown-content {
     display: block;
 }
 .navBar{
