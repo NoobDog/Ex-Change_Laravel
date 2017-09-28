@@ -143,7 +143,7 @@
               left: 50%;
               top: 50%; */
               position: absolute;
-              left: 5%;
+              left: 9%;
               right: 5%;
             }
 
