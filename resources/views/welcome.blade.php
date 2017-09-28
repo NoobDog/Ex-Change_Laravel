@@ -362,13 +362,13 @@
           <button class="myButton">Search</button>
         </form>
             <div class="content">
-                <div class="title m-b-md">
+                <!-- <div class="title m-b-md">
                   @if (Session::has('userName'))
                     {{Session::get('userName')}}
                   @else
 
                   @endif
-                </div>
+                </div> -->
 
                   <div id="wrapper">
                     <div id="carousel">
