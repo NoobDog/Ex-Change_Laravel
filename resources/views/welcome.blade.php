@@ -319,7 +319,7 @@
       pagination: "#pager",
       scroll: 1000,
       auto: false,
-      height: "auto"
+      height: "500px"
     });
     
   });
