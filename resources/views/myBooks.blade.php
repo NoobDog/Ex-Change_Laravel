@@ -426,7 +426,7 @@
                                 @foreach ($userBooks as $userBook) 
                                     @if ($userBook['bookImage'] != '')
                                     <li><img src="{{asset('users/'.$userBook['bookImage'])}}">
-                                    <br>
+                                    <br><br>
                                     <button class="itemButton">Edit</button>
                                     <span></span>
                                     </li>
@@ -436,7 +436,7 @@
                             <div class="clearfix"></div>
                             <a id="prev" class="prev" href="#">&lt;</a>
                             <a id="next" class="next" href="#">&gt;</a>
-                            <br> <br>
+                            <br>
                             <div id="pager" class="pager"></div>
                             </div>
                             <br>
