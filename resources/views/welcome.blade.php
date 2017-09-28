@@ -293,7 +293,9 @@
                     <div id="carousel">
                       <ul>
                         @foreach ($books as $bookID => $book) 
-                        <li><img src="{{asset('users/'.$book['bookImage'])}}"><br><span>{{$book['bookImage']}}</span></li>
+                        <li><img src="{{asset('users/'.$book['bookImage'])}}">
+                        <button>test</button>
+                        <span>{{$book['bookImage']}}</span></li>
                         @endforeach
                       </ul>
                       <div class="clearfix"></div>
