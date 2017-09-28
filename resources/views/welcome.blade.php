@@ -317,7 +317,9 @@
       prev: '#prev',
       next: '#next',
       pagination: "#pager",
-      scroll: 1000
+      scroll: 1000,
+      auto: false
     });
+    
   });
 </script>
