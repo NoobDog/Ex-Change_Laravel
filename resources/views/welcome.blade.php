@@ -144,7 +144,7 @@
               top: 50%; */
               position: absolute;
               left: 9%;
-              right: 5%;
+              right: 4.5%;
             }
 
             #carousel {
