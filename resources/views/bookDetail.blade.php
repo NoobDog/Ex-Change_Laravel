@@ -84,10 +84,10 @@
                     Book Details
                 </div>
 
-                @if (Session::has('_token'))
-                <p>haha</p>
+                @if (Session::has('userName'))
+                {{print_r($book)}}
                 @else
-                <p>xixi</p>
+                {{print_r($book)}}
                 @endif
             </div>
         </div>
