@@ -285,19 +285,12 @@
 
                   @endif
                 </div>
-                
-                <div style="text-align:center;">
+
                   <div id="wrapper">
                     <div id="carousel">
                       <ul>
-                        <!-- <li><span>Image1</span></li>
-                        <li><span>Image2</span></li>
-                        <li><span>Image3</span></li>
-                        <li><span>Image4</span></li>
-                        <li><span>Image5</span></li>
-                        <li><span>Image6</span></li>					 -->
                         @foreach ($books as $bookID => $book) 
-                        <li><img src="{{asset('users/'.$book['bookImage'])}}"><span>{{$book['bookImage']}}</span></li>
+                        <li><img src="{{asset('users/'.$book['bookImage'])}}"><br><span>{{$book['bookImage']}}</span></li>
                         @endforeach
                       </ul>
                       <div class="clearfix"></div>
@@ -306,9 +299,8 @@
                       <br>
                       <div id="pager" class="pager"></div>
                     </div>
-                  </div>
-                </div>
 
+                  </div>
             </div>
 
 
