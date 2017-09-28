@@ -216,10 +216,10 @@
             }			
             #carousel .next {
               background-position: -18px 0;
-              right: 0%;
+              right: -1%;
             }
             #carousel .next:hover {
-              right: 0.1%;
+              right: -1.1%;
             }				
             #carousel .pager {
               text-align: center;
@@ -363,9 +363,8 @@
         </form>
             <div class="content">
                 <div class="title m-b-md">
-                  <i class="fa fa-book" aria-hidden="true"></i>
                   @if (Session::has('userName'))
-                  {{Session::get('userName')}}
+                    {{Session::get('userName')}}
                   @else
 
                   @endif
@@ -375,14 +374,16 @@
                     <div id="carousel">
                       <ul>
                         @foreach ($books as $bookID => $book) 
-                        <li><img src="{{asset('users/'.$book['bookImage'])}}">
-                        <br>
-                          <p style="font-size: medium;"><font face="verdana">Name:</font></p>
-                          <p style="font-size: medium;"><font face="verdana">{{$book['bookName']}}</font></p>
-                          <p style="font-size: medium;"><font face="verdana">Title:</font></p>
-                          <p style="font-size: medium;"><font face="verdana">{{$book['bookTitle']}}</font></p>
-                          <p style="font-size: medium;"><font face="verdana">Price:</font></p>
-                          <p style="font-size: medium;"><font face="verdana">${{$book['bookPrice']}} CAD</font></p>
+                        <li>
+                          <img src="{{asset('users/'.$book['bookImage'])}}">
+                          <br>
+                          <p style="font-size: medium;">
+                            <font face="verdana">{{$book['bookName']}}</font><br>
+                            <p style="font-size: small;"> by <strong>{{$book['bookAuthor']}}</strong></p>
+                            <p style="font-size: small;">{{$book['bookPublisher']}}</p>
+                            <p style="font-size: medium;"><strong>$ {{$book['bookPrice']}} CAD</strong></p>
+                            <p style="font-size: x-small;">{{$book['bookDescription']}}</P>
+                          </p>
                           <button class="itemButton">View</button>
                           <button class="itemButton1">Add to Cart</button>
                           <span></span>
