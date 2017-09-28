@@ -170,7 +170,9 @@
               float: left;
               position: relative;
             }
-
+            #carousel li: hover{
+              background: #555; 
+            }
             #carousel li img {
               width: 201px;
               height: 127px;
@@ -295,13 +297,11 @@
                         @foreach ($books as $bookID => $book) 
                         <li><img src="{{asset('users/'.$book['bookImage'])}}">
                         <br>
-                          <p>{{$book['bookName']}}</p>
-                          <p>{{$book['bookTitle']}}</p>
-                          <p>{{$book['bookPrice']}}</p>
-                          <button>test</button>
+                          <p style="font-size: small;"><font face="verdana">{{$book['bookName']}}</font></p>
+                          <p style="font-size: small;"><font face="verdana">{{$book['bookTitle']}}</font></p>
+                          <p style="font-size: small;"><font face="verdana">{{$book['bookPrice']}}</font></p>
+                          <button class="myButton">test</button>
                           <span></span>
-
-                         
                         </li>
                         @endforeach
                       </ul>
