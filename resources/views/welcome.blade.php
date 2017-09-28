@@ -378,7 +378,7 @@
                           <img src="{{asset('users/'.$book['bookImage'])}}">
                           <br>
                           <p style="font-size: medium;">
-                          <a style='text-decoration: none; color: #599bb3;' href="{{route('bookDetail',$book['bookID'])}}"><font face="verdana">{{$book['bookName']}}</font></a>
+                          <a style='text-decoration: none; color: #599bb3; ' href="{{route('bookDetail',$book['bookID'])}}"><font face="verdana">{{$book['bookName']}}</font></a>
                             <p style="font-size: small;"> by <strong>{{$book['bookAuthor']}}</strong></p>
                             <p style="font-size: small;">{{$book['bookPublisher']}}</p>
                             <p style="font-size: medium;"><strong>$ {{number_format($book['bookPrice'], 2, '.', '')}} CAD</strong></p>

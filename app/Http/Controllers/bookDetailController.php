@@ -14,7 +14,7 @@ class bookDetailController extends Controller
 			$book = DB::select('SELECT * FROM books WHERE bookID = ?',[$book]);
 			$book = json_decode(json_encode($book),true);
             if(!empty($book)) {
-                \View::share(['page_name_active'=> 'home','book'=>$book]);
+                \View::share(['page_name_active'=> 'home','book'=>$book[0]]);
                 return \View::make('bookDetail'); 
             } else {
                 return redirect()->route('home');
