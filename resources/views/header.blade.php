@@ -1,6 +1,6 @@
 <!-- Latest compiled and minified CSS -->
 <style>
-ul {
+.navBarUl ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -8,11 +8,11 @@ ul {
     background-color: #333;
 }
 
-li {
+.navBarUl li {
     float: left;
 }
 
-li a, .dropbtn {
+.navBarUl li a, .dropbtn {
     display: inline-block;
     color: white;
     text-align: center;
@@ -20,13 +20,13 @@ li a, .dropbtn {
     text-decoration: none;
 }
 
-li a:hover, .dropdown:hover .dropbtn {
+.navBarUl li a:hover, .dropdown:hover .dropbtn {
     background-color: red;
 }
-li a:hover, .active {
+.navBarUl li a:hover, .active {
     background-color: red;
 }
-li.dropdown {
+.navBarUl li.dropdown {
     display: inline-block;
 }
 
@@ -63,7 +63,7 @@ li.dropdown {
 </div>
 @if (Session::has('userName'))
 <div class="navBar">
-  <ul>
+  <ul class="navBarUl">
     <li class="dropdown">
       <a href="{{url('/')}}" class="dropbtn @if($page_name_active=='home')active @endif">Welcome : {{Session::get('userName')}}</a>
       <div class="dropdown-content">
@@ -89,7 +89,7 @@ li.dropdown {
 </div>
 @else
 <div class="navBar">
-  <ul>
+  <ul class="navBarUl">
     <li><a class="@if($page_name_active=='home')active @endif" href="{{url('/')}}">Home</a></li>
     <li><a class="@if($page_name_active=='login')active @endif" href="{{url('/login')}}">Login</a></li>
     <li><a class="@if($page_name_active=='newAccount')active @endif" href="{{url('/newAccount')}}">Create New Account</a></li>
