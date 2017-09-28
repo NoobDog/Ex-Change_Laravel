@@ -45,6 +45,8 @@
             .content {
                 text-align: center;
                 position: absolute;
+                height: 100%;
+                width: 100%;
             }
 
             .title {
@@ -94,7 +96,8 @@
                 @else
                     <div class="bookDetail">
                         <img src="{{asset('users/'.$book['bookImage'])}}">
-                        <p>{{$book['bookName']}}</p>
+                        <strong><p>{{$book['bookName']}}</p></strong>
+                        <p>by <strong>{{$book['bookAuthor']}}</strong></p>
                     </div>
                 @endif
             </div>
