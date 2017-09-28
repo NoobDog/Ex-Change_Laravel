@@ -164,7 +164,7 @@
               text-align: center;
               display: block;
               width: 232px;
-              height: auto;
+              height: 100%;
               padding: 0;
               margin: 6px;
               float: left;
@@ -318,8 +318,7 @@
       next: '#next',
       pagination: "#pager",
       scroll: 1000,
-      auto: false,
-      height: "500px"
+      auto: false
     });
     
   });
