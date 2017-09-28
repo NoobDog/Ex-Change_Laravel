@@ -428,6 +428,7 @@
                             <br>
                             <div id="pager" class="pager"></div>
                             </div>
+                            <br>
                             <a href="{{route('getAddBookForm')}}"><button class ='myButton'>Add New book</button></a>
                         </div>
 
