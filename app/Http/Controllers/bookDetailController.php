@@ -12,7 +12,7 @@ class bookDetailController extends Controller
 
 		public function index($book) {
 			$book = DB::select('SELECT * FROM books WHERE bookID = ?',[$book]);
-			$book = json_decode(json_encode($books),true);
+			$book = json_decode(json_encode($book),true);
             if(!empty($book)) {
                 \View::share(['page_name_active'=> 'home','book'=>$book]);
                 return \View::make('bookDetail'); 
