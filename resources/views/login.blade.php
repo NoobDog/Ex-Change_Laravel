@@ -214,7 +214,7 @@
                    <label><b>Repeat Password</b></label>
                    <p id='passwordMatch' hidden="true" style='color: red;text-align: left; font-size: 15px;'></p>
                    <input type="password" name="rep-passWord" required="required" />
-                   <button type="submit" class="btn btn-primary btn-block btn-large finishButton">Done</button>
+                   <button type="submit" id="doneButton" class="btn btn-primary btn-block btn-large finishButton">Done</button>
                  </form>
               @else
                 <div class="login">
@@ -245,11 +245,11 @@ $('input[name="rep-passWord"]').off("input").on("input", function() {
   if(passwordValue != repeatValue) {
       $('#passwordMatch').html('* Password does not match.');
       $('#passwordMatch').show();
-      $('button[class="finishButton"]').attr("disabled", true);
+      $('#doneButton').attr("disabled", true);
   }
   else {
     $('#passwordMatch').hide();
-    $('button[class="finishButton"]').attr("disabled", false);
+    $('#doneButton').attr("disabled", false);
   }
 });
 </script>
