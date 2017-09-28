@@ -85,9 +85,16 @@
                 </div>
 
                 @if (Session::has('userName'))
-                {{print_r($book)}}
+                    <div class="bookDetail">
+                        <img src="{{asset('users/'.$book['bookImage'])}}">
+                        <p>{{$book['bookName']}}</p>
+                    </div>
+              
                 @else
-                {{print_r($book)}}
+                    <div class="bookDetail">
+                        <img src="{{asset('users/'.$book['bookImage'])}}">
+                        <p>{{$book['bookName']}}</p>
+                    </div>
                 @endif
             </div>
         </div>
