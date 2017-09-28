@@ -273,20 +273,85 @@
               width: 100px;
             }
             .itemButton {
-                background-color: #4CAF50; 
-                border: none;
-                color: white;
-                padding: 15px 32px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 16px;
-                margin: 4px 2px;
-                cursor: pointer;
+              -moz-box-shadow: 0px 10px 14px -7px #3e7327;
+              -webkit-box-shadow: 0px 10px 14px -7px #3e7327;
+              box-shadow: 0px 10px 14px -7px #3e7327;
+              background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #77b55a), color-stop(1, #72b352));
+              background:-moz-linear-gradient(top, #77b55a 5%, #72b352 100%);
+              background:-webkit-linear-gradient(top, #77b55a 5%, #72b352 100%);
+              background:-o-linear-gradient(top, #77b55a 5%, #72b352 100%);
+              background:-ms-linear-gradient(top, #77b55a 5%, #72b352 100%);
+              background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
+              filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77b55a', endColorstr='#72b352',GradientType=0);
+              background-color:#77b55a;
+              -moz-border-radius:4px;
+              -webkit-border-radius:4px;
+              border-radius:4px;
+              border:1px solid #4b8f29;
+              display:inline-block;
+              cursor:pointer;
+              color:#ffffff;
+              font-family:Arial;
+              font-size:13px;
+              font-weight:bold;
+              padding:12px 27px;
+              text-decoration:none;
+              text-shadow:0px 1px 0px #5b8a3c;
             }
-            .itemButton2 {
-              background-color: #008CBA;
-            } 
+            .itemButton:hover {
+              background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #72b352), color-stop(1, #77b55a));
+              background:-moz-linear-gradient(top, #72b352 5%, #77b55a 100%);
+              background:-webkit-linear-gradient(top, #72b352 5%, #77b55a 100%);
+              background:-o-linear-gradient(top, #72b352 5%, #77b55a 100%);
+              background:-ms-linear-gradient(top, #72b352 5%, #77b55a 100%);
+              background:linear-gradient(to bottom, #72b352 5%, #77b55a 100%);
+              filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#72b352', endColorstr='#77b55a',GradientType=0);
+              background-color:#72b352;
+            }
+            .itemButton:active {
+              position:relative;
+              top:1px;
+            }
+            .itemButton1 {
+              -moz-box-shadow: 0px 10px 14px -7px #276873;
+              -webkit-box-shadow: 0px 10px 14px -7px #276873;
+              box-shadow: 0px 10px 14px -7px #276873;
+              background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #599bb3), color-stop(1, #408c99));
+              background:-moz-linear-gradient(top, #599bb3 5%, #408c99 100%);
+              background:-webkit-linear-gradient(top, #599bb3 5%, #408c99 100%);
+              background:-o-linear-gradient(top, #599bb3 5%, #408c99 100%);
+              background:-ms-linear-gradient(top, #599bb3 5%, #408c99 100%);
+              background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+              filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#599bb3', endColorstr='#408c99',GradientType=0);
+              background-color:#599bb3;
+              -moz-border-radius:4px;
+              -webkit-border-radius:4px;
+              border-radius:4px;
+              border:1px solid #29668f;
+              display:inline-block;
+              cursor:pointer;
+              color:#ffffff;
+              font-family:Arial;
+              font-size:13px;
+              font-weight:bold;
+              padding:12px 27px;
+              text-decoration:none;
+              text-shadow:0px 1px 0px #3d768a;
+            }
+            .itemButton1:hover {
+              background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #408c99), color-stop(1, #599bb3));
+              background:-moz-linear-gradient(top, #408c99 5%, #599bb3 100%);
+              background:-webkit-linear-gradient(top, #408c99 5%, #599bb3 100%);
+              background:-o-linear-gradient(top, #408c99 5%, #599bb3 100%);
+              background:-ms-linear-gradient(top, #408c99 5%, #599bb3 100%);
+              background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+              filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#408c99', endColorstr='#599bb3',GradientType=0);
+              background-color:#408c99;
+            }
+            .itemButton1:active {
+              position:relative;
+              top:1px;
+            }
         </style>
     </head>
 
@@ -312,14 +377,14 @@
                         @foreach ($books as $bookID => $book) 
                         <li><img src="{{asset('users/'.$book['bookImage'])}}">
                         <br>
-                          <h4><font face="verdana">Name:</font></h4>
-                          <h4><font face="verdana">{{$book['bookName']}}</font></h4>
-                          <h4><font face="verdana">Title:</font></h4>
-                          <h4><font face="verdana">{{$book['bookTitle']}}</font></h4>
-                          <h4><font face="verdana">Price:</font></h4>
-                          <h4><font face="verdana">${{$book['bookPrice']}} CAD</font></h4>
+                          <p style="font-size: medium;"><font face="verdana">Name:</font></p>
+                          <p style="font-size: medium;"><font face="verdana">{{$book['bookName']}}</font></p>
+                          <p style="font-size: medium;"><font face="verdana">Title:</font></p>
+                          <p style="font-size: medium;"><font face="verdana">{{$book['bookTitle']}}</font></p>
+                          <p style="font-size: medium;"><font face="verdana">Price:</font></p>
+                          <p style="font-size: medium;"><font face="verdana">${{$book['bookPrice']}} CAD</font></p>
                           <button class="itemButton">View</button>
-                          <button class="itemButton itemButton1">Add to Cart</button>
+                          <button class="itemButton1">Add to Cart</button>
                           <span></span>
                         </li>
                         @endforeach
