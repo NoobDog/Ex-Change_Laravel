@@ -381,7 +381,7 @@
                           <a style='text-decoration: none' href='#'><font face="verdana">{{$book['bookName']}}</font></a>
                             <p style="font-size: small;"> by <strong>{{$book['bookAuthor']}}</strong></p>
                             <p style="font-size: small;">{{$book['bookPublisher']}}</p>
-                            <p style="font-size: medium;"><strong>$ {{$book['bookPrice']}} CAD</strong></p>
+                            <p style="font-size: medium;"><strong>$ {{number_format($book['bookPrice'], 2, '.', '')}} CAD</strong></p>
                             <p style="font-size: x-small;">{{$book['bookDescription']}}</P>
                           </p>
                           <a href="{{route('bookDetail',$book['bookID'])}}"><button class="itemButton">View</button></a>

@@ -89,10 +89,4 @@
         </div>
     </body>
 
-    @if (Session::has('_token'))
-    <p>haha</p>
-    @else
-    <p>xixi</p>
-    @endif
-    {{print_r(Session::all())}}
 </html>
