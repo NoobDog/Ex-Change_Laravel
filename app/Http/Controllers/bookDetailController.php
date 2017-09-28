@@ -7,7 +7,7 @@ use DB;
 use Illuminate\Support\Facades\Hash;
 use Session;
 use Illuminate\Http\RedirectResponse;
-class welcomeController extends Controller
+class bookDetailController extends Controller
 { 
 
 		public function index($book) {
