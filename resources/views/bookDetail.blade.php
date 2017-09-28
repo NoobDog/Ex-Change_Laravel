@@ -44,6 +44,7 @@
 
             .content {
                 text-align: center;
+                position: absolute;
             }
 
             .title {
