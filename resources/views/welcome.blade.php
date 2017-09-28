@@ -297,7 +297,7 @@
                         <li><span>Image5</span></li>
                         <li><span>Image6</span></li>					 -->
                         @foreach ($books as $bookID => $book) 
-                        <li><img src="{{asset('img/users/$book['bookImage']')}}"><span>{{$book['bookImage']}}</span></li>
+                        <li><img src="{{asset('img/users/'.$book['bookImage'])}}"><span>{{$book['bookImage']}}</span></li>
                         @endforeach
                       </ul>
                       <div class="clearfix"></div>
