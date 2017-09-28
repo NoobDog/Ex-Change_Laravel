@@ -378,7 +378,7 @@
                           <img src="{{asset('users/'.$book['bookImage'])}}">
                           <br>
                           <p style="font-size: medium;">
-                          <a href='#'><font face="verdana">{{$book['bookName']}}</font></a>
+                          <a style='text-decoration: none' href='#'><font face="verdana">{{$book['bookName']}}</font></a>
                             <p style="font-size: small;"> by <strong>{{$book['bookAuthor']}}</strong></p>
                             <p style="font-size: small;">{{$book['bookPublisher']}}</p>
                             <p style="font-size: medium;"><strong>$ {{$book['bookPrice']}} CAD</strong></p>
