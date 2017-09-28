@@ -75,7 +75,7 @@ class myBooksController extends Controller
 									);
 							}
 		     } else {
-					 $imgPath = '';
+					 $imgPath = 'unavailable.jpg';
 					 //insert to books table
 					 DB::insert('INSERT INTO books (userID, bookName, bookTypeID, bookTitle, bookPublisher, bookAuthor, bookEdition, bookDate,
 						 bookImage, bookPrice, enableUserPoint, bookPoint, isVoid, private, bookDescription)

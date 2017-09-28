@@ -92,7 +92,6 @@
                         <img src="{{asset('users/'.$book['bookImage'])}}">
                         <p>{{$book['bookName']}}</p>
                     </div>
-              
                 @else
                     <div class="bookDetail">
                         <img src="{{asset('users/'.$book['bookImage'])}}">
