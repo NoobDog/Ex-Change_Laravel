@@ -11,6 +11,14 @@
         <!--Font awesome-->
         <link rel="stylesheet" href="{{asset('font-awesome/css/font-awesome.min.css')}}">
 
+        <!-- include carouFredSel plugin -->
+        <script type="text/javascript" language="javascript" src="{{asset('js/jquery.carouFredSel-6.2.1-packed.js')}}"></script>
+
+        <!-- optionally include helper plugins -->
+        <script type="text/javascript" language="javascript" src="{{asset('js/jquery.mousewheel.min.js')}}"></script>
+        <script type="text/javascript" language="javascript" src="{{asset('js/jquery.touchSwipe.min.js')}}"></script>
+        <script type="text/javascript" language="javascript" src="{{asset('js/jquery.transit.min.js')}}"></script>
+        <script type="text/javascript" language="javascript" src="{{asset('js/jquery.ba-throttle-debounce.min.js')}}"></script>
         <!-- Styles -->
         <style>
             html, body {
@@ -141,6 +149,225 @@
               margin: 8px 0;
               box-sizing: border-box;
             }
+
+            /* Scrolling bar */
+            #wrapper {
+              /* width: 100%;
+              height: 220px;
+              margin: -110px 0 0 -367px;
+             
+              left: 50%;
+              top: 50%; */
+              position: absolute;
+              left: 9%;
+              right: 4.5%;
+            }
+
+            #carousel {
+              width: 100%;
+              position:vrelative;
+            }
+            #carousel ul {
+              list-style: none;
+              display: block;
+              margin: 0;
+              padding: 0;
+            }
+            #carousel li {
+              background: transparent url({{asset('img/carousel_polaroid.png')}}) no-repeat 0 0;
+              font-size: 40px;
+              color: #999;
+              text-align: center;
+              display: block;
+              width: 232px;
+              height: 100%;
+              padding: 0;
+              margin: 6px;
+              float: left;
+              position: relative;
+            }
+            #carousel li: hover{
+              background: #555; 
+            }
+            #carousel li img {
+              width: 201px;
+              height: 127px;
+              margin-top: 14px;
+            }
+            
+            #carousel li span {
+              background: transparent url({{asset('img/carousel_shine.png')}}) no-repeat 0 0;
+              text-indent: -999px;
+              display: block;
+              overflow: hidden;
+              width: 201px;
+              height: 127px;
+              position: absolute;
+              z-index: 2;
+              top: 14px;
+              left: 16px;
+            }			
+
+            .clearfix {
+              float: none;
+              clear: both;
+            }
+            #carousel .prev, #carousel .next {
+              background: transparent url({{asset('img/carousel_control.png')}}) no-repeat 0 0;
+              text-indent: -999px;
+              display: block;
+              overflow: hidden;
+              width: 15px;
+              height: 21px;
+              margin-left: 10px;
+              position: absolute;
+              top: 70px;				
+            }
+            #carousel .prev {
+              background-position: 0 0;
+              left: -3%;
+            }
+            #carousel .prev:hover {
+              left: -3.1%;
+            }			
+            #carousel .next {
+              background-position: -18px 0;
+              right: 0%;
+            }
+            #carousel .next:hover {
+              right: 0.1%;
+            }				
+            #carousel .pager {
+              text-align: center;
+              margin: 0 auto;
+            }
+            #carousel .pager a {
+              background: transparent url({{asset('img/carousel_control.png')}}) no-repeat -2px -32px;
+              text-decoration: none;
+              text-indent: -999px;
+              display: inline-block;
+              overflow: hidden;
+              width: 8px;
+              height: 8px;
+              margin: 0 5px 0 0;
+            }
+            #carousel .pager a.selected {
+              background: transparent url({{asset('img/carousel_control.png')}}) no-repeat -12px -32px;
+              text-decoration: underline;				
+            }
+            
+            #source {
+              text-align: center;
+              width: 100%;
+              position: absolute;
+              bottom: 10px;
+              left: 0;
+            }
+            #source, #source a {
+              font-size: 12px;
+              color: #999;
+            }
+            
+            #donate-spacer {
+              height: 100%;
+            }
+            #donate {
+              border-top: 1px solid #999;
+              width: 750px;
+              padding: 50px 75px;
+              margin: 0 auto;
+              overflow: hidden;
+            }
+            #donate p, #donate form {
+              margin: 0;
+              float: left;
+            }
+            #donate p {
+              width: 650px;
+            }
+            #donate form {
+              width: 100px;
+            }
+            .itemButton {
+              -moz-box-shadow: 0px 10px 14px -7px #3e7327;
+              -webkit-box-shadow: 0px 10px 14px -7px #3e7327;
+              box-shadow: 0px 10px 14px -7px #3e7327;
+              background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #77b55a), color-stop(1, #72b352));
+              background:-moz-linear-gradient(top, #77b55a 5%, #72b352 100%);
+              background:-webkit-linear-gradient(top, #77b55a 5%, #72b352 100%);
+              background:-o-linear-gradient(top, #77b55a 5%, #72b352 100%);
+              background:-ms-linear-gradient(top, #77b55a 5%, #72b352 100%);
+              background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
+              filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77b55a', endColorstr='#72b352',GradientType=0);
+              background-color:#77b55a;
+              -moz-border-radius:4px;
+              -webkit-border-radius:4px;
+              border-radius:4px;
+              border:1px solid #4b8f29;
+              display:inline-block;
+              cursor:pointer;
+              color:#ffffff;
+              font-family:Arial;
+              font-size:13px;
+              font-weight:bold;
+              padding:12px 27px;
+              text-decoration:none;
+              text-shadow:0px 1px 0px #5b8a3c;
+            }
+            .itemButton:hover {
+              background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #72b352), color-stop(1, #77b55a));
+              background:-moz-linear-gradient(top, #72b352 5%, #77b55a 100%);
+              background:-webkit-linear-gradient(top, #72b352 5%, #77b55a 100%);
+              background:-o-linear-gradient(top, #72b352 5%, #77b55a 100%);
+              background:-ms-linear-gradient(top, #72b352 5%, #77b55a 100%);
+              background:linear-gradient(to bottom, #72b352 5%, #77b55a 100%);
+              filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#72b352', endColorstr='#77b55a',GradientType=0);
+              background-color:#72b352;
+            }
+            .itemButton:active {
+              position:relative;
+              top:1px;
+            }
+            .itemButton1 {
+              -moz-box-shadow: 0px 10px 14px -7px #276873;
+              -webkit-box-shadow: 0px 10px 14px -7px #276873;
+              box-shadow: 0px 10px 14px -7px #276873;
+              background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #599bb3), color-stop(1, #408c99));
+              background:-moz-linear-gradient(top, #599bb3 5%, #408c99 100%);
+              background:-webkit-linear-gradient(top, #599bb3 5%, #408c99 100%);
+              background:-o-linear-gradient(top, #599bb3 5%, #408c99 100%);
+              background:-ms-linear-gradient(top, #599bb3 5%, #408c99 100%);
+              background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+              filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#599bb3', endColorstr='#408c99',GradientType=0);
+              background-color:#599bb3;
+              -moz-border-radius:4px;
+              -webkit-border-radius:4px;
+              border-radius:4px;
+              border:1px solid #29668f;
+              display:inline-block;
+              cursor:pointer;
+              color:#ffffff;
+              font-family:Arial;
+              font-size:13px;
+              font-weight:bold;
+              padding:12px 27px;
+              text-decoration:none;
+              text-shadow:0px 1px 0px #3d768a;
+            }
+            .itemButton1:hover {
+              background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #408c99), color-stop(1, #599bb3));
+              background:-moz-linear-gradient(top, #408c99 5%, #599bb3 100%);
+              background:-webkit-linear-gradient(top, #408c99 5%, #599bb3 100%);
+              background:-o-linear-gradient(top, #408c99 5%, #599bb3 100%);
+              background:-ms-linear-gradient(top, #408c99 5%, #599bb3 100%);
+              background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+              filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#408c99', endColorstr='#599bb3',GradientType=0);
+              background-color:#408c99;
+            }
+            .itemButton1:active {
+              position:relative;
+              top:1px;
+            }
         </style>
     </head>
 
@@ -182,13 +409,27 @@
                         <p>This user has no any book</p>
                         <a href="{{route('getAddBookForm')}}"><button class ='myButton'>Add New book</button></a>
                     @else
-                        <p>yes books</p>
-                        @foreach ($userBooks as $userBook)
-                            <p>{{ $userBook['bookName'] }}</p>
-                            @if ($userBook['bookImage'] != '')
-                            <img src='{{asset('users/').'/'.$userBook['bookImage']}}'/>
-                            @endif
-                        @endforeach
+                        <div id="wrapper">
+                            <div id="carousel">
+                            <ul>
+                                @foreach ($userBooks as $userBook) 
+                                    @if ($userBook['bookImage'] != '')
+                                    <li><img src="{{asset('users/'.$userBook['bookImage'])}}">
+                                    <br>
+                                    <button class="itemButton">Edit</button>
+                                    <span></span>
+                                    </li>
+                                    @endif
+                                @endforeach
+                            </ul>
+                            <div class="clearfix"></div>
+                            <a id="prev" class="prev" href="#">&lt;</a>
+                            <a id="next" class="next" href="#">&gt;</a>
+                            <br>
+                            <div id="pager" class="pager"></div>
+                            </div>
+                        </div>
+
                         <a href="{{route('getAddBookForm')}}"><button class ='myButton'>Add New book</button></a>
                     @endif
                   @endif

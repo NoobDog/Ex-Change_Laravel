@@ -134,7 +134,7 @@
             top:1px;
             }
 
-            /*  */
+            /* Scrolling bar */
             #wrapper {
               /* width: 100%;
               height: 220px;
@@ -395,7 +395,6 @@
                       <br>
                       <div id="pager" class="pager"></div>
                     </div>
-
                   </div>
             </div>
 
