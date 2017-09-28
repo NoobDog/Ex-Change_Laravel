@@ -136,12 +136,12 @@
 
             /*  */
             #wrapper {
-              width: 100%;
+              /* width: 100%;
               height: 220px;
               margin: -110px 0 0 -367px;
               position: absolute;
               left: 50%;
-              top: 50%;
+              top: 50%; */
             }
 
             #carousel {
