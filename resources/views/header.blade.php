@@ -8,11 +8,11 @@
     background-color: #333;
 }
 
-li {
+.nb li {
     float: left;
 }
 
-li a, .dropbtn {
+.nb li a, .dropbtn {
     display: inline-block;
     color: white;
     text-align: center;
@@ -20,13 +20,13 @@ li a, .dropbtn {
     text-decoration: none;
 }
 
-li a:hover, .dropdown:hover .dropbtn {
+.nb li a:hover, .dropdown:hover .dropbtn {
     background-color: red;
 }
-li a:hover, .active {
+.nb li a:hover, .active {
     background-color: red;
 }
-li.dropdown {
+.nb li.dropdown {
     display: inline-block;
 }
 

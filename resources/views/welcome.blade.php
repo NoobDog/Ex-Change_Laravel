@@ -375,17 +375,17 @@
                       <ul>
                         @foreach ($books as $bookID => $book) 
                         <li>
-                          <a><img src="{{asset('users/'.$book['bookImage'])}}"></a>
+                          <a href='#'><img src="{{asset('users/'.$book['bookImage'])}}"></a>
                           <br>
                           <p style="font-size: medium;">
-                            <a><font face="verdana">{{$book['bookName']}}</font></a>
+                          <a href='#'><font face="verdana">{{$book['bookName']}}</font></a>
                             <p style="font-size: small;"> by <strong>{{$book['bookAuthor']}}</strong></p>
                             <p style="font-size: small;">{{$book['bookPublisher']}}</p>
                             <p style="font-size: medium;"><strong>$ {{$book['bookPrice']}} CAD</strong></p>
                             <p style="font-size: x-small;">{{$book['bookDescription']}}</P>
                           </p>
-                          <a><button class="itemButton">View</button></a>
-                          <a><button class="itemButton1">Add to Cart</button></a>
+                          <a href='#'><button class="itemButton">View</button></a>
+                          <a href='#'><button class="itemButton1">Add to Cart</button></a>
                           <span></span>
                         </li>
                         @endforeach
