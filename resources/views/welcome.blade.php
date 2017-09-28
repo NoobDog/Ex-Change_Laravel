@@ -164,7 +164,7 @@
               text-align: center;
               display: block;
               width: 232px;
-              height: 178px;
+              height: auto;
               padding: 0;
               margin: 6px;
               float: left;
