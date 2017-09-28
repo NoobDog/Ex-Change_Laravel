@@ -139,9 +139,12 @@
               /* width: 100%;
               height: 220px;
               margin: -110px 0 0 -367px;
-              position: absolute;
+             
               left: 50%;
               top: 50%; */
+              position: absolute;
+              left: 5%;
+              right: 5%;
             }
 
             #carousel {
@@ -204,17 +207,17 @@
             }
             #carousel .prev {
               background-position: 0 0;
-              left: -30px;
+              left: -3%;
             }
             #carousel .prev:hover {
-              left: -31px;
+              left: -3.1%;
             }			
             #carousel .next {
               background-position: -18px 0;
-              right: -20px;
+              right: 0%;
             }
             #carousel .next:hover {
-              right: -21px;
+              right: 0.1%;
             }				
             #carousel .pager {
               text-align: center;
