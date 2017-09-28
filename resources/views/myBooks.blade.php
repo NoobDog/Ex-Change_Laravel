@@ -424,13 +424,13 @@
                             <div id="carousel">
                             <ul>
                                 @foreach ($userBooks as $userBook) 
-                                    @if ($userBook['bookImage'] != '')
+
                                     <li><img src="{{asset('users/'.$userBook['bookImage'])}}">
                                     <br><br>
                                     <button class="itemButton">Edit</button>
                                     <span></span>
                                     </li>
-                                    @endif
+
                                 @endforeach
                             </ul>
                             <div class="clearfix"></div>
