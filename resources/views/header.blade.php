@@ -1,6 +1,6 @@
 <!-- Latest compiled and minified CSS -->
 <style>
-ul {
+.nb {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -63,7 +63,7 @@ li.dropdown {
 </div>
 @if (Session::has('userName'))
 <div class="navBar">
-  <ul>
+  <ul class="nb">
     <li class="dropdown">
       <a href="{{url('/')}}" class="dropbtn @if($page_name_active=='home')active @endif">Welcome : {{Session::get('userName')}}</a>
       <div class="dropdown-content">
@@ -89,7 +89,7 @@ li.dropdown {
 </div>
 @else
 <div class="navBar">
-  <ul>
+  <ul class="nb">
     <li><a class="@if($page_name_active=='home')active @endif" href="{{url('/')}}">Home</a></li>
     <li><a class="@if($page_name_active=='login')active @endif" href="{{url('/login')}}">Login</a></li>
     <li><a class="@if($page_name_active=='newAccount')active @endif" href="{{url('/newAccount')}}">Create New Account</a></li>

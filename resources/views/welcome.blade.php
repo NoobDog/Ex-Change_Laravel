@@ -148,13 +148,13 @@
               width: 100%;
               position:vrelative;
             }
-            #carouselUL {
+            #carousel ul {
               list-style: none;
               display: block;
               margin: 0;
               padding: 0;
             }
-            #carousel #carouselUL li {
+            #carousel li {
               background: transparent url({{asset('img/carousel_polaroid.png')}}) no-repeat 0 0;
               font-size: 40px;
               color: #999;
@@ -168,13 +168,13 @@
               position: relative;
             }
 
-            #carousel #carouselUL li img {
+            #carousel li img {
               width: 201px;
               height: 127px;
               margin-top: 14px;
             }
             
-            #carousel #carouselUL li span {
+            #carousel li span {
               background: transparent url({{asset('img/carousel_shine.png')}}) no-repeat 0 0;
               text-indent: -999px;
               display: block;
@@ -289,7 +289,7 @@
                 <div style="text-align:center;">
                   <div id="wrapper">
                     <div id="carousel">
-                      <ul id="carouselUL">
+                      <ul>
                         <!-- <li><span>Image1</span></li>
                         <li><span>Image2</span></li>
                         <li><span>Image3</span></li>
