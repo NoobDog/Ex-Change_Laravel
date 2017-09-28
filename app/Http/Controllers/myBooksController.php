@@ -28,12 +28,15 @@ class myBooksController extends Controller
 
 		}
 		public function triggerAddNewBook() {
-				 return view('myBooks',['page_name_active'=> 'myEx-change','getAddBookForm'=>'true']);
+
+			$bookTypes = DB::select('SELECT * FROM bookTypes');
+			$bookTypes = json_decode(json_encode($bookTypes),true);
+			return view('myBooks',['page_name_active'=> 'myEx-change','getAddBookForm'=>'true','bookTypes'=>$bookTypes]);
 		}
 		public function addNewBook(Request $request) {
 				 $bookName = $request->input('bookName') ?? '';
 				 $bookTitle = $request->input('bookTitle') ?? '';
-				 $bookType = $request->input('bookType') ?? '';
+				 $bookType = $request->get('bookType') ?? '';
 				 $bookAuthor = $request->input('bookAuthor') ?? '';
 				 $bookDate = $request->input('bookDate') ?? '';
 				 $bookPublisher = $request->input('bookPublisher') ?? '';

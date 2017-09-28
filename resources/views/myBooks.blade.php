@@ -368,6 +368,9 @@
               position:relative;
               top:1px;
             }
+            .bookType {
+              height: 40px;
+            }
         </style>
     </head>
 
@@ -380,7 +383,14 @@
                 <form action="{{route('postAddBookForm')}}" style="border:1px solid #ccc" id="addNebookForm" method="POST" enctype="multipart/form-data">
                   {{csrf_field()}}
                   <label><b>Book Type</b></label>
-                  <input type="text" name="bookType" placeholder="Book Type" class="addBookInput" required/><br>
+                  <!-- <input type="text" name="bookType" placeholder="Book Type" class="addBookInput" required/><br> -->
+
+                  <select id="bookType" name="bookType" class="bookType" required>
+                      <option value =''>Select A Book Type</option>
+                      @foreach ($bookTypes as $key => $bookType)
+                      <option value ='{{$bookType["typeID"]}}'>{{$bookType['typeName']}}</option>
+                      @endforeach
+                  </select>
                   <label><b>Book Name</b></label>
                   <input type="text" name="bookName" placeholder="Book Name" class="addBookInput" required/><br>
                   <label><b>Book Title</b></label>
