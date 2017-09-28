@@ -272,6 +272,21 @@
             #donate form {
               width: 100px;
             }
+            .itemButton {
+                background-color: #4CAF50; 
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+            .itemButton2 {
+              background-color: #008CBA;
+            } 
         </style>
     </head>
 
@@ -297,13 +312,14 @@
                         @foreach ($books as $bookID => $book) 
                         <li><img src="{{asset('users/'.$book['bookImage'])}}">
                         <br>
-                          <p style="font-size: medium;"><font face="verdana">Name:</font></p>
-                          <p style="font-size: medium;"><font face="verdana">{{$book['bookName']}}</font></p>
-                          <p style="font-size: medium;"><font face="verdana">Title:</font></p>
-                          <p style="font-size: medium;"><font face="verdana">{{$book['bookTitle']}}</font></p>
-                          <p style="font-size: medium;"><font face="verdana">Price:</font></p>
-                          <p style="font-size: medium;"><font face="verdana">${{$book['bookPrice']}} CAD</font></p>
-                          <button class="myButton">test</button>
+                          <h4><font face="verdana">Name:</font></h4>
+                          <h4><font face="verdana">{{$book['bookName']}}</font></h4>
+                          <h4><font face="verdana">Title:</font></h4>
+                          <h4><font face="verdana">{{$book['bookTitle']}}</font></h4>
+                          <h4><font face="verdana">Price:</font></h4>
+                          <h4><font face="verdana">${{$book['bookPrice']}} CAD</font></h4>
+                          <button class="itemButton">View</button>
+                          <button class="itemButton itemButton1">Add to Cart</button>
                           <span></span>
                         </li>
                         @endforeach
