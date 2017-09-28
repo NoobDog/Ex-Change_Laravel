@@ -428,9 +428,10 @@
                             <br>
                             <div id="pager" class="pager"></div>
                             </div>
+                            <a href="{{route('getAddBookForm')}}"><button class ='myButton'>Add New book</button></a>
                         </div>
 
-                        <a href="{{route('getAddBookForm')}}"><button class ='myButton'>Add New book</button></a>
+                        
                     @endif
                   @endif
                @endif
