@@ -77,7 +77,7 @@ class myBooksController extends Controller
 		     } else {
 					 $imgPath = '';
 					 //insert to books table
-					 DB::insert('INSERT INTO books (userID, bookName, bookType, bookTypeID, bookPublisher, bookAuthor, bookEdition, bookDate,
+					 DB::insert('INSERT INTO books (userID, bookName, bookTypeID, bookTitle, bookPublisher, bookAuthor, bookEdition, bookDate,
 						 bookImage, bookPrice, enableUserPoint, bookPoint, isVoid, private, bookDescription)
 						 values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 						 [$userID, $bookName, $bookType, $bookTitle, $bookPublisher, $bookAuthor, $bookEdition, $bookDate, $imgPath,
