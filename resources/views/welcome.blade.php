@@ -375,7 +375,7 @@
                       <ul>
                         @foreach ($books as $bookID => $book) 
                         <li>
-                          <a href='#'><img src="{{asset('users/'.$book['bookImage'])}}"></a>
+                          <img src="{{asset('users/'.$book['bookImage'])}}">
                           <br>
                           <p style="font-size: medium;">
                           <a href='#'><font face="verdana">{{$book['bookName']}}</font></a>
@@ -386,7 +386,7 @@
                           </p>
                           <a href='#'><button class="itemButton">View</button></a>
                           <a href='#'><button class="itemButton1">Add to Cart</button></a>
-                          <span></span>
+                          <a href='#'><span></span></a>
                         </li>
                         @endforeach
                       </ul>
