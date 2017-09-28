@@ -297,11 +297,11 @@
                         @foreach ($books as $bookID => $book) 
                         <li><img src="{{asset('users/'.$book['bookImage'])}}">
                         <br>
-                          <p style="font-size: medium;"><font face="verdana">Name:</font></p><br>
+                          <p style="font-size: medium;"><font face="verdana">Name:</font></p>
                           <p style="font-size: medium;"><font face="verdana">{{$book['bookName']}}</font></p>
-                          <p style="font-size: medium;"><font face="verdana">Title:</font></p><br>
+                          <p style="font-size: medium;"><font face="verdana">Title:</font></p>
                           <p style="font-size: medium;"><font face="verdana">{{$book['bookTitle']}}</font></p>
-                          <p style="font-size: medium;"><font face="verdana">Price:</font></p><br>
+                          <p style="font-size: medium;"><font face="verdana">Price:</font></p>
                           <p style="font-size: medium;"><font face="verdana">${{$book['bookPrice']}} CAD</font></p>
                           <button class="myButton">test</button>
                           <span></span>
