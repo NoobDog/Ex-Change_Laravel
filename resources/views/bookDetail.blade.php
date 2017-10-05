@@ -122,10 +122,14 @@
         </div>
     </body>
 </html>
-<<script>
+<script>
     function postMessage(messageInput) {
+        var bookUserID = <?php echo $book['userID']?>;
+        var thisUserID = <?php echo $_SESSION['userID']?>;
         if(messageInput != "") {
             console.log(messageInput);
+
+
         } else {
             alert('Please enter something');
         }
