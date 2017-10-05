@@ -18,7 +18,7 @@ class bookDetailController extends Controller
             if(!empty($book)) {
                 $bookType = DB::select('SELECT typeName FROM bookTypes WHERE typeID = ?',[$book[0]['bookTypeID']]);
                 $bookType = json_decode(json_encode($bookType),true);
-                $book[0]['bookType'] = $bookType['typeName'];
+                $book[0]['bookType'] = $bookType[0]['typeName'];
                 \View::share(['page_name_active'=> 'home','book'=>$book[0]]);
                 return \View::make('bookDetail'); 
             } else {
