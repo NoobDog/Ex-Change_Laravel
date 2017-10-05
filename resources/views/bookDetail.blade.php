@@ -94,11 +94,11 @@
                     <p>{{$book['bookTitle']}}</p>
                     <p>by <strong>{{$book['bookAuthor']}}</strong></p>
                     <p>{{$book['bookDescription']}}</p>
-                    <p>Published by {{$book['bookPublisher']}}</p>
-                    <p>Edition {{$book['bookEdition']}}</p>
-                    <p>Date {{$book['bookDate']}}</p>
-                    <p>Type {{$book['bookType']}}</p>
-                    <p>Price {{$book['bookPrice']}}</p>
+                    <p>Published by <strong>{{$book['bookPublisher']}}</strong></p>
+                    <p>Edition <strong>{{$book['bookEdition']}}</strong></p>
+                    <p>Date <strong>{{$book['bookDate']}}</strong></p>
+                    <p>Type <strong>{{$book['bookType']}}</strong></p>
+                    <p>Price <strong>$ {{number_format($book['bookPrice'], 2, '.', '')}} CAD</strong></p>
                 </div>
                 @else
                     <div class="bookDetail">
