@@ -120,13 +120,13 @@
                 @endif
             </div>
         </div>
-        {{print_r(session()->get('userID'))}}
+        {{print_r(Session::>get())}}
     </body>
 </html>
 <script>
     function postMessage(messageInput) {
         var bookUserID = <?php echo $book['userID']?>;
-        var thisUserID = <?php session()->get('userID')?>;
+        //var thisUserID = {{session()->get('userID')}};
         if(messageInput != "") {
             console.log(messageInput);
             $.post();
