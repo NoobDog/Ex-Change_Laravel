@@ -120,7 +120,7 @@
                 @endif
             </div>
         </div>
-        {{print_r(Session::>get())}}
+        {{print_r(Session::->get())}}
     </body>
 </html>
 <script>
