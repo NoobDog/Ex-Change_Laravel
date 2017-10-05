@@ -93,7 +93,7 @@
                     <strong><p>{{$book['bookName']}}</p></strong>
                     <p>{{$book['bookTitle']}}</p>
                     <p>by <strong>{{$book['bookAuthor']}}</strong></p>
-                    <p>{{$book['bookDescription']}</p>
+                    <p>{{$book['bookDescription']}}</p>
                     <p>Published by {{$book['bookPublisher']}}</p>
                     <p>Edition {{$book['bookEdition']}}</p>
                     <p>Date {{$book['bookDate']}}</p>
