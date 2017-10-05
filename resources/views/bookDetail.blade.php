@@ -100,6 +100,9 @@
                     <p>Type <strong>{{$book['bookType']}}</strong></p>
                     <p>Price <strong>$ {{number_format($book['bookPrice'], 2, '.', '')}} CAD</strong></p>
                 </div>
+                <div class="negotiate">
+                    <input type="text" id="messageInput"/><button onClick="postMessage($('#messageInput').val())">submit</button>
+                </div>
                 @else
                     <div class="bookDetail">
                         <img src="{{asset('users/'.$book['bookImage'])}}">
@@ -118,3 +121,11 @@
         </div>
     </body>
 </html>
+<<script>
+    function postMessage(messageInput) {
+        console.log(messageInput);
+
+
+    }
+
+</script>
