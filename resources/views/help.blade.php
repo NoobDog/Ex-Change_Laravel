@@ -82,6 +82,7 @@
             <div class="content">
                 <div class="title m-b-md">
                     Laravel - Help
+                    {{print_r(session())}}
                 </div>
 
 
