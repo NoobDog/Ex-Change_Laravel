@@ -225,10 +225,10 @@
             }
             #carousel .prev {
               background-position: 0 0;
-              left: -3%;
+              left: -6%;
             }
             #carousel .prev:hover {
-              left: -3.1%;
+              left: -6.1%;
             }			
             #carousel .next {
               background-position: -18px 0;
