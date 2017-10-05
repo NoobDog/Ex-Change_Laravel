@@ -82,7 +82,7 @@
             <div class="content">
                 <div class="title m-b-md">
                     Laravel - Help
-                    {{print_r(session())}}
+                    {{print_r(session()->get('userID'))}}
                 </div>
 
 
