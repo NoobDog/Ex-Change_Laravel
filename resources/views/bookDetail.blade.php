@@ -100,6 +100,7 @@
                     <p>Type <strong>{{$book['bookType']}}</strong></p>
                     <p>Price <strong>$ {{number_format($book['bookPrice'], 2, '.', '')}} CAD</strong></p>
                 </div>
+                <hr/>
                 <div class="negotiate">
                     <input type="text" id="messageInput"/><button onClick="postMessage($('#messageInput').val())">submit</button>
                 </div>
@@ -123,7 +124,11 @@
 </html>
 <<script>
     function postMessage(messageInput) {
-        console.log(messageInput);
+        if(messageInput != "") {
+            console.log(messageInput);
+        } else {
+            alert('Please enter something');
+        }
 
 
     }
