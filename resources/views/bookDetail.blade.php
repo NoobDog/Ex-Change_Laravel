@@ -125,10 +125,10 @@
 <script>
     function postMessage(messageInput) {
         var bookUserID = <?php echo $book['userID']?>;
-        var thisUserID = <?php echo $_SESSION['userID']?>;
+        var thisUserID = <?php Session::get('userID')?>;
         if(messageInput != "") {
             console.log(messageInput);
-
+            $.post();
 
         } else {
             alert('Please enter something');
