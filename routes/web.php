@@ -38,3 +38,7 @@ Route::get('/bookDetail/{book}',['as'=>'bookDetail','uses'=>'bookDetailControlle
 Route::get('/userProfile',['as'=>'userProfile','uses'=>'userProfileController@index']);
 //general page.
 Route::get('/general',['as'=>'general','uses'=>'generalController@index']);
+//privacy setting page.
+Route::get('/privacySetting',['as'=>'privacySetting','uses'=>'privacySettingController@index']);
+//address setting page.
+Route::get('/addressSetting',['as'=>'addressSetting','uses'=>'addressSettingController@index']);
