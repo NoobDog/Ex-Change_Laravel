@@ -25,12 +25,6 @@
         <style>
             /* Scrolling bar */
             #wrapper {
-              /* width: 100%;
-              height: 220px;
-              margin: -110px 0 0 -367px;
-            
-              left: 50%;
-              top: 50%; */
               position: absolute;
               left: 9%;
               right: 4.5%;
@@ -47,7 +41,7 @@
               padding: 0;
             }
             #carousel li {
-              background: transparent url({{asset('img/carousel_polaroid.png')}}) no-repeat 0 0;
+              background: transparent url("{{asset('img/carousel_polaroid.png')}}") no-repeat 0 0;
               font-size: 40px;
               color: #999;
               text-align: center;
@@ -69,7 +63,7 @@
             }
 
             #carousel li span {
-              background: transparent url({{asset('img/carousel_shine.png')}}) no-repeat 0 0;
+              background: transparent url("{{asset('img/carousel_shine.png')}}") no-repeat 0 0;
               text-indent: -999px;
               display: block;
               overflow: hidden;
@@ -86,7 +80,7 @@
               clear: both;
             }
             #carousel .prev, #carousel .next {
-              background: transparent url({{asset('img/carousel_control.png')}}) no-repeat 0 0;
+              background: transparent url("{{asset('img/carousel_control.png')}}") no-repeat 0 0;
               text-indent: -999px;
               display: block;
               overflow: hidden;
@@ -115,7 +109,7 @@
               margin: 0 auto;
             }
             #carousel .pager a {
-              background: transparent url({{asset('img/carousel_control.png')}}) no-repeat -2px -32px;
+              background: transparent url("{{asset('img/carousel_control.png')}}") no-repeat -2px -32px;
               text-decoration: none;
               text-indent: -999px;
               display: inline-block;
@@ -125,10 +119,9 @@
               margin: 0 5px 0 0;
             }
             #carousel .pager a.selected {
-              background: transparent url({{asset('img/carousel_control.png')}}) no-repeat -12px -32px;
+              background: transparent url("{{asset('img/carousel_control.png')}}") no-repeat -12px -32px;
               text-decoration: underline;				
             }
-
         </style>
     </head>
 
