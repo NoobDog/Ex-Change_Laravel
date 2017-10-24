@@ -13,6 +13,6 @@ class privacySettingController extends Controller
 		public function index() {
 						\View::share(['page_name_active'=> 'home']);
 
-            return \View::make('general');
+            return \View::make('privacySetting');
         }
 }
