@@ -34,3 +34,5 @@ Route::post('/myBooks/addNewBook',['as'=>'postAddBookForm', 'uses'=>'myBooksCont
 Route::get('/logout',['as'=>'logout','uses'=>'welcomeController@logout']);
 //book detail
 Route::get('/bookDetail/{book}',['as'=>'bookDetail','uses'=>'bookDetailController@index']);
+//user profile page.
+Route::get('/userProfile',['as'=>'userProfile','uses'=>'userProfileController@index']);
