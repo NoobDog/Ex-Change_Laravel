@@ -1,4 +1,4 @@
-@if (Session::has('userName'))
+@if (!Session::has('userName'))
 <p>You do not have the permission to access this page!</p>
 @else
 
@@ -28,4 +28,4 @@
         </div>
     </body>
 </html>
-
+@endif
