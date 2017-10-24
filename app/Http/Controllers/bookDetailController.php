@@ -14,6 +14,7 @@ class bookDetailController extends Controller
 			$book = DB::select('SELECT * FROM books WHERE bookID = ?',[$book]);
             $book = json_decode(json_encode($book),true);
             
+            
 
             if(!empty($book)) {
                 $bookType = DB::select('SELECT typeName FROM bookTypes WHERE typeID = ?',[$book[0]['bookTypeID']]);
