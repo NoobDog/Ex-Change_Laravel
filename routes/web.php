@@ -36,3 +36,5 @@ Route::get('/logout',['as'=>'logout','uses'=>'welcomeController@logout']);
 Route::get('/bookDetail/{book}',['as'=>'bookDetail','uses'=>'bookDetailController@index']);
 //user profile page.
 Route::get('/userProfile',['as'=>'userProfile','uses'=>'userProfileController@index']);
+//general page.
+Route::get('/general',['as'=>'general','uses'=>'generalController@index']);
