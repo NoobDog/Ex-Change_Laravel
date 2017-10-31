@@ -127,7 +127,19 @@
 
     <body>
         @include('header')
-        <a href="{{route('stripeTest')}}">Test</a>
+        
+        <form action="/your-server-side-code" method="POST">
+          <script
+            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="pk_test_oUFORtFF2ZktB74kLH7vCtAa"
+            data-amount="999"
+            data-name="NoobDog"
+            data-description="Widget"
+            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+            data-locale="auto"
+            data-currency="cad">
+          </script>
+        </form>
         <form class="search" >
           <input type="text" class="searchTerm"/>
           <button class="myButton">Search</button>

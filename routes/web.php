@@ -42,6 +42,3 @@ Route::get('/general',['as'=>'general','uses'=>'generalController@index']);
 Route::get('/privacySetting',['as'=>'privacySetting','uses'=>'privacySettingController@index']);
 //address setting page.
 Route::get('/addressSetting',['as'=>'addressSetting','uses'=>'addressSettingController@index']);
-
-//
-Route::get('/',['as'=>'stripeTest','uses'=>'welcomeController@stripeTest']);
