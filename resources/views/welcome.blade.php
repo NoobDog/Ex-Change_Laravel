@@ -128,7 +128,7 @@
     <body>
         @include('header')
         <!-- stripe testing -->
-        <!-- <form action="/your-server-side-code" method="POST">
+        <!-- <form method="POST">
           <script
             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="pk_test_oUFORtFF2ZktB74kLH7vCtAa"
