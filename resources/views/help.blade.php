@@ -36,6 +36,7 @@
                 <!-- stripe testing -->
                 @if (isset($test)) 
                 {{print_r($test)}}
+                @endif
 
             </div>
         </div>
