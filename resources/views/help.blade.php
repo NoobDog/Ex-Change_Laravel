@@ -29,11 +29,13 @@
             @endif -->
             {{print_r(env('STRIPE_KEY'))}}
             <form action="{{route('stripe')}}" method="post">
+            {{ csrf_field() }}
             <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                     data-key="{{env('STRIPE_KEY')}}"
                     data-description="Access for a year"
                     data-amount="5000"
-                    data-locale="auto"></script>
+                    data-locale="auto"
+                    data-currency="cad"></script>
             </form>
             <div class="content">
                 <div class="title m-b-md">
