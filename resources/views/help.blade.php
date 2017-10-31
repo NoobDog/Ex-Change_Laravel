@@ -27,7 +27,13 @@
                     @endauth
                 </div>
             @endif -->
-            <a href="{{route('stripe')}}" ><button>Test</button></a>
+            <form action="{{route('stripe')}}" method="post">
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="{{env('STRIPE_SECRET')}}"
+                    data-description="Access for a year"
+                    data-amount="5000"
+                    data-locale="auto"></script>
+            </form>
             <div class="content">
                 <div class="title m-b-md">
                     Laravel - Help
