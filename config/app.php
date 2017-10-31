@@ -167,7 +167,7 @@ return [
         /*
          * Package Service Providers...
          */
-        Illuminate\Cashier\CashierServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
