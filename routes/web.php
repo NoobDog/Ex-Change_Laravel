@@ -12,7 +12,7 @@
 */
 
 use Illuminate\Http\Request;
-use Stripe;
+//use Stripe;
 //home page
 Route::get('/',['as'=>'home','uses'=>'welcomeController@index']);
 //login
