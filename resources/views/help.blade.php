@@ -27,9 +27,10 @@
                     @endauth
                 </div>
             @endif -->
+            {{print_r(env('STRIPE_KEY'))}}
             <form action="{{route('stripe')}}" method="post">
             <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                    data-key="{{env('STRIPE_SECRET')}}"
+                    data-key="{{env('STRIPE_KEY')}}"
                     data-description="Access for a year"
                     data-amount="5000"
                     data-locale="auto"></script>
