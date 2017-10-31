@@ -127,8 +127,8 @@
 
     <body>
         @include('header')
-        
-        <form action="/your-server-side-code" method="POST">
+        <!-- stripe testing -->
+        <!-- <form action="/your-server-side-code" method="POST">
           <script
             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="pk_test_oUFORtFF2ZktB74kLH7vCtAa"
@@ -139,7 +139,7 @@
             data-locale="auto"
             data-currency="cad">
           </script>
-        </form>
+        </form> -->
         <form class="search" >
           <input type="text" class="searchTerm"/>
           <button class="myButton">Search</button>
