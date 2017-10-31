@@ -13,6 +13,7 @@
 
 use Illuminate\Http\Request;
 //use Stripe;
+
 //home page
 Route::get('/',['as'=>'home','uses'=>'welcomeController@index']);
 //login
@@ -46,20 +47,20 @@ Route::get('/privacySetting',['as'=>'privacySetting','uses'=>'privacySettingCont
 Route::get('/addressSetting',['as'=>'addressSetting','uses'=>'addressSettingController@index']);
 
 
-
-Route::post ( '/help', function (Request $request) {
-	\Stripe\Stripe::setApiKey ( env('STRIPE_SECRET') );
-	try {
-		\Stripe\Charge::create ( array (
-				"amount" => 300 * 100,
-				"currency" => "usd",
-				"source" => $request->input ( 'stripeToken' ), // obtained with Stripe.js
-				"description" => "Test payment." 
-		) );
-		Session::flash ( 'success-message', 'Payment done successfully !' );
-		return Redirect::back ();
-	} catch ( \Exception $e ) {
-		Session::flash ( 'fail-message', "Error! Please Try again." );
-		return Redirect::back ();
-	}
-} );
+Route::post('/help',['as'=>'stripe','uses'=>'helpController@stripe']);
+// Route::post ( '/help', function (Request $request) {
+// 	\Stripe\Stripe::setApiKey ( env('STRIPE_SECRET') );
+// 	try {
+// 		\Stripe\Charge::create ( array (
+// 				"amount" => 300 * 100,
+// 				"currency" => "usd",
+// 				"source" => $request->input ( 'stripeToken' ), // obtained with Stripe.js
+// 				"description" => "Test payment." 
+// 		) );
+// 		Session::flash ( 'success-message', 'Payment done successfully !' );
+// 		return Redirect::back ();
+// 	} catch ( \Exception $e ) {
+// 		Session::flash ( 'fail-message', "Error! Please Try again." );
+// 		return Redirect::back ();
+// 	}
+// } );
