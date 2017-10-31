@@ -12,17 +12,18 @@ class helpController extends Controller
 	// 	View::share(['page_name_active'=> 'mypagename']);
 	// }
 		public function index() {
-						\View::share(['page_name_active'=> 'help']);
-
+			\View::share(['page_name_active'=> 'help']);
             return \View::make('help');
 		}
 		public function stripe() {
 			\Stripe\Stripe::setApiKey(env('STRIPE_KEY'));
-			\Stripe\Charge::create(array(
+			$data = \Stripe\Charge::create(array(
 				"amount" => 2000,
 				"currency" => "cad",
 				"source" => "tok_amex", // obtained with Stripe.js
 				"description" => "Charge for ella.jackson@example.com"
 			  ));
+			  return view('help',['test'=> $data]);
+
 		}
 }

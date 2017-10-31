@@ -34,7 +34,8 @@
                     {{print_r(session()->get('userID'))}}
                 </div>
                 <!-- stripe testing -->
-
+                @if (isset($test)) 
+                {{print_r($test)}}
 
             </div>
         </div>
