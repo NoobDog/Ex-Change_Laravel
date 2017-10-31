@@ -36,7 +36,7 @@
                 <!-- stripe testing -->
                 <form accept-charset="UTF-8" action="/help" class="require-validation"
                     data-cc-on-file="false"
-                    data-stripe-publishable-key="test_public_key"
+                    data-stripe-publishable-key="{{env('STRIPE_KEY')}}"
                     id="payment-form" method="post">
                     {{ csrf_field() }}
                     <div class='form-row'>
