@@ -64,5 +64,10 @@ html, body {
 }
 #userInfoTable {
     width: 100%;
-    
+}
+#userInfoTable th {
+    text-align: right;
+}
+#userInfoTable td {
+    text-align: left;
 }

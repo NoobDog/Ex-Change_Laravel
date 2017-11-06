@@ -33,7 +33,7 @@
                 <hr>
                 <table id="userInfoTable">
                     <tr>
-                        <td><label><b>Password:</b></label></td>
+                        <th><label><b>Password:</b></label></th>
                         <td><a><button>Change Password</button></a></td>
                     </tr>
                     
