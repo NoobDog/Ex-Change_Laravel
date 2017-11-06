@@ -22,7 +22,12 @@
         @include('header')
         <div class="flex-center position-ref full-height">
             <div class="content">
-            User Profile 
+            User Profile
+            @if (!$user['userIcon'])
+                <img src="{{asset('icons/'.$user['userIcon'].'jpg')}}">
+            @else 
+                <img src="{{asset('icons/'.$user['userIcon'])}}">
+            @endif
             {{print_r($user)}}
 
             </div>
