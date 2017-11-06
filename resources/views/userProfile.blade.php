@@ -22,8 +22,8 @@
         @include('header')
         <div class="flex-center position-ref full-height">
             <div class="content">
-                User Profile 
-            {{print_r(session()->get('userID'))}}
+            User Profile 
+            {{print_r($user)}}
 
             </div>
         </div>

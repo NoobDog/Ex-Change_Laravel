@@ -27,7 +27,6 @@
                     @endauth
                 </div>
             @endif -->
-            {{print_r(env('STRIPE_KEY'))}}
             <form action="{{route('stripe')}}" method="post">
             {{ csrf_field() }}
             <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
