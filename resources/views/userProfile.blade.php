@@ -39,8 +39,7 @@
                 </form>
                 
             @else
-
-            <!-- {{print_r($user)}} -->
+           {{print_r($user)}}
 
             </div>
         </div>
