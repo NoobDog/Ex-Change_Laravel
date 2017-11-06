@@ -23,7 +23,7 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
             <!-- User Profile -->
-            @if (isset($changePassword) && $changePassword == 'true')
+            <!-- @if (isset($changePassword) && $changePassword == 'true')
                 <form method="post" action="{{route('setNewPassword')}}">
                     {{ csrf_field() }}
                     <label><b>New Password</b></label>
@@ -33,7 +33,7 @@
                     <input type="password" name="rep-passWord" required="required" />
                     <button type="submit" id="doneButton" class="btn btn-primary btn-block btn-large finishButton">Done</button>
                 </form>
-            @else
+            @else -->
                 @if (!$user['userIcon'])
                     <a><img src="{{asset('icons/'.$user['userIcon'].'.jpg')}}" id="userIcon"></a>
                 @else 
@@ -67,7 +67,7 @@
                             </tr>
                         </form>
                     </table>
-            @endif
+            <!-- @endif -->
            <!-- {{print_r($user)}} -->
 
             </div>
@@ -75,7 +75,7 @@
     </body>
 </html>
 @endif
-<script>
+<!-- <script>
 $('input[name="rep-passWord"]').off("input").on("input", function() {
   var repeatValue = $(this).val();
   var passwordValue = $('input[name="passWord"]').val();
@@ -89,5 +89,5 @@ $('input[name="rep-passWord"]').off("input").on("input", function() {
     $('#doneButton').attr("disabled", false);
   }
 });
-</script>
+</script> -->
 
