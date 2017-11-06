@@ -23,7 +23,7 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
             <!-- User Profile -->
-            @if (isset($changePassword) && $changePassword)
+            @if (isset($changePassword) && $changePassword == 'true')
                 <form method="post" action="{{route('setNewPassword')}}">
                     {{ csrf_field() }}
                     <label><b>New Password</b></label>
