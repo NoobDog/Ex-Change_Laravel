@@ -57,10 +57,10 @@ class newAccountController extends Controller
 							 if(empty($checkUser)) {
 								 $newUserName = $inputFirstName.' '.$inputLastName;
 								 	DB::insert('INSERT INTO users (userName, userPassword, userEmail, adminID, userIP, userIcon,
-										isWarning, isBlock, isVoid, roleTypeID, userQuestion1, userAnswer1, userQuestion2, userAnswer2)
-										values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+										isWarning, isBlock, isVoid, roleTypeID, userQuestion1, userAnswer1, userQuestion2, userAnswer2, userSince)
+										values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 										[$newUserName,$inputPasswordHashed,$inputEmail,0,'::1','0',0,0,0,1,$inputQuestion1,$inputAnswer1,
-										 $inputQuestion2,$inputAnswer2]
+										 $inputQuestion2,$inputAnswer2,date("Y-m-d")]
 									);
 
 									$user = DB::select('SELECT * FROM users WHERE userEmail = ? AND userPassword = ?', [$inputEmail, $inputPasswordHashed]);

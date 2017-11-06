@@ -22,12 +22,24 @@
         @include('header')
         <div class="flex-center position-ref full-height">
             <div class="content">
-            User Profile
+            <!-- User Profile -->
             @if (!$user['userIcon'])
-                <img src="{{asset('icons/'.$user['userIcon'].'.jpg')}}" id="userIcon">
+                <a><img src="{{asset('icons/'.$user['userIcon'].'.jpg')}}" id="userIcon"></a>
             @else 
-                <img src="{{asset('icons/'.$user['userIcon'])}}" id="userIcon">
+                <a><img src="{{asset('icons/'.$user['userIcon'])}}" id="userIcon"></a>
             @endif
+                <small>User Since: {{$user['userSince']}}</small>
+                <hr>
+                <label><b>Password:</b></label> <a><button>Change Password</button></a>
+                <form>
+                    <label><b>User Name:</b></label> <input type="text" value="{{$user['userName']}}"/>
+                    <label><b>User Email:</b></label> <input type="text" value="{{$user['userEmail']}}"/>
+                    <label><b>User BOD:</b></label> <input type="text" value="{{$user['userBOD']}}"/>
+                    <label><b>Gender:</b></label> <input type="text" value="{{$user['userGender']}}"/>
+                </form>
+                
+            @else
+
             <!-- {{print_r($user)}} -->
 
             </div>
