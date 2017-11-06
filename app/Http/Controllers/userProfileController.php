@@ -16,9 +16,9 @@ class userProfileController extends Controller
 			\View::share(['page_name_active'=> 'home']);
             return \View::make('userProfile',['user' => $user]);
 		}
-		// public function changePassword() {
-		// 	return view('login',['page_name_active'=> 'home','changePassword'=>'true']);
-		// }
+		public function changePassword() {
+			return view('login',['page_name_active'=> 'home','changePassword'=>'true']);
+		}
 		// public function setNewPassword(Request $request) {
 		// 	$newPassword = $request->input('passWord');
 		// 	$newPasswordHashed = md5($newPassword);
