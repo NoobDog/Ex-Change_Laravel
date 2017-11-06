@@ -24,9 +24,9 @@
             <div class="content">
             User Profile
             @if (!$user['userIcon'])
-                <img src="{{asset('icons/'.$user['userIcon'].'.jpg')}}">
+                <img src="{{asset('icons/'.$user['userIcon'].'.jpg')}}" id="userIcon">
             @else 
-                <img src="{{asset('icons/'.$user['userIcon'])}}">
+                <img src="{{asset('icons/'.$user['userIcon'])}}" id="userIcon">
             @endif
             <!-- {{print_r($user)}} -->
 
