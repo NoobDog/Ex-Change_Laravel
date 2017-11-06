@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use DB;
+use Session;
 class userProfileController extends Controller
 {
 	// public function __construct()
