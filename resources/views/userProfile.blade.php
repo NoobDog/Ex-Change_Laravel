@@ -28,7 +28,7 @@
             @else 
                 <img src="{{asset('icons/'.$user['userIcon'])}}">
             @endif
-            {{print_r($user)}}
+            <!-- {{print_r($user)}} -->
 
             </div>
         </div>
