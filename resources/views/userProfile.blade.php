@@ -38,8 +38,8 @@
                     <label><b>Gender:</b></label> <input type="text" value="{{$user['userGender']}}"/>
                 </form>
                 
-            @else
-           {{print_r($user)}}
+
+           <!-- {{print_r($user)}} -->
 
             </div>
         </div>
