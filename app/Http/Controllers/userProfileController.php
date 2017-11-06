@@ -17,7 +17,10 @@ class userProfileController extends Controller
             return \View::make('userProfile',['user' => $user]);
 		}
 		public function changePassword() {
-			return view('userProfile',['page_name_active'=> 'home','changePassword'=>'true']);
+			$user = DB::select('SELECT * FROM users WHERE userID = ?', [Session::get('userID')]);
+			$user = json_decode(json_encode($user),true);
+			$user = $user[0];
+			return view('userProfile',['page_name_active'=> 'home','changePassword'=>'true','user' => $user]);
 		}
 		public function setNewPassword(Request $request) {
 			$newPassword = $request->input('passWord');
