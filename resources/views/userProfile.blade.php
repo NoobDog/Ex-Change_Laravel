@@ -31,7 +31,7 @@
                 <br>
                 <small>User Since: {{$user['userSince']}}</small>
                 <hr>
-                <table>
+                <table id="userInfoTable">
                     <tr>
                         <td><label><b>Password:</b></label></td>
                         <td><a><button>Change Password</button></a></td>
@@ -39,19 +39,19 @@
                     
                     <form>
                         <tr>
-                            <td><label><b>User Name:</b></label></td>
+                            <th><label><b>User Name:</b></label></th>
                             <td><input type="text" value="{{$user['userName']}}"/></td>
                         </tr>
                         <tr>
-                            <td><label><b>User Email:</b></label></td>
+                            <th><label><b>User Email:</b></label></th>
                             <td><input type="text" value="{{$user['userEmail']}}"/></td>
                         </tr>
                         <tr>
-                            <td><label><b>User BOD:</b></label></td>
+                            <th><label><b>User BOD:</b></label></th>
                             <td><input type="text" value="{{$user['userBOD']}}"/></td>
                         </tr>
                         <tr>
-                            <td><label><b>Gender:</b></label></td>
+                            <th><label><b>Gender:</b></label></th>
                             <td><input type="text" value="{{$user['userGender']}}"/></td>
                         </tr>
                     </form>
