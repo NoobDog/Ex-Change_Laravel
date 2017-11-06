@@ -39,8 +39,8 @@ Route::get('/logout',['as'=>'logout','uses'=>'welcomeController@logout']);
 Route::get('/bookDetail/{book}',['as'=>'bookDetail','uses'=>'bookDetailController@index']);
 //user profile page.
 Route::get('/userProfile',['as'=>'userProfile','uses'=>'userProfileController@index']);
-Route::get('/userProfile/newPassword',['as'=>'changePassword','uses'=>'userProfileController@changePassword']);
-Route::post('/userProfile',['as'=>'setNewPassword','uses'=>'userProfileController@setNewPassword']);
+Route::post('/userProfile',['as'=>'changePassword','uses'=>'userProfileController@changePassword']);
+Route::post('/userProfile/newPassword',['as'=>'setNewPassword','uses'=>'userProfileController@setNewPassword']);
 //general page.
 Route::get('/general',['as'=>'general','uses'=>'generalController@index']);
 //privacy setting page.

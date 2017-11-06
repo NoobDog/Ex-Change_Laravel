@@ -24,7 +24,7 @@
             <div class="content">
             <!-- User Profile -->
             @if (isset($changePassword) && $changePassword == 'true')
-               haha <!-- <form method="post" action="{{route('setNewPassword')}}">
+               <form method="post" action="{{route('setNewPassword')}}">
                     {{ csrf_field() }}
                     <label><b>New Password</b></label>
                     <input type="password" name="passWord" required="required" />
@@ -32,7 +32,7 @@
                     <p id='passwordMatch' hidden="true" style='color: red;text-align: left; font-size: 15px;'></p>
                     <input type="password" name="rep-passWord" required="required" />
                     <button type="submit" id="doneButton" class="btn btn-primary btn-block btn-large finishButton">Done</button>
-                </form> -->
+                </form>
             @else
                 @if (!$user['userIcon'])
                     <a><img src="{{asset('icons/'.$user['userIcon'].'.jpg')}}" id="userIcon"></a>
