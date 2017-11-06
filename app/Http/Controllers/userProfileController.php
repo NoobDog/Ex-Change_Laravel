@@ -29,8 +29,7 @@ class userProfileController extends Controller
 			$user = DB::select('SELECT * FROM users WHERE userID = ?', [Session::get('userID')]);
 			$user = json_decode(json_encode($user),true);
 			$user = $user[0];
-			\View::share(['page_name_active'=> 'home']);
-            return \View::make('userProfile',['user' => $user]);
+            return view('userProfile',['user' => $user,'page_name_active'=> 'home']);
 
 		}
 }
