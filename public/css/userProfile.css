@@ -63,7 +63,8 @@ html, body {
 
 }
 #userInfoTable {
-    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 #userInfoTable th {
     text-align: right;

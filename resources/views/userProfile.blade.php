@@ -23,40 +23,51 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
             <!-- User Profile -->
-            @if (!$user['userIcon'])
-                <a><img src="{{asset('icons/'.$user['userIcon'].'.jpg')}}" id="userIcon"></a>
-            @else 
-                <a><img src="{{asset('icons/'.$user['userIcon'])}}" id="userIcon"></a>
+            @if (isset($changePassword) && $changePassword)
+                <form method="post" action="{{route('setNewPassword')}}">
+                    {{ csrf_field() }}
+                    <label><b>New Password</b></label>
+                    <input type="password" name="passWord" required="required" />
+                    <label><b>Repeat Password</b></label>
+                    <p id='passwordMatch' hidden="true" style='color: red;text-align: left; font-size: 15px;'></p>
+                    <input type="password" name="rep-passWord" required="required" />
+                    <button type="submit" id="doneButton" class="btn btn-primary btn-block btn-large finishButton">Done</button>
+                </form>
+            @else
+                @if (!$user['userIcon'])
+                    <a><img src="{{asset('icons/'.$user['userIcon'].'.jpg')}}" id="userIcon"></a>
+                @else 
+                    <a><img src="{{asset('icons/'.$user['userIcon'])}}" id="userIcon"></a>
+                @endif
+                    <br>
+                    <small>User Since: {{$user['userSince']}}</small>
+                    <hr>
+                    <table id="userInfoTable">
+                        <tr>
+                            <th><label><b>Password:</b></label></th>
+                            <td><a href="{{route('changePassword')}}" ><button>Change Password</button></a></td>
+                        </tr>
+                        
+                        <form>
+                            <tr>
+                                <th><label><b>User Name:</b></label></th>
+                                <td><input type="text" value="{{$user['userName']}}" name="userName"/></td>
+                            </tr>
+                            <tr>
+                                <th><label><b>User Email:</b></label></th>
+                                <td><input type="email" value="{{$user['userEmail']}}" name="userEmail"/></td>
+                            </tr>
+                            <tr>
+                                <th><label><b>User BOD:</b></label></th>
+                                <td><input type="date" value="{{$user['userBOD']}}" name="userBOD"/></td>
+                            </tr>
+                            <tr>
+                                <th><label><b>Gender:</b></label></th>
+                                <td><input type="text" value="{{$user['userGender']}}" name="userGender"/></td>
+                            </tr>
+                        </form>
+                    </table>
             @endif
-                <br>
-                <small>User Since: {{$user['userSince']}}</small>
-                <hr>
-                <table id="userInfoTable">
-                    <tr>
-                        <th><label><b>Password:</b></label></th>
-                        <td><a><button>Change Password</button></a></td>
-                    </tr>
-                    
-                    <form>
-                        <tr>
-                            <th><label><b>User Name:</b></label></th>
-                            <td><input type="text" value="{{$user['userName']}}"/></td>
-                        </tr>
-                        <tr>
-                            <th><label><b>User Email:</b></label></th>
-                            <td><input type="text" value="{{$user['userEmail']}}"/></td>
-                        </tr>
-                        <tr>
-                            <th><label><b>User BOD:</b></label></th>
-                            <td><input type="text" value="{{$user['userBOD']}}"/></td>
-                        </tr>
-                        <tr>
-                            <th><label><b>Gender:</b></label></th>
-                            <td><input type="text" value="{{$user['userGender']}}"/></td>
-                        </tr>
-                    </form>
-                </table>
-
            <!-- {{print_r($user)}} -->
 
             </div>
@@ -64,3 +75,19 @@
     </body>
 </html>
 @endif
+<script>
+$('input[name="rep-passWord"]').off("input").on("input", function() {
+  var repeatValue = $(this).val();
+  var passwordValue = $('input[name="passWord"]').val();
+  if(passwordValue != repeatValue) {
+      $('#passwordMatch').html('* Password does not match.');
+      $('#passwordMatch').show();
+      $('#doneButton').attr("disabled", true);
+  }
+  else {
+    $('#passwordMatch').hide();
+    $('#doneButton').attr("disabled", false);
+  }
+});
+</script>
+
