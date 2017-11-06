@@ -31,12 +31,29 @@
                 <br>
                 <small>User Since: {{$user['userSince']}}</small>
                 <hr>
-                <label><b>Password:</b></label> <a><button>Change Password</button></a><br>
+                <tr>
+                    <td><label><b>Password:</b></label></td>
+                    <td><a><button>Change Password</button></a></td>
+                </tr>
+                
                 <form>
-                    <label><b>User Name:</b></label> <input type="text" value="{{$user['userName']}}"/><br>
-                    <label><b>User Email:</b></label> <input type="text" value="{{$user['userEmail']}}"/><br>
-                    <label><b>User BOD:</b></label> <input type="text" value="{{$user['userBOD']}}"/><br>
-                    <label><b>Gender:</b></label> <input type="text" value="{{$user['userGender']}}"/><br>
+                    <tr>
+                        <td><label><b>User Name:</b></label></td>
+                        <td><input type="text" value="{{$user['userName']}}"/></td>
+                    </tr>
+                    <tr>
+                        <td><label><b>User Email:</b></label></td>
+                        <td><input type="text" value="{{$user['userEmail']}}"/></td>
+                    </tr>
+                     <tr>
+                        <td><label><b>User BOD:</b></label></td>
+                        <td><input type="text" value="{{$user['userBOD']}}"/></td>
+                     </tr>
+                    <tr>
+                        <td><label><b>Gender:</b></label></td>
+                        <td><input type="text" value="{{$user['userGender']}}"/></td>
+                    </tr>
+                     
                 </form>
                 
 
