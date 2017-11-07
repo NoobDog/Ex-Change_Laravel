@@ -77,15 +77,15 @@
                                 <th><label><b>Gender:</b></label></th>
                                 <td>
                                     <select name="userGender" class="select-style">
-                                        <option value = ""><i class="fa fa-venus-mars"></i>&#xf22a; Secret</option>
-                                        <option value = "Male"><i class="fa fa-mars"></i>&#xf22a; Male</option>
-                                        <option value = "Female"><i class="fa fa-venus"></i>&#xf22a; Female</option>
+                                        <option value = "" selected="{{@if($user['userGender'] == '') selected}}">Secret</option>
+                                        <option value = "Male" selected="{{@if($user['userGender'] == 'Male') selected}}">Male</option>
+                                        <option value = "Female" selected="{{@if($user['userGender'] == 'Female') selected}}">Female</option>
                                     </select>
                                 </td>
                             </tr>
                         </form>
                     </table>
-                    <i class="fa fa-venus-mars"></i>
+
             @endif
            <!-- {{print_r($user)}} -->
 

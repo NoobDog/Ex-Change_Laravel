@@ -175,8 +175,10 @@ input {
 
 /* select */
 .select-style  {
-    font-family: 'FontAwesome', 'Second Font name'
-    }
+ height: 25px;
+ width: 300px;
+ font-size: large;   
+}
 
 
         
