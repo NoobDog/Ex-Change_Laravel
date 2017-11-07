@@ -57,7 +57,7 @@
                     <table id="userInfoTable">
                         <tr>
                             <th><label><b>Password:</b></label></th>
-                            <td><a href="{{route('changePassword')}}" ><button>Change Password</button></a></td>
+                            <td><a href="{{route('changePassword')}}" ><button class=".passwordChangeBtn">Change Password</button></a></td>
                         </tr>
                         
                         <form>
