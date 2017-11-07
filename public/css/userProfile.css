@@ -166,5 +166,10 @@ input {
 	top:1px;
 }
 
+#changePasswordTable {
+    text-align: center;
+    margin-left:auto; 
+    margin-right:auto;
+}
 
         

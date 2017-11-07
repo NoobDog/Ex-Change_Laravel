@@ -24,7 +24,7 @@
             <div class="content">
             <!-- User Profile -->
             @if (isset($changePassword) && $changePassword == 'true')
-                <table>
+                <table id="changePasswordTable">
                 <form method="post" action="{{route('setNewPassword')}}">
                     {{ csrf_field() }}
                     <tr>
