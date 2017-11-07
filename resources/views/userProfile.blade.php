@@ -24,15 +24,27 @@
             <div class="content">
             <!-- User Profile -->
             @if (isset($changePassword) && $changePassword == 'true')
-               <form method="post" action="{{route('setNewPassword')}}">
+                <table>
+                <form method="post" action="{{route('setNewPassword')}}">
                     {{ csrf_field() }}
-                    <label><b>New Password</b></label>
-                    <input type="password" name="passWord" required="required" /><br>
-                    <label><b>Repeat Password</b></label>
-                    <p id='passwordMatch' hidden="true" style='color: red;text-align: left; font-size: 15px;'></p>
-                    <input type="password" name="rep-passWord" required="required" /><br>
-                    <button type="submit" id="doneButton" class="btn btn-primary btn-block btn-large myButton">Done</button>
+                    <tr>
+                        <td><label><b>New Password</b></label></td>
+                        <td><input type="password" name="passWord" required="required" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><p id='passwordMatch' hidden="true" style='color: red;text-align: left; font-size: 15px;'></p></td>
+                    </tr>
+                    <tr>
+                        <td><label><b>Repeat Password</b></label></td>
+                        <td><input type="password" name="rep-passWord" required="required" /><br></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"> <button type="submit" id="doneButton" class="btn btn-primary btn-block btn-large myButton">Done</button></td>
+                    </tr>
+                   
                 </form>
+                </table>
             @else
                 @if (!$user['userIcon'])
                     <a><img src="{{asset('icons/'.$user['userIcon'].'.jpg')}}" id="userIcon"></a>
