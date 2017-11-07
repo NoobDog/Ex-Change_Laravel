@@ -77,8 +77,8 @@
                                 <th><label><b>Gender:</b></label></th>
                                 <td>
                                     <select name="userGender" class = "select-style">
-                                        <option value = "" @if($user['userGender'] == '') Selected @endif>Secret</option>
-                                        <option value = "Male" >Male</option>
+                                        <option value = "" >Secret</option>
+                                        <option value = "Male" @if($user['userGender'] == '') Selected @endif>Male</option>
                                         <option value = "Female" >Female</option>
                                     </select>
                                 </td>
