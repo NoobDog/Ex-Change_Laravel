@@ -32,4 +32,18 @@ class userProfileController extends Controller
             return view('userProfile',['user' => $user,'page_name_active'=> 'home']);
 
 		}
+		public function updateUserProFile(Request $request) {
+			$newUserName = $request->input('userName') ?? '';
+			$newUserEmail = $request->input('userEmail') ?? '';
+			$newUserBOD = $request->input('userBOD') ?? '';
+			$newUserGender = $request->get('userGender') ?? '';
+
+			DB::update('UPDATE users SET userName = ?, userEmail = ?, userBOD = ?, userGender = ? where userID = ?', 
+				[$newUserName, $newUserEmail, $newUserBOD, $newUserGender, Session::get('userID')]);
+				$user = DB::select('SELECT * FROM users WHERE userID = ?', [Session::get('userID')]);
+				$user = json_decode(json_encode($user),true);
+				$user = $user[0];
+				return view('userProfile',['user' => $user,'page_name_active'=> 'home','successMsg' =>'Update Succeed!']);
+
+		}
 }

@@ -41,6 +41,8 @@ Route::get('/bookDetail/{book}',['as'=>'bookDetail','uses'=>'bookDetailControlle
 Route::get('/userProfile',['as'=>'userProfile','uses'=>'userProfileController@index']);
 Route::get('/userProfile/newPassword',['as'=>'changePassword','uses'=>'userProfileController@changePassword']);
 Route::post('/userProfile',['as'=>'setNewPassword','uses'=>'userProfileController@setNewPassword']);
+Route::post('/userProfile',['as'=>'updateUserProFile','uses'=>'userProfileController@updateUserProFile']);
+
 //general page.
 Route::get('/general',['as'=>'general','uses'=>'generalController@index']);
 //privacy setting page.

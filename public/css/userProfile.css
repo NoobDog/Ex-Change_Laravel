@@ -180,5 +180,11 @@ input {
  font-size: large;   
 }
 
+.message {
+    background-color: #4bf442;
+    height: 40px;
+    width: 100%;
+    
+}
 
         

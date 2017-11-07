@@ -22,6 +22,9 @@
         @include('header')
         <div class="flex-center position-ref full-height">
             <div class="content">
+            @if (isset($successMsg)) 
+                <p class="message">{{$successMsg}}</P>
+            @endif
             <!-- User Profile -->
             @if (isset($changePassword) && $changePassword == 'true')
                 <table id="changePasswordTable">
@@ -60,18 +63,19 @@
                             <td><a href="{{route('changePassword')}}" ><button class="passwordChangeBtn">Change Password</button></a></td>
                         </tr>
                         
-                        <form>
+                        <form action="{{route('updateUserProFile')}}" method="POST" enctype="multipart/form-data">
+                            {{csrf_field()}}
                             <tr>
                                 <th><label><b>User Name:</b></label></th>
-                                <td><input type="text" value="{{$user['userName']}}" name="userName"/></td>
+                                <td><input type="text" value="{{$user['userName']}}" name="userName" required="required"/></td>
                             </tr>
                             <tr>
                                 <th><label><b>User Email:</b></label></th>
-                                <td><input type="email" value="{{$user['userEmail']}}" name="userEmail"/></td>
+                                <td><input type="email" value="{{$user['userEmail']}}" name="userEmail" required="required"/></td>
                             </tr>
                             <tr>
                                 <th><label><b>User BOD:</b></label></th>
-                                <td><input type="date" value="{{$user['userBOD']}}" name="userBOD"/></td>
+                                <td><input type="date" value="{{$user['userBOD']}}" name="userBOD" required="required"/></td>
                             </tr>
                             <tr>
                                 <th><label><b>Gender:</b></label></th>
@@ -82,6 +86,9 @@
                                         <option value = "Female" @if($user['userGender'] == 'Female') Selected @endif>Female</option>
                                     </select>
                                 </td>
+                            </tr>
+                            <tr>
+                                <td><button type="submit" class ='myButton' style="width: 100%;">Updating</button></td>
                             </tr>
                         </form>
                     </table>
