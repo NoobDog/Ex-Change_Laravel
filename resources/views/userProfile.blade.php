@@ -76,10 +76,10 @@
                             <tr>
                                 <th><label><b>Gender:</b></label></th>
                                 <td>
-                                    <select name="userGender" class="select-style">
-                                        <option value = "" selected="{{@if($user['userGender'] == '') selected}}">Secret</option>
-                                        <option value = "Male" selected="{{@if($user['userGender'] == 'Male') selected}}">Male</option>
-                                        <option value = "Female" selected="{{@if($user['userGender'] == 'Female') selected}}">Female</option>
+                                    <select name="userGender" class = "select-style">
+                                        <option value = "" selected = "{{@if($user['userGender'] == '') selected}}">Secret</option>
+                                        <option value = "Male" selected = "{{@if($user['userGender'] == 'Male') selected}}">Male</option>
+                                        <option value = "Female" selected = "{{@if($user['userGender'] == 'Female') selected}}">Female</option>
                                     </select>
                                 </td>
                             </tr>
