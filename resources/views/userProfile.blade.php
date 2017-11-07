@@ -77,9 +77,9 @@
                                 <th><label><b>Gender:</b></label></th>
                                 <td>
                                     <select name="userGender" class="select-style">
-                                        <option value = "" selected=“@if($user['userGender'] == '') selected @endif”><i class="fa fa-venus-mars" aria-hidden="true"></i>Secret</option>
-                                        <option value = "Male" selected=“@if($user['userGender'] == 'Male') selected @endif”><i class="fa fa-mars" aria-hidden="true"></i>Male</option>
-                                        <option value = "Female" selected=“@if($user['userGender'] == 'Female') selected @endif”><i class="fa fa-venus" aria-hidden="true"></i>Female</option>
+                                        <option value = "" selected=“”><i class="fa fa-venus-mars" aria-hidden="true"></i>Secret</option>
+                                        <option value = "Male" selected=“”><i class="fa fa-mars" aria-hidden="true"></i>Male</option>
+                                        <option value = "Female" selected=“”><i class="fa fa-venus" aria-hidden="true"></i>Female</option>
                                     </select>
                                 </td>
                             </tr>
