@@ -85,6 +85,7 @@
                             </tr>
                         </form>
                     </table>
+                    <i class="fa fa-venus-mars"></i>
             @endif
            <!-- {{print_r($user)}} -->
 
