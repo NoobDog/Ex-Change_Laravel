@@ -77,9 +77,9 @@
                                 <th><label><b>Gender:</b></label></th>
                                 <td>
                                     <select name="userGender" class="select-style">
-                                        <option value = ""><i class="fa fa-venus-mars"></i>Secret</option>
-                                        <option value = "Male"><i class="fa fa-mars"></i>Male</option>
-                                        <option value = "Female"><i class="fa fa-venus"></i>Female</option>
+                                        <option value = ""><i class="fa fa-venus-mars"></i>&#xf22a; Secret</option>
+                                        <option value = "Male"><i class="fa fa-mars"></i>&#xf22a; Male</option>
+                                        <option value = "Female"><i class="fa fa-venus"></i>&#xf22a; Female</option>
                                     </select>
                                 </td>
                             </tr>
