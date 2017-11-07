@@ -27,11 +27,11 @@
                <form method="post" action="{{route('setNewPassword')}}">
                     {{ csrf_field() }}
                     <label><b>New Password</b></label>
-                    <input type="password" name="passWord" required="required" />
+                    <input type="password" name="passWord" required="required" /><br>
                     <label><b>Repeat Password</b></label>
                     <p id='passwordMatch' hidden="true" style='color: red;text-align: left; font-size: 15px;'></p>
-                    <input type="password" name="rep-passWord" required="required" />
-                    <button type="submit" id="doneButton" class="btn btn-primary btn-block btn-large finishButton">Done</button>
+                    <input type="password" name="rep-passWord" required="required" /><br>
+                    <button type="submit" id="doneButton" class="btn btn-primary btn-block btn-large myButton">Done</button>
                 </form>
             @else
                 @if (!$user['userIcon'])
