@@ -77,9 +77,9 @@
                                 <th><label><b>Gender:</b></label></th>
                                 <td>
                                     <select name="userGender" class="select-style">
-                                        <option value = "" selected=“”><i class="fa fa-venus-mars" aria-hidden="true"></i>Secret</option>
-                                        <option value = "Male" selected=“”><i class="fa fa-mars" aria-hidden="true"></i>Male</option>
-                                        <option value = "Female" selected=“”><i class="fa fa-venus" aria-hidden="true"></i>Female</option>
+                                        <option value = "" selected=“”><i class="fa fa-venus-mars"></i>Secret</option>
+                                        <option value = "Male" selected=“”><i class="fa fa-mars"></i>Male</option>
+                                        <option value = "Female" selected=“”><i class="fa fa-venus"></i>Female</option>
                                     </select>
                                 </td>
                             </tr>
