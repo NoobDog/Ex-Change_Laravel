@@ -184,7 +184,10 @@ input {
     background-color: #4bf442;
     height: 40px;
     width: 100%;
-    
+
 }
 
+#close {
+    cursor: pointer;
+}
         

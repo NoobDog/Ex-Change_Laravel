@@ -23,7 +23,7 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
             @if (isset($successMsg)) 
-                <p class="message">{{$successMsg}}</P>
+                <p class="message">{{$successMsg}} <span style="float:right;" id="close"><i class="fa fa-times-circle" aria-hidden="true"></i></span></P>
             @endif
             <!-- User Profile -->
             @if (isset($changePassword) && $changePassword == 'true')
@@ -88,7 +88,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td><button type="submit" class ='myButton' style="width: 100%;">Updating</button></td>
+                                <td colspan="2"><button type="submit" class ='myButton' style="width: 100%;">Updating</button></td>
                             </tr>
                         </form>
                     </table>
@@ -115,5 +115,10 @@ $('input[name="rep-passWord"]').off("input").on("input", function() {
     $('#doneButton').attr("disabled", false);
   }
 });
+
+$('#close').click(function() {
+    $('.message').fadeOut("slow");
+});
+
 </script>
 
