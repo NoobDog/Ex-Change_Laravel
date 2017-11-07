@@ -87,6 +87,7 @@
                                     </select>
                                 </td>
                             </tr>
+                            <br>
                             <tr>
                                 <td colspan="2"><button type="submit" class ='myButton' style="width: 100%;">Updating</button></td>
                             </tr>
