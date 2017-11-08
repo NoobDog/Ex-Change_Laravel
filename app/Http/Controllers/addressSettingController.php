@@ -275,13 +275,13 @@ class addressSettingController extends Controller
 
 			$checkAddress = DB::select('SELECT * FROM address WHERE userID = ?' , [Session::get('userID')]);
 			if(empty($checkAddress)) {
-				DB::insert('INSERT INTO address (userID, userCountry, userProvince, userCity, userAdress, userPostalCode)
+				DB::insert('INSERT INTO address (userID, userCountry, userProvince, userCity, userAddress, userPostalCode)
 					values (?, ?, ?, ?, ?, ?)',
 					[Session::get('userID'), $userCountry, $userProvince, $userCity, $userAddress, $userPostalCode]
 				);
 			}else {
 				DB::update('UPDATE address SET userCountry = ?, userProvince = ?, userCity = ?, 
-					userAdress = ?, userPostalCode = ? where userID = ?', 
+					userAddress = ?, userPostalCode = ? where userID = ?', 
 					[$userCountry, $userProvince, $userCity, $userAddress, $userPostalCode, Session::get('userID')]
 				);
 			}
