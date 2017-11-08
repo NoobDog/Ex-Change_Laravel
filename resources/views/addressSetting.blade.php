@@ -27,6 +27,7 @@
             @else 
                 <img src="{{asset('icons/'.session()->get('userIcon'))}}" id="userIcon" style='width:200px; height:200px;'>
             @endif
+            <label><b>{{session()->get('userName')}}</b></label>
             @if(isset($userAddress) && !empty($userAddress))
 
                 <table>
