@@ -54,6 +54,9 @@ class userProfileController extends Controller
 				'Mickey' => 'Mickey.jpg',
 				'Minion' => 'Minion.png'
 			];
-			return view('userProfile',['user' => $user,'page_name_active'=> 'home','isPicked' => true, 'imgs' => $data]);
+			$user = DB::select('SELECT * FROM users WHERE userID = ?', [Session::get('userID')]);
+			$user = json_decode(json_encode($user),true);
+			$user = $user[0];
+			return view('userProfile',['user' => $user,'page_name_active'=> 'home','isPicked' => true, 'imgs' => $data, 'user' => $user]);
 		}
 }
