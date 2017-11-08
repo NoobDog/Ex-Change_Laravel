@@ -275,9 +275,9 @@ class addressSettingController extends Controller
 
 			$checkAddress = DB::select('SELECT * FROM address WHERE userID = ?' , [Session::get('userID')]);
 			if(empty($checkAddress)) {
-				DB::insert('INSERT INTO address (userID, userCountry, userProvince, userCity, userAddress, userPostalCode, isVoid)
-					values (?, ?, ?, ?, ?, ?, ?)',
-					[Session::get('userID'), $userCountry, $userProvince, $userCity, $userAddress, $userPostalCode, 0]
+				DB::insert('INSERT INTO address (userID, userCountry, userProvince, userCity, userAddress, userPostalCode, isVoid, adminID)
+					values (?, ?, ?, ?, ?, ?, ?, ?)',
+					[Session::get('userID'), $userCountry, $userProvince, $userCity, $userAddress, $userPostalCode, 0, 0]
 				);
 			}else {
 				DB::update('UPDATE address SET userCountry = ?, userProvince = ?, userCity = ?, 
