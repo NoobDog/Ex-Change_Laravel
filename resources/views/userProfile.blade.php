@@ -53,7 +53,7 @@
                 </form>
                 </table>
             @elseif (isset($isPicked) && $isPicked)
-            <select class="image-picker show-html">
+            <select class="image-picker show-labels show-html">
                 @foreach($imgs as $key => $val)
                 <option data-img-src="{{asset('icons/'.$val)}}"  data-img-alt="{{$key}}" value="{{$val}}">  {{$key}}  </option>
                 @endforeach
