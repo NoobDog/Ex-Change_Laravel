@@ -66,6 +66,9 @@
                             <th><label><b>Postal Code:</b></label></th>
                             <td><input type="text" value="{{$userAddress['userPostalCode']}}" name="userPostalCode" required="required"/></td>
                         </tr>
+                        <tr>
+                            <td colspan="2"><button type="submit" class ='myButton' style="width: 100%;">Updating</button></td>
+                        </tr>
                     </table>
                 </form>
             @elseif(isset($userAddress))
@@ -101,6 +104,9 @@
                     <tr>
                         <th><label><b>Postal Code:</b></label></th>
                         <td><input type="text" name="userPostalCode" required="required"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><button type="submit" class ='myButton' style="width: 100%;">Add Address</button></td>
                     </tr>
                 </table>
             </form>
