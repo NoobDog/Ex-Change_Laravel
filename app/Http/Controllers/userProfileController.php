@@ -28,6 +28,12 @@ class userProfileController extends Controller
 			DB::update('UPDATE users SET userPassword = ? where userID = ?', [$newPasswordHashed, Session::get('userID')]);
 			$user = DB::select('SELECT * FROM users WHERE userID = ?', [Session::get('userID')]);
 			$user = json_decode(json_encode($user),true);
+
+			Session::put('userID' , $user[0]['userID']);
+			Session::put('userName' , $user[0]['userName']);
+			Session::put('userEmail' , $user[0]['userEmail']);
+			Session::put('roleTypeID' , $user[0]['roleTypeID']);
+			Session::put('userIcon' , $user[0]['userIcon']);
 			$user = $user[0];
             return view('userProfile',['user' => $user,'page_name_active'=> 'home']);
 
@@ -42,6 +48,12 @@ class userProfileController extends Controller
 				[$newUserName, $newUserEmail, $newUserBOD, $newUserGender, Session::get('userID')]);
 			$user = DB::select('SELECT * FROM users WHERE userID = ?', [Session::get('userID')]);
 			$user = json_decode(json_encode($user),true);
+
+			Session::put('userID' , $user[0]['userID']);
+			Session::put('userName' , $user[0]['userName']);
+			Session::put('userEmail' , $user[0]['userEmail']);
+			Session::put('roleTypeID' , $user[0]['roleTypeID']);
+			Session::put('userIcon' , $user[0]['userIcon']);
 			$user = $user[0];
 			return view('userProfile',['user' => $user,'page_name_active'=> 'home','successMsg' =>'Update Succeed!']);
 
@@ -70,6 +82,12 @@ class userProfileController extends Controller
 				[$newUserIcon, Session::get('userID')]);
 			$user = DB::select('SELECT * FROM users WHERE userID = ?', [Session::get('userID')]);
 			$user = json_decode(json_encode($user),true);
+
+			Session::put('userID' , $user[0]['userID']);
+			Session::put('userName' , $user[0]['userName']);
+			Session::put('userEmail' , $user[0]['userEmail']);
+			Session::put('roleTypeID' , $user[0]['roleTypeID']);
+			Session::put('userIcon' , $user[0]['userIcon']);
 			$user = $user[0];
 			return view('userProfile',['user' => $user,'page_name_active'=> 'home','successMsg' =>'Update Succeed!']);
 		}
