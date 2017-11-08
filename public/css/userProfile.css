@@ -177,7 +177,8 @@ input {
 .select-style  {
  height: 25px;
  width: 300px;
- font-size: large;   
+ font-size: large; 
+ display: block;  
 }
 
 .message {
