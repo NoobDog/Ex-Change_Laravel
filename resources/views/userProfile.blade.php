@@ -56,6 +56,7 @@
             <select class="image-picker show-html">
                 @foreach($imgs as $key => $val)
                 <option data-img-src="{{asset('icons/'.$val)}}"  data-img-alt="{{$key}}" value="{{$val}}">  {{$key}}  </option>
+                @endforeach
             </select>
             @else
                 @if (!$user['userIcon'])
