@@ -185,7 +185,7 @@
 
                                     <li><img src="{{asset('users/'.$userBook['bookImage'])}}">
                                     <br><br>
-                                    <button class="itemButton">Edit</button>
+                                    <a href="{{route('bookEdit',$userBook['bookID'])}}"><button class="itemButton">Edit</button></a>
                                     <span></span>
                                     </li>
 

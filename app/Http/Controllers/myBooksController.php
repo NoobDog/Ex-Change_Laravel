@@ -87,5 +87,9 @@ class myBooksController extends Controller
 				return $this->index();
 		}
 
+		public function bookEdit($book) {
+			return $book;
+		}
+
 
 }
