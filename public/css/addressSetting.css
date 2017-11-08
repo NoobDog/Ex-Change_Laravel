@@ -55,4 +55,9 @@ html, body {
     width: 300px;
     font-size: large; 
     display: block !important;  
-   }
+}
+input {
+    height: 25px;
+    width: 300px;
+    font-size: large;   
+}
