@@ -53,11 +53,13 @@
                 </form>
                 </table>
             @elseif (isset($isPicked) && $isPicked)
-            <select class="image-picker show-labels show-html">
-                @foreach($imgs as $key => $val)
-                <option data-img-src="{{asset('icons/'.$val)}}"  data-img-alt="{{$key}}" value="{{$val}}">  {{$key}}  </option>
-                @endforeach
-            </select>
+            <div class='selectContent'>
+                <select class="image-picker show-labels show-html">
+                    @foreach($imgs as $key => $val)
+                    <option data-img-src="{{asset('icons/'.$val)}}"  data-img-alt="{{$key}}" value="{{$val}}">  {{$key}}  </option>
+                    @endforeach
+                </select>
+            </div>
             @else
                 @if (!$user['userIcon'])
                     <a href="{{route('pickImg')}}"><img src="{{asset('icons/'.$user['userIcon'].'.jpg')}}" id="userIcon"></a>
