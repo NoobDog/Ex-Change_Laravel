@@ -52,7 +52,10 @@ class userProfileController extends Controller
 				'Cat' => 'Cat.png',
 				'Dog' => 'Dog.png',
 				'Mickey' => 'Mickey.jpg',
-				'Minion' => 'Minion.png'
+				'Minion' => 'Minion.png',
+				'Josh' => 'Josh.png',
+				'Mario' => 'Mario.png',
+				'Pikachu' =>'Pikachu.png'
 			];
 			$user = DB::select('SELECT * FROM users WHERE userID = ?', [Session::get('userID')]);
 			$user = json_decode(json_encode($user),true);
