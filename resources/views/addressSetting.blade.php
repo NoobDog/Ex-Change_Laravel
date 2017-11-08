@@ -23,9 +23,9 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
             @if (!session()->get('userIcon'))
-                <a href="{{route('pickImg')}}"><img src="{{asset('icons/'.session()->get('userIcon').'.jpg')}}" id="userIcon"></a>
+                <img src="{{asset('icons/'.session()->get('userIcon').'.jpg')}}" id="userIcon" style='width:200px; height:200px;'>
             @else 
-                <a href="{{route('pickImg')}}"><img src="{{asset('icons/'.session()->get('userIcon'))}}" id="userIcon"></a>
+                <img src="{{asset('icons/'.session()->get('userIcon'))}}" id="userIcon" style='width:200px; height:200px;'>
             @endif
             @if(isset($userAddress) && !empty($userAddress))
 
