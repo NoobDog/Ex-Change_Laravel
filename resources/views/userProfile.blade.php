@@ -54,14 +54,14 @@
                 </table>
             @elseif (isset($isPicked) && $isPicked)
             <div class='selectContent'>
-                <form>
+                <form action="{{route('updateUserIcon')}}" method="POST" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <select class="image-picker show-labels show-html" name='iconSelect'>
                         @foreach($imgs as $key => $val)
                         <option data-img-src="{{asset('icons/'.$val)}}"  data-img-alt="{{$key}}" value="{{$val}}">  {{$key}}  </option>
                         @endforeach
                     </select>
-                    <button type="submit" class ='myButton'>Updating</button> 
+                    <button type="submit" class ='myButton'>Update Icon</button> 
                 </form>
             </div>
             @else

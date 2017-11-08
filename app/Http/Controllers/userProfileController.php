@@ -40,10 +40,10 @@ class userProfileController extends Controller
 
 			DB::update('UPDATE users SET userName = ?, userEmail = ?, userBOD = ?, userGender = ? where userID = ?', 
 				[$newUserName, $newUserEmail, $newUserBOD, $newUserGender, Session::get('userID')]);
-				$user = DB::select('SELECT * FROM users WHERE userID = ?', [Session::get('userID')]);
-				$user = json_decode(json_encode($user),true);
-				$user = $user[0];
-				return view('userProfile',['user' => $user,'page_name_active'=> 'home','successMsg' =>'Update Succeed!']);
+			$user = DB::select('SELECT * FROM users WHERE userID = ?', [Session::get('userID')]);
+			$user = json_decode(json_encode($user),true);
+			$user = $user[0];
+			return view('userProfile',['user' => $user,'page_name_active'=> 'home','successMsg' =>'Update Succeed!']);
 
 		}
 		public function pickImg() {
@@ -63,5 +63,14 @@ class userProfileController extends Controller
 			$user = json_decode(json_encode($user),true);
 			$user = $user[0];
 			return view('userProfile',['user' => $user,'page_name_active'=> 'home','isPicked' => true, 'imgs' => $data, 'user' => $user]);
+		}
+		public function updateUserIcon(Request $request) {
+			$newUserIcon = $request->input('iconSelect') ?? '';
+			DB::update('UPDATE users SET userIcon = ? where userID = ?', 
+				[$newUserIcon, Session::get('userID')]);
+			$user = DB::select('SELECT * FROM users WHERE userID = ?', [Session::get('userID')]);
+			$user = json_decode(json_encode($user),true);
+			$user = $user[0];
+			return view('userProfile',['user' => $user,'page_name_active'=> 'home','successMsg' =>'Update Succeed!']);
 		}
 }
