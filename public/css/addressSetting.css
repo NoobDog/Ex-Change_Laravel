@@ -49,3 +49,10 @@ html, body {
 .m-b-md {
     margin-bottom: 30px;
 }
+/* select */
+.select-style  {
+    height: 25px;
+    width: 300px;
+    font-size: large; 
+    display: block !important;  
+   }
