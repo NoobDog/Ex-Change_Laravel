@@ -265,5 +265,31 @@ class addressSettingController extends Controller
 			}
 			\View::share(['page_name_active'=> 'home']);
             return \View::make('addressSetting',['countries' => self::getCountries(), 'userAddress' => $userAddress]);
-        }
+		}
+		public function addAddress (Request $request) {
+			$userCountry = $request->get('userCountry');
+			$userProvince = $request->input('userProvince');
+			$userCity = $request->input('userCity');
+			$userAddress = $request->input('userAddress');
+			$userPostalCode = $request->input('userPostalCode');
+
+			$checkAddress = DB::select('SELECT * FROM address WHERE userID = ?' , [Session::get('userID')]);
+			if(empty($checkAddress)) {
+				DB::insert('INSERT INTO address (userID, userCountry, userProvince, userCity, userAdress, userPostalCode)
+					values (?, ?, ?, ?, ?, ?)',
+					[Session::get('userID'), $userCountry, $userProvince, $userCity, $userAddress, $userPostalCode]
+				);
+			}else {
+				DB::update('UPDATE address SET userCountry = ?, userProvince = ?, userCity = ?, 
+					userAdress = ?, userPostalCode = ? where userID = ?', 
+					[$userCountry, $userProvince, $userCity, $userAddress, $userPostalCode, Session::get('userID')]
+				);
+			}
+			$userAddress = DB::select('SELECT * FROM address WHERE userID = ?', [Session::get('userID')]);
+			$userAddress = json_decode(json_encode($userAddress),true);
+			if(!empty($userAddress)) {
+				$userAddress = $userAddress[0];
+			}
+			return view('addressSetting',['page_name_active'=> 'home','countries' => self::getCountries(), 'userAddress' => $userAddress]);			
+		}
 }

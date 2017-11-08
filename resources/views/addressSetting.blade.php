@@ -30,7 +30,8 @@
             <br>
             <label><b>{{session()->get('userName')}}</b></label>
             @if(isset($userAddress) && !empty($userAddress))
-                <form>
+                <form action="{{route('addAddress')}}" method="POST" enctype="multipart/form-data">
+                {{csrf_field()}}
                     <table>
                         <tr>
                             <th><label><b>Country:</b></label></th>
@@ -72,7 +73,8 @@
                     </table>
                 </form>
             @elseif(isset($userAddress))
-            <form>
+            <form action="{{route('addAddress')}}" method="POST" enctype="multipart/form-data">
+            {{csrf_field()}}
                 <table>
                     <tr>
                         <th><label><b>Country:</b></label></th>
