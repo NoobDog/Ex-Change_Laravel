@@ -11,7 +11,7 @@ class addressSettingController extends Controller
 	// 	View::share(['page_name_active'=> 'mypagename']);
 	// }
 		public function index() {
-						\View::share(['page_name_active'=> 'home']);
+			\View::share(['page_name_active'=> 'home']);
 
             return \View::make('addressSetting');
         }
