@@ -113,6 +113,7 @@
 </html>
 @endif
 <script>
+$("select").imagepicker();
 $('input[name="rep-passWord"]').off("input").on("input", function() {
   var repeatValue = $(this).val();
   var passwordValue = $('input[name="passWord"]').val();
