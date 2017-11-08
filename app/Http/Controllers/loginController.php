@@ -27,6 +27,7 @@ class loginController extends Controller
 					 Session::put('userName' , $user[0]['userName']);
 					 Session::put('userEmail' , $user[0]['userEmail']);
 					 Session::put('roleTypeID' , $user[0]['roleTypeID']);
+					 Session::put('userIcon' , $user[0]['userIcon']);
 					 //return view('welcome' , ['page_name_active' => 'home' , 'name' => Session::get('userName')]);
 					 return redirect()->route('home');
 				 } else {
@@ -93,6 +94,7 @@ class loginController extends Controller
 			Session::put('userName' , $user[0]['userName']);
 			Session::put('userEmail' , $user[0]['userEmail']);
 			Session::put('roleTypeID' , $user[0]['roleTypeID']);
+			Session::put('userIcon' , $user[0]['userIcon']);
 			return redirect()->route('home');
 		}
 

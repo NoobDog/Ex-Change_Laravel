@@ -22,9 +22,22 @@
         @include('header')
         <div class="flex-center position-ref full-height">
             <div class="content">
-            Address Setting 
-            {{print_r(session()->get('userEmail'))}}
+            @if (!session()->get('userIcon'))
+                <a href="{{route('pickImg')}}"><img src="{{asset('icons/'.session()->get('userIcon').'.jpg')}}" id="userIcon"></a>
+            @else 
+                <a href="{{route('pickImg')}}"><img src="{{asset('icons/'.session()->get('userIcon'))}}" id="userIcon"></a>
+            @endif
+            @if(isset($userAddress) && !empty($userAddress))
 
+                <table>
+                    <tr>
+                        <th><label><b>Password:</b></label></th>
+                        <td></td>
+                    </tr>
+                </table>
+            @else
+
+            @endif
             </div>
         </div>
     </body>
