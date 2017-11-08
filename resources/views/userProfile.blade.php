@@ -54,11 +54,15 @@
                 </table>
             @elseif (isset($isPicked) && $isPicked)
             <div class='selectContent'>
-                <select class="image-picker show-labels show-html">
-                    @foreach($imgs as $key => $val)
-                    <option data-img-src="{{asset('icons/'.$val)}}"  data-img-alt="{{$key}}" value="{{$val}}">  {{$key}}  </option>
-                    @endforeach
-                </select>
+                <form>
+                    {{csrf_field()}}
+                    <select class="image-picker show-labels show-html" name='iconSelect'>
+                        @foreach($imgs as $key => $val)
+                        <option data-img-src="{{asset('icons/'.$val)}}"  data-img-alt="{{$key}}" value="{{$val}}">  {{$key}}  </option>
+                        @endforeach
+                    </select>
+                    <button type="submit" class ='myButton'>Updating</button> 
+                </form>
             </div>
             @else
                 @if (!$user['userIcon'])
