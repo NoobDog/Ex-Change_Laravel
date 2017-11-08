@@ -6,12 +6,15 @@ ul.thumbnails.image_picker_selector {
   padding: 0px;
   margin: 0px; }
   ul.thumbnails.image_picker_selector ul {
-    overflow: auto;
+    /* overflow: auto;
     list-style-image: none;
     list-style-position: outside;
     list-style-type: none;
     padding: 0px;
-    margin: 0px; }
+    margin: 0px;  */
+    margin: 0 auto;
+    width: 50%;
+  }
   ul.thumbnails.image_picker_selector li.group {width:100%;} 
   ul.thumbnails.image_picker_selector li.group_title {
     float: none; }
