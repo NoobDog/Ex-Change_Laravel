@@ -260,7 +260,9 @@ class addressSettingController extends Controller
 		public function index() {
 			$userAddress = DB::select('SELECT * FROM address WHERE userID = ?', [Session::get('userID')]);
 			$userAddress = json_decode(json_encode($userAddress),true);
-			$userAddress = $userAddress[0];
+			if(!empty($userAddress)) {
+				$userAddress = $userAddress[0];
+			}
 			\View::share(['page_name_active'=> 'home']);
             return \View::make('addressSetting',['countries' => self::getCountries(), 'userAddress' => $userAddress]);
         }
