@@ -15,8 +15,12 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <!--Font awesome-->
         <link rel="stylesheet" href="{{asset('font-awesome/css/font-awesome.min.css')}}">
+        <!-- image picker -->
+        <script src="{{asset('js/image-picker.js')}}"></script>
+        <link rel="stylesheet" href="{{asset('css/image-picker.css')}}">     
         <!-- Styles -->
         <link rel="stylesheet" href="{{asset('css/userProfile.css')}}">
+
     </head>
     <body>
         @include('header')
@@ -48,11 +52,16 @@
                    
                 </form>
                 </table>
+            @elseif (isset($isPicked) && $isPicked)
+            <select class="image-picker show-html">
+                @foreach($imgs as $key => $val)
+                <option data-img-src="{{asset('icons/'.$val)}}"  data-img-alt="{{$key}}" value="{{$val}}">  {{$key}}  </option>
+            </select>
             @else
                 @if (!$user['userIcon'])
-                    <a><img src="{{asset('icons/'.$user['userIcon'].'.jpg')}}" id="userIcon"></a>
+                    <a href="{{route('pickImg')}}"><img src="{{asset('icons/'.$user['userIcon'].'.jpg')}}" id="userIcon"></a>
                 @else 
-                    <a><img src="{{asset('icons/'.$user['userIcon'])}}" id="userIcon"></a>
+                    <a href="{{route('pickImg')}}"><img src="{{asset('icons/'.$user['userIcon'])}}" id="userIcon"></a>
                 @endif
                     <br>
                     <small>User Since: {{$user['userSince']}}</small>

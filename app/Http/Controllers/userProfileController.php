@@ -46,4 +46,14 @@ class userProfileController extends Controller
 				return view('userProfile',['user' => $user,'page_name_active'=> 'home','successMsg' =>'Update Succeed!']);
 
 		}
+		public function pickImg() {
+			$data = [
+				'Book' => 'Book.png',
+				'Cat' => 'Cat.png',
+				'Dog' => 'Dog.png',
+				'Mickey' => 'Mickey.jpg',
+				'Minion' => 'Minion.png'
+			];
+			return view('userProfile',['user' => $user,'page_name_active'=> 'home','isPicked' => true, 'imgs' => $data]);
+		}
 }

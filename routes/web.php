@@ -42,6 +42,7 @@ Route::get('/userProfile',['as'=>'userProfile','uses'=>'userProfileController@in
 Route::get('/userProfile/newPassword',['as'=>'changePassword','uses'=>'userProfileController@changePassword']);
 Route::post('/userProfile/newPassword',['as'=>'setNewPassword','uses'=>'userProfileController@setNewPassword']);
 Route::post('/userProfile',['as'=>'updateUserProFile','uses'=>'userProfileController@updateUserProFile']);
+Route::get('/userProfile/pickIcons',['as'=>'pickImg','uses'=>'userProfileController@pickImg']);
 
 //general page.
 Route::get('/general',['as'=>'general','uses'=>'generalController@index']);
