@@ -58,8 +58,8 @@
           background: #555; 
         }
         #carousel li img {
-          width: 201px;
-          height: 300px;
+          height: 201px;
+          width: 127px;
           margin-top: 14px;
         }
 
@@ -68,8 +68,8 @@
           text-indent: -999px;
           display: block;
           overflow: hidden;
-          width: 201px;
-          height: 127px;
+          height: 201px;
+          width: 127px;
           position: absolute;
           z-index: 2;
           top: 14px;
