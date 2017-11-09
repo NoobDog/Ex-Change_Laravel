@@ -34,7 +34,7 @@ Route::get('/myBooks','myBooksController@index');
 Route::get('/myBooks/addNewBook',['as'=>'getAddBookForm', 'uses'=>'myBooksController@triggerAddNewBook']);
 Route::post('/myBooks/addNewBook',['as'=>'postAddBookForm', 'uses'=>'myBooksController@addNewBook']);
 
-Route::get('/myBooks/{book}',['as'=>'bookEdit','uses'=>'myBooksController@bookEdit']);
+Route::post('/myBooks/{book}',['as'=>'bookEdit','uses'=>'myBooksController@bookEdit']);
 
 //loutout
 Route::get('/logout',['as'=>'logout','uses'=>'welcomeController@logout']);
