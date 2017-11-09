@@ -169,6 +169,71 @@
                   <button type="submit" class ='myButton' style="width: 100%;">Submit</button>
                 </form>
 
+                @elseif(isset($getEditBookForm) && $getEditBookForm)
+                  <img src="{{asset('users/'.$userBook['bookImage'])}}">
+                  <form>
+                    <table>
+                      <tr>
+                        <th><label><b>>Book Name</b></label></th>
+                        <td>
+                          <input type="text" name="bookName" value="{{$userBook['bookName']}}" class="addBookInput" required/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th><label><b>>Book Type</b></label></th>
+                        <td>
+                          <select id="bookType" name="bookType" class="bookType" required>
+                            @foreach ($bookTypes as $key => $bookType)
+                              @if($userBook['typeID'] == $bookType["typeID"])  
+                                <option value ='{{$bookType["typeID"]}}' selected>{{$bookType['typeName']}}</option>
+                              @else
+                                <option value ='{{$bookType["typeID"]}}'>{{$bookType['typeName']}}</option>
+                              @endif
+                            @endforeach
+                          </select>                   
+                        </td>                     
+                      </tr>
+
+                      <tr>
+                        <th><label><b>>Book Title</b></label></th>
+                        <td>
+                        <input type="text" name="bookTitle" value="{{$userBook['bookTitle']}}" class="addBookInput" required/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th><label><b>>Book Author</b></label></th>
+                        <td>
+                          <input type="text" name="bookAuthor" value="{{$userBook['bookAuthor']}}" class="addBookInput" required/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th><label><b>>Book Date</b></label></th>
+                        <td>
+                          <input type="date" name="bookDate" value="{{$userBook['bookDate']}}" class="addBookInput datepicker"  required/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th><label><b>>Book Publisher</b></label></th>
+                        <td>
+                          <input type="text" name="bookPublisher" placeholder="{{$userBook['bookPublisher']}}" class="addBookInput" required/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th><label><b>>Book Description</b></label></th>
+                        <td>
+                          <input type="textarea" name="bookDescription" value="{{$userBook['bookDescription']}}" class="addBookInput" required/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th><label><b>>Book Price</b></label></th>
+                        <td>
+                          <input type="number" name="bookPrice" value="{{$userBook['bookPrice']}}" class="addBookInput" step="0.01" required/>
+                        </td>
+                      </tr>
+    
+                    </table>
+                  </form>
+
                 @else
                 <div class="title m-b-md">
                     My Books
