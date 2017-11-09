@@ -94,7 +94,7 @@ class myBooksController extends Controller
 			$bookTypes = DB::select('SELECT * FROM bookTypes');
 			$bookTypes = json_decode(json_encode($bookTypes),true);
 			//return $book;
-			return view('myBooks',['page_name_active'=> 'myEx-change','getEditBookForm'=>'true','userBook'=>$userBooks, 'bookTypes' =>$bookTypes]);
+			return view('myBooks',['page_name_active'=> 'myEx-change','getEditBookForm'=>'true','userBook'=>$userBook, 'bookTypes' =>$bookTypes]);
 
 		}
 
