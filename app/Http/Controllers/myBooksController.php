@@ -88,13 +88,13 @@ class myBooksController extends Controller
 		}
 
 		public function bookEdit($book) {
-			$userBook = DB::select('SELECT * FROM books WHERE bookID = ?', [$$book]);
+			$userBook = DB::select('SELECT * FROM books WHERE bookID = ?', [$book]);
 			$userBook = json_decode(json_encode($userBook),true);
 			$userBook = $userBook[0];
 			$bookTypes = DB::select('SELECT * FROM bookTypes');
 			$bookTypes = json_decode(json_encode($bookTypes),true);
-			return $book;
-			//return view('myBooks',['page_name_active'=> 'myEx-change','getEditBookForm'=>'true','userBook'=>$userBooks, 'bookTypes' =>$bookTypes]);
+			//return $book;
+			return view('myBooks',['page_name_active'=> 'myEx-change','getEditBookForm'=>'true','userBook'=>$userBooks, 'bookTypes' =>$bookTypes]);
 
 		}
 
