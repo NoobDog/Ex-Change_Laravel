@@ -172,14 +172,8 @@
                 @elseif(isset($getEditBookForm) && $getEditBookForm)
                   <img src="{{asset('users/'.$userBook['bookImage'])}}">
                   <form>
-                    <table>
-                      <tr>
-                        <th><label><b>Book Name</b></label></th>
-                        <td>
-                          <input type="text" name="bookName" value="{{$userBook['bookName']}}" class="addBookInput" required/>
-                        </td>
-                      </tr>
-                      <tr>
+                    <table style='width: 100%;'>
+                    <tr>
                         <th><label><b>Book Type</b></label></th>
                         <td>
                           <select id="bookType" name="bookType" class="bookType" required>
@@ -193,7 +187,12 @@
                           </select>                   
                         </td>                     
                       </tr>
-
+                      <tr>
+                        <th><label><b>Book Name</b></label></th>
+                        <td>
+                          <input type="text" name="bookName" value="{{$userBook['bookName']}}" class="addBookInput" required/>
+                        </td>
+                      </tr>
                       <tr>
                         <th><label><b>Book Title</b></label></th>
                         <td>
@@ -230,7 +229,9 @@
                           <input type="number" name="bookPrice" value="{{$userBook['bookPrice']}}" class="addBookInput" step="0.01" required/>
                         </td>
                       </tr>
-    
+                      <tr>
+                        <td colspan="2"><button type="submit" class ='myButton' style="width: 100%;">Submit</button></td>
+                      </tr>
                     </table>
                   </form>
 
@@ -265,8 +266,6 @@
                             <br>
                             <a href="{{route('getAddBookForm')}}"><button class ='myButton'>Add New book</button></a>
                         </div>
-
-                        
                     @endif
                   @endif
                @endif
