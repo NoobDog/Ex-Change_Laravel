@@ -231,7 +231,7 @@
                         </td>
                       </tr>
                       <tr>
-                        <td colspan="2"><button type="submit" class ='myButton' style="width: 100%;">Submit</button></td>
+                        <td colspan="2"><button type="submit" class ='myButton' style="width: 100%;">Update</button></td>
                       </tr>
                     </table>
                   </form>

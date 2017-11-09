@@ -108,7 +108,11 @@ class myBooksController extends Controller
 			$bookDescription = $request->input('bookDescription') ?? '';
 			$bookPrice = $request->input('bookPrice') ?? 0;
 
-			return 'ID:'. $book. ' Name:'. $bookName; 
+			DB::update('UPDATE books SET bookName = ?, bookTitle = ?, bookTypeID = ?, bookAuthor = ?, bookDate = ?,
+				bookPublisher = ?, bookEdition = ?, bookDescription = ?, bookPrice = ? where bookID = ?', 
+				[$bookName, $bookTitle, $bookType, $bookAuthor, $bookDate, $bookPublisher, $bookEdition, $bookDescription, $bookPrice, $book]);
+				
+			return $this->index();
 		}
 
 
