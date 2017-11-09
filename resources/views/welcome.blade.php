@@ -59,7 +59,7 @@
         }
         #carousel li img {
           width: 201px;
-          height: 127px;
+          height: 300px;
           margin-top: 14px;
         }
 
