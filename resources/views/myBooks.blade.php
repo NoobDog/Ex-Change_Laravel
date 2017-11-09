@@ -184,7 +184,7 @@
                         <td>
                           <select id="bookType" name="bookType" class="bookType" required>
                             @foreach ($bookTypes as $key => $bookType)
-                              @if($userBook['typeID'] == $bookType["typeID"])  
+                              @if($userBook['bookTypeID'] == $bookType["typeID"])  
                                 <option value ='{{$bookType["typeID"]}}' selected>{{$bookType['typeName']}}</option>
                               @else
                                 <option value ='{{$bookType["typeID"]}}'>{{$bookType['typeName']}}</option>
