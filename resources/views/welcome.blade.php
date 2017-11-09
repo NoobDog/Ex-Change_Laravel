@@ -39,7 +39,7 @@
           display: block;
           margin: 0;
           padding: 0;
-          width: 100%;
+          /* width: 100%; */
         }
         #carousel li {
           background: transparent url("{{asset('img/carousel_polaroid.png')}}") no-repeat 0 0;
@@ -189,6 +189,7 @@
 <script>
   $(function() {
     $('#carousel ul').carouFredSel({
+      width: "100%",
       prev: '#prev',
       next: '#next',
       pagination: "#pager",
