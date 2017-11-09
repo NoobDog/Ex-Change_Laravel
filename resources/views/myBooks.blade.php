@@ -171,7 +171,8 @@
 
                 @elseif(isset($getEditBookForm) && $getEditBookForm)
                   <img src="{{asset('users/'.$userBook['bookImage'])}}">
-                  <form>
+                  <form action="{{route('updateUserBook',$userBook['bookID'])}}"  method="POST" enctype="multipart/form-data">
+                    {{csrf_field()}}
                     <table style='width: 100%;'>
                     <tr>
                         <th><label><b>Book Type</b></label></th>

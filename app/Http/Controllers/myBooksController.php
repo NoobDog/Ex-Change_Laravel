@@ -97,6 +97,19 @@ class myBooksController extends Controller
 			return view('myBooks',['page_name_active'=> 'myEx-change','getEditBookForm'=>'true','userBook'=>$userBook, 'bookTypes' =>$bookTypes]);
 
 		}
+		public function updateUserBook(Request $request, $book) {
+			$bookName = $request->input('bookName') ?? '';
+			$bookTitle = $request->input('bookTitle') ?? '';
+			$bookType = $request->get('bookType') ?? '';
+			$bookAuthor = $request->input('bookAuthor') ?? '';
+			$bookDate = $request->input('bookDate') ?? '';
+			$bookPublisher = $request->input('bookPublisher') ?? '';
+			$bookEdition = $request->input('bookEdition') ?? '';
+			$bookDescription = $request->input('bookDescription') ?? '';
+			$bookPrice = $request->input('bookPrice') ?? 0;
+
+			return 'ID:'. $book. ' Name:'. $bookName; 
+		}
 
 
 }

@@ -35,6 +35,7 @@ Route::get('/myBooks/addNewBook',['as'=>'getAddBookForm', 'uses'=>'myBooksContro
 Route::post('/myBooks/addNewBook',['as'=>'postAddBookForm', 'uses'=>'myBooksController@addNewBook']);
 
 Route::get('/myBooks/{book}',['as'=>'bookEdit','uses'=>'myBooksController@bookEdit']);
+Route::get('/myBooks/{book}',['as'=>'updateUserBook','uses'=>'myBooksController@updateUserBook']);
 
 //loutout
 Route::get('/logout',['as'=>'logout','uses'=>'welcomeController@logout']);
