@@ -170,7 +170,7 @@
                 </form>
 
                 @elseif(isset($getEditBookForm) && $getEditBookForm)
-                  <img src="{{asset('users/'.$userBook['bookImage'])}}">
+                  <img src="{{asset('users/'.$userBook['bookImage'])}}" style="width:100px; height: 100px;">
                   <form>
                     <table style='width: 100%;'>
                     <tr>
