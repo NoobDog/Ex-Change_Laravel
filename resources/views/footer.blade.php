@@ -1,14 +1,15 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/footer.css')}}">
 
-<div class="chatBar">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<div class="chatBar dropup">
   <ul class="cb">
     <li style="float:right;" class="dropdown">
-        <a><i class="fa fa-comment-o" aria-hidden="true"></i></a>
+        <a class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-comment-o" aria-hidden="true"></i></a>
         <div class="dropdown-content">
-            <a><i class="fa fa-user" aria-hidden="true"></i> User Profile</a>
-            <!-- <a href="{{url('/general')}}"><i class="fa fa-info-circle" aria-hidden="true"></i> General</a> -->
-            <a><i class="fa fa-map-marker" aria-hidden="true"></i> Address Settings</a>
-            <a><i class="fa fa-lock" aria-hidden="true"></i> Privacy Settings</a>
+            <p>hahahah</p>
         </div>
     </li>
 

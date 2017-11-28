@@ -40,15 +40,7 @@
     z-index: 1;
 }
 
-.cb .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
 
-.cb .dropdown-content a:hover {background-color: #f1f1f1}
 
 .cb .dropdown:hover .dropdown-content {
     display: block;
