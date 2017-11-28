@@ -1,17 +1,18 @@
 /* header css file  */
-.nb {
+/* .cb {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: #333;
-}
+    bottom: 0;
+} */
 
-.nb li {
+.cb li {
     float: left;
 }
 
-.nb li a, .nb .dropbtn {
+.cb li a, .cb .dropbtn {
     display: inline-block;
     color: white;
     text-align: center;
@@ -19,17 +20,17 @@
     text-decoration: none;
 }
 
-.nb li a:hover, .nb .dropdown:hover .nb .dropbtn {
+.cb li a:hover, .cb .dropdown:hover .cb .dropbtn {
     background-color: red;
 }
-.nb li a:hover, .nb .active {
+.cb li a:hover, .cb .active {
     background-color: red;
 }
-.nb li.dropdown {
+.cb li.dropdown {
     display: inline-block;
 }
 
-.nb .dropdown-content {
+.cb .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
@@ -38,7 +39,7 @@
     z-index: 1;
 }
 
-.nb .dropdown-content a {
+.cb .dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
@@ -46,9 +47,9 @@
     text-align: left;
 }
 
-.nb .dropdown-content a:hover {background-color: #f1f1f1}
+.cb .dropdown-content a:hover {background-color: #f1f1f1}
 
-.nb .dropdown:hover .dropdown-content {
+.cb .dropdown:hover .dropdown-content {
     display: block;
 }
 
