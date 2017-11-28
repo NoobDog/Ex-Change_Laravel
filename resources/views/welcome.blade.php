@@ -183,8 +183,9 @@
                   </div>
             </div>
 
-        @include('footer')
+        
     </body>
+    @include('footer')
 </html>
 <script>
   $(function() {
