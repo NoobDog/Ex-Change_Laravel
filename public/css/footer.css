@@ -5,10 +5,10 @@
     padding: 0;
     overflow: hidden;
     background-color: #333;
-    bottom: 0;
-    position: absolute;
+    position: fixed;
+    left:0px;
+    bottom:0px;
 } 
-
 .cb li {
     float: left;
 }
