@@ -1,4 +1,9 @@
 
+  .chattingDiv {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
   .chat_window {
     position: absolute;
     width: calc(100% - 20px);
