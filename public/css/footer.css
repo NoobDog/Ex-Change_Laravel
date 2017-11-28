@@ -1,15 +1,13 @@
-/* header css file  */
-.chatBar {
+/* footer css file  */
+.cb {
+    list-style-type: none;
+    background-color: #333;
     margin: 0;
     padding: 0;
     overflow: hidden;
     position: absolute;
     width: 100%;
     bottom:0px;
-}
-.cd {
-    list-style-type: none;
-    background-color: #333;
 } 
 .cb li {
     float: left;
