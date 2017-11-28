@@ -128,32 +128,11 @@
 
     <body>
         @include('header')
-        <!-- stripe testing -->
-        <!-- <form method="POST">
-          <script
-            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="pk_test_oUFORtFF2ZktB74kLH7vCtAa"
-            data-amount="999"
-            data-name="NoobDog"
-            data-description="Widget"
-            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-            data-locale="auto"
-            data-currency="cad">
-          </script>
-        </form> -->
         <form class="search" >
           <input type="text" class="searchTerm"/>
           <button class="myButton">Search</button>
         </form>
             <div class="content">
-                <!-- <div class="title m-b-md">
-                  @if (Session::has('userName'))
-                    {{Session::get('userName')}}
-                  @else
-
-                  @endif
-                </div> -->
-
                   <div id="wrapper">
                     <div id="carousel">
                       <ul>
@@ -183,9 +162,9 @@
                   </div>
             </div>
 
-        
+    @include('footer')    
     </body>
-    @include('footer')
+
 </html>
 <script>
   $(function() {
