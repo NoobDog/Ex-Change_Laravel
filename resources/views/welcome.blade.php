@@ -160,11 +160,11 @@
                       <div id="pager" class="pager"></div>
                     </div>
                   </div>
+              @include('footer')
             </div>
 
-      
     </body>
-    @include('footer')
+    
 </html>
 <script>
   $(function() {
