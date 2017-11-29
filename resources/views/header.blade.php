@@ -6,18 +6,18 @@
 @if (Session::has('userName'))
 <div class="navBar">
   <ul class="nb">
-    <li class="dropdown">
+    <li class="nbDropdown">
       <a href="{{url('/')}}" class="dropbtn @if($page_name_active=='home')active @endif">Welcome : {{Session::get('userName')}}</a>
-      <div class="dropdown-content">
+      <div class="nbDropdown-content">
         <a href="{{url('/userProfile')}}"><i class="fa fa-user" aria-hidden="true"></i> User Profile</a>
         <!-- <a href="{{url('/general')}}"><i class="fa fa-info-circle" aria-hidden="true"></i> General</a> -->
         <a href="{{url('/addressSetting')}}"><i class="fa fa-map-marker" aria-hidden="true"></i> Address Settings</a>
         <a href="{{url('/privacySetting')}}"><i class="fa fa-lock" aria-hidden="true"></i> Privacy Settings</a>
       </div>
     </li>
-    <li class="dropdown">
+    <li class="nbDropdown">
       <a href="javascript:void(0)" class="dropbtn @if($page_name_active=='myEx-change') active @endif">My Ex-change</a>
-      <div class="dropdown-content">
+      <div class="nbDropdown-content">
         <a href="{{url('/myBooks')}}"><i class="fa fa-book" aria-hidden="true"></i> My Books</a>
         <a href="#"><i class="fa fa-university" aria-hidden="true"></i> My Bank Information</a>
         <a href="#"><i class="fa fa-trademark" aria-hidden="true"></i> My Trade Information</a>
