@@ -22,8 +22,8 @@ class bookDetailController extends Controller
                 $bookUser = json_decode(json_encode($bookUser),true);
                 
                 $book[0]['bookType'] = $bookType[0]['typeName'];
-                $book[0]['bookUserName'] = $bookUser[0]['bookUserName'];
-                $book[0]['bookUserIcon'] = $bookUser[0]['bookUserIcon'];
+                $book[0]['bookUserName'] = $bookUser[0]['userName'];
+                $book[0]['bookUserIcon'] = $bookUser[0]['userIcon'];
                 \View::share(['page_name_active'=> 'home','book'=>$book[0]]);
                 return \View::make('bookDetail'); 
             } else {
