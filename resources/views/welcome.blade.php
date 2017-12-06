@@ -161,10 +161,9 @@
                     </div>
                   </div>
             </div>
-  
-    </body>
-      @include('footer')
 
+    </body>
+   
 </html>
 <script>
   //$(function() {
@@ -179,3 +178,4 @@
     
   //});
 </script>
+ @include('footer')
