@@ -57,84 +57,119 @@
                     <p>{{$book['bookUserName']}}</p>  
                     <button class="contactButton" onClick="openContact()">Contact {{$book['bookUserName']}}</button>
                     <div id="dialogContent" hidden>
-<div class='chat-wrapper'>
-
-
-<div class='chat-message padding'>
-
-    <div class='chat-message chat-message-recipient'>
-    <img class='chat-image chat-image-default' src='http://www.michaelmammoliti.com/_projects/chat/_media/img/user1.jpg' />
-
-    <div class='chat-message-wrapper'>
-        <div class='chat-message-content'>
-        <p>Sushi tonight?</p>
-        </div>
-
-        <div class='chat-details'>
-        <span class='chat-message-localization font-size-small'>My Address</span>
-        <span class='chat-message-read-status font-size-small'>- Read</span>
-        </div>
-
-    </div>
-    </div>
-
-
-    <div class='chat-message chat-message-sender'>
-    <img class='chat-image chat-image-default' src='http://www.michaelmammoliti.com/_projects/chat/_media/img/user2.jpg' />
-
-    <div class='chat-message-wrapper'>
-        <div class='chat-message-content'>
-        <p>Pizza?</p>
-        <p>We had sushi last time!</p>
-        <p>For me one Vegetariana! Plus some chili oil on it!</p>
-        </div>
-
-        <div class='chat-details'>
-        <span class='chat-message-localisation font-size-small'>My Address</span>
-        <span class='chat-message-read-status font-size-small'>- Read</span>
-        </div>
-
-    </div>
-    </div>
-
-    
-    <div class='chat-message chat-message-recipient'>
-    <img class='chat-image chat-image-default' src='http://www.michaelmammoliti.com/_projects/chat/_media/img/user1.jpg' />
-
-    <div class='chat-message-wrapper'>
-        <div class='chat-message-content'>
-        <p>Done. Delivery takes 5 minutes!</p>
-        </div>
-
-        <div class='chat-details'>
-        <span class='chat-message-localisation font-size-small'>My Address</span>
-        <span class='chat-message-read-status font-size-small'>- Read</span>
-        </div>
-
-    </div>
-    </div>
-
-    
-    <div class='chat-message chat-message-sender'>
-    <img class='chat-image chat-image-default' src='http://www.michaelmammoliti.com/_projects/chat/_media/img/user2.jpg' />
-
-    <div class='chat-message-wrapper'>
-        <div class='chat-message-content'>
-        <p>Awesome! See you later! : )</p>
-        </div>
-
-        <div class='chat-details'>
-        <span class='chat-message-localization font-size-small'>My Address</span>
-        <span class='chat-message-read-status font-size-small'>- Read</span>
-        </div>
-
-    </div>
-    </div>
-
-
-</div>
-
-</div>
+<!-- selected chat -->
+<div class="col-md-8 bg-white ">
+   <div class="chat-message">
+       <ul class="chat">
+           <li class="left clearfix">
+               <span class="chat-img pull-left">
+                   <img src="https://bootdey.com/img/Content/user_3.jpg" alt="User Avatar">
+               </span>
+               <div class="chat-body clearfix">
+                   <div class="header">
+                       <strong class="primary-font">John Doe</strong>
+                       <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 12 mins ago</small>
+                   </div>
+                   <p>
+                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                   </p>
+               </div>
+           </li>
+           <li class="right clearfix">
+               <span class="chat-img pull-right">
+                   <img src="https://bootdey.com/img/Content/user_1.jpg" alt="User Avatar">
+               </span>
+               <div class="chat-body clearfix">
+                   <div class="header">
+                       <strong class="primary-font">Sarah</strong>
+                       <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 13 mins ago</small>
+                   </div>
+                   <p>
+                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. 
+                   </p>
+               </div>
+           </li>
+           <li class="left clearfix">
+               <span class="chat-img pull-left">
+                   <img src="https://bootdey.com/img/Content/user_3.jpg" alt="User Avatar">
+               </span>
+               <div class="chat-body clearfix">
+                   <div class="header">
+                       <strong class="primary-font">John Doe</strong>
+                       <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 12 mins ago</small>
+                   </div>
+                   <p>
+                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                   </p>
+               </div>
+           </li>
+           <li class="right clearfix">
+               <span class="chat-img pull-right">
+                   <img src="https://bootdey.com/img/Content/user_1.jpg" alt="User Avatar">
+               </span>
+               <div class="chat-body clearfix">
+                   <div class="header">
+                       <strong class="primary-font">Sarah</strong>
+                       <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 13 mins ago</small>
+                   </div>
+                   <p>
+                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. 
+                   </p>
+               </div>
+           </li>                    
+           <li class="left clearfix">
+               <span class="chat-img pull-left">
+                   <img src="https://bootdey.com/img/Content/user_3.jpg" alt="User Avatar">
+               </span>
+               <div class="chat-body clearfix">
+                   <div class="header">
+                       <strong class="primary-font">John Doe</strong>
+                       <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 12 mins ago</small>
+                   </div>
+                   <p>
+                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                   </p>
+               </div>
+           </li>
+           <li class="right clearfix">
+               <span class="chat-img pull-right">
+                   <img src="https://bootdey.com/img/Content/user_1.jpg" alt="User Avatar">
+               </span>
+               <div class="chat-body clearfix">
+                   <div class="header">
+                       <strong class="primary-font">Sarah</strong>
+                       <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 13 mins ago</small>
+                   </div>
+                   <p>
+                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. 
+                   </p>
+               </div>
+           </li>
+           <li class="right clearfix">
+               <span class="chat-img pull-right">
+                   <img src="https://bootdey.com/img/Content/user_1.jpg" alt="User Avatar">
+               </span>
+               <div class="chat-body clearfix">
+                   <div class="header">
+                       <strong class="primary-font">Sarah</strong>
+                       <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 13 mins ago</small>
+                   </div>
+                   <p>
+                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. 
+                   </p>
+               </div>
+           </li>                    
+       </ul>
+   </div>
+   <div class="chat-box bg-white">
+       <div class="input-group">
+           <input class="form-control border no-shadow no-rounded" placeholder="Type your message here">
+           <span class="input-group-btn">
+               <button class="btn btn-success no-rounded" type="button">Send</button>
+           </span>
+       </div><!-- /input-group -->	
+   </div>            
+</div>     
                     </div>
                     <!-- <input type="text" id="messageInput"/><button onClick="postMessage($('#messageInput').val())">submit</button> -->
                 </div>

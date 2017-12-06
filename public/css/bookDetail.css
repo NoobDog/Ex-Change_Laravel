@@ -102,150 +102,189 @@ html, body {
 
 
   /* test */
-  $spacing: 20px
+
+  .bg-white {
+    background-color: #fff;
+  }
   
-  $radius: 4px
+  .friend-list {
+    list-style: none;
+  margin-left: -40px;
+  }
   
-  $font-size-default: 20px
-  $font-size-small: .65em
+  .friend-list li {
+    border-bottom: 1px solid #eee;
+  }
   
-  $color-green: #91D98A
-  $color-blue: #8AC0D9
+  .friend-list li a img {
+    float: left;
+    width: 45px;
+    height: 45px;
+    margin-right: 0px;
+  }
   
-  @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300)
+   .friend-list li a {
+    position: relative;
+    display: block;
+    padding: 10px;
+    transition: all .2s ease;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+  }
   
-  =clearfix
-    display: table
-    overflow: hidden
-    &:before
-      +before
+  .friend-list li.active a {
+    background-color: #f1f5fc;
+  }
   
-  =prefix($property, $value)
-    -webkit-#{$property}: #{$value}
-    -ms-#{$property}: #{$value}
-    -moz-#{$property}: #{$value}
-    -o-#{$property}: #{$value}
-    #{$property}: #{$value}
+  .friend-list li a .friend-name, 
+  .friend-list li a .friend-name:hover {
+    color: #777;
+  }
   
-  =radius($rad: $radius)
-    +prefix(border-radius, #{$rad})
+  .friend-list li a .last-message {
+    width: 65%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
   
-  =before
-    content: " "
-    display: block
-      
-  // - - - Generals
-  *
-    padding: 0
-    margin: 0
-    border: 0
-    color: #888
-    font-family: 'Source Sans Pro', sans-serif
-    font-size: $font-size-default
-    font-weight: 300
-    outline: none
-    +prefix("text-size-adjust", none)
-    +prefix("box-sizing", border-box)
+  .friend-list li a .time {
+    position: absolute;
+    top: 10px;
+    right: 8px;
+  }
   
-      
-  // - - - Classes
+  small, .small {
+    font-size: 85%;
+  }
   
-  .padding
-    padding: $spacing
-  .clearfix
-    +clearfix
-  .font-size-small
-    font-size: $font-size-small
+  .friend-list li a .chat-alert {
+    position: absolute;
+    right: 8px;
+    top: 27px;
+    font-size: 10px;
+    padding: 3px 5px;
+  }
   
-      
-  // - - - Chat
+  .chat-message {
+    padding: 60px 20px 115px;
+  }
   
-  .chat-wrapper
-    min-width: 400px
-    width: 100%
-    +clearfix
+  .chat {
+      list-style: none;
+      margin: 0;
+  }
   
-    .chat-content
-      background-color: #fff
+  .chat-message{
+      background: #f9f9f9;  
+  }
   
-    .chat-image
-      float: left
-      +radius(50%)
+  .chat li img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50em;
+    -moz-border-radius: 50em;
+    -webkit-border-radius: 50em;
+  }
   
-      &.chat-image-default
-        width: $spacing * 3
-        height: $spacing * 3
+  img {
+    max-width: 100%;
+  }
   
-    .chat-message
-      margin-bottom: $spacing
-      width: 100%
-      +clearfix
-      &:last-of-type
-        margin-bottom: 0
+  .chat-body {
+    padding-bottom: 20px;
+  }
   
-      .chat-message-wrapper
-        max-width: 70%
-        display: table
-        margin: 0 $spacing
-        padding-top: $spacing / 2
-        position: relative
+  .chat li.left .chat-body {
+    margin-left: 70px;
+    background-color: #fff;
+  }
   
-        &:before
-          +before
-          width: 0
-          height: 0
-          border: 12px solid transparent
-          top: $spacing
-          position: absolute
-          z-index: 2
-        p
-          padding: $spacing / 2 $spacing
-          color: #fff
-          border-top: 1px solid
+  .chat li .chat-body {
+    position: relative;
+    font-size: 11px;
+    padding: 10px;
+    border: 1px solid #f1f5fc;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    -moz-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  }
   
-          &:first-of-type
-            border-top: 0 !important
+  .chat li .chat-body .header {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #f1f5fc;
+  }
   
-      &.chat-message-recipient
-      
-        .chat-message-wrapper,
-        .chat-message-content
-          float: left
-          
-        .chat-message-wrapper
-          &:before
-            left: -$spacing
-            border-right-color: $color-green
-        p
-          background-color: $color-green
-          border-top-color: $color-green - 20
+  .chat li .chat-body p {
+    margin: 0;
+  }
   
-      &.chat-message-sender
-        
-        .chat-message-wrapper,
-        .chat-message-content
-          float: right
+  .chat li.left .chat-body:before {
+    position: absolute;
+    top: 10px;
+    left: -8px;
+    display: inline-block;
+    background: #fff;
+    width: 16px;
+    height: 16px;
+    border-top: 1px solid #f1f5fc;
+    border-left: 1px solid #f1f5fc;
+    content: '';
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+  }
   
-        .chat-message-wrapper
-          &:before
-            right: -$spacing
-            border-left-color: $color-blue
+  .chat li.right .chat-body:before {
+    position: absolute;
+    top: 10px;
+    right: -8px;
+    display: inline-block;
+    background: #fff;
+    width: 16px;
+    height: 16px;
+    border-top: 1px solid #f1f5fc;
+    border-right: 1px solid #f1f5fc;
+    content: '';
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+  }
   
-        p
-          background: $color-blue
-          border-top-color: $color-blue - 20
-        img
-          float: right
-          
-      .chat-message-content
-        +clearfix
-        +radius
+  .chat li {
+    margin: 15px 0;
+  }
   
-      .chat-details
-        clear: both
-        width: 100%
-        +clearfix
+  .chat li.right .chat-body {
+    margin-right: 70px;
+    background-color: #fff;
+  }
   
-        span
-          margin-right: 4px
-          color: #bbb
+  .chat-box {
+    position: fixed;
+    bottom: 0;
+    left: 444px;
+    right: 0;
+    padding: 15px;
+    border-top: 1px solid #eee;
+    transition: all .5s ease;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -o-transition: all .5s ease;
+  }
+  
+  .primary-font {
+    color: #3c8dbc;
+  }
+  
+  a:hover, a:active, a:focus {
+    text-decoration: none;
+    outline: 0;
+  }
