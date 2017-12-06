@@ -37,7 +37,8 @@
 </div>
 <button id = "opener">Open Dialog </button>
 <script>
-    $(function() {
+
+(function () {
     $( "#dialog" ).dialog({
         autoOpen: false, 
         buttons: {
@@ -52,9 +53,6 @@
     $( "#opener" ).click(function() {
         $( "#dialog" ).dialog( "open" );
     });
-    });
-
-(function () {
     var Message;
     Message = function (arg) {
         this.text = arg.text, this.message_side = arg.message_side;
