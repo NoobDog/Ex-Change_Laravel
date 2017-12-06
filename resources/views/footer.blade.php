@@ -4,6 +4,9 @@
 <script src="{{asset('js/jquery.js')}}"></script>
 <script src="{{asset('js/jquery-ui.js')}}"></script>
 
+
+<div id="dialog" hidden>hahah</div>
+
 <div class="footBar">
   <ul class="fb">
     <li style="float:right;"><a onClick="getDialog()"><i class="fa fa-commenting-o" aria-hidden="true"></i></a></li>
@@ -11,12 +14,20 @@
 </div>
 
 
-
-<div id="dialog" title="Basic dialog">
-  <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
-</div>
 <script>
     function getDialog() {
-        $( "#dialog" ).dialog();
+        $( "#dialog" ).dialog({
+            autoOpen: false,
+            show: {
+                effect: "blind",
+                duration: 1000
+            },
+            hide: {
+                effect: "explode",
+                duration: 1000
+            }
+        });
+        $( "#dialog" ).show();
+        $( "#dialog" ).dialog("open");
     }
 </script>
