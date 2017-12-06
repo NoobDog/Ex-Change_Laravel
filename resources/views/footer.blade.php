@@ -35,7 +35,7 @@
         </div> 
     </div> 
 </div>
-<button id = "opener">Open Dialog</button>
+<button id = "opener">Open Dialog </button>
 <script>
     $(function() {
     $( "#dialog" ).dialog({
