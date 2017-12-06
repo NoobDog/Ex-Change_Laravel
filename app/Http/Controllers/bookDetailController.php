@@ -14,12 +14,16 @@ class bookDetailController extends Controller
 			$book = DB::select('SELECT * FROM books WHERE bookID = ?',[$book]);
             $book = json_decode(json_encode($book),true);
             
-            
-
             if(!empty($book)) {
                 $bookType = DB::select('SELECT typeName FROM bookTypes WHERE typeID = ?',[$book[0]['bookTypeID']]);
                 $bookType = json_decode(json_encode($bookType),true);
+
+                $bookUser = DB::select('SELECT userName, userIcon FROM users WHERE userID = ?',[$book[0]['userID']]);
+                $bookUser = json_decode(json_encode($bookUser),true);
+                
                 $book[0]['bookType'] = $bookType[0]['typeName'];
+                $book[0]['bookUserName'] = $bookUser[0]['bookUserName'];
+                $book[0]['bookUserIcon'] = $bookUser[0]['bookUserIcon'];
                 \View::share(['page_name_active'=> 'home','book'=>$book[0]]);
                 return \View::make('bookDetail'); 
             } else {

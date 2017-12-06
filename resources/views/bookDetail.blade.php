@@ -48,6 +48,8 @@
                 </div>
                 <hr/>
                 <div class="negotiate">
+                    <img src="{{asset('icons/'.$book['bookUserIcon'])}}">
+                    <p>{{$book['bookUserName']}}</p>  
                     <input type="text" id="messageInput"/><button onClick="postMessage($('#messageInput').val())">submit</button>
                 </div>
                 @else
