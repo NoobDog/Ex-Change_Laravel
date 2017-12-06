@@ -126,7 +126,7 @@
         </style>
     </head>
     <script>
-      //$(function() {
+      $(function() {
         $('#carousel ul').carouFredSel({
           width: "100%",
           prev: '#prev',
@@ -136,7 +136,7 @@
           auto: false
         });
         
-      //});
+      });
     </script>
     <body>
         @include('header')
