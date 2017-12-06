@@ -1,7 +1,8 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/footer.css')}}">
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"> -->
 
-
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <div id = "dialog">
     <div class="chattingDiv">
@@ -37,22 +38,24 @@
 </div>
 <button id = "opener">Open Dialog </button>
 <script>
-
+    // $(function() {
+    // $( "#dialog" ).dialog({
+    //     autoOpen: false, 
+    //     buttons: {
+    //         OK: function() {$(this).dialog("close");}
+    //     },
+    //     title: "Success",
+    //     position: {
+    //         my: "left center",
+    //         at: "left center"
+    //     }
+    // });
+    // $( "#opener" ).click(function() {
+    //     $( "#dialog" ).dialog( "open" );
+    // });
+    // });
+    $( "#dialog" ).dialog();
 (function () {
-    $( "#dialog" ).dialog({
-        autoOpen: false, 
-        buttons: {
-            OK: function() {$(this).dialog("close");}
-        },
-        title: "Success",
-        position: {
-            my: "left center",
-            at: "left center"
-        }
-    });
-    $( "#opener" ).click(function() {
-        $( "#dialog" ).dialog( "open" );
-    });
     var Message;
     Message = function (arg) {
         this.text = arg.text, this.message_side = arg.message_side;
