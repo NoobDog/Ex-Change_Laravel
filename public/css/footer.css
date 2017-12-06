@@ -1,11 +1,61 @@
+/* footer css file  */
+.fb {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
 
-  
-  .footBar {
-    background-color: orange;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 100px;
-    width: 100%;
-    overflow:hidden;
+.fb li {
+  float: left;
+}
+
+.fb li a, .fb .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.fb li a:hover, .fb .fbDropdown:hover .fb .dropbtn {
+  background-color: red;
+}
+.fb li a:hover, .fb .active {
+  background-color: red;
+}
+.fb li.fbDropdown {
+  display: inline-block;
+}
+
+.fb .fbDropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.fb .fbDropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.fb .fbDropdown-content a:hover {background-color: #f1f1f1}
+
+.fb .fbDropdown:hover .fbDropdown-content {
+  display: block;
+}
+.footBar{
+  /* position: absolute; */
+  left: 0;
+  bottom: 0;
+  height: 100px;
+  width: 100%;
+  overflow:hidden;
 }
