@@ -92,3 +92,160 @@ html, body {
     position:relative;
     top:1px;
   }
+
+
+
+
+
+
+
+
+
+  /* test */
+  $spacing: 20px
+  
+  $radius: 4px
+  
+  $font-size-default: 20px
+  $font-size-small: .65em
+  
+  $color-green: #91D98A
+  $color-blue: #8AC0D9
+  
+  @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300)
+  
+  =clearfix
+    display: table
+    overflow: hidden
+    &:before
+      +before
+  
+  =prefix($property, $value)
+    -webkit-#{$property}: #{$value}
+    -ms-#{$property}: #{$value}
+    -moz-#{$property}: #{$value}
+    -o-#{$property}: #{$value}
+    #{$property}: #{$value}
+  
+  =radius($rad: $radius)
+    +prefix(border-radius, #{$rad})
+  
+  =before
+    content: " "
+    display: block
+      
+  // - - - Generals
+  *
+    padding: 0
+    margin: 0
+    border: 0
+    color: #888
+    font-family: 'Source Sans Pro', sans-serif
+    font-size: $font-size-default
+    font-weight: 300
+    outline: none
+    +prefix("text-size-adjust", none)
+    +prefix("box-sizing", border-box)
+  
+      
+  // - - - Classes
+  
+  .padding
+    padding: $spacing
+  .clearfix
+    +clearfix
+  .font-size-small
+    font-size: $font-size-small
+  
+      
+  // - - - Chat
+  
+  .chat-wrapper
+    min-width: 400px
+    width: 100%
+    +clearfix
+  
+    .chat-content
+      background-color: #fff
+  
+    .chat-image
+      float: left
+      +radius(50%)
+  
+      &.chat-image-default
+        width: $spacing * 3
+        height: $spacing * 3
+  
+    .chat-message
+      margin-bottom: $spacing
+      width: 100%
+      +clearfix
+      &:last-of-type
+        margin-bottom: 0
+  
+      .chat-message-wrapper
+        max-width: 70%
+        display: table
+        margin: 0 $spacing
+        padding-top: $spacing / 2
+        position: relative
+  
+        &:before
+          +before
+          width: 0
+          height: 0
+          border: 12px solid transparent
+          top: $spacing
+          position: absolute
+          z-index: 2
+        p
+          padding: $spacing / 2 $spacing
+          color: #fff
+          border-top: 1px solid
+  
+          &:first-of-type
+            border-top: 0 !important
+  
+      &.chat-message-recipient
+      
+        .chat-message-wrapper,
+        .chat-message-content
+          float: left
+          
+        .chat-message-wrapper
+          &:before
+            left: -$spacing
+            border-right-color: $color-green
+        p
+          background-color: $color-green
+          border-top-color: $color-green - 20
+  
+      &.chat-message-sender
+        
+        .chat-message-wrapper,
+        .chat-message-content
+          float: right
+  
+        .chat-message-wrapper
+          &:before
+            right: -$spacing
+            border-left-color: $color-blue
+  
+        p
+          background: $color-blue
+          border-top-color: $color-blue - 20
+        img
+          float: right
+          
+      .chat-message-content
+        +clearfix
+        +radius
+  
+      .chat-details
+        clear: both
+        width: 100%
+        +clearfix
+  
+        span
+          margin-right: 4px
+          color: #bbb

@@ -9,7 +9,7 @@
         <script src="{{asset('js/jquery.js')}}"></script>
         <script src="{{asset('js/jquery-ui.js')}}"></script>
         <link rel="stylesheet"  type="text/css" href="{{asset('css/jquery-ui.css')}}">
-        
+
         <title>Ex-change</title>
         <link rel="icon" type="image/png" href="{{asset('favicon.png')}}"/>
         <!-- Fonts -->
@@ -57,11 +57,84 @@
                     <p>{{$book['bookUserName']}}</p>  
                     <button class="contactButton" onClick="openContact()">Contact {{$book['bookUserName']}}</button>
                     <div id="dialogContent" hidden>
-                        <table>
-                            <tr>
-                                <td>hahahaah</td>
-                            </tr>
-                        </table>
+<div class='chat-wrapper'>
+
+
+<div class='chat-message padding'>
+
+    <div class='chat-message chat-message-recipient'>
+    <img class='chat-image chat-image-default' src='http://www.michaelmammoliti.com/_projects/chat/_media/img/user1.jpg' />
+
+    <div class='chat-message-wrapper'>
+        <div class='chat-message-content'>
+        <p>Sushi tonight?</p>
+        </div>
+
+        <div class='chat-details'>
+        <span class='chat-message-localization font-size-small'>My Address</span>
+        <span class='chat-message-read-status font-size-small'>- Read</span>
+        </div>
+
+    </div>
+    </div>
+
+
+    <div class='chat-message chat-message-sender'>
+    <img class='chat-image chat-image-default' src='http://www.michaelmammoliti.com/_projects/chat/_media/img/user2.jpg' />
+
+    <div class='chat-message-wrapper'>
+        <div class='chat-message-content'>
+        <p>Pizza?</p>
+        <p>We had sushi last time!</p>
+        <p>For me one Vegetariana! Plus some chili oil on it!</p>
+        </div>
+
+        <div class='chat-details'>
+        <span class='chat-message-localisation font-size-small'>My Address</span>
+        <span class='chat-message-read-status font-size-small'>- Read</span>
+        </div>
+
+    </div>
+    </div>
+
+    
+    <div class='chat-message chat-message-recipient'>
+    <img class='chat-image chat-image-default' src='http://www.michaelmammoliti.com/_projects/chat/_media/img/user1.jpg' />
+
+    <div class='chat-message-wrapper'>
+        <div class='chat-message-content'>
+        <p>Done. Delivery takes 5 minutes!</p>
+        </div>
+
+        <div class='chat-details'>
+        <span class='chat-message-localisation font-size-small'>My Address</span>
+        <span class='chat-message-read-status font-size-small'>- Read</span>
+        </div>
+
+    </div>
+    </div>
+
+    
+    <div class='chat-message chat-message-sender'>
+    <img class='chat-image chat-image-default' src='http://www.michaelmammoliti.com/_projects/chat/_media/img/user2.jpg' />
+
+    <div class='chat-message-wrapper'>
+        <div class='chat-message-content'>
+        <p>Awesome! See you later! : )</p>
+        </div>
+
+        <div class='chat-details'>
+        <span class='chat-message-localization font-size-small'>My Address</span>
+        <span class='chat-message-read-status font-size-small'>- Read</span>
+        </div>
+
+    </div>
+    </div>
+
+
+</div>
+
+</div>
                     </div>
                     <!-- <input type="text" id="messageInput"/><button onClick="postMessage($('#messageInput').val())">submit</button> -->
                 </div>
