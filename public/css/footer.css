@@ -52,10 +52,10 @@
   display: block;
 }
 .footBar{
-  /* position: absolute; */
+  position: absolute;
   left: 0;
   bottom: 0;
-  /* height: 100px; */
+  bottom: -40%;
   width: 100%;
   overflow:hidden;
 }
