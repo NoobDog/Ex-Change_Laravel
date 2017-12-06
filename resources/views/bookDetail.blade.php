@@ -5,6 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="{{ asset('js/vue.js') }}"></script>
         <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+        <!-- jquery dialog  -->
+        <script src="{{asset('js/jquery.js')}}"></script>
+        <script src="{{asset('js/jquery-ui.js')}}"></script>
+
         <title>Ex-change</title>
         <link rel="icon" type="image/png" href="{{asset('favicon.png')}}"/>
         <!-- Fonts -->
@@ -50,7 +54,14 @@
                 <div class="negotiate">
                     <img src="{{asset('icons/'.$book['bookUserIcon'])}}">
                     <p>{{$book['bookUserName']}}</p>  
-                    <button class="contactButton">Contact {{$book['bookUserName']}}</button>
+                    <button class="contactButton" onClick="openContact()">Contact {{$book['bookUserName']}}</button>
+                    <div id="dialogContent" hidden>
+                        <table>
+                            <tr>
+                                <td>hahahaah</td>
+                            </tr>
+                        </table>
+                    </div>
                     <!-- <input type="text" id="messageInput"/><button onClick="postMessage($('#messageInput').val())">submit</button> -->
                 </div>
                 @else
@@ -77,16 +88,20 @@
     </body>
 </html>
 <script>
-    function postMessage(messageInput) {
-        var bookUserID = <?php echo $book['userID']?>;
-        var thisUserID = {{Session::get('userID')}};
-        if(messageInput != "") {
-            console.log(messageInput);
-
-
-        } else {
-            alert('Please enter something');
-        }
+    function openContact() {
+        $( "#dialogContent" ).dialog({
+            autoOpen: false,
+            show: {
+                effect: "blind",
+                duration: 1000
+            },
+            hide: {
+                effect: "explode",
+                duration: 1000
+            }
+        });
+        $( "#dialogContent" ).show();
+        $( "#dialogContent" ).dialog("open");
     }
 
 </script>
