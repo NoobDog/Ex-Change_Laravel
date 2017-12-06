@@ -159,8 +159,9 @@
                       <br>
                       <div id="pager" class="pager"></div>
                     </div>
-                    @include('footer')
+                    
                   </div>
+                  @include('footer')
             </div>
 
     </body>
