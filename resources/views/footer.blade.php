@@ -4,12 +4,19 @@
 <script src="{{asset('js/jquery.js')}}"></script>
 <script src="{{asset('js/jquery-ui.js')}}"></script>
 
+<div class="navBar">
+  <ul class="nb">
+    <li style="float:right;"><a onClick="getDialog()"><i class="fa fa-commenting-o" aria-hidden="true"></i></a></li>
+  </ul>
+</div>
+
+
 
 <div id="dialog" title="Basic dialog">
   <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
 </div>
 <script>
-  $( function() {
-    $( "#dialog" ).dialog();
-  } );
+    function getDialog() {
+        $( "#dialog" ).dialog();
+    }
 </script>
