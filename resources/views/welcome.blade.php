@@ -159,13 +159,13 @@
                       <br>
                       <div id="pager" class="pager"></div>
                     </div>
-                    
                   </div>
-                  @include('footer')
             </div>
-
+  
     </body>
-   
+    <footer>
+      @include('footer')
+    </footer>
 </html>
 <script>
   //$(function() {
