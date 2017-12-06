@@ -198,8 +198,13 @@
 </html>
 <script>
     function openContact() {
+        $( "#dialogContent" ).css({overflow:"auto"});
         $( "#dialogContent" ).dialog({
             autoOpen: false,
+            maxWidth:600,
+            maxHeight: 500,
+            width: 600,
+            height: 500,
             show: {
                 effect: "blind",
                 duration: 1000
