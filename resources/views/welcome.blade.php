@@ -125,19 +125,7 @@
         }
         </style>
     </head>
-    <script>
-      $(function() {
-        $('#carousel ul').carouFredSel({
-          width: "100%",
-          prev: '#prev',
-          next: '#next',
-          pagination: "#pager",
-          scroll: 1000,
-          auto: false
-        });
-        
-      });
-    </script>
+
     <body>
         @include('header')
         <form class="search" >
@@ -165,6 +153,19 @@
                         </li>
                         @endforeach
                       </ul>
+                      <script>
+                        //$(function() {
+                          $('#carousel ul').carouFredSel({
+                            width: "100%",
+                            prev: '#prev',
+                            next: '#next',
+                            pagination: "#pager",
+                            scroll: 1000,
+                            auto: false
+                          });
+                          
+                        //});
+                      </script>
                       <div class="clearfix"></div>
                       <a id="prev" class="prev" href="#">&lt;</a>
                       <a id="next" class="next" href="#">&gt;</a>
