@@ -4,8 +4,8 @@
 <script src="{{asset('js/jquery.js')}}"></script>
 <script src="{{asset('js/jquery-ui.js')}}"></script>
 
-<div class="navBar">
-  <ul class="nb">
+<div class="footBar">
+  <ul class="fb">
     <li style="float:right;"><a onClick="getDialog()"><i class="fa fa-commenting-o" aria-hidden="true"></i></a></li>
   </ul>
 </div>
