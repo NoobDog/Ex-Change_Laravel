@@ -8,7 +8,8 @@
         <!-- jquery dialog  -->
         <script src="{{asset('js/jquery.js')}}"></script>
         <script src="{{asset('js/jquery-ui.js')}}"></script>
-
+        <link rel="stylesheet"  type="text/css" href="{{asset('css/jquery-ui.css')}}">
+        
         <title>Ex-change</title>
         <link rel="icon" type="image/png" href="{{asset('favicon.png')}}"/>
         <!-- Fonts -->
