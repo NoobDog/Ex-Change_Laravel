@@ -133,6 +133,7 @@
           <button class="myButton">Search</button>
         </form>
             <div class="content">
+              <div class="testing">
                   <div id="wrapper">
                     <div id="carousel">
                       <ul>
@@ -153,7 +154,14 @@
                         </li>
                         @endforeach
                       </ul>
-                      <script>
+
+                      <div class="clearfix"></div>
+                      <a id="prev" class="prev" href="#">&lt;</a>
+                      <a id="next" class="next" href="#">&gt;</a>
+                      <br>
+                      <div id="pager" class="pager"></div>
+                    </div>
+                    <script>
                         //$(function() {
                           $('#carousel ul').carouFredSel({
                             width: "100%",
@@ -165,16 +173,11 @@
                           });
                           
                         //});
-                      </script>
-                      <div class="clearfix"></div>
-                      <a id="prev" class="prev" href="#">&lt;</a>
-                      <a id="next" class="next" href="#">&gt;</a>
-                      <br>
-                      <div id="pager" class="pager"></div>
-                    </div>
-
- @include('footer')
+                    </script>
+                    
                   </div>
+                  @include('footer')
+              </div>
             </div>
 
     </body>
