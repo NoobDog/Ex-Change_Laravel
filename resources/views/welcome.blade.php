@@ -159,6 +159,7 @@
                       <br>
                       <div id="pager" class="pager"></div>
                     </div>
+                    @include('footer')
                   </div>
             </div>
 
@@ -178,4 +179,3 @@
     
   //});
 </script>
- @include('footer')
