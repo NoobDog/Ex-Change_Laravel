@@ -125,7 +125,19 @@
         }
         </style>
     </head>
-
+    <script>
+      //$(function() {
+        $('#carousel ul').carouFredSel({
+          width: "100%",
+          prev: '#prev',
+          next: '#next',
+          pagination: "#pager",
+          scroll: 1000,
+          auto: false
+        });
+        
+      //});
+    </script>
     <body>
         @include('header')
         <form class="search" >
@@ -159,23 +171,11 @@
                       <br>
                       <div id="pager" class="pager"></div>
                     </div>
+
+ @include('footer')
                   </div>
             </div>
 
     </body>
    
 </html>
-<script>
-  //$(function() {
-    $('#carousel ul').carouFredSel({
-      width: "100%",
-      prev: '#prev',
-      next: '#next',
-      pagination: "#pager",
-      scroll: 1000,
-      auto: false
-    });
-    
-  //});
-</script>
- @include('footer')
