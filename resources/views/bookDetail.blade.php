@@ -165,7 +165,7 @@
                                 <div class="input-group">
                                     <input class="form-control border no-shadow no-rounded" placeholder="Type your message here">
                                     <span class="input-group-btn">
-                                        <button class="btn btn-success no-rounded" type="button">Send</button>
+                                        <button class="sendBtn" type="button">Send</button>
                                     </span>
                                 </div><!-- /input-group -->	
                             </div>
