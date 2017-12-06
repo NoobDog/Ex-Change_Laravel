@@ -166,7 +166,7 @@
    
 </html>
 <script>
-  $(function() {
+  //$(function() {
     $('#carousel ul').carouFredSel({
       width: "100%",
       prev: '#prev',
@@ -176,6 +176,6 @@
       auto: false
     });
     
-  });
+  //});
 </script>
  @include('footer')
