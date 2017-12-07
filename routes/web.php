@@ -64,7 +64,7 @@ Route::post('/bookDetail/{book}',['as'=>'bookDetailAddMessage',function($book,Re
 
     $messages = DB::select('SELECT * FROM negotiate WHERE sellerID = ? AND buyerID = ? AND bookID = ?',[$sellerID, $buyerID , $bookID]);
     $messages = json_decode(json_encode($messages),true);
-    return Response::json($messages);
+    //return Response::json($messages);
     //return redirect()->route('bookDetail', $bookID);
 }]);
 
