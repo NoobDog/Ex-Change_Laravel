@@ -49,7 +49,7 @@ class bookDetailController extends Controller
         DB::insert('INSERT INTO negotiate (senderID, receiverID, bookID, message, date, isRead,
             buyerID, sellerID)
             values (?, ?, ?, ?, ?, ?, ?, ?)',
-            [$senderID,$receiverID,$bookID,$message,date("Y-m-d"),0,$buyerID,$message]
+            [$senderID,$receiverID,$bookID,$message,date("Y-m-d"),0,$buyerID,$sellerID]
         );
         return redirect()->route('bookDetail', $bookID);
 

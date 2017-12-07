@@ -108,7 +108,7 @@
                                     <form method="post" action="{{route('bookDetailAddMessage',$book['bookID'])}}">
                                     {{csrf_field()}}
                                     <!-- <input name="bookID" value="{{$book['bookID']}}" hidden> -->
-                                    <input name="senderID" value="{{Session::get('userIcon')}}" hidden>
+                                    <input name="senderID" value="{{Session::get('userID')}}" hidden>
                                     <input name="receiverID" value="{{$book['userID']}}" hidden>
                                     <input name="sellerID" value="{{$book['userID']}}" hidden>
                                     <input name="buyerID" value="{{Session::get('userIcon')}}" hidden>
