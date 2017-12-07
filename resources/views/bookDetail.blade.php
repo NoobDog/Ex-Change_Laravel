@@ -150,7 +150,7 @@
 $(document).ready(function() {
     var refresh = {{$refresh}};
     alert(refresh);
-    if (refresh === "true") {
+    if (refresh) {
         $( "#dialogContent" ).css({overflow:"auto"});
             $( "#dialogContent" ).dialog({
                 autoOpen: false,
