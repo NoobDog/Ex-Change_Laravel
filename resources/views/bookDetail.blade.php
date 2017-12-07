@@ -63,7 +63,7 @@
                         <div class="col-md-8 bg-white ">
                             <div class="chat-message">
                                 <ul class="chat">
-                                @if (count($message) > 0)
+                                @if (count($messages) > 0)
                                     @foreach ($messages as $message)
                                     
                                         @if ($message['senderID'] == Session::get('userID'))
