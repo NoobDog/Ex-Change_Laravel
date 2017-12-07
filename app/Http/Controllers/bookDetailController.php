@@ -7,12 +7,13 @@ use DB;
 use Illuminate\Support\Facades\Hash;
 use Session;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Collection;
 class bookDetailController extends Controller
 { 
 
     public function index($bookID) {
         if (strpos($bookID, '_') !== false) {
-            $array = split ("_", $bookID);
+            $array = explode ("_", $bookID);
             $bookID = $array[0];
             $refresh = $array[1];
         } else {
