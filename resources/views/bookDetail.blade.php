@@ -147,7 +147,7 @@
     </body>
 </html>
 <script>
-var refresh = {{$fresh}};
+var refresh = {{$refresh}};
 if (refresh) {
     $( "#dialogContent" ).css({overflow:"auto"});
         $( "#dialogContent" ).dialog({
