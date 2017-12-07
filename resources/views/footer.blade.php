@@ -4,7 +4,7 @@
 <script src="{{asset('js/jquery.js')}}"></script>
 <script src="{{asset('js/jquery-ui.js')}}"></script>
 
-{{dump(route('chatMessages'))}}
+{{dump($messages)}}
 <div id="dialog" hidden>hahah</div>
 
 <div class="footBar">
