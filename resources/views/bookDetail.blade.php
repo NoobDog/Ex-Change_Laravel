@@ -53,7 +53,7 @@
                 </div>
                 <hr/>
                 @if (Session::has('userName') && $book['bookUserName'] != Session::get('userName'))
-                {{ dump($messages) }}
+                <!-- {{ dump($messages) }} -->
                 <div class="negotiate">
                     <img src="{{asset('icons/'.$book['bookUserIcon'])}}">
                     <p>{{$book['bookUserName']}}</p>  
