@@ -12,6 +12,10 @@
 */
 
 use Illuminate\Http\Request;
+use DB;
+use Illuminate\Support\Facades\Hash;
+use Session;
+use Illuminate\Http\RedirectResponse;
 //use Stripe;
 
 //home page
@@ -41,7 +45,29 @@ Route::post('/myBooks/{book}',['as'=>'updateUserBook','uses'=>'myBooksController
 Route::get('/logout',['as'=>'logout','uses'=>'welcomeController@logout']);
 //book detail
 Route::get('/bookDetail/{book}',['as'=>'bookDetail','uses'=>'bookDetailController@index']);
-Route::post('/bookDetail/{book}',['as'=>'bookDetailAddMessage','uses'=>'bookDetailController@bookDetailAddMessage']);
+
+//Route::post('/bookDetail/{book}',['as'=>'bookDetailAddMessage','uses'=>'bookDetailController@bookDetailAddMessage']);
+Route::post('/bookDetail/{book}',['as'=>'bookDetailAddMessage',function($book,Request $request){
+    $bookID = $book;
+    $senderID = $request->input('senderID');
+    $receiverID = $request->input('receiverID');
+    $sellerID = $request->input('sellerID');
+    $buyerID = $request->input('buyerID');
+    $message = $request->input('message');
+
+    DB::insert('INSERT INTO negotiate (senderID, receiverID, bookID, message, date, isRead,
+        buyerID, sellerID)
+        values (?, ?, ?, ?, ?, ?, ?, ?)',
+        [$senderID,$receiverID,$bookID,$message,date("Y-m-d"),0,$buyerID,$sellerID]
+    );
+
+
+    $messages = DB::select('SELECT * FROM negotiate WHERE sellerID = ? AND buyerID = ? AND bookID = ?',[$sellerID, $buyerID , $bookID]);
+    $messages = json_decode(json_encode($messages),true);
+    return Response::json($task);
+    //return redirect()->route('bookDetail', $bookID);
+}]);
+
 //user profile page.
 Route::get('/userProfile',['as'=>'userProfile','uses'=>'userProfileController@index']);
 Route::get('/userProfile/newPassword',['as'=>'changePassword','uses'=>'userProfileController@changePassword']);
