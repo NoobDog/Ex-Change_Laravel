@@ -114,7 +114,7 @@
                                     <input name="buyerID" value="{{Session::get('userID')}}" hidden>
                                         <input name="message" id ="message" class="textarea" placeholder="Type your message here">
                                         <span class="input-group-btn">
-                                            <button class="sendBtn" type="submit"><a onClick="addMessage()">Send</a></button>
+                                            <button class="sendBtn" type="submit">Send</button>
                                         </span>
                                     </form>
                                 </div><!-- /input-group -->	

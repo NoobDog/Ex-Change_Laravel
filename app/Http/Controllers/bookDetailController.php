@@ -10,8 +10,15 @@ use Illuminate\Http\RedirectResponse;
 class bookDetailController extends Controller
 { 
 
-    public function index($book, $refresh = 'false') {
-        $book = DB::select('SELECT * FROM books WHERE bookID = ?',[$book]);
+    public function index($bookID) {
+        if (strpos($bookID, '_') !== false) {
+            $array = split ("_", $bookID);
+            $bookID = $array[0];
+            $refresh = $array[1];
+        } else {
+            $refresh = 'false';
+        }
+        $book = DB::select('SELECT * FROM books WHERE bookID = ?',[$bookID]);
         $book = json_decode(json_encode($book),true);
         
         if(!empty($book)) {
@@ -52,7 +59,7 @@ class bookDetailController extends Controller
             [$senderID,$receiverID,$bookID,$message,date("Y-m-d"),0,$buyerID,$sellerID]
         );
         $refresh = 'true';
-        return redirect()->route('bookDetail', $bookID, $refresh);
+        return redirect()->route('bookDetail', $bookID.'_'.$refresh);
 
     }
 
