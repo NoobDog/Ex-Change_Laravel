@@ -105,10 +105,18 @@
                             </div>
                             <div class="chat-box bg-white">
                                 <div class="input-group">
-                                    <input class="textarea" placeholder="Type your message here">
-                                    <span class="input-group-btn">
-                                        <button class="sendBtn" type="button">Send</button>
-                                    </span>
+                                    <form method="post" action="{{route('bookDetailAddMessage',$book['bookID'])}}">
+                                    {{csrf_field()}}
+                                    <!-- <input name="bookID" value="{{$book['bookID']}}" hidden> -->
+                                    <input name="senderID" value="{{Session::get('userIcon')}}" hidden>
+                                    <input name="receiverID" value="{{$book['userID']}}" hidden>
+                                    <input name="sellerID" value="{{$book['userID']}}" hidden>
+                                    <input name="buyerID" value="{{Session::get('userIcon')}}" hidden>
+                                        <input name="message" class="textarea" placeholder="Type your message here">
+                                        <span class="input-group-btn">
+                                            <button class="sendBtn" type="submit">Send</button>
+                                        </span>
+                                    </form>
                                 </div><!-- /input-group -->	
                             </div>
                         </div>              

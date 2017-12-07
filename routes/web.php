@@ -41,6 +41,7 @@ Route::post('/myBooks/{book}',['as'=>'updateUserBook','uses'=>'myBooksController
 Route::get('/logout',['as'=>'logout','uses'=>'welcomeController@logout']);
 //book detail
 Route::get('/bookDetail/{book}',['as'=>'bookDetail','uses'=>'bookDetailController@index']);
+Route::post('/bookDetail/{book}',['as'=>'bookDetailAddMessage','uses'=>'bookDetailController@bookDetailAddMessage']);
 //user profile page.
 Route::get('/userProfile',['as'=>'userProfile','uses'=>'userProfileController@index']);
 Route::get('/userProfile/newPassword',['as'=>'changePassword','uses'=>'userProfileController@changePassword']);
