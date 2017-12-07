@@ -51,8 +51,8 @@
                     <p>Type <strong>{{$book['bookType']}}</strong></p>
                     <p>Price <strong>$ {{number_format($book['bookPrice'], 2, '.', '')}} CAD</strong></p>
                 </div>
-                @if (Session::has('userName') && $book['bookUserName'] != Session::has('userName'))
                 <hr/>
+                @if (Session::has('userName') && $book['bookUserName'] != Session::get('userName'))
                 {{ dump($messages) }}
                 <div class="negotiate">
                     <img src="{{asset('icons/'.$book['bookUserIcon'])}}">
