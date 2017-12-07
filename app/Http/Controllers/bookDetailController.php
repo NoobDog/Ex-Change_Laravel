@@ -38,7 +38,7 @@ class bookDetailController extends Controller
         }
            
     }
-    public function bookDetailAddMessage($book) {
+    public function bookDetailAddMessage($book,Request $request) {
         $bookID = $book;
         $senderID = $request->input('senderID');
         $receiverID = $request->input('receiverID');
