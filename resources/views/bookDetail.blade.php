@@ -111,7 +111,7 @@
                                     <input name="senderID" value="{{Session::get('userID')}}" hidden>
                                     <input name="receiverID" value="{{$book['userID']}}" hidden>
                                     <input name="sellerID" value="{{$book['userID']}}" hidden>
-                                    <input name="buyerID" value="{{Session::get('userIcon')}}" hidden>
+                                    <input name="buyerID" value="{{Session::get('userID')}}" hidden>
                                         <input name="message" class="textarea" placeholder="Type your message here">
                                         <span class="input-group-btn">
                                             <button class="sendBtn" type="submit">Send</button>
