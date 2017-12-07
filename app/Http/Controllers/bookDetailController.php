@@ -24,7 +24,14 @@ class bookDetailController extends Controller
                 $book[0]['bookType'] = $bookType[0]['typeName'];
                 $book[0]['bookUserName'] = $bookUser[0]['userName'];
                 $book[0]['bookUserIcon'] = $bookUser[0]['userIcon'];
-                \View::share(['page_name_active'=> 'home','book'=>$book[0]]);
+                if(Session::has('userID')) {
+                    $messages = DB::select('SELECT * FROM negotiate WHERE sellerID = ? AND buyerID = ?',[$book[0]['userID'], Session::get('userID')]);
+                    $messages = json_decode(json_encode($messages),true);
+                    //Session::get('userEmail')
+                    \View::share(['page_name_active'=> 'home','book'=>$book[0], 'messages' => $messages]);
+                } else {
+                    \View::share(['page_name_active'=> 'home','book'=>$book[0]]);
+                }
                 return \View::make('bookDetail'); 
             } else {
                 return redirect()->route('home');

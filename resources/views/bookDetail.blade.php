@@ -38,7 +38,7 @@
                     Book Details
                 </div>
 
-                @if (Session::has('userName'))
+                
                 <div class="bookDetail">
                     <img src="{{asset('users/'.$book['bookImage'])}}">
                     <strong><p>{{$book['bookName']}}</p></strong>
@@ -51,7 +51,9 @@
                     <p>Type <strong>{{$book['bookType']}}</strong></p>
                     <p>Price <strong>$ {{number_format($book['bookPrice'], 2, '.', '')}} CAD</strong></p>
                 </div>
+                @if (Session::has('userName'))
                 <hr/>
+                {{ dump($messages) }}
                 <div class="negotiate">
                     <img src="{{asset('icons/'.$book['bookUserIcon'])}}">
                     <p>{{$book['bookUserName']}}</p>  
@@ -174,7 +176,7 @@
                     <!-- <input type="text" id="messageInput"/><button onClick="postMessage($('#messageInput').val())">submit</button> -->
                 </div>
                 @else
-                    <div class="bookDetail">
+                    <!-- <div class="bookDetail">
                         <img src="{{asset('users/'.$book['bookImage'])}}">
                         <strong><p>{{$book['bookName']}}</p></strong>
                         <p>{{$book['bookTitle']}}</p>
@@ -185,7 +187,7 @@
                         <p>Date <strong>{{$book['bookDate']}}</strong></p>
                         <p>Type <strong>{{$book['bookType']}}</strong></p>
                         <p>Price <strong>$ {{number_format($book['bookPrice'], 2, '.', '')}} CAD</strong></p>
-                    </div>
+                    </div> -->
                     <div class="negotiate">
                         <img src="{{asset('icons/'.$book['bookUserIcon'])}}">
                         <p>{{$book['bookUserName']}}</p>  
