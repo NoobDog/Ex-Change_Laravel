@@ -147,28 +147,31 @@
     </body>
 </html>
 <script>
-var refresh = {{$refresh}};
-if (refresh == 'true') {
-    alert('yoyo');
-    $( "#dialogContent" ).css({overflow:"auto"});
-        $( "#dialogContent" ).dialog({
-            autoOpen: false,
-            maxWidth:600,
-            maxHeight: 500,
-            width: 600,
-            height: 500,
-            show: {
-                effect: "blind",
-                duration: 1000
-            },
-            hide: {
-                effect: "explode",
-                duration: 1000
-            }
-        });
-    $( "#dialogContent" ).show();
-    $( "#dialogContent" ).dialog("open");
-}
+$(document).ready(function() {
+    var refresh = {{$refresh}};
+    if (refresh == 'true') {
+        alert('yoyo');
+        $( "#dialogContent" ).css({overflow:"auto"});
+            $( "#dialogContent" ).dialog({
+                autoOpen: false,
+                maxWidth:600,
+                maxHeight: 500,
+                width: 600,
+                height: 500,
+                show: {
+                    effect: "blind",
+                    duration: 1000
+                },
+                hide: {
+                    effect: "explode",
+                    duration: 1000
+                }
+            });
+        $( "#dialogContent" ).show();
+        $( "#dialogContent" ).dialog("open");
+    }
+});
+
     function openContact() {
         $( "#dialogContent" ).css({overflow:"auto"});
         $( "#dialogContent" ).dialog({
