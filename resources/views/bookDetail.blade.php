@@ -63,8 +63,9 @@
                         <div class="col-md-8 bg-white ">
                             <div class="chat-message">
                                 <ul class="chat">
-                                @if (!$messages -> isEmpty())
+                                
                                     @foreach ($messages as $message)
+                                    @if (!$message -> isEmpty())
                                         @if ($message['senderID'] == Session::get('userID'))
                                             <li class="right clearfix">
                                                 <span class="chat-img pull-right">
@@ -96,9 +97,10 @@
                                                 </div>
                                             </li>
                                         @endif
+                                    @endif
                                     @endforeach
 
-                                @endif
+                                
                                 </ul>
                             </div>
                             <div class="chat-box bg-white">
