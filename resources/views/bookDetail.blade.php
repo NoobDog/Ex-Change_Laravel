@@ -148,7 +148,7 @@
 </html>
 <script>
 var refresh = {{$refresh}};
-if (refresh) {
+if (refresh == 'true') {
     $( "#dialogContent" ).css({overflow:"auto"});
         $( "#dialogContent" ).dialog({
             autoOpen: false,

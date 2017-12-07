@@ -10,7 +10,7 @@ use Illuminate\Http\RedirectResponse;
 class bookDetailController extends Controller
 { 
 
-    public function index($book, $refresh = 0) {
+    public function index($book, $refresh = 'false') {
         $book = DB::select('SELECT * FROM books WHERE bookID = ?',[$book]);
         $book = json_decode(json_encode($book),true);
         
@@ -51,7 +51,7 @@ class bookDetailController extends Controller
             values (?, ?, ?, ?, ?, ?, ?, ?)',
             [$senderID,$receiverID,$bookID,$message,date("Y-m-d"),0,$buyerID,$sellerID]
         );
-        $refresh = 1;
+        $refresh = 'true';
         return redirect()->route('bookDetail', $bookID, $refresh);
 
     }
