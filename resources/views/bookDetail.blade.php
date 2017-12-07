@@ -149,6 +149,7 @@
 <script>
 var refresh = {{$refresh}};
 if (refresh == 'true') {
+    alert('yoyo');
     $( "#dialogContent" ).css({overflow:"auto"});
         $( "#dialogContent" ).dialog({
             autoOpen: false,
