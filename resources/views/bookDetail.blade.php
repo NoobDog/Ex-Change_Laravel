@@ -147,6 +147,27 @@
     </body>
 </html>
 <script>
+var refresh = {{$fresh}};
+if (refresh) {
+    $( "#dialogContent" ).css({overflow:"auto"});
+        $( "#dialogContent" ).dialog({
+            autoOpen: false,
+            maxWidth:600,
+            maxHeight: 500,
+            width: 600,
+            height: 500,
+            show: {
+                effect: "blind",
+                duration: 1000
+            },
+            hide: {
+                effect: "explode",
+                duration: 1000
+            }
+        });
+    $( "#dialogContent" ).show();
+    $( "#dialogContent" ).dialog("open");
+}
     function openContact() {
         $( "#dialogContent" ).css({overflow:"auto"});
         $( "#dialogContent" ).dialog({
@@ -167,10 +188,10 @@
         $( "#dialogContent" ).show();
         $( "#dialogContent" ).dialog("open");
     }
-function addMessage() {
-    var sender = {{Session::get('userID')}},
-        icon = {{Session::get('userIcon')}},
-        message = $('#message').val();
-    alert('sender : '+sender+' icon: '+ icon + ' message: '+ message);
-}
+// function addMessage() {
+//     var sender = {{Session::get('userID')}},
+//         icon = {{Session::get('userIcon')}},
+//         message = $('#message').val();
+//     alert('sender : '+sender+' icon: '+ icon + ' message: '+ message);
+// }
 </script>

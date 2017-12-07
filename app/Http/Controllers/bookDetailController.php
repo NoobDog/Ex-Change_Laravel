@@ -10,7 +10,7 @@ use Illuminate\Http\RedirectResponse;
 class bookDetailController extends Controller
 { 
 
-    public function index($book) {
+    public function index($book, $refresh = 0) {
         $book = DB::select('SELECT * FROM books WHERE bookID = ?',[$book]);
         $book = json_decode(json_encode($book),true);
         
@@ -28,9 +28,9 @@ class bookDetailController extends Controller
                 $messages = DB::select('SELECT * FROM negotiate WHERE sellerID = ? AND buyerID = ? AND bookID = ?',[$book[0]['userID'], Session::get('userID'), $book[0]['bookID']]);
                 $messages = json_decode(json_encode($messages),true);
                 //Session::get('userEmail')
-                \View::share(['page_name_active'=> 'home','book'=>$book[0], 'messages' => $messages]);
+                \View::share(['page_name_active'=> 'home','book'=>$book[0], 'messages' => $messages, 'refresh'=>$refresh]);
             } else {
-                \View::share(['page_name_active'=> 'home','book'=>$book[0]]);
+                \View::share(['page_name_active'=> 'home','book'=>$book[0],'refresh'=>$refresh]);
             }
             return \View::make('bookDetail'); 
         } else {
@@ -51,7 +51,8 @@ class bookDetailController extends Controller
             values (?, ?, ?, ?, ?, ?, ?, ?)',
             [$senderID,$receiverID,$bookID,$message,date("Y-m-d"),0,$buyerID,$sellerID]
         );
-        //return redirect()->route('bookDetail', $bookID);
+        $refresh = 1;
+        return redirect()->route('bookDetail', $bookID, $refresh);
 
     }
 
