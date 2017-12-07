@@ -59,7 +59,7 @@ class newAccountController extends Controller
 								 	DB::insert('INSERT INTO users (userName, userPassword, userEmail, adminID, userIP, userIcon,
 										isWarning, isBlock, isVoid, roleTypeID, userQuestion1, userAnswer1, userQuestion2, userAnswer2, userSince)
 										values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-										[$newUserName,$inputPasswordHashed,$inputEmail,0,'::1','0',0,0,0,1,$inputQuestion1,$inputAnswer1,
+										[$newUserName,$inputPasswordHashed,$inputEmail,0,'::1','0.jpg',0,0,0,1,$inputQuestion1,$inputAnswer1,
 										 $inputQuestion2,$inputAnswer2,date("Y-m-d")]
 									);
 
@@ -69,7 +69,7 @@ class newAccountController extends Controller
 									Session::put('userName', $user[0]['userName']);
 									Session::put('userEmail', $user[0]['userEmail']);
 									Session::put('roleTypeID', $user[0]['roleTypeID']);
-
+									Session::put('userIcon' , $user[0]['userIcon']);
 									//return view('welcome' , ['page_name_active' => 'home','name' => Session::get('userName')]);
 									return redirect()->route('home');
 							 } else {

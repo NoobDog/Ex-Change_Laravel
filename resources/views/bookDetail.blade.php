@@ -51,7 +51,7 @@
                     <p>Type <strong>{{$book['bookType']}}</strong></p>
                     <p>Price <strong>$ {{number_format($book['bookPrice'], 2, '.', '')}} CAD</strong></p>
                 </div>
-                @if (Session::has('userName'))
+                @if (Session::has('userName') && $book['bookUserName'] != Session::has('userName'))
                 <hr/>
                 {{ dump($messages) }}
                 <div class="negotiate">
@@ -63,7 +63,41 @@
                         <div class="col-md-8 bg-white ">
                             <div class="chat-message">
                                 <ul class="chat">
-                                    <li class="left clearfix">
+                                @if (!$messages -> isEmpty())
+                                    @foreach ($messages as $message)
+                                        @if ($message['senderID'] == Session::get('userID'))
+                                            <li class="right clearfix">
+                                                <span class="chat-img pull-right">
+                                                    <img src="{{asset('icons/'.Session::get('userIcon')}}" alt="User Avatar">
+                                                </span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header">
+                                                        <strong class="primary-font">{{Session::get('userName')}}</strong>
+                                                        <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> {{$message['date']}}</small>
+                                                    </div>
+                                                    <p>
+                                                       {{$message['message']}}
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        @else
+                                            <li class="left clearfix">
+                                                <span class="chat-img pull-left">
+                                                    <img src="{{asset('icons/'.$book['bookUserIcon'])}}" alt="User Avatar">
+                                                </span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header">
+                                                        <strong class="primary-font">{{$book['bookUserName']}}</strong>
+                                                        <small class="pull-right text-muted"><i class="fa fa-clock-o"></i>{{$message['date']}}</small>
+                                                    </div>
+                                                    <p>
+                                                    {{$message['message']}}
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        @endif
+                                    @endforeach
+                                    <!-- <li class="left clearfix">
                                         <span class="chat-img pull-left">
                                             <img src="https://bootdey.com/img/Content/user_3.jpg" alt="User Avatar">
                                         </span>
@@ -160,7 +194,8 @@
                                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. 
                                             </p>
                                         </div>
-                                    </li>                    
+                                    </li>                     -->
+                                @endif
                                 </ul>
                             </div>
                             <div class="chat-box bg-white">
