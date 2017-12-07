@@ -112,9 +112,9 @@
                                     <input name="receiverID" value="{{$book['userID']}}" hidden>
                                     <input name="sellerID" value="{{$book['userID']}}" hidden>
                                     <input name="buyerID" value="{{Session::get('userID')}}" hidden>
-                                        <input name="message" class="textarea" placeholder="Type your message here">
+                                        <input name="message" id ="message" class="textarea" placeholder="Type your message here">
                                         <span class="input-group-btn">
-                                            <button class="sendBtn" type="submit">Send</button>
+                                            <button class="sendBtn" type="submit"><a onClick="addMessage()">Send</a></button>
                                         </span>
                                     </form>
                                 </div><!-- /input-group -->	
@@ -167,5 +167,10 @@
         $( "#dialogContent" ).show();
         $( "#dialogContent" ).dialog("open");
     }
-
+function addMessage() {
+    var sender = {{Session::get('userID')}},
+        icon = {{Session::get('userIcon')}},
+        message = $('#message').val();
+    alert('sender : '+sender+' icon: '+ icon + ' message: '+ message);
+}
 </script>
