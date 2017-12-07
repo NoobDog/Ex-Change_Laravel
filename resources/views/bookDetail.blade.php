@@ -149,7 +149,7 @@
 <script>
 $(document).ready(function() {
     var refresh = {{$refresh}};
-    alert(refresh);
+    //alert(refresh);
     if (refresh) {
         $( "#dialogContent" ).css({overflow:"auto"});
             $( "#dialogContent" ).dialog({
