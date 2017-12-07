@@ -14,7 +14,7 @@ class welcomeController extends Controller
 			$books = DB::select('select * from books');
 			$books = json_decode(json_encode($books),true);
 			if(Session::has('userID')) {
-				$messages = DB::select('SELECT * FROM negotiate WHERE receiver = ? AND isRead = ?',[Session::get('userID'), 0]);
+				$messages = DB::select('SELECT * FROM negotiate WHERE receiverID = ? AND isRead = ?',[Session::get('userID'), 0]);
 				$messages = json_decode(json_encode($messages),true);
 				\View::share(['page_name_active'=> 'home','books'=>$books, 'messages'=>$messages]);
 				return \View::make('welcome'); 
