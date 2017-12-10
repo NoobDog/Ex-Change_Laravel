@@ -15,6 +15,7 @@
 
 
 <script>
+    var messages; 
     $(document).ready(function() {
         var url = '{{action("footerController@index")}}';
         $.ajax({
@@ -22,11 +23,11 @@
         url: url,
         beforeSend: function(xhr){xhr.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}')}, 
         success: function(data) {
-            console.log(data);
+            messages = data;
         }
         })
     });
-
+console.log(messages);
     function getDialog() {
         $( "#dialog" ).dialog({
             autoOpen: false,
