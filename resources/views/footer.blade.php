@@ -17,7 +17,7 @@
 
 <script>
     $(document).ready(function() {
-        var url = {{action("footerController@index")}};
+        var url = '{{action("footerController@index")}}';
         $.ajax({
         type: "POST",
         url: url,
