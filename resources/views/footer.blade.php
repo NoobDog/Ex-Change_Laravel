@@ -21,7 +21,7 @@
         $.ajax({
         type: "POST",
         url: url,
-        data: "",
+        beforeSend: function(xhr){xhr.setRequestHeader('X-CSRF-TOKEN',    '{{csrf_field()}}';}, 
         success: function(data) {
             console.log(data);
         }
