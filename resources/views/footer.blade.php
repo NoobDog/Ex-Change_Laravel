@@ -4,7 +4,7 @@
 <script src="{{asset('js/jquery.js')}}"></script>
 <script src="{{asset('js/jquery-ui.js')}}"></script>
 
-{{action('footerController@index()')}}
+{{action('footerController@index')}}
 <div id="dialog" hidden>
     <!-- selected chat -->
     <!-- <div class="col-md-8 bg-white ">

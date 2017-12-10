@@ -68,12 +68,4 @@ Route::post('/help',['as'=>'stripe','uses'=>'helpController@stripe']);
 
 
 //footer
-// Route::get('/footer',['as'=>'chatMessages',function(){
-//     if(Session::has('userID')) {
-//         $messages = DB::select('SELECT * FROM negotiate WHERE receiverID = ? AND isRead = ?',[Session::get('userID'), 0]);
-//         $messages = json_decode(json_encode($messages),true);
-//         return $messages;
-//     } 
-//         return '';
-
-// }]);
+Route::get('/footer',['as'=>'chatMessages','uses'=>'footerController@index']);
