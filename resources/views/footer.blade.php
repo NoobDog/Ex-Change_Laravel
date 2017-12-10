@@ -3,7 +3,6 @@
 <link rel="stylesheet"  type="text/css" href="{{asset('css/jquery-ui.css')}}">
 <script src="{{asset('js/jquery.js')}}"></script>
 <script src="{{asset('js/jquery-ui.js')}}"></script>
-{{csrf_field()}}
 
 <div id="dialog" hidden>
 </div>
@@ -18,11 +17,10 @@
 <script>
     $(document).ready(function() {
         var url = '{{action("footerController@index")}}';
-        var token = $("input[name=token]").val();
         $.ajax({
         type: "POST",
         url: url,
-        beforeSend: function(xhr){xhr.setRequestHeader('X-CSRF-TOKEN', token}, 
+        beforeSend: function(xhr){xhr.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}'}, 
         success: function(data) {
             console.log(data);
         }
