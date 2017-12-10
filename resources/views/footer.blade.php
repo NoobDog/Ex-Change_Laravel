@@ -4,7 +4,7 @@
 <script src="{{asset('js/jquery.js')}}"></script>
 <script src="{{asset('js/jquery-ui.js')}}"></script>
 
-{{dump(action('footerController@index'))}}
+
 <div id="dialog" hidden>
 </div>
 
@@ -16,6 +16,18 @@
 
 
 <script>
+    $(document).ready(function() {
+        var url = {{action("footerController@index")}};
+        $.ajax({
+        type: "POST",
+        url: url,
+        data: "",
+        success: function(data) {
+            console.log(data);
+        }
+        })
+    });
+
     function getDialog() {
         $( "#dialog" ).dialog({
             autoOpen: false,
