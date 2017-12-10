@@ -68,4 +68,4 @@ Route::post('/help',['as'=>'stripe','uses'=>'helpController@stripe']);
 
 
 //footer
-Route::get('/footer',['as'=>'chatMessages','uses'=>'footerController@index']);
+Route::post('/footer',['as'=>'chatMessages','uses'=>'footerController@index']);
