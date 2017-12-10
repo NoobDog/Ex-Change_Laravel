@@ -23,9 +23,9 @@ class welcomeController extends Controller
             return \View::make('welcome'); 
     }
         public function logout() {
-          Session::flush();
+          	Session::flush();
     	    //return view('welcome' , ['page_name_active' => 'home']);
-					return redirect()->route('home');
+			return redirect()->route('home');
 	}
 
 }

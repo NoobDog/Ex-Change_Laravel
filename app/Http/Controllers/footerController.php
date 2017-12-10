@@ -25,8 +25,9 @@ class footerController extends Controller
             if(Session::has('userID')) {
                 $messages = DB::select('SELECT * FROM negotiate WHERE receiverID = ? AND isRead = ?',[Session::get('userID'), 0]);
                 $messages = json_decode(json_encode($messages),true);
-
-            } 
+            } else {
+                $messages = 'null';
+            }
            return $messages;
         }
 
