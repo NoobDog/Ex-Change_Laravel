@@ -18,10 +18,11 @@
 <script>
     $(document).ready(function() {
         var url = '{{action("footerController@index")}}';
+        var token = $("input[name=token]").val();
         $.ajax({
         type: "POST",
         url: url,
-        beforeSend: function(xhr){xhr.setRequestHeader('X-CSRF-TOKEN', $("input[name=token]").val();}, 
+        beforeSend: function(xhr){xhr.setRequestHeader('X-CSRF-TOKEN', token}, 
         success: function(data) {
             console.log(data);
         }
