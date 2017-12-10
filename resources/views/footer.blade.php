@@ -3,7 +3,7 @@
 <link rel="stylesheet"  type="text/css" href="{{asset('css/jquery-ui.css')}}">
 <script src="{{asset('js/jquery.js')}}"></script>
 <script src="{{asset('js/jquery-ui.js')}}"></script>
-
+{{csrf_field()}}
 
 <div id="dialog" hidden>
 </div>
@@ -21,7 +21,7 @@
         $.ajax({
         type: "POST",
         url: url,
-        beforeSend: function(xhr){xhr.setRequestHeader('X-CSRF-TOKEN',    '{{csrf_field()}}';}, 
+        beforeSend: function(xhr){xhr.setRequestHeader('X-CSRF-TOKEN', $("input[name=token]").val();}, 
         success: function(data) {
             console.log(data);
         }
