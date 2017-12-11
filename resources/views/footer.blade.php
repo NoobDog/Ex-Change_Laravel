@@ -67,9 +67,9 @@
                     HTML += '<input name="message" id ="message" class="textarea" placeholder="Type your message here">';
 
                     HTML += '<input name="senderID" value="{{Session::get("userID")}}" hidden>';
-                    HTML += '<input name="receiverID" value="'+val['senderID']+'" hidden>';
-                    HTML += '<input name="sellerID" value="'+val['sellerID']+'" hidden>';
-                    HTML += '<input name="buyerID" value="'+val['buyerID']+'" hidden>';
+                    HTML += '<input name="receiverID" value="'+v[0]['senderID']+'" hidden>';
+                    HTML += '<input name="sellerID" value="'+v[0]['sellerID']+'" hidden>';
+                    HTML += '<input name="buyerID" value="'+v[0]['buyerID']+'" hidden>';
 
                     HTML += '<span class="input-group-btn">';
                     HTML += '<button class="sendBtn" type="submit">Send</button>'
