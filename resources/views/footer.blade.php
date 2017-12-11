@@ -31,7 +31,12 @@
                 if(messages[v['senderID']] == undefined) {
                     messages[v['senderID']] = {};
                 }
-                    messages[v['senderID']].push(v);
+                var loc =[];
+                 $.each(v, function(key, val){
+                    loc = [key, val];
+                    messages[v['senderID']].push(loc);
+                 })
+                    
                 //}
             }) 
             // messages = data;
