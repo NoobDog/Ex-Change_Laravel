@@ -53,7 +53,7 @@
                         sellerID = val['sellerID'];
                         buyerID = val['buyerID'];
                         
-                        messageIDs += key;
+                        messageIDs += key + '_';
 
                         console.log("key:" + messageIDs);
                         HTML += '<li class="left clearfix">';
