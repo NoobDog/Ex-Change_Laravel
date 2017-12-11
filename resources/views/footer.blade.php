@@ -53,7 +53,7 @@
                         sellerID = val['sellerID'];
                         buyerID = val['buyerID'];
                         
-                        messageIDs += key + ',';
+                        messageIDs += key + '-';
 
                         
                         HTML += '<li class="left clearfix">';
@@ -117,11 +117,11 @@
         $( "#dialog" ).show();
         $( "#dialog" ).dialog("open");
     }
-  function submit(receiverID, sellerID, buyerID, messageIDs) {
+  function submit(receiverID, sellerID, buyerID, IDs) {
       var senderID = {{Session::get("userID")}};
     var message = $('#message_{{Session::get("userID")}}').val();
     console.log('senderID:'+senderID+' receiverID:'+receiverID+'sellerID :'+sellerID+' buyerID:'+buyerID +' message:'+message);
-    console.log(messageIDs);
+    console.log(IDs);
   }
 
 </script>
