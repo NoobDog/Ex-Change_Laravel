@@ -5,6 +5,65 @@
 <script src="{{asset('js/jquery-ui.js')}}"></script>
 
 <div id="dialog" hidden>
+    <!-- <div class="col-md-8 bg-white ">
+        <div class="chat-message">
+            <ul class="chat">
+            @if (count($messages) > 0)
+                @foreach ($messages as $message)
+                
+                    @if ($message['senderID'] == Session::get('userID'))
+                        <li class="right clearfix">
+                            <span class="chat-img pull-right">
+                                <img src="{{asset('icons/'.Session::get('userIcon'))}}" alt="User Avatar">
+                            </span>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <strong class="primary-font">{{Session::get('userName')}}</strong>
+                                    <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> {{$message['date']}}</small>
+                                </div>
+                                <p>
+                                    {{$message['message']}}
+                                </p>
+                            </div>
+                        </li>
+                    @else
+                        <li class="left clearfix">
+                            <span class="chat-img pull-left">
+                                <img src="{{asset('icons/'.$book['bookUserIcon'])}}" alt="User Avatar">
+                            </span>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <strong class="primary-font">{{$book['bookUserName']}}</strong>
+                                    <small class="pull-right text-muted"><i class="fa fa-clock-o"></i>{{$message['date']}}</small>
+                                </div>
+                                <p>
+                                {{$message['message']}}
+                                </p>
+                            </div>
+                        </li>
+                    @endif
+                
+                @endforeach
+
+            @endif
+            </ul>
+        </div>
+        <div class="chat-box bg-white">
+            <div class="input-group">
+                <form method="post" action="{{route('bookDetailAddMessage',$book['bookID'])}}">
+                {{csrf_field()}}
+                <input name="senderID" value="{{Session::get('userID')}}" hidden>
+                <input name="receiverID" value="{{$book['userID']}}" hidden>
+                <input name="sellerID" value="{{$book['userID']}}" hidden>
+                <input name="buyerID" value="{{Session::get('userID')}}" hidden>
+                    <input name="message" id ="message" class="textarea" placeholder="Type your message here">
+                    <span class="input-group-btn">
+                        <button class="sendBtn" type="submit">Send</button>
+                    </span>
+                </form>
+            </div>
+        </div>
+    </div>      -->
 </div>
 
 <div class="footBar">
@@ -25,12 +84,23 @@
         url: url,
         beforeSend: function(xhr){xhr.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}')}, 
         success: function(data) {
+            var messages ={};
+            $.each(data, function (k,v){
+                //if(messages[v['senderID']] == undefind) {
+                    messages[v['senderID']].push(v);
+                //}
+            }) 
             // messages = data;
             // console.log(messages);
-            if (data == "null") {
-                console.log("not login");
-            }
-            console.log(data);
+            // if (data == "null") {
+            //     console.log("not login");
+            // }
+            // else if (!arr.length) {
+            //     // arr is not empty
+            // } else {
+
+            // }
+            console.log(messages);
         }
         })
     }
