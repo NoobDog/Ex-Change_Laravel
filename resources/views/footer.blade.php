@@ -75,7 +75,7 @@
                     HTML += '<div class="chat-box bg-white">';
                     HTML += '<div class="input-group">';
                     HTML += '<input name="message" id ="message_{{Session::get("userID")}}" class="textarea" placeholder="Type your message here">';
-                    HTML +='<input name="index" id ="index_'+senderID+'" value = "'+messageIndexs+'" hidden>;
+                    HTML +='<input name="index" id ="index_'+senderID+'" value = "'+messageIndexs+'" hidden>';
                     HTML += '<span class="input-group-btn">';
                     HTML += '<button class="sendBtn" onClick="submit('+senderID+','+sellerID+','+buyerID+')">Send</button>'
                     HTML += '</span>';
