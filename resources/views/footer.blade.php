@@ -15,20 +15,20 @@
 
 
 <script>
-    var messages = {}; 
-    $(document).ready(function() {
+    var messages; 
+    //$(document).ready(function() {
         var url = '{{action("footerController@index")}}';
         $.ajax({
         type: "POST",
         url: url,
         beforeSend: function(xhr){xhr.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}')}, 
         success: function(data) {
-            messages.data = data;
+            messages = data;
             //console.log(messages);
         }
         })
 
-        console.log(messages.data);
+        console.log(messages);
     function getDialog() {
         $( "#dialog" ).dialog({
             autoOpen: false,
@@ -48,6 +48,6 @@
         $( "#dialog" ).show();
         $( "#dialog" ).dialog("open");
     }
-    });
+   // });
 
 </script>
