@@ -34,7 +34,7 @@
                 var loc =[];
                  $.each(v, function(key, val){
                     loc = [key, val];
-                    messages[v['senderID']].push(loc);
+                    messages[v['senderID']] += [key, val];
                  })
                     
                 //}
