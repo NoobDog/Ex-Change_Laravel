@@ -31,11 +31,12 @@
                 if(messages[v['senderID']] == undefined) {
                     messages[v['senderID']] = {};
                 }
-                var loc =[];
-                 $.each(v, function(key, val){
-                    loc = [key, val];
-                    messages[v['senderID']] += [key, val];
-                 })
+                messages[v['senderID']][k].push(v);
+                // var loc =[];
+                //  $.each(v, function(key, val){
+                //     loc = [key, val];
+                //     messages[v['senderID']] += [key, val];
+                //  })
                     
                 //}
             }) 
