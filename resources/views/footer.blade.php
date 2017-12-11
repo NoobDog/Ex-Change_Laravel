@@ -27,8 +27,8 @@
             //console.log(messages);
         }
         })
-    });
-console.log(messages.data);
+
+        console.log(messages.data);
     function getDialog() {
         $( "#dialog" ).dialog({
             autoOpen: false,
@@ -48,4 +48,6 @@ console.log(messages.data);
         $( "#dialog" ).show();
         $( "#dialog" ).dialog("open");
     }
+    });
+
 </script>
