@@ -52,7 +52,7 @@
                         senderID = val['senderID'];
                         sellerID = val['sellerID'];
                         buyerID = val['buyerID'];
-                        messageID.push(val['negotiateID']);
+                        messageID += [key, val['negotiateID']];
                         HTML += '<li class="left clearfix">';
                         HTML += '<span class="chat-img pull-left">';
                         HTML += '<img src="http://ex-change-l.azurewebsites.net/icons/'+val["senderIcon"]+'" alt="User Avatar">';
