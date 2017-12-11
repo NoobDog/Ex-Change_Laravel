@@ -29,7 +29,7 @@
             if (data == "null") {
                 console.log("not login");
             }
-            else if (!arr.length) {
+            else if (!data.length) {
                 // arr is not empty
             } else {
                 var messages ={};
