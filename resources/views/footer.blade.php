@@ -44,6 +44,7 @@
                 $.each(messages, function(k,v) {
                     var senderName = k.split("_")[0];
                     var bookName = k.split("_")[1];
+                    var bookID = k.split("_")[2];
                     var senderID, sellerID, buyerID;
                     var messageIndexs = "";
                     HTML += "<a onClick='testing()'><h2>"+senderName+" : "+bookName+"</h2></a>";
@@ -75,9 +76,9 @@
                     HTML += '<div class="chat-box bg-white">';
                     HTML += '<div class="input-group">';
                     HTML += '<input name="message" id ="message_{{Session::get("userID")}}" class="textarea" placeholder="Type your message here">';
-                    HTML +='<input name="index" id ="index_'+senderID+'" value = "'+messageIndexs+'" hidden>';
+                    HTML +='<input name="index" id ="index_'+senderID+'_'+bookID+'" value = "'+messageIndexs+'" hidden>';
                     HTML += '<span class="input-group-btn">';
-                    HTML += '<button class="sendBtn" onClick="submit('+senderID+','+sellerID+','+buyerID+')">Send</button>'
+                    HTML += '<button class="sendBtn" onClick="submit('+senderID+','+sellerID+','+buyerID+','+bookID+')">Send</button>'
                     HTML += '</span>';
                     HTML += '</div>';
                     HTML += '</div>';
@@ -112,10 +113,10 @@
         $( "#dialog" ).show();
         $( "#dialog" ).dialog("open");
     }
-    function submit(receiverID, sellerID, buyerID) {
+    function submit(receiverID, sellerID, buyerID, bookID) {
         var senderID = '{{Session::get("userID")}}';
         var message = $('#message_{{Session::get("userID")}}').val();
-        var messageIndexs = $('#index_'+receiverID).val();
+        var messageIndexs = $('#index_'+receiverID+'_'+bookID).val();
         messageIndexs = messageIndexs.split("key_");
         console.log(' senderID:'+senderID+' receiverID:'+receiverID+'sellerID :'+sellerID+' buyerID:'+buyerID +' message:'+message);
         console.log(messageIndexs);
