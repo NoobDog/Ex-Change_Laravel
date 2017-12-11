@@ -45,7 +45,7 @@
                     var senderName = k.split("_")[0];
                     var bookName = k.split("_")[1];
                     var senderID, sellerID, buyerID;
-                    var messageIDs = "";
+                    var messageIndexs = "";
                     HTML += "<a onClick='testing()'><h2>"+senderName+" : "+bookName+"</h2></a>";
                     HTML +=' <div class="col-md-8 bg-white "><div class="chat-message"><ul class="chat">';
                     $.each(v, function(key,val) {
@@ -53,7 +53,7 @@
                         sellerID = val['sellerID'];
                         buyerID = val['buyerID'];
                         
-                        messageIDs += key + '-';
+                        messageIndexs += key + '-';
 
                         
                         HTML += '<li class="left clearfix">';
@@ -69,20 +69,15 @@
                         HTML += '</div>';
                         HTML += '</li>';
                     })
-                    console.log("key:" + messageIDs);
+                    console.log("key:" + messageIndexs);
                     HTML +='</ul></div>';
 
                     HTML += '<div class="chat-box bg-white">';
                     HTML += '<div class="input-group">';
                     HTML += '<input name="message" id ="message_{{Session::get("userID")}}" class="textarea" placeholder="Type your message here">';
 
-                    // HTML += '<input name="senderID" value="{{Session::get("userID")}}" hidden>';
-                    // HTML += '<input name="receiverID" value="'+senderID+'" hidden>';
-                    // HTML += '<input name="sellerID" value="'+sellerID+'" hidden>';
-                    // HTML += '<input name="buyerID" value="'+buyerID+'" hidden>';
-
                     HTML += '<span class="input-group-btn">';
-                    HTML += '<button class="sendBtn" onClick="submit('+senderID+','+sellerID+','+buyerID+','+messageIDs+')">Send</button>'
+                    HTML += '<button class="sendBtn" onClick="submit('+senderID+','+sellerID+','+buyerID+')">Send</button>'
                     HTML += '</span>';
                     HTML += '</div>';
                     HTML += '</div>';
@@ -117,11 +112,11 @@
         $( "#dialog" ).show();
         $( "#dialog" ).dialog("open");
     }
-  function submit(receiverID, sellerID, buyerID, IDs) {
-    var senderID = '{{Session::get("userID")}}';
-    var message = $('#message_{{Session::get("userID")}}').val();
-    console.log('senderID:'+senderID+' receiverID:'+receiverID+'sellerID :'+sellerID+' buyerID:'+buyerID +' message:'+message);
-    //console.log(IDs);
-  }
+    function submit(receiverID, sellerID, buyerID) {
+        var senderID = '{{Session::get("userID")}}';
+        var message = $('#message_{{Session::get("userID")}}').val();
+        console.log('senderID:'+senderID+' receiverID:'+receiverID+'sellerID :'+sellerID+' buyerID:'+buyerID +' message:'+message);
+        //console.log(IDs);
+    }
 
 </script>
