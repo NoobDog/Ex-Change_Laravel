@@ -121,7 +121,7 @@
       var senderID = {{Session::get("userID")}};
     var message = $('#message_{{Session::get("userID")}}').val();
     console.log('senderID:'+senderID+' receiverID:'+receiverID+'sellerID :'+sellerID+' buyerID:'+buyerID +' message:'+message);
-    console.log(IDs);
+    //console.log(IDs);
   }
 
 </script>
