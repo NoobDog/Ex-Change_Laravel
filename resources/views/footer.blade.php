@@ -43,8 +43,39 @@
                 var HTML ="";
                 $.each(messages, function(k,v) {
                     var senderName = k.split("_")[0];
-                    var bookID = k.split("_")[1];
-                    HTML += "<a onClick='testing("+k+")'><h2>"+senderName+" : "+bookID+"</h2></a>";
+                    var bookName = k.split("_")[1];
+                    HTML += "<a onClick='testing()'><h2>"+senderName+" : "+bookName+"</h2></a>";
+                    HTML +=' <div class="col-md-8 bg-white "><div class="chat-message"><ul class="chat">';
+                    $.each(v, function(key,val) {
+
+                    //     <li class="left clearfix">
+                    //     <span class="chat-img pull-left">
+                    //         <img src="{{asset('icons/'.$book['bookUserIcon'])}}" alt="User Avatar">
+                    //     </span>
+                    //     <div class="chat-body clearfix">
+                    //         <div class="header">
+                    //             <strong class="primary-font">{{$book['bookUserName']}}</strong>
+                    //             <small class="pull-right text-muted"><i class="fa fa-clock-o"></i>{{$message['date']}}</small>
+                    //         </div>
+                    //         <p>
+                    //         {{$message['message']}}
+                    //         </p>
+                    //     </div>
+                    // </li>
+                        HTML += '<li class="left clearfix">';
+                        HTML += '<span class="chat-img pull-left">';
+                        HTML += '<img src="http://ex-change-l.azurewebsites.net/icons/'+val["senderIcon"]+'" alt="User Avatar">';
+                        HTML += '</span>';
+                        HTML += '<div class="chat-body clearfix">';
+                        HTML += '<div class="header">';
+                        HTML += '<strong class="primary-font">'+bookName+'</strong>';
+                        HTML +=' <small class="pull-right text-muted"><i class="fa fa-clock-o"></i>'+val["date"]+'</small>';
+                        HTML += '</div>';
+                        HTML += '<p>'+val["message"]+'</p>';
+                        HTML += '</div>';
+                        HTML += '</li>';
+                    })
+                    HTML +='</ul></div"></div>';
                 })
                 $('#dialog').html(HTML);
             }
