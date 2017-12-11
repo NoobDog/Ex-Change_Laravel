@@ -85,10 +85,10 @@
         $( "#dialog" ).css({overflow:"auto"});
         $( "#dialog" ).dialog({
             autoOpen: false,
-            maxWidth:600,
-            maxHeight: 500,
-            width: 600,
-            height: 500,
+            maxWidth:700,
+            maxHeight: 600,
+            width: 700,
+            height: 600,
             show: {
                 effect: "blind",
                 duration: 1000
