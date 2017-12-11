@@ -115,7 +115,7 @@
     function submit(receiverID, sellerID, buyerID) {
         var senderID = '{{Session::get("userID")}}';
         var message = $('#message_{{Session::get("userID")}}').val();
-        var messageIndexs = $('#message_'+receiverID).val();
+        var messageIndexs = $('#index_'+receiverID).val();
         console.log(messageIndexs +' senderID:'+senderID+' receiverID:'+receiverID+'sellerID :'+sellerID+' buyerID:'+buyerID +' message:'+message);
         //console.log(IDs);
     }
