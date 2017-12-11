@@ -52,6 +52,7 @@
                         senderID = val['senderID'];
                         sellerID = val['sellerID'];
                         buyerID = val['buyerID'];
+                        console.log("key:" + key);
                         messageIDs += key;
                         HTML += '<li class="left clearfix">';
                         HTML += '<span class="chat-img pull-left">';
