@@ -116,7 +116,9 @@
         var senderID = '{{Session::get("userID")}}';
         var message = $('#message_{{Session::get("userID")}}').val();
         var messageIndexs = $('#index_'+receiverID).val();
-        console.log(messageIndexs +' senderID:'+senderID+' receiverID:'+receiverID+'sellerID :'+sellerID+' buyerID:'+buyerID +' message:'+message);
+        messageIndexs = messageIndexs.split("key_");
+        console.log(' senderID:'+senderID+' receiverID:'+receiverID+'sellerID :'+sellerID+' buyerID:'+buyerID +' message:'+message);
+        console.log(messageIndexs);
         //console.log(IDs);
     }
 
