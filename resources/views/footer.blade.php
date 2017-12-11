@@ -60,7 +60,17 @@
                         HTML += '</div>';
                         HTML += '</li>';
                     })
-                    HTML +='</ul></div"></div>';
+                    HTML +='</ul></div>';
+
+                    HTML += '<div class="chat-box bg-white">';
+                    HTML += '<div class="input-group">';
+                    HTML += '<input name="message" id ="message" class="textarea" placeholder="Type your message here">';
+                    HTML += '<span class="input-group-btn">';
+                    HTML += '<button class="sendBtn" type="submit">Send</button>'
+                    HTML += '</span>';
+                    HTML += '</div>';
+                    HTML += '</div>';
+                    HTML += '</div>';
                 })
                 $('#dialog').html(HTML);
             }
@@ -72,6 +82,7 @@
         alert('hahaha');
     } 
     function getDialog() {
+        $( "#dialog" ).css({overflow:"auto"});
         $( "#dialog" ).dialog({
             autoOpen: false,
             maxWidth:600,
