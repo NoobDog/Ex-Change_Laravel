@@ -15,7 +15,7 @@
 
 
 <script>
-    var messages; 
+    var messages = {}; 
     $(document).ready(function() {
         var url = '{{action("footerController@index")}}';
         $.ajax({
@@ -23,12 +23,12 @@
         url: url,
         beforeSend: function(xhr){xhr.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}')}, 
         success: function(data) {
-            this.messages = data;
+            messages.data = data;
             //console.log(messages);
         }
         })
     });
-console.log(messages);
+console.log(messages.data);
     function getDialog() {
         $( "#dialog" ).dialog({
             autoOpen: false,
