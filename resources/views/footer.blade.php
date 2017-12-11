@@ -27,7 +27,7 @@
         success: function(data) {
             var messages ={};
             $.each(data, function (k,v){
-                if(messages[v['senderID']] == undefind) {
+                if(messages[v['senderID']] == undefined) {
                     messages[v['senderID']] = {};
                 }
                     messages[v['senderID']].push(v);
