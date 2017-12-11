@@ -44,15 +44,14 @@
                 $.each(messages, function(k,v) {
                     var senderName = k.split("_")[0];
                     var bookName = k.split("_")[1];
-                    var senderID, sellerID, buyerID;
-                    var messageID = {};
+                    var senderID, sellerID, buyerID, messageIDs;
                     HTML += "<a onClick='testing()'><h2>"+senderName+" : "+bookName+"</h2></a>";
                     HTML +=' <div class="col-md-8 bg-white "><div class="chat-message"><ul class="chat">';
                     $.each(v, function(key,val) {
                         senderID = val['senderID'];
                         sellerID = val['sellerID'];
                         buyerID = val['buyerID'];
-                        messageID += [key, val['negotiateID']];
+                        messageID += key+"_";
                         HTML += '<li class="left clearfix">';
                         HTML += '<span class="chat-img pull-left">';
                         HTML += '<img src="http://ex-change-l.azurewebsites.net/icons/'+val["senderIcon"]+'" alt="User Avatar">';
