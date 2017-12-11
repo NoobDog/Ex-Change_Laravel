@@ -51,7 +51,7 @@
                         senderID = val['senderID'];
                         sellerID = val['sellerID'];
                         buyerID = val['buyerID'];
-                        messageID += key+"_";
+                        messageIDs += key+"_";
                         HTML += '<li class="left clearfix">';
                         HTML += '<span class="chat-img pull-left">';
                         HTML += '<img src="http://ex-change-l.azurewebsites.net/icons/'+val["senderIcon"]+'" alt="User Avatar">';
@@ -77,7 +77,7 @@
                     // HTML += '<input name="buyerID" value="'+buyerID+'" hidden>';
 
                     HTML += '<span class="input-group-btn">';
-                    HTML += '<button class="sendBtn" onClick="submit('+senderID+','+sellerID+','+buyerID+','+messageID+')">Send</button>'
+                    HTML += '<button class="sendBtn" onClick="submit('+senderID+','+sellerID+','+buyerID+','+messageIDs+')">Send</button>'
                     HTML += '</span>';
                     HTML += '</div>';
                     HTML += '</div>';
@@ -112,11 +112,11 @@
         $( "#dialog" ).show();
         $( "#dialog" ).dialog("open");
     }
-  function submit(receiverID, sellerID, buyerID, messageID) {
+  function submit(receiverID, sellerID, buyerID, messageIDs) {
       var senderID = {{Session::get("userID")}};
     var message = $('#message_{{Session::get("userID")}}').val();
     console.log('senderID:'+senderID+' receiverID:'+receiverID+'sellerID :'+sellerID+' buyerID:'+buyerID +' message:'+message);
-    console.log(messageID);
+    console.log(messageIDs);
   }
 
 </script>
