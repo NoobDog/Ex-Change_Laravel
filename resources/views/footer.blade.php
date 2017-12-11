@@ -30,6 +30,7 @@
             if (data == "null") {
                 console.log("not login");
             }
+            console.log(data);
         }
         })
     }
