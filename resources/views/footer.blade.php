@@ -42,7 +42,7 @@
                 console.log(messages);
                 var HTML ="";
                 $.each(messages, function(k,v) {
-                    HTML += "<a onClick='testing("+k+")'><h2>"+k+"</h2></a>";
+                    HTML += "<a onClick='testing("+k+")'><h2>"+v['senderName']+" : "+v['booID']+"</h2></a>";
                 })
                 $('#dialog').html(HTML);
             }
