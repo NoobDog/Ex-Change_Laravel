@@ -15,7 +15,7 @@
 
 
 <script>
-    var messages; 
+    //var messages; 
     getMessages();
     //$(document).ready(function() {
     function getMessages () {
@@ -25,8 +25,11 @@
         url: url,
         beforeSend: function(xhr){xhr.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}')}, 
         success: function(data) {
-            messages = data;
-            console.log(messages);
+            // messages = data;
+            // console.log(messages);
+            if (data == "null") {
+                console.log("not login");
+            }
         }
         })
     }
