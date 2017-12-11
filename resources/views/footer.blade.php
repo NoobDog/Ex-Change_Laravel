@@ -45,12 +45,14 @@
                     var senderName = k.split("_")[0];
                     var bookName = k.split("_")[1];
                     var senderID, sellerID, buyerID;
+                    var messageID = {};
                     HTML += "<a onClick='testing()'><h2>"+senderName+" : "+bookName+"</h2></a>";
                     HTML +=' <div class="col-md-8 bg-white "><div class="chat-message"><ul class="chat">';
                     $.each(v, function(key,val) {
                         senderID = val['senderID'];
                         sellerID = val['sellerID'];
                         buyerID = val['buyerID'];
+                        messageID.push(val['negotiateID']);
                         HTML += '<li class="left clearfix">';
                         HTML += '<span class="chat-img pull-left">';
                         HTML += '<img src="http://ex-change-l.azurewebsites.net/icons/'+val["senderIcon"]+'" alt="User Avatar">';
@@ -76,7 +78,7 @@
                     // HTML += '<input name="buyerID" value="'+buyerID+'" hidden>';
 
                     HTML += '<span class="input-group-btn">';
-                    HTML += '<button class="sendBtn" onClick="submit('+senderID+','+sellerID+','+buyerID+')">Send</button>'
+                    HTML += '<button class="sendBtn" onClick="submit('+senderID+','+sellerID+','+buyerID+','+messageID+')">Send</button>'
                     HTML += '</span>';
                     HTML += '</div>';
                     HTML += '</div>';
@@ -111,10 +113,11 @@
         $( "#dialog" ).show();
         $( "#dialog" ).dialog("open");
     }
-  function submit(receiverID, sellerID, buyerID) {
+  function submit(receiverID, sellerID, buyerID, messageID) {
       var senderID = {{Session::get("userID")}};
     var message = $('#message_{{Session::get("userID")}}').val();
     console.log('senderID:'+senderID+' receiverID:'+receiverID+'sellerID :'+sellerID+' buyerID:'+buyerID +' message:'+message);
+    console.log(messageID);
   }
 
 </script>
