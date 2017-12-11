@@ -119,8 +119,13 @@
         var messageIndexs = $('#index_'+receiverID+'_'+bookID).val();
         messageIndexs = messageIndexs.split("key_");
         console.log(' senderID:'+senderID+' receiverID:'+receiverID+'sellerID :'+sellerID+' buyerID:'+buyerID +' message:'+message);
-        console.log(messageIndexs);
+
         //console.log(IDs);
+        var removeItem = "";
+        messageIndexs = jQuery.grep(messageIndexs, function(value) {
+        return value != removeItem;
+        });
+        console.log(messageIndexs);
     }
 
 </script>
