@@ -76,7 +76,7 @@
                     // HTML += '<input name="buyerID" value="'+buyerID+'" hidden>';
 
                     HTML += '<span class="input-group-btn">';
-                    HTML += '<button class="sendBtn" onClick="submit({{Session::get("userID")}},senderID,sellerID,buyerID)">Send</button>'
+                    HTML += '<button class="sendBtn" onClick="submit('+{{Session::get("userID")}}+',senderID,sellerID,buyerID)">Send</button>'
                     HTML += '</span>';
                     HTML += '</div>';
                     HTML += '</div>';
