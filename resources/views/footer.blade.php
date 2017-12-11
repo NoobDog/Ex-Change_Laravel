@@ -52,8 +52,10 @@
                         senderID = val['senderID'];
                         sellerID = val['sellerID'];
                         buyerID = val['buyerID'];
-                        console.log("key:" + key);
+                        
                         messageIDs += key;
+
+                        console.log("key:" + messageIDs);
                         HTML += '<li class="left clearfix">';
                         HTML += '<span class="chat-img pull-left">';
                         HTML += '<img src="http://ex-change-l.azurewebsites.net/icons/'+val["senderIcon"]+'" alt="User Avatar">';
