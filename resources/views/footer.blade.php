@@ -53,7 +53,7 @@
                         sellerID = val['sellerID'];
                         buyerID = val['buyerID'];
                         
-                        messageIndexs += [key,key];
+                        messageIndexs += ["key_"+key,key];
 
                         
                         HTML += '<li class="left clearfix">';
