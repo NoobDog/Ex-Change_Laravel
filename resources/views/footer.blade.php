@@ -70,10 +70,10 @@
                     HTML += '<div class="input-group">';
                     HTML += '<input name="message" id ="message_{{Session::get("userID")}}" class="textarea" placeholder="Type your message here">';
 
-                    HTML += '<input name="senderID" value="{{Session::get("userID")}}" hidden>';
-                    HTML += '<input name="receiverID" value="'+senderID+'" hidden>';
-                    HTML += '<input name="sellerID" value="'+sellerID+'" hidden>';
-                    HTML += '<input name="buyerID" value="'+buyerID+'" hidden>';
+                    // HTML += '<input name="senderID" value="{{Session::get("userID")}}" hidden>';
+                    // HTML += '<input name="receiverID" value="'+senderID+'" hidden>';
+                    // HTML += '<input name="sellerID" value="'+sellerID+'" hidden>';
+                    // HTML += '<input name="buyerID" value="'+buyerID+'" hidden>';
 
                     HTML += '<span class="input-group-btn">';
                     HTML += '<button class="sendBtn" onClick="submit({{Session::get("userID")}},senderID,sellerID,buyerID)">Send</button>'
