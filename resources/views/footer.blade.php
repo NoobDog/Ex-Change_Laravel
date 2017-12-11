@@ -1,9 +1,9 @@
-<link rel="stylesheet" type="text/css" href="{{asset('css/footer.css')}}">
+<link rel="stylesheet" href="{{asset('css/footer.css')}}">
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"> -->
-<link rel="stylesheet"  type="text/css" href="{{asset('css/jquery-ui.css')}}">
+<!-- jquery dialog  -->
 <script src="{{asset('js/jquery.js')}}"></script>
 <script src="{{asset('js/jquery-ui.js')}}"></script>
-
+<link rel="stylesheet"  type="text/css" href="{{asset('css/jquery-ui.css')}}">
 <div id="dialog" hidden>
 </div>
 
@@ -68,8 +68,8 @@
         }
         })
     }
-    function testing(k) {
-        alert(k);
+    function testing() {
+        alert('hahaha');
     } 
     function getDialog() {
         $( "#dialog" ).dialog({
