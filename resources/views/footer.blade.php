@@ -24,6 +24,7 @@
         beforeSend: function(xhr){xhr.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}')}, 
         success: function(data) {
             messages = data;
+            console.log(messages);
         }
         })
     });
