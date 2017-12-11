@@ -27,6 +27,7 @@
         success: function(data) {
             var messages ={};
             $.each(data, function (k,v){
+                console.log(v);
                 if(messages[v['senderID']] == undefined) {
                     messages[v['senderID']] = {};
                 }
