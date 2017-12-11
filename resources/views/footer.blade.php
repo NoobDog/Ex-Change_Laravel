@@ -34,15 +34,17 @@
             } else {
                 var messages ={};
                 $.each(data, function (k,v){
-                    if(messages[v['senderID']] == undefined) {
-                        messages[v['senderID']] = {};
+                    if(messages[v['ID']] == undefined) {
+                        messages[v['ID']] = {};
                     }
-                    messages[v['senderID']][k] = v;
+                    messages[v['ID']][k] = v;
                 }) 
                 console.log(messages);
                 var HTML ="";
                 $.each(messages, function(k,v) {
-                    HTML += "<a onClick='testing("+k+")'><h2>"+v['senderName']+" : "+v['booID']+"</h2></a>";
+                    var senderName = k.split("_")[0];
+                    var bookID = k.split("_")[1];
+                    HTML += "<a onClick='testing("+k+")'><h2>"+senderName+" : "+bookID+"</h2></a>";
                 })
                 $('#dialog').html(HTML);
             }
