@@ -53,7 +53,7 @@
                         sellerID = val['sellerID'];
                         buyerID = val['buyerID'];
                         
-                        messageIndexs += ["key_"+key,key];
+                        messageIndexs += [key];
 
                         
                         HTML += '<li class="left clearfix">';
@@ -69,7 +69,7 @@
                         HTML += '</div>';
                         HTML += '</li>';
                     })
-                    console.log("key:" + messageIndexs);
+                    console.log(messageIndexs);
                     HTML +='</ul></div>';
 
                     HTML += '<div class="chat-box bg-white">';
