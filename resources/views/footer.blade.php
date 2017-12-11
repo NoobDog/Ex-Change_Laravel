@@ -75,9 +75,9 @@
                     HTML += '<div class="chat-box bg-white">';
                     HTML += '<div class="input-group">';
                     HTML += '<input name="message" id ="message_{{Session::get("userID")}}" class="textarea" placeholder="Type your message here">';
-
+                    HTML +='<input name="index" id ="index_'+senderID+'" value = "'+messageIndexs+'"hidden>;;
                     HTML += '<span class="input-group-btn">';
-                    HTML += '<button class="sendBtn" onClick="submit('+messageIndexs+','+senderID+','+sellerID+','+buyerID+')">Send</button>'
+                    HTML += '<button class="sendBtn" onClick="submit('+senderID+','+sellerID+','+buyerID+')">Send</button>'
                     HTML += '</span>';
                     HTML += '</div>';
                     HTML += '</div>';
@@ -112,9 +112,10 @@
         $( "#dialog" ).show();
         $( "#dialog" ).dialog("open");
     }
-    function submit(messageIndexs,receiverID, sellerID, buyerID) {
+    function submit(receiverID, sellerID, buyerID) {
         var senderID = '{{Session::get("userID")}}';
         var message = $('#message_{{Session::get("userID")}}').val();
+        var messageIndexs = $('#message_'+receiverID).val();
         console.log(messageIndexs +' senderID:'+senderID+' receiverID:'+receiverID+'sellerID :'+sellerID+' buyerID:'+buyerID +' message:'+message);
         //console.log(IDs);
     }
