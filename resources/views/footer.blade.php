@@ -65,6 +65,12 @@
                     HTML += '<div class="chat-box bg-white">';
                     HTML += '<div class="input-group">';
                     HTML += '<input name="message" id ="message" class="textarea" placeholder="Type your message here">';
+
+                    HTML += '<input name="senderID" value="{{Session::get("userID")}}" hidden>';
+                    HTML += '<input name="receiverID" value="'+v['senderID']+'" hidden>';
+                    HTML += '<input name="sellerID" value="'+v['sellerID']+'" hidden>';
+                    HTML += '<input name="buyerID" value="'+v['buyerID']+'" hidden>';
+
                     HTML += '<span class="input-group-btn">';
                     HTML += '<button class="sendBtn" type="submit">Send</button>'
                     HTML += '</span>';
