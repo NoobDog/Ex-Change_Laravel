@@ -45,7 +45,7 @@
                     var senderName = k.split("_")[0];
                     var bookName = k.split("_")[1];
                     var senderID, sellerID, buyerID;
-                    var messageIndexs = {};
+                    var messageIndexs = "";
                     HTML += "<a onClick='testing()'><h2>"+senderName+" : "+bookName+"</h2></a>";
                     HTML +=' <div class="col-md-8 bg-white "><div class="chat-message"><ul class="chat">';
                     $.each(v, function(key,val) {
@@ -53,7 +53,7 @@
                         sellerID = val['sellerID'];
                         buyerID = val['buyerID'];
                         
-                        messageIndexs += key;
+                        messageIndexs += "key_"+key;
 
                         
                         HTML += '<li class="left clearfix">';
