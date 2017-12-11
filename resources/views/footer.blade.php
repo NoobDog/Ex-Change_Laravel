@@ -16,7 +16,9 @@
 
 <script>
     var messages; 
+    getMessages();
     //$(document).ready(function() {
+    function getMessages () {
         var url = '{{action("footerController@index")}}';
         $.ajax({
         type: "POST",
@@ -27,8 +29,9 @@
             //console.log(messages);
         }
         })
-
-        console.log(messages);
+    }
+    
+    console.log(messages);
     function getDialog() {
         $( "#dialog" ).dialog({
             autoOpen: false,
