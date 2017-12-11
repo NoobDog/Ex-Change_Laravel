@@ -287,3 +287,7 @@ input.textarea {
 	position:relative;
 	top:1px;
 }
+.pull-left {
+  float: left;
+  position: absolute;
+}
