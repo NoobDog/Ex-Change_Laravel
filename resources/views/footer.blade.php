@@ -25,36 +25,34 @@
         url: url,
         beforeSend: function(xhr){xhr.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}')}, 
         success: function(data) {
-            var messages ={};
-            $.each(data, function (k,v){
-                console.log(v);
-                if(messages[v['senderID']] == undefined) {
-                    messages[v['senderID']] = {};
-                }
-                messages[v['senderID']][k] = v;
-                // var loc =[];
-                //  $.each(v, function(key, val){
-                //     loc = [key, val];
-                //     messages[v['senderID']] += [key, val];
-                //  })
-                    
-                //}
-            }) 
-            // messages = data;
-            // console.log(messages);
-            // if (data == "null") {
-            //     console.log("not login");
-            // }
-            // else if (!arr.length) {
-            //     // arr is not empty
-            // } else {
 
-            // }
-            console.log(messages);
+            if (data == "null") {
+                console.log("not login");
+            }
+            else if (!arr.length) {
+                // arr is not empty
+            } else {
+                var messages ={};
+                $.each(data, function (k,v){
+                    if(messages[v['senderID']] == undefined) {
+                        messages[v['senderID']] = {};
+                    }
+                    messages[v['senderID']][k] = v;
+                }) 
+                console.log(messages);
+                var HTML ="";
+                $.each(messages, function(k,v) {
+                    HTML += "<a onClick='testing("+k+")'><h2>"+k+"</h2></a>";
+                })
+                $('#dialog').html(HTML);
+            }
+
         }
         })
     }
-
+    function testing(k) {
+        alert(k);
+    } 
     function getDialog() {
         $( "#dialog" ).dialog({
             autoOpen: false,
