@@ -50,7 +50,7 @@ class footerController extends Controller
                 $book = $book[0];
                 DB::insert('INSERT INTO shoppingCart (userID, bookID, bookPrice, status, date)
                 values (?, ?, ?, ?, ?)',
-                [Session::get('userID'),$receiverID,$book['bookID'],$book['bookPrice'],'addCart',date("Y-m-d")]
+                [Session::get('userID'),$book['bookID'],$book['bookPrice'],'addCart',date("Y-m-d")]
                 );
                 return 'yes';
             } 
