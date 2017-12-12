@@ -126,6 +126,15 @@
         return value != removeItem;
         });
         console.log(messageIndexs);
+        console.log(message);
+        // $.ajax({
+        //     type: "POST",
+        //     url: host + '/articles/create',
+        //     data: {title: title, body: body, published_at: published_at},
+        //     success: function( msg ) {
+        //         $("#ajaxResponse").append("<div>"+msg+"</div>");
+        //     }
+        // });
     }
 
 </script>
