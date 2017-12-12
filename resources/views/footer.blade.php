@@ -75,7 +75,7 @@
 
                     HTML += '<div class="chat-box bg-white">';
                     HTML += '<div class="input-group">';
-                    HTML += '<input name="message" id ="message_{{Session::get("userID")}}" class="textarea" placeholder="Type your message here">';
+                    HTML += '<input name="message" id ="message_{{Session::get("userID")}}_'+senderID+'_'+bookID+'" class="textarea" placeholder="Type your message here">';
                     HTML +='<input name="index" id ="index_'+senderID+'_'+bookID+'" value = "'+messageIndexs+'" hidden>';
                     HTML += '<span class="input-group-btn">';
                     HTML += '<button class="sendBtn" onClick="submit('+senderID+','+sellerID+','+buyerID+','+bookID+')">Send</button>'
@@ -115,7 +115,7 @@
     }
     function submit(receiverID, sellerID, buyerID, bookID) {
         var senderID = '{{Session::get("userID")}}';
-        var message = $('#message_{{Session::get("userID")}}').val();
+        var message = $('#message_{{Session::get("userID")}}_'+receiverID+'_'+bookID).val();
         var messageIndexs = $('#index_'+receiverID+'_'+bookID).val();
         messageIndexs = messageIndexs.split("key_");
         console.log(' senderID:'+senderID+' receiverID:'+receiverID+'sellerID :'+sellerID+' buyerID:'+buyerID +' message:'+message);
