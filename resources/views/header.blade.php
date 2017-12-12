@@ -29,7 +29,7 @@
 
     <li class="nbDropdown"  style="float:right;">
       <a href="javascript:void(0)" class="dropbtn"><i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i></a>
-      <div class="nbDropdown-content">
+      <div class="nbCart-content">
         <p>hahaha</p>
       </div>
     </li>
