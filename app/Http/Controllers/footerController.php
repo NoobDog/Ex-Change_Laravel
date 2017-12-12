@@ -32,7 +32,7 @@ class footerController extends Controller
 
             foreach ($messageIndexs as $id) {
                 DB::update('UPDATE negotiate SET isRead = ? where negotiateID = ?', 
-                [1, $key -> id]);
+                [1, $id]);
                 return $id;
             }
 
