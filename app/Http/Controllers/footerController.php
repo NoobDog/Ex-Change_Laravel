@@ -30,10 +30,10 @@ class footerController extends Controller
             $sellerID = $request -> sellerID;
             $senderID = $request -> senderID;
 
-            foreach ($messageIndexs as $key) {
+            foreach ($messageIndexs as $key => $val) {
                 // DB::update('UPDATE negotiate SET isRead = ? where negotiateID = ?', 
                 // [1, $key -> id]);
-                return $key;
+                return $val;
             }
 
             // DB::insert('INSERT INTO negotiate (senderID, receiverID, bookID, message, date, isRead,
