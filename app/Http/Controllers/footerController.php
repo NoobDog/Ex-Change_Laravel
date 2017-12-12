@@ -31,8 +31,9 @@ class footerController extends Controller
             $senderID = $request -> senderID;
 
             foreach ($messageIndexs as $key) {
-                DB::update('UPDATE negotiate SET isRead = ? where negotiateID = ?', 
-				[1, $key -> id]);
+                // DB::update('UPDATE negotiate SET isRead = ? where negotiateID = ?', 
+                // [1, $key -> id]);
+                return $key;
             }
 
             // DB::insert('INSERT INTO negotiate (senderID, receiverID, bookID, message, date, isRead,
@@ -40,7 +41,7 @@ class footerController extends Controller
             // values (?, ?, ?, ?, ?, ?, ?, ?)',
             // [$senderID,$receiverID,$bookID,$message,date("Y-m-d"),0,$buyerID,$sellerID]
             // );
-            return 'yes';
+            //return 'yes';
 
         }
 
