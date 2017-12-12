@@ -193,7 +193,9 @@
         data: {bookID: bookID},
         success: function( msg ) {
           if(msg == 'yes') {
-            alert('hahaha');
+            alert('YES!!');
+          } else if (msg =='sameUser') {
+            alert('This is your book!');
           } else {
             window.location.href = "http://ex-change-l.azurewebsites.net/login";
           }

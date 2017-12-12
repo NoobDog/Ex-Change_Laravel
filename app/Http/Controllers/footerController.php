@@ -48,6 +48,9 @@ class footerController extends Controller
                 $book = DB::select("SELECT * FROM books WHERE bookID = ?",[$bookID]);
                 $book = json_decode(json_encode($book),true);
                 $book = $book[0];
+                if( $book['userID'] == Session::get('userID')) {
+                    return 'sameUser';
+                }
                 DB::insert('INSERT INTO shoppingCart (userID, bookID, bookPrice, status, date)
                 values (?, ?, ?, ?, ?)',
                 [Session::get('userID'),$book['bookID'],$book['bookPrice'],'addCart',date("Y-m-d")]
