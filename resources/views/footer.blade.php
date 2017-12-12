@@ -163,7 +163,7 @@
                         HTML += '<p>'+message+'</p>';
                         HTML += '</div>';
                         HTML += '</li>';
-                        $('.li_'+receiverID+'_'+sellerID+'_'+buyerID+'_'+bookID).after(HTML);
+                        $('.li_'+receiverID+'_'+sellerID+'_'+buyerID+'_'+bookID).last().append(HTML);
 
                     }
                 }
