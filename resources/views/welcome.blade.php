@@ -185,8 +185,6 @@
 </html>
 <script>
   function addToCart (bookID) {
-    alert(bookID);
-
     var url = '{{action("footerController@addToCart")}}';
     $.ajax({
         type: "POST",
