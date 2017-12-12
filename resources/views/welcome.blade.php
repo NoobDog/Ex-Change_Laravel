@@ -186,5 +186,20 @@
 <script>
   function addToCart (bookID) {
     alert(bookID);
+
+    var url = '{{action("footerController@addToCart")}}';
+    $.ajax({
+        type: "POST",
+        url: url,
+        beforeSend: function(xhr){xhr.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}')}, 
+        data: {bookID: bookID},
+        success: function( msg ) {
+          if(msg == 'yes') {
+            alert('hahaha');
+          } else {
+            window.location.href = "http://ex-change-l.azurewebsites.net/login";
+          }
+        }
+    });
   }
 </script>

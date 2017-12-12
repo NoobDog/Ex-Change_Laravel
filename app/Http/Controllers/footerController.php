@@ -42,5 +42,19 @@ class footerController extends Controller
             return 'yes';
 
         }
+        public function addToCart(Request $request) {
+            $bookID = $request -> bookID;
+            if(Session::has('userID')) {
+                $book = DB::select("SELECT * FROM books WHERE bookID = ?",[$bookID]);
+                $book = json_decode(json_encode($book),true);
+                $book = $book[0];
+                DB::insert('INSERT INTO shoppingCart (userID, bookID, bookPrice, status, date)
+                values (?, ?, ?, ?, ?)',
+                [Session::get('userID'),$receiverID,$book['bookID'],$book['bookPrice'],'addCart',date("Y-m-d")]
+                );
+                return 'yes';
+            } 
+            return 'noUser';
+        }
 
 }

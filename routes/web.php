@@ -69,4 +69,5 @@ Route::post('/help',['as'=>'stripe','uses'=>'helpController@stripe']);
 
 //footer
 Route::post('/footer',['as'=>'chatMessages','uses'=>'footerController@index']);
-Route::post('/footer/addMessage',['as'=>'chatMessages','uses'=>'footerController@addMessage']);
+Route::post('/footer/addMessage',['as'=>'addMessage','uses'=>'footerController@addMessage']);
+Route::post('/footer/addToCart',['as'=>'addToCart','uses'=>'footerController@addToCart']);
