@@ -48,7 +48,7 @@
 
 .nb .nbDropdown-content a:hover {background-color: #f1f1f1}
 
-.nb .nbDropdown:hover .nbDropdown-content .nbCart-content {
+.nb .nbDropdown:hover .nbDropdown-content, .nbCart-content {
     display: block;
 }
 .navBar{
