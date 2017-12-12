@@ -57,7 +57,7 @@
                         messageIndexs += "key_"+val['negotiateID'];
 
                         
-                        HTML += '<li class="left clearfix">';
+                        HTML += '<li class="left clearfix" id="li_'+senderID+'_'+sellerID+'_'+buyerID+'_'+bookID+'">';
                         HTML += '<span class="chat-img pull-left">';
                         HTML += '<img src="http://ex-change-l.azurewebsites.net/icons/'+val["senderIcon"]+'" alt="User Avatar">';
                         HTML += '</span>';
@@ -78,7 +78,7 @@
                     HTML += '<input name="message" id ="message_{{Session::get("userID")}}_'+senderID+'_'+bookID+'" class="textarea" placeholder="Type your message here">';
                     HTML +='<input name="index" id ="index_'+senderID+'_'+bookID+'" value = "'+messageIndexs+'" hidden>';
                     HTML += '<span class="input-group-btn">';
-                    HTML += '<button class="sendBtn" onClick="submit('+senderID+','+sellerID+','+buyerID+','+bookID+')">Send</button>'
+                    HTML += '<button class="sendBtn" onClick="submit('+senderID+','+sellerID+','+buyerID+','+bookID+','+bookName+')">Send</button>'
                     HTML += '</span>';
                     HTML += '</div>';
                     HTML += '</div>';
@@ -113,7 +113,7 @@
         $( "#dialog" ).show();
         $( "#dialog" ).dialog("open");
     }
-    function submit(receiverID, sellerID, buyerID, bookID) {
+    function submit(receiverID, sellerID, buyerID, bookID, bookName) {
         var senderID = '{{Session::get("userID")}}';
         var message = $('#message_{{Session::get("userID")}}_'+receiverID+'_'+bookID).val();
         var messageIndexs = $('#index_'+receiverID+'_'+bookID).val();
@@ -136,6 +136,23 @@
                 data: {message: message, messageIndexs: messageIndexs, receiverID: receiverID, senderID: senderID, sellerID: sellerID, buyerID: buyerID, bookID: bookID},
                 success: function( msg ) {
                     console.log(msg);
+                    if(msg == 'yes') {
+                        var HTML = "";
+                        HTML += '<li class="right clearfix" id="li_'+senderID+'_'+sellerID+'_'+buyerID+'_'+bookID+'">';
+                        HTML += '<span class="chat-img pull-right">';
+                        HTML += '<img src="{{asset("icons/".Session::get("userIcon"))}}" alt="User Avatar">';
+                        HTML += '</span>';
+                        HTML += '<div class="chat-body clearfix">';
+                        HTML += '<div class="header">';
+                        HTML += '<strong class="primary-font">'+bookName+'</strong>';
+                        HTML +=' <small class="pull-right text-muted"><i class="fa fa-clock-o"></i>'+val["date"]+'</small>';
+                        HTML += '</div>';
+                        HTML += '<p>'+message+'</p>';
+                        HTML += '</div>';
+                        HTML += '</li>';
+                        $('#li_'+receiverID+'_'+sellerID+'_'+buyerID+'_'+bookID).after(HTML);
+
+                    }
                 }
             });
         }
