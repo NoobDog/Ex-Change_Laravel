@@ -67,7 +67,7 @@
 
 .friend-list {
   list-style: none;
-margin-left: -40px;
+  margin-left: -40px;
 }
 
 .friend-list li {
@@ -290,4 +290,7 @@ input.textarea {
 .pull-left {
   float: left;
   position: absolute;
+}
+.clearfix {
+  clear: none;
 }

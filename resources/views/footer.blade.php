@@ -57,7 +57,7 @@
                         messageIndexs += "key_"+val['negotiateID'];
 
                         
-                        HTML += '<li class="left clearfix" id="li_'+senderID+'_'+sellerID+'_'+buyerID+'_'+bookID+'">';
+                        HTML += '<li class="left clearfix li_'+senderID+'_'+sellerID+'_'+buyerID+'_'+bookID+'">';
                         HTML += '<span class="chat-img pull-left">';
                         HTML += '<img src="http://ex-change-l.azurewebsites.net/icons/'+val["senderIcon"]+'" alt="User Avatar">';
                         HTML += '</span>';
@@ -163,7 +163,7 @@
                         HTML += '<p>'+message+'</p>';
                         HTML += '</div>';
                         HTML += '</li>';
-                        $('#li_'+receiverID+'_'+sellerID+'_'+buyerID+'_'+bookID).after(HTML);
+                        $('.li_'+receiverID+'_'+sellerID+'_'+buyerID+'_'+bookID).after(HTML);
 
                     }
                 }
