@@ -54,7 +54,7 @@
                         sellerID = val['sellerID'];
                         buyerID = val['buyerID'];
                         
-                        messageIndexs += "key_"+key;
+                        messageIndexs += "key_"+val['negotiateID'];
 
                         
                         HTML += '<li class="left clearfix">';
