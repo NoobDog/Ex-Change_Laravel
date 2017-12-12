@@ -22,7 +22,25 @@ class footerController extends Controller
            return $messages;
         }
         public function addMessage(Request $request) {
-            return $request;
+            $messageIndexs = $request -> messageIndexs;
+            $bookID = $request -> bookID;
+            $buyerID = $request -> buyerID;
+            $message = $request -> message;
+            $receiverID = $request -> receiverID;
+            $sellerID = $request -> sellerID;
+            $senderID = $request -> senderID;
+
+            foreach ($messageIndexs as $id) {
+                DB::update('UPDATE negotiate SET isRead = ? where negotiateID = ?', 
+				[1, $id]);
+            }
+
+            DB::insert('INSERT INTO negotiate (senderID, receiverID, bookID, message, date, isRead,
+            buyerID, sellerID)
+            values (?, ?, ?, ?, ?, ?, ?, ?)',
+            [$senderID,$receiverID,$bookID,$message,date("Y-m-d"),0,$buyerID,$sellerID]
+            );
+            return 'yes';
 
         }
 
