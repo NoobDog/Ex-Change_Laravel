@@ -32,7 +32,7 @@
             else if (!data.length) {
                 // arr is not empty
             } else {
-                $('#chatIcon').css('color : red');
+                $('#chatIcon').css("color", "green");
                 var messages ={};
                 $.each(data, function (k,v){
                     if(messages[v['ID']] == undefined) {
