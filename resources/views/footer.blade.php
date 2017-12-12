@@ -9,7 +9,7 @@
 
 <div class="footBar">
   <ul class="fb">
-    <li style="float:right;"><a onClick="getDialog()"><i class="fa fa-commenting-o" aria-hidden="true"></i></a></li>
+    <li style="float:right;"><a onClick="getDialog()"><i id="chatIcon" class="fa fa-commenting-o" aria-hidden="true"></i></a></li>
   </ul>
 </div>
 
@@ -32,6 +32,7 @@
             else if (!data.length) {
                 // arr is not empty
             } else {
+                $('#chatIcon').css('color : red');
                 var messages ={};
                 $.each(data, function (k,v){
                     if(messages[v['ID']] == undefined) {
