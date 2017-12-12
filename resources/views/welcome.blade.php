@@ -149,7 +149,7 @@
                             <p style="font-size: x-small;">{{$book['bookDescription']}}</P>
                           </p>
                           <a href="{{route('bookDetail',$book['bookID'])}}"><button class="itemButton">View</button></a>
-                          <a href='#'><button class="itemButton1">Add to Cart</button></a>
+                          <a onClick="addToCart({{$book['bookID']}})"><button class="itemButton1">Add to Cart</button></a>
                           <a href="{{route('bookDetail',$book['bookID'])}}"><span></span></a>
                         </li>
                         @endforeach
@@ -183,3 +183,8 @@
     </body>
    
 </html>
+<script>
+  function addToCart (bookID) {
+    alert(bookID);
+  }
+</script>
