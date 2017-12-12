@@ -137,15 +137,28 @@
                 success: function( msg ) {
                     console.log(msg);
                     if(msg == 'yes') {
-                        var HTML = "";
+                        var icon = '{{Session::get("userIcon")}}';
+                        var HTML = '';
+                        var today = new Date();
+                        var dd = today.getDate();
+                        var mm = today.getMonth()+1; //January is 0!
+
+                        var yyyy = today.getFullYear();
+                        if(dd<10){
+                            dd='0'+dd;
+                        } 
+                        if(mm<10){
+                            mm='0'+mm;
+                        } 
+                        var today = dd+'/'+mm+'/'+yyyy;
                         HTML += '<li class="right clearfix" id="li_'+senderID+'_'+sellerID+'_'+buyerID+'_'+bookID+'">';
                         HTML += '<span class="chat-img pull-right">';
-                        HTML += '<img src="{{asset("icons/".Session::get("userIcon"))}}" alt="User Avatar">';
+                        HTML += '<img src="http://ex-change-l.azurewebsites.net/icons/'+icon+'"alt="User Avatar">';
                         HTML += '</span>';
                         HTML += '<div class="chat-body clearfix">';
                         HTML += '<div class="header">';
                         HTML += '<strong class="primary-font">'+bookName+'</strong>';
-                        HTML +=' <small class="pull-right text-muted"><i class="fa fa-clock-o"></i>'+val["date"]+'</small>';
+                        HTML +=' <small class="pull-right text-muted"><i class="fa fa-clock-o"></i>'+today+'</small>';
                         HTML += '</div>';
                         HTML += '<p>'+message+'</p>';
                         HTML += '</div>';
