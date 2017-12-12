@@ -21,6 +21,9 @@ class footerController extends Controller
             } 
            return $messages;
         }
+        public function addMessage(Request $request) {
+            return $request;
 
+        }
 
 }

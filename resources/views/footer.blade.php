@@ -127,14 +127,19 @@
         });
         console.log(messageIndexs);
         console.log(message);
-        // $.ajax({
-        //     type: "POST",
-        //     url: host + '/articles/create',
-        //     data: {title: title, body: body, published_at: published_at},
-        //     success: function( msg ) {
-        //         $("#ajaxResponse").append("<div>"+msg+"</div>");
-        //     }
-        // });
+        if(message != "") {
+            var url = '{{action("footerController@addMessage")}}';
+            $.ajax({
+                type: "POST",
+                url: url,
+                beforeSend: function(xhr){xhr.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}')}, 
+                data: {message: message, messageIndexs: messageIndexs, receiverID: receiverID, senderID: senderID, sellerID: sellerID, buyerID: buyerID, bookID: bookID},
+                success: function( msg ) {
+                    console.log(msg);
+                }
+            });
+        }
+
     }
 
 </script>
