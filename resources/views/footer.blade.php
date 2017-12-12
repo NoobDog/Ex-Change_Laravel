@@ -63,7 +63,7 @@
                         HTML += '</span>';
                         HTML += '<div class="chat-body clearfix">';
                         HTML += '<div class="header">';
-                        HTML += '<strong class="primary-font">'+bookName+'</strong>';
+                        HTML += '<strong class="primary-font">'+senderName+'</strong>';
                         HTML +=' <small class="pull-right text-muted"><i class="fa fa-clock-o"></i>'+val["date"]+'</small>';
                         HTML += '</div>';
                         HTML += '<p>'+val["message"]+'</p>';
@@ -78,7 +78,7 @@
                     HTML += '<input name="message" id ="message_{{Session::get("userID")}}_'+senderID+'_'+bookID+'" class="textarea" placeholder="Type your message here">';
                     HTML +='<input name="index" id ="index_'+senderID+'_'+bookID+'" value = "'+messageIndexs+'" hidden>';
                     HTML += '<span class="input-group-btn">';
-                    HTML += '<button class="sendBtn" onClick="submit('+senderID+','+sellerID+','+buyerID+','+bookID+','+bookName+')">Send</button>'
+                    HTML += '<button class="sendBtn" onClick="submit('+senderID+','+sellerID+','+buyerID+','+bookID+')">Send</button>'
                     HTML += '</span>';
                     HTML += '</div>';
                     HTML += '</div>';
@@ -113,7 +113,7 @@
         $( "#dialog" ).show();
         $( "#dialog" ).dialog("open");
     }
-    function submit(receiverID, sellerID, buyerID, bookID, bookName) {
+    function submit(receiverID, sellerID, buyerID, bookID) {
         var senderID = '{{Session::get("userID")}}';
         var message = $('#message_{{Session::get("userID")}}_'+receiverID+'_'+bookID).val();
         var messageIndexs = $('#index_'+receiverID+'_'+bookID).val();
@@ -142,7 +142,7 @@
                         var today = new Date();
                         var dd = today.getDate();
                         var mm = today.getMonth()+1; //January is 0!
-
+                        var senderName = '{{Session::get("userName")}}';
                         var yyyy = today.getFullYear();
                         if(dd<10){
                             dd='0'+dd;
@@ -157,7 +157,7 @@
                         HTML += '</span>';
                         HTML += '<div class="chat-body clearfix">';
                         HTML += '<div class="header">';
-                        HTML += '<strong class="primary-font">'+bookName+'</strong>';
+                        HTML += '<strong class="primary-font">'+senderName+'</strong>';
                         HTML +=' <small class="pull-right text-muted"><i class="fa fa-clock-o"></i>'+today+'</small>';
                         HTML += '</div>';
                         HTML += '<p>'+message+'</p>';
