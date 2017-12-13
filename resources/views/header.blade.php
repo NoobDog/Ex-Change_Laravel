@@ -1,9 +1,12 @@
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" type="text/css" href="{{asset('css/header.css')}}">
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <!-- jquery -->
 <script src="{{asset('js/jquery.js')}}"></script>
+=======
+>>>>>>> parent of 965f000... test hover
 =======
 >>>>>>> parent of 965f000... test hover
 <div class="logo">
