@@ -65,6 +65,8 @@ Route::get('/addressSetting',['as'=>'addressSetting','uses'=>'addressSettingCont
 Route::post('/addressSetting',['as'=>'addAddress','uses'=>'addressSettingController@addAddress']);
 
 Route::post('/help',['as'=>'stripe','uses'=>'helpController@stripe']);
+//shopping cart
+Route::get('/shoppingCart',['as'=>'shoppingCart','uses'=>'shoppingCartController@index']);
 
 
 //footer
