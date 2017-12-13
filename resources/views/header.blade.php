@@ -27,13 +27,13 @@
     <li><a class="@if($page_name_active=='help')active @endif" href="{{url('/help')}}">Help</a></li>
     <li><a href="{{route('logout')}}">Logout</a></li>
 
-    <li class="nbDropdown"  style="float:right;">
+    <!-- <li class="nbDropdown"  style="float:right;">
       <a href="javascript:void(0)" class="dropbtn"><i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i></a>
       <div class="nbCart-content">
         <p>hahaha</p>
       </div>
-    </li>
-    
+    </li> -->
+    <li style="float:right;"><a href="{{url('/shoppingCart')}}" class="@if($page_name_active=='cart')active @endif"><i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i></a></li>
   </ul>
 </div>
 @else
