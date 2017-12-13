@@ -30,8 +30,7 @@
     <li><a href="{{route('logout')}}">Logout</a></li>
 
     <li class="nbDropdown"  style="float:right;">
-      <!-- <a href="javascript:void(0)" class="dropbtn" id="getCart"><i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i></a> -->
-      <a class="dropbtn" id="getCart"><i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i></a>
+      <a href="javascript:void(0)" class="dropbtn" id="getCart" onmouseover="getCart()"><i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i></a>
       <div class="nbCart-content">
         <p>hahaha</p>
       </div>
@@ -52,8 +51,7 @@
 @endif
 
 <script>
-var isHovered = $('#getCart').is(":hover");
-if(isHovered) {
-  alert('is hovered!');
+function getCart() {
+  alert('haha');
 }
 </script>
