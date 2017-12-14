@@ -10,11 +10,11 @@ class shoppingCartController extends Controller
 {
 
 		public function index() {
-			$user = DB::select('SELECT * FROM users WHERE userID = ?', [Session::get('userID')]);
-			$user = json_decode(json_encode($user),true);
-			$user = $user[0];
+			$shoppingCart = DB::select('SELECT * FROM shoppingCart WHERE userID = ?', [Session::get('userID')]);
+			$shoppingCart = json_decode(json_encode($user),true);
+
 			\View::share(['page_name_active'=> 'cart']);
-            return \View::make('shoppingCart',['user' => $user]);
+            return \View::make('shoppingCart',['shoppingCart' => $shoppingCart]);
 		}
 	
 }
