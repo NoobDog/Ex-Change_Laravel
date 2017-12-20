@@ -77,7 +77,6 @@
                     })
                     console.log(messageIndexs);
                     HTML +='</ul></div>';
-
                     HTML += '<div class="chat-box bg-white">';
                     HTML += '<div class="input-group">';
                     HTML += '<input name="message" id ="message_{{Session::get("userID")}}_'+senderID+'_'+bookID+'" class="textarea" placeholder="Type your message here">';
