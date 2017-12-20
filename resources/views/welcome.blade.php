@@ -192,6 +192,7 @@
         beforeSend: function(xhr){xhr.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}')}, 
         data: {bookID: bookID},
         success: function( msg ) {
+          console.log(msg);
           if(msg == 'yes') {
             alert('YES!!');
           } else if (msg =='sameUser') {
