@@ -196,6 +196,8 @@
             alert('YES!!');
           } else if (msg =='sameUser') {
             alert('This is your book!');
+          } else if (msg =='hasInCart') {
+            alert('You have already added in the cart!');
           } else {
             window.location.href = "http://ex-change-l.azurewebsites.net/login";
           }

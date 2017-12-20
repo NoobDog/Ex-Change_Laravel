@@ -48,6 +48,14 @@ class footerController extends Controller
                 $book = DB::select("SELECT * FROM books WHERE bookID = ?",[$bookID]);
                 $book = json_decode(json_encode($book),true);
                 $book = $book[0];
+
+                $shoppingCartItem = DB::select("SELECT * FROM shoppingCart WHERE bookID = ? AND userID = ?",[$bookID, Session::get('userID')]);
+                $shoppingCartItem = json_decode(json_encode($shoppingCartItem),true);
+                $shoppingCartItem = $shoppingCartItem[0];
+                if(!empty($shoppingCartItem)) {
+                    return 'hasInCart';
+                }
+
                 if( $book['userID'] == Session::get('userID')) {
                     return 'sameUser';
                 }
