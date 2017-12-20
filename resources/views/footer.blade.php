@@ -95,7 +95,10 @@
         }
         })
     }
-
+    function colseDialog() {
+        $('#chatIcon').removeClass("faa-wrench animated");
+        $('#chatIcon').css("color", "white");
+    }
     function getDialog() {
         $( "#dialog" ).css({overflow:"auto"});
         $( "#dialog" ).dialog({
@@ -104,6 +107,7 @@
             maxHeight: 600,
             width: 700,
             height: 600,
+            close: colseDialog(),
             show: {
                 effect: "blind",
                 duration: 1000
