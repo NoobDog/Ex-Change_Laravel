@@ -4,7 +4,7 @@
 <script src="{{asset('js/jquery.js')}}"></script>
 <script src="{{asset('js/jquery-ui.js')}}"></script>
 <link rel="stylesheet"  type="text/css" href="{{asset('css/jquery-ui.css')}}">
-<link rel="stylesheet" href="font-awesome-animation.min.css">
+<link rel="stylesheet"  href="{{asset('css/animation.css')}}">
 <div id="dialog" hidden>
 </div>
 
@@ -36,7 +36,7 @@
                 // arr is not empty
             } else {
                 $('#chatIcon').css("color", "green");
-                $('#chatIcon').addClass("faa-shake animated");
+                $('#chatIcon').addClass("faa-wrench animated");
                 var messages ={};
                 $.each(data, function (k,v){
                     if(messages[v['ID']] == undefined) {
