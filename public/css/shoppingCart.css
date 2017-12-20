@@ -57,7 +57,7 @@ html, body {
    
   ul {
     list-style-type: none;
-    width: 500px;
+    width: 100%
   }
    
   h3 {
@@ -67,6 +67,8 @@ html, body {
   li img {
     float: left;
     margin: 0 15px 0 0;
+    width: 100px;
+    height: 100px;
   }
    
   li p {

@@ -18,21 +18,20 @@
     <body>
         @include('header')
         <div class="flex-center position-ref full-height">
-<div id="shoppingCartContent">
-  <ul>
-  @foreach ($shoppingCart as $shoppingCartID => $Item)
-    <li>
-      <img src="{{asset('users/'.$Item['bookImage'])}}"/>
-      <h3>{{$Item['bookName']}}</h3>
-      <p>{{$Item['bookDescription']}}</p>
-      <h4><strong>$ {{number_format($Item['bookprice'], 2, '.', '')}} CAD</strong></h4>
-    </li>
-  @endforeach
+            <div id="shoppingCartContent">
+                <ul>
+                    @foreach ($shoppingCart as $shoppingCartID => $Item)
+                        <li>
+                        <img src="{{asset('users/'.$Item['bookImage'])}}"/>
+                        <h3>{{$Item['bookName']}}</h3>
+                        <p>{{$Item['bookDescription']}}</p>
+                        <h4><strong>$ {{number_format($Item['bookprice'], 2, '.', '')}} CAD</strong></h4>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
 
-  </ul>
-</div>
-
-            {{print_r($shoppingCart)}}
+            
         </div>
         @include('footer')
     </body>
