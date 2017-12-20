@@ -17,7 +17,7 @@
     </head>
     <body>
         @include('header')
-
+        {{dump($details)}}
         @if (empty($shoppingCart))
             <div class="flex-center position-ref full-height"></div>
         @endif

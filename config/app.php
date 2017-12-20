@@ -191,7 +191,7 @@ return [
     */
 
     'aliases' => [
-
+        'Stripe' => Laravel\Cashier\CashierServiceProvider::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,
