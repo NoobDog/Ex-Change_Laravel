@@ -18,6 +18,8 @@
     <body>
         @include('header')
         <div class="flex-center position-ref full-height">
+
+        
             {{print_r($shoppingCart)}}
         </div>
         @include('footer')

@@ -4,12 +4,13 @@
 <script src="{{asset('js/jquery.js')}}"></script>
 <script src="{{asset('js/jquery-ui.js')}}"></script>
 <link rel="stylesheet"  type="text/css" href="{{asset('css/jquery-ui.css')}}">
+<link rel="stylesheet" href="font-awesome-animation.min.css">
 <div id="dialog" hidden>
 </div>
 
 <div class="footBar">
   <ul class="fb">
-    <li style="float:right;"><a onClick="getDialog()"><i id="chatIcon" class="fa fa-commenting-o" aria-hidden="true"></i></a></li>
+    <li style="float:right;"><a onClick="getDialog()"><i id="chatIcon" class="fa fa-envelope" aria-hidden="true"></i></a></li>
   </ul>
 </div>
 
@@ -30,9 +31,12 @@
                 console.log("not login");
             }
             else if (!data.length) {
+                var HTML = "No message";
+                $('#dialog').html(HTML);
                 // arr is not empty
             } else {
                 $('#chatIcon').css("color", "green");
+                $('#chatIcon').addClass("faa-shake animated");
                 var messages ={};
                 $.each(data, function (k,v){
                     if(messages[v['ID']] == undefined) {
@@ -48,7 +52,7 @@
                     var bookID = k.split("_")[2];
                     var senderID, sellerID, buyerID;
                     var messageIndexs = "";
-                    HTML += "<a onClick='testing()'><h2>"+senderName+" : "+bookName+"</h2></a>";
+                    HTML += "<h2>"+senderName+" : "+bookName+"</h2>";
                     HTML +=' <div class="col-md-8 bg-white "><div class="chat-message"><ul class="chat">';
                     $.each(v, function(key,val) {
                         senderID = val['senderID'];
@@ -91,9 +95,7 @@
         }
         })
     }
-    function testing() {
-        alert('hahaha');
-    } 
+
     function getDialog() {
         $( "#dialog" ).css({overflow:"auto"});
         $( "#dialog" ).dialog({
