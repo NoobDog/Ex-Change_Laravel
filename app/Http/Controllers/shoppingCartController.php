@@ -19,6 +19,7 @@ class shoppingCartController extends Controller
 			$stripe = Stripe::make(env('STRIPE_SECRET'));
 			
 			$account = $stripe->account()->details();
+			$account = json_decode(json_encode($account),true);
 			return \View::make('shoppingCart',['shoppingCart' => $shoppingCart, 'details' => $account]);
 		}
 	
