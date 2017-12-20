@@ -3669,63 +3669,6 @@
         ]
     },
     {
-        "name": "stripe/stripe-php",
-        "version": "v5.7.0",
-        "version_normalized": "5.7.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/stripe/stripe-php.git",
-            "reference": "82228e4c9cc682219a234fa35cffa509793ecf9f"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/stripe/stripe-php/zipball/82228e4c9cc682219a234fa35cffa509793ecf9f",
-            "reference": "82228e4c9cc682219a234fa35cffa509793ecf9f",
-            "shasum": ""
-        },
-        "require": {
-            "ext-curl": "*",
-            "ext-json": "*",
-            "ext-mbstring": "*",
-            "php": ">=5.3.3"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "~4.0",
-            "satooshi/php-coveralls": "~0.6.1",
-            "squizlabs/php_codesniffer": "~2.0"
-        },
-        "time": "2017-11-28T17:22:06+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Stripe\\": "lib/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Stripe and contributors",
-                "homepage": "https://github.com/stripe/stripe-php/contributors"
-            }
-        ],
-        "description": "Stripe PHP Library",
-        "homepage": "https://stripe.com/",
-        "keywords": [
-            "api",
-            "payment processing",
-            "stripe"
-        ]
-    },
-    {
         "name": "filp/whoops",
         "version": "2.1.14",
         "version_normalized": "2.1.14.0",
@@ -4707,6 +4650,127 @@
         "description": "A comprehensive Stripe API package.",
         "keywords": [
             "cartalyst",
+            "php",
+            "stripe"
+        ]
+    },
+    {
+        "name": "stripe/stripe-php",
+        "version": "v5.8.0",
+        "version_normalized": "5.8.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/stripe/stripe-php.git",
+            "reference": "bb3d932721977d1110b766b842f72cb32712b7f1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/stripe/stripe-php/zipball/bb3d932721977d1110b766b842f72cb32712b7f1",
+            "reference": "bb3d932721977d1110b766b842f72cb32712b7f1",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "ext-json": "*",
+            "ext-mbstring": "*",
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0",
+            "satooshi/php-coveralls": "~0.6.1",
+            "squizlabs/php_codesniffer": "~2.0"
+        },
+        "time": "2017-12-20T21:47:27+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Stripe\\": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Stripe and contributors",
+                "homepage": "https://github.com/stripe/stripe-php/contributors"
+            }
+        ],
+        "description": "Stripe PHP Library",
+        "homepage": "https://stripe.com/",
+        "keywords": [
+            "api",
+            "payment processing",
+            "stripe"
+        ]
+    },
+    {
+        "name": "cartalyst/stripe-laravel",
+        "version": "v7.0.0",
+        "version_normalized": "7.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/cartalyst/stripe-laravel.git",
+            "reference": "8b74bef2763276e90318ca91beb4eb12d1d98df1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/cartalyst/stripe-laravel/zipball/8b74bef2763276e90318ca91beb4eb12d1d98df1",
+            "reference": "8b74bef2763276e90318ca91beb4eb12d1d98df1",
+            "shasum": ""
+        },
+        "require": {
+            "cartalyst/stripe": "~2.0",
+            "illuminate/support": "5.5.*",
+            "php": ">=7.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~6.0"
+        },
+        "time": "2017-08-30T14:58:24+00:00",
+        "type": "library",
+        "extra": {
+            "component": "implementation",
+            "branch-alias": {
+                "dev-master": "7.0.x-dev"
+            },
+            "laravel": {
+                "providers": [
+                    "Cartalyst\\Stripe\\Laravel\\StripeServiceProvider"
+                ],
+                "aliases": {
+                    "Stripe": "Cartalyst\\Stripe\\Laravel\\Facades\\Stripe"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Cartalyst\\Stripe\\Laravel\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Cartalyst LLC",
+                "email": "help@cartalyst.com",
+                "homepage": "https://cartalyst.com"
+            }
+        ],
+        "description": "Laravel 5.5 integration for the Cartalyst Stripe package.",
+        "keywords": [
+            "cartalyst",
+            "laravel",
             "php",
             "stripe"
         ]
