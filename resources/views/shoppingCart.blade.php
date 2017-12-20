@@ -17,6 +17,11 @@
     </head>
     <body>
         @include('header')
+
+        @if (empty($shoppingCart))
+            <div class="flex-center position-ref full-height"></div>
+        @endif
+
                 <ul class="chartList">
                     @foreach ($shoppingCart as $shoppingCartID => $Item)
                         <li>
