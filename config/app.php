@@ -168,6 +168,7 @@ return [
          * Package Service Providers...
          */
         Laravel\Cashier\CashierServiceProvider::class,
+        Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -191,7 +192,8 @@ return [
     */
 
     'aliases' => [
-        'Stripe' => Laravel\Cashier\CashierServiceProvider::class,
+        //'Stripe' => Laravel\Cashier\CashierServiceProvider::class,
+        'Stripe' => Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,
