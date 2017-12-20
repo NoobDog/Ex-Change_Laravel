@@ -54,7 +54,7 @@ html, body {
    
 .chartList {
     list-style-type: none;
-    width: 100%
+    width: 80%
   }
    
   .chartList  h3 {
@@ -80,4 +80,8 @@ html, body {
   .chartList  li:hover {
     background: #eee;
     cursor: pointer;
+  }
+
+  .footBar {
+    position: absolute;
   }
