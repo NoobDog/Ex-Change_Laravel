@@ -51,9 +51,6 @@ html, body {
 }
 
 
-#shoppingCartContent {
-    margin: 20px;
-  }
    
   ul {
     list-style-type: none;
@@ -67,8 +64,8 @@ html, body {
   li img {
     float: left;
     margin: 0 15px 0 0;
-    width: 100px;
-    height: 100px;
+    width: 40%;
+    height: 40%;
   }
    
   li p {

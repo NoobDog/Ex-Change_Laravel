@@ -18,7 +18,7 @@
     <body>
         @include('header')
         <div class="flex-center position-ref full-height">
-            <div id="shoppingCartContent">
+
                 <ul>
                     @foreach ($shoppingCart as $shoppingCartID => $Item)
                         <li>
@@ -29,7 +29,7 @@
                         </li>
                     @endforeach
                 </ul>
-            </div>
+
 
             
         </div>
