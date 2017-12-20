@@ -17,7 +17,7 @@
     </head>
     <body>
         @include('header')
-                <ul>
+                <ul class="chartList">
                     @foreach ($shoppingCart as $shoppingCartID => $Item)
                         <li>
                         <img src="{{asset('users/'.$Item['bookImage'])}}"/>
