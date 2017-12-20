@@ -15,7 +15,9 @@ class shoppingCartController extends Controller
 			$shoppingCart = json_decode(json_encode($shoppingCart),true);
 			\View::share(['page_name_active'=> 'cart']);
 
-			$stripe = Stripe::make('pk_test_oUFORtFF2ZktB74kLH7vCtAa');
+			//$stripe = Stripe::make('pk_test_oUFORtFF2ZktB74kLH7vCtAa');
+			$stripe = Stripe::make(env('STRIPE_SECRET'));
+			
 			$account = $stripe->account()->details();
 			return \View::make('shoppingCart',['shoppingCart' => $shoppingCart, 'details' => $account]);
 		}
