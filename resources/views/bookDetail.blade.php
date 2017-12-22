@@ -22,23 +22,10 @@
     <body>
         @include('header')
         <div class="flex-center position-ref full-height">
-            <!-- @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif -->
-
             <div class="content">
                 <div class="title m-b-md">
                     Book Details
                 </div>
-
-                
                 <div class="bookDetail">
                     <img src="{{asset('users/'.$book['bookImage'])}}">
                     <strong><p>{{$book['bookName']}}</p></strong>
@@ -53,7 +40,6 @@
                 </div>
                 <hr/>
                 @if (Session::has('userName') && $book['bookUserName'] != Session::get('userName'))
-                <!-- {{ dump($messages) }} -->
                 <div class="negotiate">
                     <img src="{{asset('icons/'.$book['bookUserIcon'])}}">
                     <p>{{$book['bookUserName']}}</p>  
@@ -121,21 +107,9 @@
                             </div>
                         </div>              
                     </div>
-                    <!-- <input type="text" id="messageInput"/><button onClick="postMessage($('#messageInput').val())">submit</button> -->
+                
                 </div>
                 @else
-                    <!-- <div class="bookDetail">
-                        <img src="{{asset('users/'.$book['bookImage'])}}">
-                        <strong><p>{{$book['bookName']}}</p></strong>
-                        <p>{{$book['bookTitle']}}</p>
-                        <p>by <strong>{{$book['bookAuthor']}}</strong></p>
-                        <p>{{$book['bookDescription']}}</p>
-                        <p>Published by <strong>{{$book['bookPublisher']}}</strong></p>
-                        <p>Edition <strong>{{$book['bookEdition']}}</strong></p>
-                        <p>Date <strong>{{$book['bookDate']}}</strong></p>
-                        <p>Type <strong>{{$book['bookType']}}</strong></p>
-                        <p>Price <strong>$ {{number_format($book['bookPrice'], 2, '.', '')}} CAD</strong></p>
-                    </div> -->
                     <div class="negotiate">
                         <img src="{{asset('icons/'.$book['bookUserIcon'])}}">
                         <p>{{$book['bookUserName']}}</p>  
