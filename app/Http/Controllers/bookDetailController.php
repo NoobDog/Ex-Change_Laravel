@@ -36,7 +36,7 @@ class bookDetailController extends Controller
                 $messages = DB::select('SELECT * FROM negotiate WHERE sellerID = ? AND buyerID = ? AND bookID = ?',[$book[0]['userID'], Session::get('userID'), $book[0]['bookID']]);
                 $messages = json_decode(json_encode($messages),true);
                 //Session::get('userEmail')
-                \View::share(['page_name_active'=> 'home','book'=>$book[0], 'messages' => $messages, 'refresh'=>$refresh]);
+                \View::share(['page_name_active'=> 'home','book'=>$book[0], 'messages' => $messages[0], 'refresh'=>$refresh]);
             } else {
                 \View::share(['page_name_active'=> 'home','book'=>$book[0],'refresh'=>$refresh]);
             }
