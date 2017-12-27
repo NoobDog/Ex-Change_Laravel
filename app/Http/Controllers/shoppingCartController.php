@@ -30,24 +30,25 @@ class shoppingCartController extends Controller
 			$expiryMonth = $request->get('expiryMonth');
 
 			\Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-			$card = \Stripe\Token::create(array(
-				"card" => array(
-				  "number" => $cardNumber,
-				  "exp_month" => $expiryMonth,
-				  "exp_year" => $expiryYear,
-				  "cvc" => $cvv
-				)
-			  ));
+
 			  
 
 			  try {
 				// Use Stripe's bindings...
+				$card = \Stripe\Token::create(array(
+					"card" => array(
+					  "number" => $cardNumber,
+					  "exp_month" => $expiryMonth,
+					  "exp_year" => $expiryYear,
+					  "cvc" => $cvv
+					)
+				  ));
 				return $card;
 			} catch(\Stripe\Error\Card $e) {
 				// Since it's a decline, \Stripe\Error\Card will be caught
 				$body = $e->getJsonBody();
 				$err  = $body['error'];
-			
+				return $err;
 				print('Status is:' . $e->getHttpStatus() . "\n");
 				print('Type is:' . $err['type'] . "\n");
 				print('Code is:' . $err['code'] . "\n");
@@ -69,7 +70,7 @@ class shoppingCartController extends Controller
 				// Something else happened, completely unrelated to Stripe
 			}
 
-			
+
 			$shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ?', [Session::get('userID')]);
 			$shoppingCart = json_decode(json_encode($shoppingCart),true);
 		}
