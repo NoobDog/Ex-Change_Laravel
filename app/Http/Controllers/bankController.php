@@ -14,7 +14,7 @@ class bankController extends Controller
 
 			$userCard = DB::select('SELECT * FROM creditCard WHERE userID = ?', [Session::get('userID')]);
             $userCard = json_decode(json_encode($userCard),true);
-			// \View::share(['page_name_active'=> 'myEx-change']);
+			\View::share(['page_name_active'=> 'myEx-change']);
 
 			// \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
 
