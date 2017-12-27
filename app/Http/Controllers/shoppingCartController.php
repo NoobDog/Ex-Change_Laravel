@@ -19,8 +19,27 @@ class shoppingCartController extends Controller
 
 			\Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
 
-			$test = \Stripe\Balance::retrieve();
 
 			return \View::make('shoppingCart',['shoppingCart' => $shoppingCart, 'userCards' => $userCards]);
+		}
+		public function addCardAndCheckOut(Request $request) {
+			$nameOnCard = $request->input('nameOnCard');
+			$cardNumber = $request->input('cardNumber');
+			$cvv = $request->input('cvv');
+			$expiryYear = $request->input('expiryYear');
+			$expiryMonth = $request->get('expiryMonth');
+
+			\Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+			$card = \Stripe\Token::create(array(
+				"card" => array(
+				  "number" => $cardNumber,
+				  "exp_month" => $expiryMonth,
+				  "exp_year" => $expiryYear,
+				  "cvc" => $cvv
+				)
+			  ));
+			  return $card;
+			$shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ?', [Session::get('userID')]);
+			$shoppingCart = json_decode(json_encode($shoppingCart),true);
 		}
 }

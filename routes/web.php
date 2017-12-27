@@ -67,6 +67,8 @@ Route::post('/addressSetting',['as'=>'addAddress','uses'=>'addressSettingControl
 Route::post('/help',['as'=>'stripe','uses'=>'helpController@stripe']);
 //shopping cart
 Route::get('/shoppingCart',['as'=>'shoppingCart','uses'=>'shoppingCartController@index']);
+Route::post('/shoppingCart',['as'=>'addCardAndCheckOut','uses'=>'shoppingCartController@addCardAndCheckOut']);
+
 //banks
 Route::get('/myBanks','bankController@index');
 

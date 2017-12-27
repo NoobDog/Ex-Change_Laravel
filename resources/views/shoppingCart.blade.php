@@ -34,9 +34,72 @@
                     @endforeach
                 </ul>
         <h3>Total : $ {{number_format($total, 2, '.', '')}} CAD</h3>
-        
+        @if (empty($userCards))
+        <form method="post" action="{{route('addCardAndCheckOut')}}">
+        {{csrf_field()}}
+            <table style='width: 100%;'>
+                <tr>
+                    <th><label><b>Name ON CARD</b></label></th>
+                    <td>
+                        <input type="text" name="nameOnCard" required>
+                    </td>                     
+                </tr>
+                <tr>
+                    <th><label><b>CARD NUMBER</b></label></th>
+                    <td>
+                        <input type="number" name="cardNumber" required>
+                    </td>                     
+                </tr>
+                <tr>
+                    <th><label><b>CVV</b></label></th>
+                    <td>
+                        <input type="number" name="cvv" required>
+                    </td>                     
+                </tr>
+                <tr>
+                    <th><label><b>EXPIRY YEAR</b></label></th>
+                    <td>
+                        <select name="expiryYear" id ="year"></select>
+                    </td>                     
+                </tr>
+                <tr>
+                    <th><label><b>EXPIRY MONTH</b></label></th>
+                    <td>
+                        <input type="date" name="expiryDate" required>
+                        <select name="expiryMonth">
+                            <option value="1">jan</option>
+                            <option value="2">feb</option>
+                            <option value="3">march</option>
+                            <option value="4">april</option>
+                            <option value="5">may</option>
+                            <option value="6">june</option>
+                            <option value="7">july</option>
+                            <option value="8">aug</option>
+                            <option value="9">sept</option>
+                            <option value="10">oct</option>
+                            <option value="11">nov</option>
+                            <option value="12">dec</option>
+                        </select>
+                    </td>                     
+                </tr>
+                <tr><button type="submit" class="btn btn-primary btn-block btn-large finishButton">CHECK OUT</button></tr>
+            </table>
+        </form>
+        @else 
+            <button>CHECK OUT</button>
+        @endif
         @include('footer')
     </body>
     
 
 </html>
+<script>
+var end = 1900;
+var start = new Date().getFullYear();
+var options = "";
+for(var year = start ; year <=end; year--){
+  options += "<option value= '"+year+"'>"+ year +"</option>";
+}
+$("#year").html(options);
+
+</script>
