@@ -22,5 +22,4 @@ class shoppingCartController extends Controller
 
 			return \View::make('shoppingCart',['shoppingCart' => $shoppingCart, 'userStripeAccount' => $userStripeAccount]);
 		}
-	
 }
