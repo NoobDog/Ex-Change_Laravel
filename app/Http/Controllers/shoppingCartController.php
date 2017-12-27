@@ -15,13 +15,10 @@ class shoppingCartController extends Controller
 			$shoppingCart = json_decode(json_encode($shoppingCart),true);
 			\View::share(['page_name_active'=> 'cart']);
 
-			
-			$stripe = Stripe::make(env('STRIPE_SECRET'));
-			$account = $stripe->account()->details();
-
 			\Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+
 			$test = \Stripe\Account::all(array("limit" => 3));
-			//$account = json_decode(json_encode($account),true);
+
 			return \View::make('shoppingCart',['shoppingCart' => $shoppingCart, 'details' => $test]);
 		}
 	

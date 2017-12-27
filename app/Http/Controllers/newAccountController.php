@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use DB;
 use Session;
+use Stripe;
 use Illuminate\Http\RedirectResponse;
 class newAccountController extends Controller
 {
@@ -56,11 +57,19 @@ class newAccountController extends Controller
 							 $checkUser = DB::select('SELECT * FROM users WHERE userEmail = ?' , [$inputEmail]);
 							 if(empty($checkUser)) {
 								 $newUserName = $inputFirstName.' '.$inputLastName;
+								 //create stripe account.
+								 \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+								 $newAccount = \Stripe\Account::create(array(
+									"type" => "standard",
+									"country" => "CA",
+									"email" => $inputEmail
+								  ));
+
 								 	DB::insert('INSERT INTO users (userName, userPassword, userEmail, adminID, userIP, userIcon,
-										isWarning, isBlock, isVoid, roleTypeID, userQuestion1, userAnswer1, userQuestion2, userAnswer2, userSince)
-										values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+										isWarning, isBlock, isVoid, roleTypeID, userQuestion1, userAnswer1, userQuestion2, userAnswer2, userSince, stripeAccount)
+										values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 										[$newUserName,$inputPasswordHashed,$inputEmail,0,'::1','0.jpg',0,0,0,1,$inputQuestion1,$inputAnswer1,
-										 $inputQuestion2,$inputAnswer2,date("Y-m-d")]
+										 $inputQuestion2,$inputAnswer2,date("Y-m-d"), $newAccount['id']]
 									);
 
 									$user = DB::select('SELECT * FROM users WHERE userEmail = ? AND userPassword = ?', [$inputEmail, $inputPasswordHashed]);
