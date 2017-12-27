@@ -37,7 +37,7 @@
         @if (empty($userCards))
         <form method="post" action="{{route('addCardAndCheckOut')}}">
         {{csrf_field()}}
-            <table style='width: 100%;'>
+            <table>
                 <tr>
                     <th><label><b>Name ON CARD</b></label></th>
                     <td>
