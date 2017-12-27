@@ -17,7 +17,7 @@
     </head>
     <body>
         @include('header')
-        {{print_r($details)}}
+        {{print_r($userStripeAccount)}}
         @if (empty($shoppingCart))
             <div class="flex-center position-ref full-height"></div>
         @endif
