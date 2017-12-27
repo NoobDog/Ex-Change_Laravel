@@ -66,24 +66,24 @@
                     <th><label><b>EXPIRY MONTH</b></label></th>
                     <td>
                         <select name="expiryMonth">
-                            <option value="1">jan</option>
-                            <option value="2">feb</option>
-                            <option value="3">march</option>
-                            <option value="4">april</option>
-                            <option value="5">may</option>
-                            <option value="6">june</option>
-                            <option value="7">july</option>
-                            <option value="8">aug</option>
-                            <option value="9">sept</option>
-                            <option value="10">oct</option>
-                            <option value="11">nov</option>
-                            <option value="12">dec</option>
+                            <option value="1">JAN</option>
+                            <option value="2">FEB</option>
+                            <option value="3">MAR</option>
+                            <option value="4">APR</option>
+                            <option value="5">MAY</option>
+                            <option value="6">JUN</option>
+                            <option value="7">JUL</option>
+                            <option value="8">AUG</option>
+                            <option value="9">SEP</option>
+                            <option value="10">OCT</option>
+                            <option value="11">NOV</option>
+                            <option value="12">DEC</option>
                         </select>
                     </td>                     
                 </tr>
 
             </table>
-            <button type="submit" class="btn btn-primary btn-block btn-large finishButton">CHECK OUT</button>
+            <button style='text-align: center;' type="submit" class="checkoutBtn">CHECK OUT</button>
         </form>
 
         @else 
