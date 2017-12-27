@@ -84,17 +84,7 @@
                 <tr><button type="submit" class="btn btn-primary btn-block btn-large finishButton">CHECK OUT</button></tr>
             </table>
         </form>
-        <script>
-            var start = 1900;
-            var end = new Date().getFullYear();
-            var options = "";
-            for(var year = start ; year <=end; year++){
-            options += "<option>"+ year +"</option>";
-            }
-            document.getElementById("year").innerHTML = options;
 
-
-        </script>
         @else 
             <button>CHECK OUT</button>
         @endif
@@ -103,3 +93,13 @@
     
 
 </html>
+<script>
+            var end = 1900;
+            var start = new Date().getFullYear();
+            var options = "";
+            for(var year = start ; year <=end; year--){
+            options += "<option value= '"+year+"'>"+ year +"</option>";
+            }
+            document.getElementById("year").innerHTML = options;
+
+        </script>
