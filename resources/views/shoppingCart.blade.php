@@ -59,13 +59,12 @@
                 <tr>
                     <th><label><b>EXPIRY YEAR</b></label></th>
                     <td>
-                        <select name="expiryYear" id ="year"></select>
+                        <select name="expiryYear" id = "year"></select>
                     </td>                     
                 </tr>
                 <tr>
                     <th><label><b>EXPIRY MONTH</b></label></th>
                     <td>
-                        <input type="date" name="expiryDate" required>
                         <select name="expiryMonth">
                             <option value="1">jan</option>
                             <option value="2">feb</option>
@@ -85,6 +84,16 @@
                 <tr><button type="submit" class="btn btn-primary btn-block btn-large finishButton">CHECK OUT</button></tr>
             </table>
         </form>
+        <script>
+            var end = 1900;
+            var start = new Date().getFullYear();
+            var options = "";
+            for(var year = start ; year <=end; year--){
+            options += "<option value= '"+year+"'>"+ year +"</option>";
+            }
+            $("#year").html(options);
+
+        </script>
         @else 
             <button>CHECK OUT</button>
         @endif
@@ -93,13 +102,3 @@
     
 
 </html>
-<script>
-var end = 1900;
-var start = new Date().getFullYear();
-var options = "";
-for(var year = start ; year <=end; year--){
-  options += "<option value= '"+year+"'>"+ year +"</option>";
-}
-$("#year").html(options);
-
-</script>
