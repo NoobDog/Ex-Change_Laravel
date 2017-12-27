@@ -94,10 +94,10 @@
 
 </html>
 <script>
-            var end = 1900;
+            var end = 2000;
             var start = new Date().getFullYear();
             var options = "";
-            for(var year = start ; year <=end; year--){
+            for(var year = start ; year >=end; year--){
             options += "<option>"+ year +"</option>";
             }
             document.getElementById("year").innerHTML = options;
