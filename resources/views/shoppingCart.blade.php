@@ -21,17 +21,19 @@
         @if (empty($shoppingCart))
             <div class="flex-center position-ref full-height"></div>
         @endif
-
+                <?php $total = 0;?>
                 <ul class="chartList">
                     @foreach ($shoppingCart as $shoppingCartID => $Item)
                         <li>
-                        <img src="{{asset('users/'.$Item['bookImage'])}}"/>
-                        <h3>{{$Item['bookName']}}</h3>
-                        <p>{{$Item['bookDescription']}}</p>
-                        <h4><strong>$ {{number_format($Item['bookprice'], 2, '.', '')}} CAD</strong></h4>
+                            <img src="{{asset('users/'.$Item['bookImage'])}}"/>
+                            <h3>{{$Item['bookName']}}</h3>
+                            <p>{{$Item['bookDescription']}}</p>
+                            <h4><strong>$ {{number_format($Item['bookprice'], 2, '.', '')}} CAD</strong></h4>
                         </li>
+                        <?php $total += $Item['bookprice']; ?>
                     @endforeach
                 </ul>
+        <h3>Total : $ {{number_format($total, 2, '.', '')}} CAD</h3>
         @include('footer')
     </body>
     
