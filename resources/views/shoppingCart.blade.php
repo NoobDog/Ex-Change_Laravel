@@ -85,13 +85,16 @@
             </table>
         </form>
         <script>
+        $( document ).ready(function() {
             var end = 1900;
             var start = new Date().getFullYear();
             var options = "";
             for(var year = start ; year <=end; year--){
-            options += "<option>"+ year +"</option>";
+                options += "<option>"+ year +"</option>";
             }
             $("#year").html(options);
+        });
+
 
         </script>
         @else 
