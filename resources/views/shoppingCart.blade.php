@@ -17,7 +17,7 @@
     </head>
     <body>
         @include('header')
-        {{print_r($userStripeAccount)}}
+        {{print_r($userCards)}}
         @if (empty($shoppingCart))
             <div class="flex-center position-ref full-height"></div>
         @endif
@@ -34,6 +34,7 @@
                     @endforeach
                 </ul>
         <h3>Total : $ {{number_format($total, 2, '.', '')}} CAD</h3>
+        
         @include('footer')
     </body>
     
