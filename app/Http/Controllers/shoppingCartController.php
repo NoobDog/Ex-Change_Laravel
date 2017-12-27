@@ -17,7 +17,7 @@ class shoppingCartController extends Controller
 
 			\Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
 
-			$test = \Stripe\Account::all(array("limit" => 3));
+			$test = \Stripe\Balance::retrieve();
 
 			return \View::make('shoppingCart',['shoppingCart' => $shoppingCart, 'details' => $test]);
 		}

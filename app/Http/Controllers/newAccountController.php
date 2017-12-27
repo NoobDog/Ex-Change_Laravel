@@ -57,14 +57,6 @@ class newAccountController extends Controller
 							 $checkUser = DB::select('SELECT * FROM users WHERE userEmail = ?' , [$inputEmail]);
 							 if(empty($checkUser)) {
 								 $newUserName = $inputFirstName.' '.$inputLastName;
-								 //create stripe account.
-								 \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-								 $newAccount = \Stripe\Account::create(array(
-									"type" => "standard",
-									"country" => "CA",
-									"email" => $inputEmail
-								  ));
-
 								 	DB::insert('INSERT INTO users (userName, userPassword, userEmail, adminID, userIP, userIcon,
 										isWarning, isBlock, isVoid, roleTypeID, userQuestion1, userAnswer1, userQuestion2, userAnswer2, userSince, stripeAccount)
 										values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
