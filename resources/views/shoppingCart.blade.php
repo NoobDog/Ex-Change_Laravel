@@ -81,8 +81,9 @@
                         </select>
                     </td>                     
                 </tr>
-                <tr><button type="submit" class="btn btn-primary btn-block btn-large finishButton">CHECK OUT</button></tr>
+
             </table>
+            <button type="submit" class="btn btn-primary btn-block btn-large finishButton">CHECK OUT</button>
         </form>
 
         @else 
