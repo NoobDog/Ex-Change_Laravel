@@ -47,7 +47,15 @@ class shoppingCartController extends Controller
 				foreach ($shoppingCart as $cartItem) {
 					$totalCharge += $cartItem['bookprice'];
 				}
-				return $card['id'].'    '.$totalCharge;
+
+				// Charge the user's card:
+				$charge = \Stripe\Charge::create(array(
+					"amount" => $totalCharge,
+					"currency" => "cad",
+					"description" => Session::get('userName'),
+					"source" => $$card['id'],
+				));
+				return $charge;
 			} catch(\Stripe\Error\Card $e) {
 				// Since it's a decline, \Stripe\Error\Card will be caught
 				$body = $e->getJsonBody();
