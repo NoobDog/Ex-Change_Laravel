@@ -85,7 +85,6 @@ class shoppingCartController extends Controller
 				  } catch (Exception $e) {
 					// Something else happened, completely unrelated to Stripe
 				  }
-				return $charge;
 			} catch(\Stripe\Error\Card $e) {
 				// Since it's a decline, \Stripe\Error\Card will be caught
 				$body = $e->getJsonBody();
