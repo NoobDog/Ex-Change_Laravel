@@ -43,7 +43,7 @@ class shoppingCartController extends Controller
 				  ));
 				$tok = $card['id'];
 				$cardTok = $card['card']['id'];
-				$shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription， b.userID AS bookUser FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ? AND sc.status = ?', [Session::get('userID'), 'addCart']);
+				$shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription, b.userID AS bookUser FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ? AND sc.status = ?', [Session::get('userID'), 'addCart']);
 				$shoppingCart = json_decode(json_encode($shoppingCart),true);
 				$totalCharge = 0;
 				foreach ($shoppingCart as $cartItem) {
