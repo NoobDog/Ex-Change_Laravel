@@ -54,15 +54,15 @@ class shoppingCartController extends Controller
 				$userCards = DB::select('SELECT * FROM creditCard WHERE userID = ? AND isConfirmed = ? AND isVoid = ?', [Session::get('userID'), 1, 0]);
 				$userCards = json_decode(json_encode($userCards),true);
 				\View::share(['page_name_active'=> 'cart']);
-				return view('shoppingCart',['user' => $user,'page_name_active'=> 'cart','shoppingCart' => $shoppingCart, 'userCards' => $userCards, 'errorMsg'=> $err['message']]);
+				return view('shoppingCart',['page_name_active'=> 'cart','shoppingCart' => $shoppingCart, 'userCards' => $userCards, 'errorMsg'=> $err['message']]);
 
-				print('Status is:' . $e->getHttpStatus() . "\n");
-				print('Type is:' . $err['type'] . "\n");
-				print('Code is:' . $err['code'] . "\n");
+				// print('Status is:' . $e->getHttpStatus() . "\n");
+				// print('Type is:' . $err['type'] . "\n");
+				// print('Code is:' . $err['code'] . "\n");
 			
-				 // param is '' in this case
-				print('Param is:' . $err['param'] . "\n");
-				print('Message is:' . $err['message'] . "\n");
+				//  // param is '' in this case
+				// print('Param is:' . $err['param'] . "\n");
+				// print('Message is:' . $err['message'] . "\n");
 			} catch (\Stripe\Error\InvalidRequest $e) {
 				// Invalid parameters were supplied to Stripe's API
 			} catch (\Stripe\Error\Authentication $e) {
