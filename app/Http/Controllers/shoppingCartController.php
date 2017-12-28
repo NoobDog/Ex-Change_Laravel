@@ -48,7 +48,14 @@ class shoppingCartController extends Controller
 				// Since it's a decline, \Stripe\Error\Card will be caught
 				$body = $e->getJsonBody();
 				$err  = $body['error'];
-				return $err;
+
+				$shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ?', [Session::get('userID')]);
+				$shoppingCart = json_decode(json_encode($shoppingCart),true);
+				$userCards = DB::select('SELECT * FROM creditCard WHERE userID = ? AND isConfirmed = ? AND isVoid = ?', [Session::get('userID'), 1, 0]);
+				$userCards = json_decode(json_encode($userCards),true);
+				\View::share(['page_name_active'=> 'cart']);
+				return view('shoppingCart',['user' => $user,'page_name_active'=> 'cart','shoppingCart' => $shoppingCart, 'userCards' => $userCards, 'errorMsg'=> $err['message']]);
+
 				print('Status is:' . $e->getHttpStatus() . "\n");
 				print('Type is:' . $err['type'] . "\n");
 				print('Code is:' . $err['code'] . "\n");

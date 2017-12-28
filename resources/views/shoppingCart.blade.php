@@ -17,7 +17,10 @@
     </head>
     <body>
         @include('header')
-        {{print_r($userCards)}}
+        @if(isset($errorMsg))
+        <p class="message">{{$errorMsg}} <span style="float:right;" id="close"><i class="fa fa-times-circle" aria-hidden="true"></i></span></P>
+        @endif
+
         @if (empty($shoppingCart))
             <div class="flex-center position-ref full-height"></div>
         @endif
@@ -95,18 +98,25 @@
 
 </html>
 <script>
-            var end = 2000;
-            var start = new Date().getFullYear() + 3;
-            var thisYear =  new Date().getFullYear();
-            var options = "";
-            for(var year = start ; year >=end; year--){
-                if(thisYear == year) {
-                    options += "<option selected>"+ year +"</option>";
-                } else {
-                    options += "<option>"+ year +"</option>";
-                }
-                
-            }
-            document.getElementById("year").innerHTML = options;
 
-        </script>
+$('#close').click(function() {
+    $('.message').fadeOut("slow");
+});
+</script>
+
+<script>
+    var end = 2000;
+    var start = new Date().getFullYear() + 3;
+    var thisYear =  new Date().getFullYear();
+    var options = "";
+    for(var year = start ; year >=end; year--){
+        if(thisYear == year) {
+            options += "<option selected>"+ year +"</option>";
+        } else {
+            options += "<option>"+ year +"</option>";
+        }
+        
+    }
+    document.getElementById("year").innerHTML = options;
+
+</script>
