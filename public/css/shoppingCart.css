@@ -126,5 +126,6 @@ html, body {
 	position:relative;
 	top:1px;
 }
-
-        
+select {
+    width: 100%;
+}   
