@@ -97,9 +97,15 @@
 <script>
             var end = 2000;
             var start = new Date().getFullYear() + 3;
+            var thisYear =  new Date().getFullYear();
             var options = "";
             for(var year = start ; year >=end; year--){
-            options += "<option>"+ year +"</option>";
+                if(thisYear == year) {
+                    options += "<option selected>"+ year +"</option>";
+                } else {
+                    options += "<option>"+ year +"</option>";
+                }
+                
             }
             document.getElementById("year").innerHTML = options;
 
