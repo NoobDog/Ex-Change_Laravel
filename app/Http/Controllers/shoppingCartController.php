@@ -53,7 +53,7 @@ class shoppingCartController extends Controller
 				try {
 					// Charge the user's card:
 					$charge = \Stripe\Charge::create(array(
-						"amount" => $totalCharge,
+						"amount" => "100",
 						"currency" => "cad",
 						"description" => "test",
 						"source" => $tok
