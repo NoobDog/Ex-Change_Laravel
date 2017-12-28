@@ -41,6 +41,8 @@ class shoppingCartController extends Controller
 					  "cvc" => $cvv
 					)
 				  ));
+				$tok = $card['id'];
+				return $tok;
 				$shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ? AND sc.status = ?', [Session::get('userID'), 'addCart']);
 				$shoppingCart = json_decode(json_encode($shoppingCart),true);
 				$totalCharge = 0;
@@ -55,7 +57,7 @@ class shoppingCartController extends Controller
 					"description" => Session::get('userName'),
 					"source" => $card['id'],
 				));
-				return $charge;
+				
 			} catch(\Stripe\Error\Card $e) {
 				// Since it's a decline, \Stripe\Error\Card will be caught
 				$body = $e->getJsonBody();
