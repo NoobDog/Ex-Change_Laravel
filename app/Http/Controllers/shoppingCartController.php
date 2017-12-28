@@ -55,7 +55,7 @@ class shoppingCartController extends Controller
 					$charge = \Stripe\Charge::create(array(
 						"amount" => $totalCharge,
 						"currency" => "cad",
-						"description" => Session::get('userName'),
+						"description" => "test",
 						"source" => $tok
 					));
 					return $charge;
