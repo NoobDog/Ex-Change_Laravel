@@ -128,4 +128,7 @@ html, body {
 }
 select {
     width: 100%;
+}
+.message {
+    background-color: #f45042;
 }   
