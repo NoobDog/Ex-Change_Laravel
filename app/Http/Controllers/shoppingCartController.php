@@ -53,7 +53,7 @@ class shoppingCartController extends Controller
 					"amount" => $totalCharge,
 					"currency" => "cad",
 					"description" => Session::get('userName'),
-					"source" => $$card['id'],
+					"source" => $card['id'],
 				));
 				return $charge;
 			} catch(\Stripe\Error\Card $e) {
