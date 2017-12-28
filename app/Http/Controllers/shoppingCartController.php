@@ -41,9 +41,13 @@ class shoppingCartController extends Controller
 					  "cvc" => $cvv
 					)
 				  ));
-				  $shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ? AND sc.status = ?', [Session::get('userID'), 'addCart']);
-				  $shoppingCart = json_decode(json_encode($shoppingCart),true);
-				return $card['id'];
+				$shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ? AND sc.status = ?', [Session::get('userID'), 'addCart']);
+				$shoppingCart = json_decode(json_encode($shoppingCart),true);
+				$totalCharge = 0;
+				foreach ($shoppingCart as $cartItem) {
+					$totalCharge += $cartItem['bookprice'];
+				}
+				return $card['id'].'    '.$totalCharge;
 			} catch(\Stripe\Error\Card $e) {
 				// Since it's a decline, \Stripe\Error\Card will be caught
 				$body = $e->getJsonBody();
