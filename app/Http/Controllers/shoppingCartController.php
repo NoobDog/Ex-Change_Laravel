@@ -62,7 +62,7 @@ class shoppingCartController extends Controller
 						DB::insert('INSERT INTO creditCard (userID, cardNumber, cardType, cardVaildDate, cardHolder, isConfirmed,
 							isVoid, cvc)
 							values (?, ?, ?, ?, ?, ?, ?, ?)',
-							[Session::get('userID'),$cardNumber,'', $expiryYear.'-'.$expiryMonth,$nameOnCard,1,0,$cvv]
+							[Session::get('userID'),$cardNumber,'null', $expiryYear.'-'.$expiryMonth,$nameOnCard,1,0,$cvv]
 						);
 						foreach ($shoppingCart as $cartItem) {
 							DB::update('UPDATE shoppingCart SET status = ? where bookID = ?', ['userPaid', $cartItem['bookID']]);
