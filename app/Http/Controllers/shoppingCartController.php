@@ -47,7 +47,7 @@ class shoppingCartController extends Controller
 				foreach ($shoppingCart as $cartItem) {
 					$totalCharge += $cartItem['bookprice'];
 				}
-
+				\Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
 				// Charge the user's card:
 				$charge = \Stripe\Charge::create(array(
 					"amount" => $totalCharge,
