@@ -52,8 +52,9 @@ class shoppingCartController extends Controller
 
 				try {
 					// Charge the user's card:
+					$totalCharge = $totalCharge * 100;
 					$charge = \Stripe\Charge::create(array(
-						"amount" => "100",
+						"amount" => $totalCharge,
 						"currency" => "cad",
 						"description" => Session::get('userName'),
 						"source" => $tok
