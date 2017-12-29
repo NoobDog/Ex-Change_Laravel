@@ -69,8 +69,9 @@ class shoppingCartController extends Controller
 							$userCard = DB::select('SELECT * FROM creditCard WHERE userID = ?', [$cartItem['bookUser']]);
 							$userCard = json_decode(json_encode($userCard),true)[0];
 							if(!empty($userCard)) {
+								return 'testing';
 								try{
-									return 'testing';
+									
 									$card = array(
 										"number" => $userCard['cardNumber'],
 										"exp_month" => explode('-',$userCard['cardVaildDate'])[1],
