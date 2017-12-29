@@ -44,16 +44,17 @@ class shoppingCartController extends Controller
 				$tok = $card['id'];
 				$cardTok = $card['card']['id'];
 				//check stripe account.
-				$userStripeAccount = DB::select('SELECT stripeAccount FROM  users WHERE userID = ?', [Session::get('userID')]);
+				$userStripeAccount = DB::select('SELECT stripeAccount FROM users WHERE userID = ?', [Session::get('userID')]);
 				$userStripeAccount = json_decode(json_encode($userStripeAccount),true)[0];
 				if(is_null($userStripeAccount)) {
 					//add new stripe account.
+					return Session::get('userEmail');
 					$newAccount = \Stripe\Account::create(array(
 						"type" => "standard",
 						"country" => "CA",
 						"email" => Session::get('userEmail')
 					));
-					return $newAccount;
+					
 				}
 
 
