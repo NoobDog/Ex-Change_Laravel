@@ -58,9 +58,10 @@ class shoppingCartController extends Controller
 					// ));
 					
 					$account = \Stripe\Account::retrieve("acct_1BeLyFJLrPN3G5ik");
-					return $account;
-					$account->external_accounts->create(array("external_account" => $tok));
 					
+					$account->external_accounts->create(array("external_account" => $tok));
+					$account = \Stripe\Account::retrieve("acct_1BeLyFJLrPN3G5ik");
+					return $account;
 				}
 
 
