@@ -77,7 +77,12 @@ class shoppingCartController extends Controller
 									"cvc" => $userCard['cvc']
 								);
 								try{
-									
+									$test = array(
+										"name" => $userCard['cardHolder'],
+										"type" => "individual",
+										"card" => $card
+									);
+									return $test;
 									$recipient = \Stripe\Recipient::create(array(
 										"name" => $userCard['cardHolder'],
 										"type" => "individual",
