@@ -77,12 +77,17 @@ class shoppingCartController extends Controller
 									"cvc" => $userCard['cvc']
 								);
 								try{
-									$test = array(
-										"name" => $userCard['cardHolder'],
-										"type" => "individual",
-										"card" => $card
-									);
-									return $test;
+									$Tcard = \Stripe\Token::create(array(
+										"card" => array(
+										  "number" => $userCard['cardNumber'],
+										  "exp_month" => explode('-',$userCard['cardVaildDate'])[1],
+										  "exp_year" =>explode('-',$userCard['cardVaildDate'])[0],
+										  "cvc" => $userCard['cvc']
+										)
+									  ));
+									$tok = $Tcard['id'];
+				
+									return $tok;
 									$recipient = \Stripe\Recipient::create(array(
 										"name" => $userCard['cardHolder'],
 										"type" => "individual",
