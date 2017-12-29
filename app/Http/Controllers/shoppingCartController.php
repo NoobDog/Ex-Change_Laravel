@@ -86,7 +86,7 @@ class shoppingCartController extends Controller
 							$userStripeAccount = DB::select('SELECT * FROM users WHERE userID = ?', [$cartItem['bookUser']]);
 							$userStripeAccount = json_decode(json_encode($userStripeAccount),true)[0];
 							if(!is_null($userStripeAccount['stripeAccount'])) {
-
+return '1';
 								try{
 									$transfer = \Stripe\Transfer::create(array(
 										"amount" => $cartItem['bookprice'] * 100,
@@ -129,13 +129,13 @@ class shoppingCartController extends Controller
 									"email" => $userStripeAccount['userEmail']
 								));
 								DB::update('UPDATE users SET stripeAccount = ? where userID = ?', [$newAccount['id'], $userStripeAccount['userID']]);
-							
+								return $newAccount;
 								$transfer = \Stripe\Transfer::create(array(
 									"amount" => $cartItem['bookprice'] * 100,
 									"currency" => "cad",
 									"destination" => $newAccount['id']
 								));
-								return $transfer;
+								
 							}
 
 						}
