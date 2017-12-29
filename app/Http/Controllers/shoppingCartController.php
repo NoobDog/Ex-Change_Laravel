@@ -45,8 +45,8 @@ class shoppingCartController extends Controller
 				$cardTok = $card['card']['id'];
 				//check stripe account.
 				$userStripeAccount = DB::select('SELECT stripeAccount FROM  users WHERE userID = ?', [Session::get('userID')]);
-				$shoppingCart = json_decode(json_encode($shoppingCart),true)[0];
-				if(is_null($shoppingCart)) {
+				$userStripeAccount = json_decode(json_encode($userStripeAccount),true)[0];
+				if(is_null($userStripeAccount)) {
 					//add new stripe account.
 					$newAccount = \Stripe\Account::create(array(
 						"type" => "standard",
