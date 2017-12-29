@@ -67,7 +67,7 @@ class shoppingCartController extends Controller
 						foreach ($shoppingCart as $cartItem) {
 							DB::update('UPDATE shoppingCart SET status = ? where bookID = ?', ['userPaid', $cartItem['bookID']]);
 							$userCard = DB::select('SELECT * FROM creditCard WHERE userID = ?', [$cartItem['bookUser']]);
-							$userCard = json_decode(json_encode($userCard),true);
+							$userCard = json_decode(json_encode($userCard),true)[0];
 							if(!empty($userCard)) {
 								$card = array(
 									"number" => $userCard['cardNumber'],
