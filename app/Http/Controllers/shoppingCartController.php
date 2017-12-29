@@ -69,33 +69,33 @@ class shoppingCartController extends Controller
 							$userCard = DB::select('SELECT * FROM creditCard WHERE userID = ?', [$cartItem['bookUser']]);
 							$userCard = json_decode(json_encode($userCard),true)[0];
 							if(!empty($userCard)) {
-								$card = array(
-									"number" => $userCard['cardNumber'],
-									"exp_month" => explode('-',$userCard['cardVaildDate'])[1],
-									"exp_year" => explode('-',$userCard['cardVaildDate'])[0],
-									"cvc" => $userCard['cvc']
-								);
-
 								try{
+									$card = array(
+										"number" => $userCard['cardNumber'],
+										"exp_month" => explode('-',$userCard['cardVaildDate'])[1],
+										"exp_year" => explode('-',$userCard['cardVaildDate'])[0],
+										"cvc" => $userCard['cvc']
+									);
 									$recipient = \Stripe\Recipient::create(array(
 										"name" => $userCard['cardHolder'],
 										"type" => "individual",
 										"card" => $card
 									));
-									// $transfer = \Stripe\Transfer::create(array(
-									// 	"amount" => $cartItem['bookprice'] * 100,
-									// 	"currency" => "cad",
-									// 	"destination" => $recipient['id']
-									// ));
+									$transfer = \Stripe\Transfer::create(array(
+										"amount" => $cartItem['bookprice'] * 100,
+										"currency" => "cad",
+										"destination" => $recipient['id']
+									));
 								}
 								catch(\Stripe\Error\Card $e) {
 									// Since it's a decline, \Stripe\Error\Card will be caught
 									$body = $e->getJsonBody();
 									$err  = $body['error'];
-									$shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ? AND sc.status = ?', [Session::get('userID'), 'addCart']);
-									$shoppingCart = json_decode(json_encode($shoppingCart),true);
-									$userCards = DB::select('SELECT * FROM creditCard WHERE userID = ? AND isConfirmed = ? AND isVoid = ?', [Session::get('userID'), 1, 0]);
-									$userCards = json_decode(json_encode($userCards),true);
+									return $err;
+									// $shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ? AND sc.status = ?', [Session::get('userID'), 'addCart']);
+									// $shoppingCart = json_decode(json_encode($shoppingCart),true);
+									// $userCards = DB::select('SELECT * FROM creditCard WHERE userID = ? AND isConfirmed = ? AND isVoid = ?', [Session::get('userID'), 1, 0]);
+									// $userCards = json_decode(json_encode($userCards),true);
 									return view('shoppingCart',['page_name_active'=> 'cart','shoppingCart' => $shoppingCart, 'userCards' => $userCards, 'errorMsg'=> $err['message']]);
 								  } catch (\Stripe\Error\RateLimit $e) {
 									// Too many requests made to the API too quickly
