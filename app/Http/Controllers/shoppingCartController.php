@@ -65,11 +65,12 @@ class shoppingCartController extends Controller
 							[Session::get('userID'),$cardNumber,'null', $expiryYear.'-'.$expiryMonth,$nameOnCard,1,0,$cvv]
 						);
 						foreach ($shoppingCart as $cartItem) {
+							//need to convert back
 							//DB::update('UPDATE shoppingCart SET status = ? where bookID = ?', ['userPaid', $cartItem['bookID']]);
 							$userCard = DB::select('SELECT * FROM creditCard WHERE userID = ?', [$cartItem['bookUser']]);
 							$userCard = json_decode(json_encode($userCard),true)[0];
 							if(!empty($userCard)) {
-								return 'testing';
+								//return 'testing';
 								try{
 									
 									$card = array(
