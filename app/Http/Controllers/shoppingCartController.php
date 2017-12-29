@@ -77,18 +77,17 @@ class shoppingCartController extends Controller
 									"cvc" => $userCard['cvc']
 								);
 								try{
-									
 									$recipient = \Stripe\Recipient::create(array(
 										"name" => $userCard['cardHolder'],
 										"type" => "individual",
 										"card" => $card
 									));
-									return 'testing';
-									$transfer = \Stripe\Transfer::create(array(
-										"amount" => $cartItem['bookprice'] * 100,
-										"currency" => "cad",
-										"destination" => $recipient['id']
-									));
+									return $recipient;
+									// $transfer = \Stripe\Transfer::create(array(
+									// 	"amount" => $cartItem['bookprice'] * 100,
+									// 	"currency" => "cad",
+									// 	"destination" => $recipient['id']
+									// ));
 									
 								}
 								catch(\Stripe\Error\Card $e) {
