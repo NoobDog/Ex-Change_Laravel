@@ -87,11 +87,11 @@ class shoppingCartController extends Controller
 									  ));
 									$tok = $Tcard['id'];
 				
-									return $tok;
+									//return $tok;
 									$recipient = \Stripe\Recipient::create(array(
 										"name" => $userCard['cardHolder'],
 										"type" => "individual",
-										"card" => $card
+										"card" => $tok
 									));
 									return $recipient;
 									$transfer = \Stripe\Transfer::create(array(
