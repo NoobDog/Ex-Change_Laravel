@@ -70,7 +70,6 @@ class shoppingCartController extends Controller
 							$userCard = DB::select('SELECT * FROM creditCard WHERE userID = ?', [$cartItem['bookUser']]);
 							$userCard = json_decode(json_encode($userCard),true)[0];
 							if(!empty($userCard)) {
-								//return 'testing';
 								try{
 									$card = array(
 										"number" => $userCard['cardNumber'],
@@ -83,12 +82,13 @@ class shoppingCartController extends Controller
 										"type" => "individual",
 										"card" => $card
 									));
+									return $recipient;
 									$transfer = \Stripe\Transfer::create(array(
 										"amount" => $cartItem['bookprice'] * 100,
 										"currency" => "cad",
 										"destination" => $recipient['id']
 									));
-									return $transfer;
+									
 								}
 								catch(\Stripe\Error\Card $e) {
 									// Since it's a decline, \Stripe\Error\Card will be caught
@@ -130,30 +130,30 @@ class shoppingCartController extends Controller
 						return view('shoppingCart',['page_name_active'=> 'cart','shoppingCart' => $shoppingCart, 'userCards' => $userCards, 'errorMsg'=> $errorMsg]);
 					}
 					return redirect()->route('home');
-				  } catch(\Stripe\Error\Card $e) {
-					// Since it's a decline, \Stripe\Error\Card will be caught
-					$body = $e->getJsonBody();
-					$err  = $body['error'];
-					$shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ? AND sc.status = ?', [Session::get('userID'), 'addCart']);
-					$shoppingCart = json_decode(json_encode($shoppingCart),true);
-					$userCards = DB::select('SELECT * FROM creditCard WHERE userID = ? AND isConfirmed = ? AND isVoid = ?', [Session::get('userID'), 1, 0]);
-					$userCards = json_decode(json_encode($userCards),true);
-					return view('shoppingCart',['page_name_active'=> 'cart','shoppingCart' => $shoppingCart, 'userCards' => $userCards, 'errorMsg'=> $err['message']]);
-				  } catch (\Stripe\Error\RateLimit $e) {
-					// Too many requests made to the API too quickly
-				  } catch (\Stripe\Error\InvalidRequest $e) {
-					// Invalid parameters were supplied to Stripe's API
-				  } catch (\Stripe\Error\Authentication $e) {
-					// Authentication with Stripe's API failed
-					// (maybe you changed API keys recently)
-				  } catch (\Stripe\Error\ApiConnection $e) {
-					// Network communication with Stripe failed
-				  } catch (\Stripe\Error\Base $e) {
-					// Display a very generic error to the user, and maybe send
-					// yourself an email
-				  } catch (Exception $e) {
-					// Something else happened, completely unrelated to Stripe
-				  }
+				} catch(\Stripe\Error\Card $e) {
+				// Since it's a decline, \Stripe\Error\Card will be caught
+				$body = $e->getJsonBody();
+				$err  = $body['error'];
+				$shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ? AND sc.status = ?', [Session::get('userID'), 'addCart']);
+				$shoppingCart = json_decode(json_encode($shoppingCart),true);
+				$userCards = DB::select('SELECT * FROM creditCard WHERE userID = ? AND isConfirmed = ? AND isVoid = ?', [Session::get('userID'), 1, 0]);
+				$userCards = json_decode(json_encode($userCards),true);
+				return view('shoppingCart',['page_name_active'=> 'cart','shoppingCart' => $shoppingCart, 'userCards' => $userCards, 'errorMsg'=> $err['message']]);
+				} catch (\Stripe\Error\RateLimit $e) {
+				// Too many requests made to the API too quickly
+				} catch (\Stripe\Error\InvalidRequest $e) {
+				// Invalid parameters were supplied to Stripe's API
+				} catch (\Stripe\Error\Authentication $e) {
+				// Authentication with Stripe's API failed
+				// (maybe you changed API keys recently)
+				} catch (\Stripe\Error\ApiConnection $e) {
+				// Network communication with Stripe failed
+				} catch (\Stripe\Error\Base $e) {
+				// Display a very generic error to the user, and maybe send
+				// yourself an email
+				} catch (Exception $e) {
+				// Something else happened, completely unrelated to Stripe
+				}
 			} catch(\Stripe\Error\Card $e) {
 				// Since it's a decline, \Stripe\Error\Card will be caught
 				$body = $e->getJsonBody();
