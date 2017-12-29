@@ -75,19 +75,18 @@ class shoppingCartController extends Controller
 									"exp_year" => explode('-',$userCard['cardVaildDate'])[0],
 									"cvc" => $userCard['cvc']
 								);
-								$recipient = \Stripe\Recipient::create(array(
-									"name" => $userCard['cardHolder'],
-									"type" => "individual",
-									"card" => $card
-								));
-							
 
 								try{
-									$transfer = \Stripe\Transfer::create(array(
-										"amount" => $cartItem['bookprice'] * 100,
-										"currency" => "cad",
-										"destination" => $recipient['id']
+									$recipient = \Stripe\Recipient::create(array(
+										"name" => $userCard['cardHolder'],
+										"type" => "individual",
+										"card" => $card
 									));
+									// $transfer = \Stripe\Transfer::create(array(
+									// 	"amount" => $cartItem['bookprice'] * 100,
+									// 	"currency" => "cad",
+									// 	"destination" => $recipient['id']
+									// ));
 								}
 								catch(\Stripe\Error\Card $e) {
 									// Since it's a decline, \Stripe\Error\Card will be caught
@@ -113,7 +112,7 @@ class shoppingCartController extends Controller
 								  } catch (Exception $e) {
 									// Something else happened, completely unrelated to Stripe
 								  }
-								  
+
 							} else {
 								DB::update('UPDATE books SET needTransfer = ? where bookID = ?', [1, $cartItem['bookID']]);
 							}
