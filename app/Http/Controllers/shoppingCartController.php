@@ -50,15 +50,15 @@ class shoppingCartController extends Controller
 
 				if(is_null($userStripeAccount['stripeAccount'])) {
 					//add new stripe account.
-					$newAccount = \Stripe\Account::create(array(
-						"type" => "standard",
-						"country" => "CA",
-						"email" => Session::get('userEmail')
-					));
-					return $newAccount;
-					$account = \Stripe\Account::retrieve($newAccount['id']);
-					$account->external_accounts->create(array("external_account" => $cardTok));
+					// $newAccount = \Stripe\Account::create(array(
+					// 	"type" => "standard",
+					// 	"country" => "CA",
+					// 	"email" => Session::get('userEmail')
+					// ));
 					
+					$account = \Stripe\Account::retrieve('acct_1BeLyFJLrPN3G5ik');
+					$account->external_accounts->create(array("external_account" => $cardTok));
+					return $newAccount;
 				}
 
 
