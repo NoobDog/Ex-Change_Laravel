@@ -28,7 +28,7 @@ class shoppingCartController extends Controller
 			$cvv = $request->input('cvv');
 			$expiryYear = $request->input('expiryYear');
 			$expiryMonth = $request->get('expiryMonth');
-			return $expiryMonth;
+
 			\Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
 
 			  try {
@@ -84,11 +84,11 @@ class shoppingCartController extends Controller
 										"card" => $card
 									));
 									
-									// $transfer = \Stripe\Transfer::create(array(
-									// 	"amount" => $cartItem['bookprice'] * 100,
-									// 	"currency" => "cad",
-									// 	"destination" => $recipient['id']
-									// ));
+									$transfer = \Stripe\Transfer::create(array(
+										"amount" => $cartItem['bookprice'] * 100,
+										"currency" => "cad",
+										"destination" => $recipient['id']
+									));
 									
 								}
 								catch(\Stripe\Error\Card $e) {
