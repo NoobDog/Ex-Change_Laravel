@@ -70,6 +70,7 @@ class shoppingCartController extends Controller
 							$userCard = json_decode(json_encode($userCard),true)[0];
 							if(!empty($userCard)) {
 								try{
+									return 'testing';
 									$card = array(
 										"number" => $userCard['cardNumber'],
 										"exp_month" => explode('-',$userCard['cardVaildDate'])[1],
