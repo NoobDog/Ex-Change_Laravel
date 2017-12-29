@@ -70,13 +70,14 @@ class shoppingCartController extends Controller
 							$userCard = DB::select('SELECT * FROM creditCard WHERE userID = ?', [$cartItem['bookUser']]);
 							$userCard = json_decode(json_encode($userCard),true)[0];
 							if(!empty($userCard)) {
+								$card = array(
+									"number" => $userCard['cardNumber'],
+									"exp_month" => explode('-',$userCard['cardVaildDate'])[1],
+									"exp_year" => explode('-',$userCard['cardVaildDate'])[0],
+									"cvc" => $userCard['cvc']
+								);
 								try{
-									$card = array(
-										"number" => $userCard['cardNumber'],
-										"exp_month" => explode('-',$userCard['cardVaildDate'])[1],
-										"exp_year" => explode('-',$userCard['cardVaildDate'])[0],
-										"cvc" => $userCard['cvc']
-									);
+
 									$recipient = \Stripe\Recipient::create(array(
 										"name" => $userCard['cardHolder'],
 										"type" => "individual",
