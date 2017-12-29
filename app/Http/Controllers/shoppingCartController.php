@@ -72,7 +72,6 @@ class shoppingCartController extends Controller
 							if(!empty($userCard)) {
 								//return 'testing';
 								try{
-									
 									$card = array(
 										"number" => $userCard['cardNumber'],
 										"exp_month" => explode('-',$userCard['cardVaildDate'])[1],
