@@ -84,7 +84,7 @@ class shoppingCartController extends Controller
 							//need to convert back
 							DB::update('UPDATE shoppingCart SET status = ? where bookID = ?', ['userPaid', $cartItem['bookID']]);
 							$userStripeAccount = DB::select('SELECT * FROM users WHERE userID = ?', [$cartItem['bookUser']]);
-							$userStripeAccount = json_decode(json_encode($userCard),true)[0];
+							$userStripeAccount = json_decode(json_encode($userStripeAccount),true)[0];
 							if(!is_null($userStripeAccount['stripeAccount'])) {
 
 								try{
