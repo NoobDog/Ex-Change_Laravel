@@ -28,7 +28,7 @@ class shoppingCartController extends Controller
 			$cvv = $request->input('cvv');
 			$expiryYear = $request->input('expiryYear');
 			$expiryMonth = $request->get('expiryMonth');
-
+			return $expiryMonth;
 			\Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
 
 			  try {
