@@ -51,20 +51,13 @@ class shoppingCartController extends Controller
 
 				if(is_null($userStripeAccount['stripeAccount'])) {
 					//add new stripe account.
-					// $newAccount = \Stripe\Account::create(array(
-					// 	"type" => "custom",
-					// 	"country" => "CA",
-					// 	"email" => Session::get('userEmail')
-					// ));
-					
-					$account = \Stripe\Account::retrieve("acct_1BeN6JKTcvet2TOO");
-					
-					$account->external_accounts->create(array("external_account" => $tok));
-					return $account;
-					
+					$newAccount = \Stripe\Account::create(array(
+						"type" => "standard",
+						"country" => "CA",
+						"email" => Session::get('userEmail')
+					));
+					DB::update('UPDATE users SET stripeAccount = ? where userID = ?', [$newAccount['id'], Session::get('userID')]);
 				}
-
-
 
 				$shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription, b.userID AS bookUser FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ? AND sc.status = ?', [Session::get('userID'), 'addCart']);
 				$shoppingCart = json_decode(json_encode($shoppingCart),true);
@@ -89,50 +82,27 @@ class shoppingCartController extends Controller
 						);
 						foreach ($shoppingCart as $cartItem) {
 							//need to convert back
-							//DB::update('UPDATE shoppingCart SET status = ? where bookID = ?', ['userPaid', $cartItem['bookID']]);
-							$userCard = DB::select('SELECT * FROM creditCard WHERE userID = ?', [$cartItem['bookUser']]);
-							$userCard = json_decode(json_encode($userCard),true)[0];
-							if(!empty($userCard)) {
-								$card = array(
-									"number" => $userCard['cardNumber'],
-									"exp_month" => explode('-',$userCard['cardVaildDate'])[1],
-									"exp_year" => explode('-',$userCard['cardVaildDate'])[0],
-									"cvc" => $userCard['cvc']
-								);
+							DB::update('UPDATE shoppingCart SET status = ? where bookID = ?', ['userPaid', $cartItem['bookID']]);
+							$userStripeAccount = DB::select('SELECT * FROM users WHERE userID = ?', [$cartItem['bookUser']]);
+							$userStripeAccount = json_decode(json_encode($userCard),true)[0];
+							if(!is_null($userStripeAccount['stripeAccount'])) {
+
 								try{
-									$Tcard = \Stripe\Token::create(array(
-										"card" => array(
-										  "number" => $userCard['cardNumber'],
-										  "exp_month" => explode('-',$userCard['cardVaildDate'])[1],
-										  "exp_year" =>explode('-',$userCard['cardVaildDate'])[0],
-										  "cvc" => $userCard['cvc']
-										)
-									  ));
-									$tok = $Tcard['id'];
-				
-									//return $tok;
-									$recipient = \Stripe\Recipient::create(array(
-										"name" => $userCard['cardHolder'],
-										"type" => "individual",
-										"card" => $tok
-									));
-									return $recipient;
 									$transfer = \Stripe\Transfer::create(array(
 										"amount" => $cartItem['bookprice'] * 100,
 										"currency" => "cad",
-										"destination" => $recipient['id']
+										"destination" => $userStripeAccount['stripeAccount']
 									));
-									
+									return $transfer;
 								}
 								catch(\Stripe\Error\Card $e) {
 									// Since it's a decline, \Stripe\Error\Card will be caught
 									$body = $e->getJsonBody();
 									$err  = $body['error'];
-									return $err;
-									// $shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ? AND sc.status = ?', [Session::get('userID'), 'addCart']);
-									// $shoppingCart = json_decode(json_encode($shoppingCart),true);
-									// $userCards = DB::select('SELECT * FROM creditCard WHERE userID = ? AND isConfirmed = ? AND isVoid = ?', [Session::get('userID'), 1, 0]);
-									// $userCards = json_decode(json_encode($userCards),true);
+									$shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ? AND sc.status = ?', [Session::get('userID'), 'addCart']);
+									$shoppingCart = json_decode(json_encode($shoppingCart),true);
+									$userCards = DB::select('SELECT * FROM creditCard WHERE userID = ? AND isConfirmed = ? AND isVoid = ?', [Session::get('userID'), 1, 0]);
+									$userCards = json_decode(json_encode($userCards),true);
 									return view('shoppingCart',['page_name_active'=> 'cart','shoppingCart' => $shoppingCart, 'userCards' => $userCards, 'errorMsg'=> $err['message']]);
 								  } catch (\Stripe\Error\RateLimit $e) {
 									// Too many requests made to the API too quickly
@@ -151,7 +121,21 @@ class shoppingCartController extends Controller
 								  }
 
 							} else {
-								DB::update('UPDATE books SET needTransfer = ? where bookID = ?', [1, $cartItem['bookID']]);
+								//DB::update('UPDATE books SET needTransfer = ? where bookID = ?', [1, $cartItem['bookID']]);
+								//add new stripe account.
+								$newAccount = \Stripe\Account::create(array(
+									"type" => "standard",
+									"country" => "CA",
+									"email" => $userStripeAccount['userEmail']
+								));
+								DB::update('UPDATE users SET stripeAccount = ? where userID = ?', [$newAccount['id'], $userStripeAccount['userID']]);
+							
+								$transfer = \Stripe\Transfer::create(array(
+									"amount" => $cartItem['bookprice'] * 100,
+									"currency" => "cad",
+									"destination" => $newAccount['id']
+								));
+								return $transfer;
 							}
 
 						}
