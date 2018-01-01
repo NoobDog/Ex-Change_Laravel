@@ -80,4 +80,4 @@ Route::post('/footer/addToCart',['as'=>'addToCart','uses'=>'footerController@add
 
 //users
 Route::get('/allUsers',['as'=>'users','uses'=>'usersController@index']);
-Route::post('/allUsers',['as'=>'updateUserStatus','uses'=>'usersController@updateUserStatus']);
+Route::post('/allUsers/{userEmail}',['as'=>'updateUserStatus','uses'=>'usersController@updateUserStatus']);
