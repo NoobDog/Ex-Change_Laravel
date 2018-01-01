@@ -24,6 +24,7 @@
         <a href="#"><i class="fa fa-tint" aria-hidden="true"></i>  My Points</a>
       </div>
     </li>
+    <li><a class="@if($page_name_active=='users')active @endif" href="{{url('/user')}}">Users</a></li>
     <li><a class="@if($page_name_active=='help')active @endif" href="{{url('/help')}}">Help</a></li>
     <li><a href="{{route('logout')}}">Logout</a></li>
 

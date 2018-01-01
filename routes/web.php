@@ -77,3 +77,6 @@ Route::get('/myBanks','bankController@index');
 Route::post('/footer',['as'=>'chatMessages','uses'=>'footerController@index']);
 Route::post('/footer/addMessage',['as'=>'addMessage','uses'=>'footerController@addMessage']);
 Route::post('/footer/addToCart',['as'=>'addToCart','uses'=>'footerController@addToCart']);
+
+//users
+Route::post('/users',['as'=>'users','uses'=>'usersController@index']);
