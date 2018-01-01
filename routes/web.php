@@ -47,6 +47,7 @@ Route::get('/logout',['as'=>'logout','uses'=>'welcomeController@logout']);
 Route::get('/bookDetail/{book}',['as'=>'bookDetail','uses'=>'bookDetailController@index']);
 
 Route::post('/bookDetail/{book}',['as'=>'bookDetailAddMessage','uses'=>'bookDetailController@bookDetailAddMessage']);
+Route::post('/bookDetail/edit/{book}',['as'=>'bookDetailAdminEdit','uses'=>'bookDetailController@bookDetailAdminEdit']);
 
 //user profile page.
 Route::get('/userProfile',['as'=>'userProfile','uses'=>'userProfileController@index']);
