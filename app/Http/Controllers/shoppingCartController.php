@@ -65,7 +65,6 @@ class shoppingCartController extends Controller
 				foreach ($shoppingCart as $cartItem) {
 					$totalCharge += $cartItem['bookprice'];
 				}
-				try {
 					// Charge the user's card:
 					$totalCharge = $totalCharge * 100;
 					$charge = \Stripe\Charge::create(array(
@@ -86,110 +85,28 @@ class shoppingCartController extends Controller
 							$userStripeAccount = DB::select('SELECT * FROM users WHERE userID = ?', [$cartItem['bookUser']]);
 							$userStripeAccount = json_decode(json_encode($userStripeAccount),true)[0];
 							if(!is_null($userStripeAccount['stripeAccount'])) {
-
-								try{
 									$transfer = \Stripe\Transfer::create(array(
 										"amount" => $cartItem['bookprice'] * 100,
 										"currency" => "cad",
 										"destination" => $userStripeAccount['stripeAccount']
 									));
-									return $transfer;
-								}
-								catch(\Stripe\Error\Card $e) {
-									// Since it's a decline, \Stripe\Error\Card will be caught
-									$body = $e->getJsonBody();
-									$err  = $body['error'];
-									$shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ? AND sc.status = ?', [Session::get('userID'), 'addCart']);
-									$shoppingCart = json_decode(json_encode($shoppingCart),true);
-									$userCards = DB::select('SELECT * FROM creditCard WHERE userID = ? AND isConfirmed = ? AND isVoid = ?', [Session::get('userID'), 1, 0]);
-									$userCards = json_decode(json_encode($userCards),true);
-									return view('shoppingCart',['page_name_active'=> 'cart','shoppingCart' => $shoppingCart, 'userCards' => $userCards, 'errorMsg'=> $err['message']]);
-								  } catch (\Stripe\Error\RateLimit $e) {
-									// Too many requests made to the API too quickly
-								  } catch (\Stripe\Error\InvalidRequest $e) {
-									// Invalid parameters were supplied to Stripe's API
-								  } catch (\Stripe\Error\Authentication $e) {
-									// Authentication with Stripe's API failed
-									// (maybe you changed API keys recently)
-								  } catch (\Stripe\Error\ApiConnection $e) {
-									// Network communication with Stripe failed
-								  } catch (\Stripe\Error\Base $e) {
-									// Display a very generic error to the user, and maybe send
-									// yourself an email
-								  } catch (Exception $e) {
-									// Something else happened, completely unrelated to Stripe
-								  }
-
+									DB::update('UPDATE books SET sold = ? where bookID = ?', [1, $cartItem['bookID']]);
 							} else {
 								//DB::update('UPDATE books SET needTransfer = ? where bookID = ?', [1, $cartItem['bookID']]);
 								//add new stripe account.
-								try{
 									$newAccount = \Stripe\Account::create(array(
 										"type" => "standard",
 										"country" => "CA",
 										"email" => $userStripeAccount['userEmail']
 									));
-									return $newAccount;
 									DB::update('UPDATE users SET stripeAccount = ? where userID = ?', [$newAccount['id'], $userStripeAccount['userID']]);
-
 									$transfer = \Stripe\Transfer::create(array(
 										"amount" => $cartItem['bookprice'] * 100,
 										"currency" => "cad",
 										"destination" => $newAccount['id']
 									));
-								} catch(\Stripe\Error\Card $e) {
-									// Since it's a decline, \Stripe\Error\Card will be caught
-									$body = $e->getJsonBody();
-									$err  = $body['error'];
-
-									return $err;
-									$shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ? AND sc.status = ?', [Session::get('userID'), 'addCart']);
-									$shoppingCart = json_decode(json_encode($shoppingCart),true);
-									$userCards = DB::select('SELECT * FROM creditCard WHERE userID = ? AND isConfirmed = ? AND isVoid = ?', [Session::get('userID'), 1, 0]);
-									$userCards = json_decode(json_encode($userCards),true);
-									return view('shoppingCart',['page_name_active'=> 'cart','shoppingCart' => $shoppingCart, 'userCards' => $userCards, 'errorMsg'=> $err['message']]);
-								} catch (\Stripe\Error\RateLimit $e) {
-								// Too many requests made to the API too quickly
-								$body = $e->getJsonBody();
-								$err  = $body['error'];
-
-								return $err;
-								} catch (\Stripe\Error\InvalidRequest $e) {
-								// Invalid parameters were supplied to Stripe's API
-								$body = $e->getJsonBody();
-								$err  = $body['error'];
-
-								return $err;
-								} catch (\Stripe\Error\Authentication $e) {
-								// Authentication with Stripe's API failed
-								// (maybe you changed API keys recently)
-								$body = $e->getJsonBody();
-								$err  = $body['error'];
-
-								return $err;
-								} catch (\Stripe\Error\ApiConnection $e) {
-								// Network communication with Stripe failed
-								$body = $e->getJsonBody();
-								$err  = $body['error'];
-
-								return $err;
-								} catch (\Stripe\Error\Base $e) {
-								// Display a very generic error to the user, and maybe send
-								// yourself an email
-								$body = $e->getJsonBody();
-								$err  = $body['error'];
-
-								return $err;
-								} catch (Exception $e) {
-								// Something else happened, completely unrelated to Stripe
-								$body = $e->getJsonBody();
-								$err  = $body['error'];
-
-								return $err;
-								}
-								
+									DB::update('UPDATE books SET sold = ? where bookID = ?', [1, $cartItem['bookID']]);
 							}
-
 						}
 					} else {
 						$shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ? AND sc.status = ?', [Session::get('userID'), 'addCart']);
@@ -200,7 +117,7 @@ class shoppingCartController extends Controller
 						return view('shoppingCart',['page_name_active'=> 'cart','shoppingCart' => $shoppingCart, 'userCards' => $userCards, 'errorMsg'=> $errorMsg]);
 					}
 					return redirect()->route('home');
-				} catch(\Stripe\Error\Card $e) {
+			} catch(\Stripe\Error\Card $e) {
 				// Since it's a decline, \Stripe\Error\Card will be caught
 				$body = $e->getJsonBody();
 				$err  = $body['error'];
@@ -209,23 +126,8 @@ class shoppingCartController extends Controller
 				$userCards = DB::select('SELECT * FROM creditCard WHERE userID = ? AND isConfirmed = ? AND isVoid = ?', [Session::get('userID'), 1, 0]);
 				$userCards = json_decode(json_encode($userCards),true);
 				return view('shoppingCart',['page_name_active'=> 'cart','shoppingCart' => $shoppingCart, 'userCards' => $userCards, 'errorMsg'=> $err['message']]);
-				} catch (\Stripe\Error\RateLimit $e) {
-				// Too many requests made to the API too quickly
-				} catch (\Stripe\Error\InvalidRequest $e) {
+			} catch (\Stripe\Error\InvalidRequest $e) {
 				// Invalid parameters were supplied to Stripe's API
-				} catch (\Stripe\Error\Authentication $e) {
-				// Authentication with Stripe's API failed
-				// (maybe you changed API keys recently)
-				} catch (\Stripe\Error\ApiConnection $e) {
-				// Network communication with Stripe failed
-				} catch (\Stripe\Error\Base $e) {
-				// Display a very generic error to the user, and maybe send
-				// yourself an email
-				} catch (Exception $e) {
-				// Something else happened, completely unrelated to Stripe
-				}
-			} catch(\Stripe\Error\Card $e) {
-				// Since it's a decline, \Stripe\Error\Card will be caught
 				$body = $e->getJsonBody();
 				$err  = $body['error'];
 
@@ -234,18 +136,177 @@ class shoppingCartController extends Controller
 				$userCards = DB::select('SELECT * FROM creditCard WHERE userID = ? AND isConfirmed = ? AND isVoid = ?', [Session::get('userID'), 1, 0]);
 				$userCards = json_decode(json_encode($userCards),true);
 				return view('shoppingCart',['page_name_active'=> 'cart','shoppingCart' => $shoppingCart, 'userCards' => $userCards, 'errorMsg'=> $err['message']]);
-			} catch (\Stripe\Error\InvalidRequest $e) {
-				// Invalid parameters were supplied to Stripe's API
 			} catch (\Stripe\Error\Authentication $e) {
 				// Authentication with Stripe's API failed
 				// (maybe you changed API keys recently)
+				$body = $e->getJsonBody();
+				$err  = $body['error'];
+
+				$shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ? AND sc.status = ?', [Session::get('userID'), 'addCart']);
+				$shoppingCart = json_decode(json_encode($shoppingCart),true);
+				$userCards = DB::select('SELECT * FROM creditCard WHERE userID = ? AND isConfirmed = ? AND isVoid = ?', [Session::get('userID'), 1, 0]);
+				$userCards = json_decode(json_encode($userCards),true);
+				return view('shoppingCart',['page_name_active'=> 'cart','shoppingCart' => $shoppingCart, 'userCards' => $userCards, 'errorMsg'=> $err['message']]);
 			} catch (\Stripe\Error\ApiConnection $e) {
 				// Network communication with Stripe failed
+				$body = $e->getJsonBody();
+				$err  = $body['error'];
+
+				$shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ? AND sc.status = ?', [Session::get('userID'), 'addCart']);
+				$shoppingCart = json_decode(json_encode($shoppingCart),true);
+				$userCards = DB::select('SELECT * FROM creditCard WHERE userID = ? AND isConfirmed = ? AND isVoid = ?', [Session::get('userID'), 1, 0]);
+				$userCards = json_decode(json_encode($userCards),true);
+				return view('shoppingCart',['page_name_active'=> 'cart','shoppingCart' => $shoppingCart, 'userCards' => $userCards, 'errorMsg'=> $err['message']]);
 			} catch (\Stripe\Error\Base $e) {
 				// Display a very generic error to the user, and maybe send
 				// yourself an email
+				$body = $e->getJsonBody();
+				$err  = $body['error'];
+
+				$shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ? AND sc.status = ?', [Session::get('userID'), 'addCart']);
+				$shoppingCart = json_decode(json_encode($shoppingCart),true);
+				$userCards = DB::select('SELECT * FROM creditCard WHERE userID = ? AND isConfirmed = ? AND isVoid = ?', [Session::get('userID'), 1, 0]);
+				$userCards = json_decode(json_encode($userCards),true);
+				return view('shoppingCart',['page_name_active'=> 'cart','shoppingCart' => $shoppingCart, 'userCards' => $userCards, 'errorMsg'=> $err['message']]);
 			} catch (Exception $e) {
 				// Something else happened, completely unrelated to Stripe
+				$body = $e->getJsonBody();
+				$err  = $body['error'];
+
+				$shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ? AND sc.status = ?', [Session::get('userID'), 'addCart']);
+				$shoppingCart = json_decode(json_encode($shoppingCart),true);
+				$userCards = DB::select('SELECT * FROM creditCard WHERE userID = ? AND isConfirmed = ? AND isVoid = ?', [Session::get('userID'), 1, 0]);
+				$userCards = json_decode(json_encode($userCards),true);
+				return view('shoppingCart',['page_name_active'=> 'cart','shoppingCart' => $shoppingCart, 'userCards' => $userCards, 'errorMsg'=> $err['message']]);
+			}
+
+		}
+
+		public function checkOut() {
+			\Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+			$shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription, b.userID AS bookUser FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ? AND sc.status = ?', [Session::get('userID'), 'addCart']);
+			$shoppingCart = json_decode(json_encode($shoppingCart),true);
+			$totalCharge = 0;
+			foreach ($shoppingCart as $cartItem) {
+				$totalCharge += $cartItem['bookprice'];
+			}
+			$totalCharge = $totalCharge * 100;
+			$userCard = DB::select('SELECT * FROM creditCard WHERE userID = ? AND isConfirmed = ? AND isVoid = ?', [Session::get('userID'), 1, 0]);
+			$userCard = json_decode(json_encode($userCards),true)[0];
+			try {
+				// Use Stripe's bindings...
+				$card = \Stripe\Token::create(array(
+					"card" => array(
+					  "number" => $userCard['cardNumber'],
+					  "exp_month" => explode('-',$userCard['cardVaildDate'])[1],
+					  "exp_year" => explode('-',$userCard['cardVaildDate'])[0],
+					  "cvc" => $userCard['cvc']
+					)
+				  ));
+				$tok = $card['id'];
+				$cardTok = $card['card']['id'];
+				$charge = \Stripe\Charge::create(array(
+					"amount" => $totalCharge,
+					"currency" => "cad",
+					"description" => Session::get('userName'),
+					"source" => $tok
+				));
+
+				if(isset($charge['id'])) {
+					foreach ($shoppingCart as $cartItem) {
+						//need to convert back
+						DB::update('UPDATE shoppingCart SET status = ? where bookID = ?', ['userPaid', $cartItem['bookID']]);
+						$userStripeAccount = DB::select('SELECT * FROM users WHERE userID = ?', [$cartItem['bookUser']]);
+						$userStripeAccount = json_decode(json_encode($userStripeAccount),true)[0];
+						if(!is_null($userStripeAccount['stripeAccount'])) {
+								$transfer = \Stripe\Transfer::create(array(
+									"amount" => $cartItem['bookprice'] * 100,
+									"currency" => "cad",
+									"destination" => $userStripeAccount['stripeAccount']
+								));
+								DB::update('UPDATE books SET sold = ? where bookID = ?', [1, $cartItem['bookID']]);
+						} else {
+							//DB::update('UPDATE books SET needTransfer = ? where bookID = ?', [1, $cartItem['bookID']]);
+							//add new stripe account.
+								$newAccount = \Stripe\Account::create(array(
+									"type" => "standard",
+									"country" => "CA",
+									"email" => $userStripeAccount['userEmail']
+								));
+								DB::update('UPDATE users SET stripeAccount = ? where userID = ?', [$newAccount['id'], $userStripeAccount['userID']]);
+								$transfer = \Stripe\Transfer::create(array(
+									"amount" => $cartItem['bookprice'] * 100,
+									"currency" => "cad",
+									"destination" => $newAccount['id']
+								));
+								DB::update('UPDATE books SET sold = ? where bookID = ?', [1, $cartItem['bookID']]);
+						}
+					}
+				} else {
+					$shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ? AND sc.status = ?', [Session::get('userID'), 'addCart']);
+					$shoppingCart = json_decode(json_encode($shoppingCart),true);
+					$userCards = DB::select('SELECT * FROM creditCard WHERE userID = ? AND isConfirmed = ? AND isVoid = ?', [Session::get('userID'), 1, 0]);
+					$userCards = json_decode(json_encode($userCards),true);
+					$errorMsg = "Something is worng, Please try again!";
+					return view('shoppingCart',['page_name_active'=> 'cart','shoppingCart' => $shoppingCart, 'userCards' => $userCards, 'errorMsg'=> $errorMsg]);
+				}
+				return redirect()->route('home');
+			} catch(\Stripe\Error\Card $e) {
+				// Since it's a decline, \Stripe\Error\Card will be caught
+				$body = $e->getJsonBody();
+				$err  = $body['error'];
+				$shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ? AND sc.status = ?', [Session::get('userID'), 'addCart']);
+				$shoppingCart = json_decode(json_encode($shoppingCart),true);
+				$userCards = DB::select('SELECT * FROM creditCard WHERE userID = ? AND isConfirmed = ? AND isVoid = ?', [Session::get('userID'), 1, 0]);
+				$userCards = json_decode(json_encode($userCards),true);
+				return view('shoppingCart',['page_name_active'=> 'cart','shoppingCart' => $shoppingCart, 'userCards' => $userCards, 'errorMsg'=> $err['message']]);
+			} catch (\Stripe\Error\InvalidRequest $e) {
+				// Invalid parameters were supplied to Stripe's API
+				$body = $e->getJsonBody();
+				$err  = $body['error'];
+				$shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ? AND sc.status = ?', [Session::get('userID'), 'addCart']);
+				$shoppingCart = json_decode(json_encode($shoppingCart),true);
+				$userCards = DB::select('SELECT * FROM creditCard WHERE userID = ? AND isConfirmed = ? AND isVoid = ?', [Session::get('userID'), 1, 0]);
+				$userCards = json_decode(json_encode($userCards),true);
+				return view('shoppingCart',['page_name_active'=> 'cart','shoppingCart' => $shoppingCart, 'userCards' => $userCards, 'errorMsg'=> $err['message']]);
+			} catch (\Stripe\Error\Authentication $e) {
+				// Authentication with Stripe's API failed
+				// (maybe you changed API keys recently)
+				$body = $e->getJsonBody();
+				$err  = $body['error'];
+				$shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ? AND sc.status = ?', [Session::get('userID'), 'addCart']);
+				$shoppingCart = json_decode(json_encode($shoppingCart),true);
+				$userCards = DB::select('SELECT * FROM creditCard WHERE userID = ? AND isConfirmed = ? AND isVoid = ?', [Session::get('userID'), 1, 0]);
+				$userCards = json_decode(json_encode($userCards),true);
+				return view('shoppingCart',['page_name_active'=> 'cart','shoppingCart' => $shoppingCart, 'userCards' => $userCards, 'errorMsg'=> $err['message']]);
+			} catch (\Stripe\Error\ApiConnection $e) {
+				// Network communication with Stripe failed
+				$body = $e->getJsonBody();
+				$err  = $body['error'];
+				$shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ? AND sc.status = ?', [Session::get('userID'), 'addCart']);
+				$shoppingCart = json_decode(json_encode($shoppingCart),true);
+				$userCards = DB::select('SELECT * FROM creditCard WHERE userID = ? AND isConfirmed = ? AND isVoid = ?', [Session::get('userID'), 1, 0]);
+				$userCards = json_decode(json_encode($userCards),true);
+				return view('shoppingCart',['page_name_active'=> 'cart','shoppingCart' => $shoppingCart, 'userCards' => $userCards, 'errorMsg'=> $err['message']]);
+			} catch (\Stripe\Error\Base $e) {
+				// Display a very generic error to the user, and maybe send
+				// yourself an email
+				$body = $e->getJsonBody();
+				$err  = $body['error'];
+				$shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ? AND sc.status = ?', [Session::get('userID'), 'addCart']);
+				$shoppingCart = json_decode(json_encode($shoppingCart),true);
+				$userCards = DB::select('SELECT * FROM creditCard WHERE userID = ? AND isConfirmed = ? AND isVoid = ?', [Session::get('userID'), 1, 0]);
+				$userCards = json_decode(json_encode($userCards),true);
+				return view('shoppingCart',['page_name_active'=> 'cart','shoppingCart' => $shoppingCart, 'userCards' => $userCards, 'errorMsg'=> $err['message']]);
+			} catch (Exception $e) {
+				// Something else happened, completely unrelated to Stripe
+				$body = $e->getJsonBody();
+				$err  = $body['error'];
+				$shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ? AND sc.status = ?', [Session::get('userID'), 'addCart']);
+				$shoppingCart = json_decode(json_encode($shoppingCart),true);
+				$userCards = DB::select('SELECT * FROM creditCard WHERE userID = ? AND isConfirmed = ? AND isVoid = ?', [Session::get('userID'), 1, 0]);
+				$userCards = json_decode(json_encode($userCards),true);
+				return view('shoppingCart',['page_name_active'=> 'cart','shoppingCart' => $shoppingCart, 'userCards' => $userCards, 'errorMsg'=> $err['message']]);
 			}
 
 		}

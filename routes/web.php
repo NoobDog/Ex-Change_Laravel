@@ -68,6 +68,7 @@ Route::post('/help',['as'=>'stripe','uses'=>'helpController@stripe']);
 //shopping cart
 Route::get('/shoppingCart',['as'=>'shoppingCart','uses'=>'shoppingCartController@index']);
 Route::post('/shoppingCart',['as'=>'addCardAndCheckOut','uses'=>'shoppingCartController@addCardAndCheckOut']);
+Route::post('/shoppingCart/checkOut',['as'=>'checkOut','uses'=>'shoppingCartController@checkOut']);
 
 //banks
 Route::get('/myBanks','bankController@index');

@@ -90,7 +90,8 @@
         </form>
 
         @else 
-            <button>CHECK OUT</button>
+        <a href="{{route('checkOut')}}" class="checkoutBtn">CHECK OUT</a>
+            
         @endif
         @include('footer')
     </body>
