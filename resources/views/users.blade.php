@@ -24,7 +24,6 @@
                         <h3>{{$user['userName']}}</h3>
                         <h3>{{$user['userEmail']}}</h3>
                     </li>
-                    {{print_r($user)}}
                 @endforeach
             </ul>
         @include('footer')
