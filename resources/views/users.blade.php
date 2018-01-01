@@ -17,7 +17,10 @@
     </head>
     <body>
         @include('header')
-            {{print_r($users)}}
+            @foreach ($users as $user)
+                {{print_r($user)}}
+            @endforeach
+
         @include('footer')
     </body>
     
