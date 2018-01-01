@@ -64,8 +64,8 @@ html, body {
   .userLists li img {
     float: left;
     margin: 0 15px 0 0;
-    width: 201px;
-    height: 127px;
+    width: 100px;
+    height: 100px;
   }
    
   .userLists li p {
