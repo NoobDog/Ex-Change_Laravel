@@ -34,7 +34,7 @@ class usersController extends Controller
             $Void = 0;
             $Warning = 0;  
         }
-        DB::update('UPDATE users SET isVoid = ? AND isWarning = ? where userEmail = ?', [$Void, $Warning, $userEmail]);
+        DB::update('UPDATE users SET isVoid = ?, isWarning = ? where userEmail = ?', [$Void, $Warning, $userEmail]);
         return redirect()->route('users');
 
     }
