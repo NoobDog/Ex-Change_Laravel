@@ -17,8 +17,7 @@
     </head>
     <body>
         @include('header')
-
-
+            {{print_r($userCard)}}
         @include('footer')
     </body>
     

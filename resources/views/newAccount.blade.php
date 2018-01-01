@@ -29,6 +29,7 @@
                     <label><b>Email</b></label>
                     <input type="email" placeholder="Enter Email" name="email" required>
                     <label><b>Password</b></label>
+                    <p id='passwordDigits' hidden="true" class='errorMsg'></p>
                     <input type="password" placeholder="Enter Password" name="psw" required>
 
                     <label><b>Repeat Password</b></label>
@@ -72,6 +73,21 @@
     </body>
 </html>
 <script>
+
+
+  $('input[name="psw"]').off("input").on("input", function() {
+    var passwordDigits = $(this).val().length;
+
+    if(passwordDigits < 6) {
+        $('#passwordDigits').html('* Password at least 6 digits.');
+        $('#passwordDigits').show();
+        $('button[class="signupbtn"]').attr("disabled", true);
+    }
+    else {
+      $('#passwordDigits').hide();
+      $('button[class="signupbtn"]').attr("disabled", false);
+    }
+  });
   $('input[name="psw-repeat"]').off("input").on("input", function() {
     var repeatValue = $(this).val();
     var passwordValue = $('input[name="psw"]').val();
@@ -84,5 +100,5 @@
       $('#passwordMatch').hide();
       $('button[class="signupbtn"]').attr("disabled", false);
     }
-});
+  });
 </script>
