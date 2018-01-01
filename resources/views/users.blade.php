@@ -17,10 +17,16 @@
     </head>
     <body>
         @include('header')
-            @foreach ($users as $user)
-                {{print_r($user)}}
-            @endforeach
-
+            <ul>
+                @foreach ($users as $user)
+                    <li class="userLists @if($user['isVoid']) Void @endif @if($user['isWarning']) Warning @endif">
+                        <img src="{{asset('icons/'.$user['userIcon'])}}"/>
+                        <h3>{{$user['userName']}}</h3>
+                        <h3>{{$user['userEmail']}}</h3>
+                    </li>
+                    {{print_r($user)}}
+                @endforeach
+            </ul>
         @include('footer')
     </body>
     
