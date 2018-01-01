@@ -81,9 +81,9 @@ html, body {
     background: #eee;
     cursor: pointer;
   }
-  .footBar {
+  /* .footBar {
     position: absolute;
-  }
+  } */
   .Void {
       background-color: red;
   }
