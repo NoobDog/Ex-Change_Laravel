@@ -79,4 +79,4 @@ Route::post('/footer/addMessage',['as'=>'addMessage','uses'=>'footerController@a
 Route::post('/footer/addToCart',['as'=>'addToCart','uses'=>'footerController@addToCart']);
 
 //users
-Route::post('/users',['as'=>'users','uses'=>'usersController@index']);
+Route::get('/users',['as'=>'users','uses'=>'usersController@index']);
