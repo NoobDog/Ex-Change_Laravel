@@ -81,3 +81,12 @@ html, body {
     background: #eee;
     cursor: pointer;
   }
+  .footBar {
+    position: absolute;
+  }
+  .Void {
+      background-color: red;
+  }
+  .Warning {
+    background-color: yellow;
+  }
