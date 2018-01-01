@@ -36,7 +36,7 @@
     <li style="float:right;"><a href="{{url('/shoppingCart')}}" class="@if($page_name_active=='cart')active @endif"><i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i></a></li>
   </ul>
 </div>
-@else if(Session::has('userName') && Session::get('roleTypeID') == 2)
+@elseif (Session::has('userName') && Session::get('roleTypeID') == 2)
 <div class="navBar">
   <ul class="nb">
     <li class="nbDropdown">
