@@ -192,7 +192,7 @@ class shoppingCartController extends Controller
 			}
 			$totalCharge = $totalCharge * 100;
 			$userCard = DB::select('SELECT * FROM creditCard WHERE userID = ? AND isConfirmed = ? AND isVoid = ?', [Session::get('userID'), 1, 0]);
-			$userCard = json_decode(json_encode($userCards),true)[0];
+			$userCard = json_decode(json_encode($userCard),true)[0];
 			try {
 				// Use Stripe's bindings...
 				$card = \Stripe\Token::create(array(
