@@ -11,10 +11,15 @@ class usersController extends Controller
 {
 
 		public function index() {
+            if (Session::get('roleTypeID') != 2) {
+                return redirect()->route('home');
+            }
 
-			$users = DB::select('SELECT * FROM users');
-            $users = json_decode(json_encode($users),true);
-			\View::share(['page_name_active'=> 'users']);
-			return \View::make('users',['users' => $users]);
+            else {
+                $users = DB::select('SELECT * FROM users');
+                $users = json_decode(json_encode($users),true);
+                \View::share(['page_name_active'=> 'users']);
+                return \View::make('users',['users' => $users]);
+            }
 		}
 }

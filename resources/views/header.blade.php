@@ -12,7 +12,7 @@
         <a href="{{url('/userProfile')}}"><i class="fa fa-user" aria-hidden="true"></i> User Profile</a>
         <!-- <a href="{{url('/general')}}"><i class="fa fa-info-circle" aria-hidden="true"></i> General</a> -->
         <a href="{{url('/addressSetting')}}"><i class="fa fa-map-marker" aria-hidden="true"></i> Address Settings</a>
-        <a href="{{url('/privacySetting')}}"><i class="fa fa-lock" aria-hidden="true"></i> Privacy Settings</a>
+        <!-- <a href="{{url('/privacySetting')}}"><i class="fa fa-lock" aria-hidden="true"></i> Privacy Settings</a> -->
       </div>
     </li>
     <li class="nbDropdown">
@@ -21,18 +21,11 @@
         <a href="{{url('/myBooks')}}"><i class="fa fa-book" aria-hidden="true"></i> My Books</a>
         <a href="{{url('/myBanks')}}"><i class="fa fa-university" aria-hidden="true"></i> My Bank Information</a>
         <a href="#"><i class="fa fa-trademark" aria-hidden="true"></i> My Trade Information</a>
-        <a href="#"><i class="fa fa-tint" aria-hidden="true"></i>  My Points</a>
+        <!-- <a href="#"><i class="fa fa-tint" aria-hidden="true"></i>  My Points</a> -->
       </div>
     </li>
     <li><a class="@if($page_name_active=='help')active @endif" href="{{url('/help')}}">Help</a></li>
     <li><a href="{{route('logout')}}">Logout</a></li>
-
-    <!-- <li class="nbDropdown"  style="float:right;">
-      <a href="javascript:void(0)" class="dropbtn"><i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i></a>
-      <div class="nbCart-content">
-        <p>hahaha</p>
-      </div>
-    </li> -->
     <li style="float:right;"><a href="{{url('/shoppingCart')}}" class="@if($page_name_active=='cart')active @endif"><i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i></a></li>
   </ul>
 </div>
@@ -45,7 +38,7 @@
         <a href="{{url('/userProfile')}}"><i class="fa fa-user" aria-hidden="true"></i> User Profile</a>
         <!-- <a href="{{url('/general')}}"><i class="fa fa-info-circle" aria-hidden="true"></i> General</a> -->
         <a href="{{url('/addressSetting')}}"><i class="fa fa-map-marker" aria-hidden="true"></i> Address Settings</a>
-        <a href="{{url('/privacySetting')}}"><i class="fa fa-lock" aria-hidden="true"></i> Privacy Settings</a>
+        <!-- <a href="{{url('/privacySetting')}}"><i class="fa fa-lock" aria-hidden="true"></i> Privacy Settings</a> -->
       </div>
     </li>
     <li><a class="@if($page_name_active=='users')active @endif" href="{{url('/allUsers')}}">Users</a></li>
