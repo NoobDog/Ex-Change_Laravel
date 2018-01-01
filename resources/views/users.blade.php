@@ -23,6 +23,13 @@
                         <img src="{{asset('icons/'.$user['userIcon'])}}"/>
                         <h3>{{$user['userName']}}</h3>
                         <h3>{{$user['userEmail']}}</h3>
+                        <form method="POST"  action="{{route('updateUserStatus',$user['userEmail'])}}">
+                            {{csrf_field()}}
+                            <input type="radio" name="status" value="Warning"> Warning
+                            <input type="radio" name="status" value="Void"> Void
+                            <input type="radio" name="status" value="Undo"> Undo
+                            <button type="submit" class ='myButton'>Update</button> 
+                        </form>
                     </li>
                 @endforeach
             </ul>
