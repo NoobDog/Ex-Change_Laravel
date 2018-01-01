@@ -15,11 +15,6 @@ class usersController extends Controller
 			$users = DB::select('SELECT * FROM users');
             $users = json_decode(json_encode($users),true);
 			\View::share(['page_name_active'=> 'users']);
-
-			// \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-
-			// $test = \Stripe\Balance::retrieve();
-
 			return \View::make('users',['users' => $users]);
 		}
 }
