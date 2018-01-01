@@ -80,8 +80,7 @@ class shoppingCartController extends Controller
 							[Session::get('userID'),$cardNumber,'null', $expiryYear.'-'.$expiryMonth,$nameOnCard,1,0,$cvv]
 						);
 						foreach ($shoppingCart as $cartItem) {
-							//need to convert back
-							DB::update('UPDATE shoppingCart SET status = ? where bookID = ?', ['userPaid', $cartItem['bookID']]);
+						
 							$userStripeAccount = DB::select('SELECT * FROM users WHERE userID = ?', [$cartItem['bookUser']]);
 							$userStripeAccount = json_decode(json_encode($userStripeAccount),true)[0];
 							if(!is_null($userStripeAccount['stripeAccount'])) {
@@ -99,14 +98,17 @@ class shoppingCartController extends Controller
 										"country" => "CA",
 										"email" => $userStripeAccount['userEmail']
 									));
-									DB::update('UPDATE users SET stripeAccount = ? where userID = ?', [$newAccount['id'], $userStripeAccount['userID']]);
+									
 									$transfer = \Stripe\Transfer::create(array(
 										"amount" => $cartItem['bookprice'] * 100,
 										"currency" => "cad",
 										"destination" => $newAccount['id']
 									));
+									DB::update('UPDATE users SET stripeAccount = ? where userID = ?', [$newAccount['id'], $userStripeAccount['userID']]);
 									DB::update('UPDATE books SET sold = ? where bookID = ?', [1, $cartItem['bookID']]);
 							}
+							//need to convert back
+							DB::update('UPDATE shoppingCart SET status = ? where bookID = ?', ['userPaid', $cartItem['bookID']]);
 						}
 					} else {
 						$shoppingCart = DB::select('SELECT sc.*, b.bookTitle, b.bookImage, b.bookName, b.bookDescription FROM shoppingCart sc LEFT JOIN books b ON b.bookID = sc.bookID WHERE sc.userID = ? AND sc.status = ?', [Session::get('userID'), 'addCart']);
@@ -214,8 +216,7 @@ class shoppingCartController extends Controller
 
 				if(isset($charge['id'])) {
 					foreach ($shoppingCart as $cartItem) {
-						//need to convert back
-						DB::update('UPDATE shoppingCart SET status = ? where bookID = ?', ['userPaid', $cartItem['bookID']]);
+						
 						$userStripeAccount = DB::select('SELECT * FROM users WHERE userID = ?', [$cartItem['bookUser']]);
 						$userStripeAccount = json_decode(json_encode($userStripeAccount),true)[0];
 						if(!is_null($userStripeAccount['stripeAccount'])) {
@@ -224,6 +225,8 @@ class shoppingCartController extends Controller
 									"currency" => "cad",
 									"destination" => $userStripeAccount['stripeAccount']
 								));
+								//need to convert back
+								DB::update('UPDATE shoppingCart SET status = ? where bookID = ?', ['userPaid', $cartItem['bookID']]);
 								DB::update('UPDATE books SET sold = ? where bookID = ?', [1, $cartItem['bookID']]);
 						} else {
 							//DB::update('UPDATE books SET needTransfer = ? where bookID = ?', [1, $cartItem['bookID']]);
@@ -233,12 +236,13 @@ class shoppingCartController extends Controller
 									"country" => "CA",
 									"email" => $userStripeAccount['userEmail']
 								));
-								DB::update('UPDATE users SET stripeAccount = ? where userID = ?', [$newAccount['id'], $userStripeAccount['userID']]);
+								
 								$transfer = \Stripe\Transfer::create(array(
 									"amount" => $cartItem['bookprice'] * 100,
 									"currency" => "cad",
 									"destination" => $newAccount['id']
 								));
+								DB::update('UPDATE users SET stripeAccount = ? where userID = ?', [$newAccount['id'], $userStripeAccount['userID']]);
 								DB::update('UPDATE books SET sold = ? where bookID = ?', [1, $cartItem['bookID']]);
 						}
 					}
