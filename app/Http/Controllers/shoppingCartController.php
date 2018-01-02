@@ -79,10 +79,20 @@ class shoppingCartController extends Controller
 							values (?, ?, ?, ?, ?, ?, ?, ?)',
 							[Session::get('userID'),$cardNumber,'null', $expiryYear.'-'.$expiryMonth,$nameOnCard,1,0,$cvv]
 						);
+						$userCard = DB::select('SELECT * FROM creditCard WHERE userID = ? AND isConfirmed = ? AND isVoid = ?', [Session::get('userID'), 1, 0]);
+						$userCard = json_decode(json_encode($userCards),true)[0];
+						$userAddress = DB::select('SELECT * FROM address WHERE userID = ?', [Session::get('userID')]);
+						$userAddress = json_decode(json_encode($userAddress),true)[0];
 						foreach ($shoppingCart as $cartItem) {
 						
 							$userStripeAccount = DB::select('SELECT * FROM users WHERE userID = ?', [$cartItem['bookUser']]);
 							$userStripeAccount = json_decode(json_encode($userStripeAccount),true)[0];
+
+							DB::insert('INSERT INTO trade (userID, bookID, cardID, tradeStatusID, addressID, tradeTotal,
+							date)
+							values (?, ?, ?, ?, ?, ?, ?)',
+							[Session::get('userID'), $cartItem['bookID'], $userCard['cardID'], 1,$userAddress['addressID'], $cartItem['bookprice'],date("Y-m-d")]
+							);
 							if(!is_null($userStripeAccount['stripeAccount'])) {
 									$transfer = \Stripe\Transfer::create(array(
 										"amount" => $cartItem['bookprice'] * 100,
@@ -195,6 +205,8 @@ class shoppingCartController extends Controller
 			$totalCharge = $totalCharge * 100;
 			$userCard = DB::select('SELECT * FROM creditCard WHERE userID = ? AND isConfirmed = ? AND isVoid = ?', [Session::get('userID'), 1, 0]);
 			$userCard = json_decode(json_encode($userCard),true)[0];
+			$userAddress = DB::select('SELECT * FROM address WHERE userID = ?', [Session::get('userID')]);
+			$userAddress = json_decode(json_encode($userAddress),true)[0];
 			try {
 				// Use Stripe's bindings...
 				$card = \Stripe\Token::create(array(
@@ -219,6 +231,12 @@ class shoppingCartController extends Controller
 						
 						$userStripeAccount = DB::select('SELECT * FROM users WHERE userID = ?', [$cartItem['bookUser']]);
 						$userStripeAccount = json_decode(json_encode($userStripeAccount),true)[0];
+
+						DB::insert('INSERT INTO trade (userID, bookID, cardID, tradeStatusID, addressID, tradeTotal,
+						date)
+						values (?, ?, ?, ?, ?, ?, ?)',
+						[Session::get('userID'), $cartItem['bookID'], $userCard['cardID'], 1,$userAddress['addressID'], $cartItem['bookprice'],date("Y-m-d")]
+						);
 						if(!is_null($userStripeAccount['stripeAccount'])) {
 								$transfer = \Stripe\Transfer::create(array(
 									"amount" => $cartItem['bookprice'] * 100,

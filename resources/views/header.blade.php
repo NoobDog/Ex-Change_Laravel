@@ -20,7 +20,7 @@
       <div class="nbDropdown-content">
         <a href="{{url('/myBooks')}}"><i class="fa fa-book" aria-hidden="true"></i> My Books</a>
         <a href="{{url('/myBanks')}}"><i class="fa fa-university" aria-hidden="true"></i> My Bank Information</a>
-        <a href="#"><i class="fa fa-trademark" aria-hidden="true"></i> My Trade Information</a>
+        <a href="{{url('/tradeHistory')}}"><i class="fa fa-trademark" aria-hidden="true"></i> My Trade Information</a>
         <!-- <a href="#"><i class="fa fa-tint" aria-hidden="true"></i>  My Points</a> -->
       </div>
     </li>
