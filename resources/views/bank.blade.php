@@ -18,7 +18,7 @@
     <body>
         @include('header')
             @if(isset($errorMsg))
-            <p class="message">{{$errorMsg}} <span style="float:right;" id="close"><i class="fa fa-times-circle" aria-hidden="true"></i></span></P>
+            <p class="message">{{$errorMsg['message']}} <span style="float:right;" id="close"><i class="fa fa-times-circle" aria-hidden="true"></i></span></P>
             @endif
             @if (empty($userCard))
             <form method="post" action="{{route('addCard')}}" class = "cardForm">
