@@ -57,20 +57,70 @@ class newAccountController extends Controller
 							 $checkUser = DB::select('SELECT * FROM users WHERE userEmail = ?' , [$inputEmail]);
 							 if(empty($checkUser)) {
 								 $newUserName = $inputFirstName.' '.$inputLastName;
-								 	DB::insert('INSERT INTO users (userName, userPassword, userEmail, adminID, userIP, userIcon,
-										isWarning, isBlock, isVoid, roleTypeID, userQuestion1, userAnswer1, userQuestion2, userAnswer2, userSince, stripeAccount)
-										values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-										[$newUserName,$inputPasswordHashed,$inputEmail,0,'::1','0.jpg',0,0,0,1,$inputQuestion1,$inputAnswer1,
-										 $inputQuestion2,$inputAnswer2,date("Y-m-d"), $newAccount['id']]
-									);
+								try {
+									$newAccount = \Stripe\Account::create(array(
+										"type" => "standard",
+										"country" => "CA",
+										"email" =>  $inputEmail
+									 ));
+										 DB::insert('INSERT INTO users (userName, userPassword, userEmail, adminID, userIP, userIcon,
+											isWarning, isBlock, isVoid, roleTypeID, userQuestion1, userAnswer1, userQuestion2, userAnswer2, userSince, stripeAccount)
+											values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+											[$newUserName,$inputPasswordHashed,$inputEmail,0,'::1','0.jpg',0,0,0,1,$inputQuestion1,$inputAnswer1,
+											 $inputQuestion2,$inputAnswer2,date("Y-m-d"), $newAccount['id']]
+										);
+	
+										$user = DB::select('SELECT * FROM users WHERE userEmail = ? AND userPassword = ?', [$inputEmail, $inputPasswordHashed]);
+										$user = json_decode(json_encode($user),true);
+										Session::put('userID' , $user[0]['userID']);
+										Session::put('userName', $user[0]['userName']);
+										Session::put('userEmail', $user[0]['userEmail']);
+										Session::put('roleTypeID', $user[0]['roleTypeID']);
+										Session::put('userIcon' , $user[0]['userIcon']);
+								}catch(\Stripe\Error\Card $e) {
+									// Since it's a decline, \Stripe\Error\Card will be caught
+									$body = $e->getJsonBody();
+									$err  = $body['error'];
+									
+									return view('newAccount',['page_name_active'=>'newAccount','errorMsg'=>$err['message'],'questions_1'=>$quetions[1],'questions_2'=>$quetions[2]]);
+								} catch (\Stripe\Error\InvalidRequest $e) {
+									// Invalid parameters were supplied to Stripe's API
+									$body = $e->getJsonBody();
+									$err  = $body['error'];
 
-									$user = DB::select('SELECT * FROM users WHERE userEmail = ? AND userPassword = ?', [$inputEmail, $inputPasswordHashed]);
-									$user = json_decode(json_encode($user),true);
-									Session::put('userID' , $user[0]['userID']);
-									Session::put('userName', $user[0]['userName']);
-									Session::put('userEmail', $user[0]['userEmail']);
-									Session::put('roleTypeID', $user[0]['roleTypeID']);
-									Session::put('userIcon' , $user[0]['userIcon']);
+									
+									return view('newAccount',['page_name_active'=>'newAccount','errorMsg'=>$err['message'],'questions_1'=>$quetions[1],'questions_2'=>$quetions[2]]);
+								} catch (\Stripe\Error\Authentication $e) {
+									// Authentication with Stripe's API failed
+									// (maybe you changed API keys recently)
+									$body = $e->getJsonBody();
+									$err  = $body['error'];
+
+									
+									return view('newAccount',['page_name_active'=>'newAccount','errorMsg'=>$err['message'],'questions_1'=>$quetions[1],'questions_2'=>$quetions[2]]);
+								} catch (\Stripe\Error\ApiConnection $e) {
+									// Network communication with Stripe failed
+									$body = $e->getJsonBody();
+									$err  = $body['error'];
+
+									
+									return view('newAccount',['page_name_active'=>'newAccount','errorMsg'=>$err['message'],'questions_1'=>$quetions[1],'questions_2'=>$quetions[2]]);
+								} catch (\Stripe\Error\Base $e) {
+									// Display a very generic error to the user, and maybe send
+									// yourself an email
+									$body = $e->getJsonBody();
+									$err  = $body['error'];
+
+									
+									return view('newAccount',['page_name_active'=>'newAccount','errorMsg'=>$err['message'],'questions_1'=>$quetions[1],'questions_2'=>$quetions[2]]);
+								} catch (Exception $e) {
+									// Something else happened, completely unrelated to Stripe
+									$body = $e->getJsonBody();
+									$err  = $body['error'];
+
+									return view('newAccount',['page_name_active'=>'newAccount','errorMsg'=>$err['message'],'questions_1'=>$quetions[1],'questions_2'=>$quetions[2]]);
+								}
+
 									//return view('welcome' , ['page_name_active' => 'home','name' => Session::get('userName')]);
 									return redirect()->route('home');
 							 } else {
