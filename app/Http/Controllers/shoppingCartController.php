@@ -89,9 +89,9 @@ class shoppingCartController extends Controller
 							$userStripeAccount = json_decode(json_encode($userStripeAccount),true)[0];
 
 							DB::insert('INSERT INTO trade (userID, bookID, cardID, tradeStatusID, addressID, tradeTotal,
-							date)
-							values (?, ?, ?, ?, ?, ?, ?)',
-							[Session::get('userID'), $cartItem['bookID'], $userCard['cardID'], 1,$userAddress['addressID'], $cartItem['bookprice'],date("Y-m-d")]
+							date, isVoid)
+							values (?, ?, ?, ?, ?, ?, ?, ?)',
+							[Session::get('userID'), $cartItem['bookID'], $userCard['cardID'], 1,$userAddress['addressID'], $cartItem['bookprice'],date("Y-m-d"), 0]
 							);
 							if(!is_null($userStripeAccount['stripeAccount'])) {
 									$transfer = \Stripe\Transfer::create(array(
@@ -233,9 +233,9 @@ class shoppingCartController extends Controller
 						$userStripeAccount = json_decode(json_encode($userStripeAccount),true)[0];
 
 						DB::insert('INSERT INTO trade (userID, bookID, cardID, tradeStatusID, addressID, tradeTotal,
-						date)
-						values (?, ?, ?, ?, ?, ?, ?)',
-						[Session::get('userID'), $cartItem['bookID'], $userCard['cardID'], 1,$userAddress['addressID'], $cartItem['bookprice'],date("Y-m-d")]
+						date, isVoid)
+						values (?, ?, ?, ?, ?, ?, ?, ?)',
+						[Session::get('userID'), $cartItem['bookID'], $userCard['cardID'], 1,$userAddress['addressID'], $cartItem['bookprice'],date("Y-m-d"), 0]
 						);
 						if(!is_null($userStripeAccount['stripeAccount'])) {
 								$transfer = \Stripe\Transfer::create(array(
