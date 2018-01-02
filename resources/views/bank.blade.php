@@ -17,38 +17,41 @@
     </head>
     <body>
         @include('header')
+            @if(isset($errorMsg))
+            <p class="message">{{$errorMsg}} <span style="float:right;" id="close"><i class="fa fa-times-circle" aria-hidden="true"></i></span></P>
+            @endif
             @if (empty($userCard))
             <form method="post" action="{{route('addCard')}}" class = "cardForm">
             {{csrf_field()}}
-                <table>
+                <table class = "cardTable">
                     <tr>
                         <th><label><b>Name ON CARD</b></label></th>
                         <td>
-                            <input type="text" name="nameOnCard" required>
+                            <input type="text" name="nameOnCard" with="100px" required>
                         </td>                     
                     </tr>
                     <tr>
                         <th><label><b>CARD NUMBER</b></label></th>
                         <td>
-                            <input type="number" name="cardNumber" required>
+                            <input type="number" name="cardNumber" with="100px" required>
                         </td>                     
                     </tr>
                     <tr>
                         <th><label><b>CVV</b></label></th>
                         <td>
-                            <input type="number" name="cvv" required>
+                            <input type="number" name="cvv" with="100px" required>
                         </td>                     
                     </tr>
                     <tr>
                         <th><label><b>EXPIRY YEAR</b></label></th>
                         <td>
-                            <select name="expiryYear" id = "year"></select>
+                            <select name="expiryYear" id = "year" with="100px"></select>
                         </td>                     
                     </tr>
                     <tr>
                         <th><label><b>EXPIRY MONTH</b></label></th>
                         <td>
-                            <select name="expiryMonth">
+                            <select name="expiryMonth" with="100px">
                                 <option value="01">JAN</option>
                                 <option value="02">FEB</option>
                                 <option value="03">MAR</option>
@@ -72,23 +75,23 @@
             @else
                 <form method="post" action="{{route('editCard')}}" class = "cardForm">
                 {{csrf_field()}}
-                    <table>
+                    <table class = "cardTable">
                         <tr>
                             <th><label><b>Name ON CARD</b></label></th>
                             <td>
-                                <input type="text" name="nameOnCard" value = "{{$userCard['cardHolder']}}"required>
+                                <input type="text" name="nameOnCard" value = "{{$userCard['cardHolder']}}" with="100px" required>
                             </td>                     
                         </tr>
                         <tr>
                             <th><label><b>CARD NUMBER</b></label></th>
                             <td>
-                                <input type="number" name="cardNumber" value = "{{$userCard['cardNumber']}}" required>
+                                <input type="number" name="cardNumber" value = "{{$userCard['cardNumber']}}" with="100px" required>
                             </td>                     
                         </tr>
                         <tr>
                             <th><label><b>CVV</b></label></th>
                             <td>
-                                <input type="number" name="cvv" value = "{{$userCard['cvc']}}" required>
+                                <input type="number" name="cvv" value = "{{$userCard['cvc']}}" with="100px" required>
                             </td>                     
                         </tr>
                         <?php 
@@ -98,13 +101,13 @@
                         <tr>
                             <th><label><b>EXPIRY YEAR</b></label></th>
                             <td>
-                                <select name="expiryYear" id = "year"></select>
+                                <select name="expiryYear" id = "year" with="100px"></select>
                             </td>                     
                         </tr>
                         <tr>
                             <th><label><b>EXPIRY MONTH</b></label></th>
                             <td>
-                                <select name="expiryMonth">
+                                <select name="expiryMonth" with="100px">
                                     <option value="01" @if($month == "01") selected @endif>JAN</option>
                                     <option value="02" @if($month == "02") selected @endif>FEB</option>
                                     <option value="03" @if($month == "03") selected @endif>MAR</option>
