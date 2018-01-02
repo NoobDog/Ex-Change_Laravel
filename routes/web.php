@@ -74,7 +74,8 @@ Route::get('/shoppingCart/checkOut',['as'=>'checkOut','uses'=>'shoppingCartContr
 
 //banks
 Route::get('/myBanks','bankController@index');
-
+Route::post('/myBanks/addCard',['as'=>'addCard', 'uses'=>'bankController@addCard']);
+Route::post('/myBanks/editCard',['as'=>'editCard', 'uses'=>'bankController@editCard']);
 //footer
 Route::post('/footer',['as'=>'chatMessages','uses'=>'footerController@index']);
 Route::post('/footer/addMessage',['as'=>'addMessage','uses'=>'footerController@addMessage']);

@@ -13,13 +13,29 @@ class bankController extends Controller
 		public function index() {
 
 			$userCard = DB::select('SELECT * FROM creditCard WHERE userID = ?', [Session::get('userID')]);
-            $userCard = json_decode(json_encode($userCard),true);
+            $userCard = json_decode(json_encode($userCard),true)[0];
 			\View::share(['page_name_active'=> 'myEx-change']);
 
-			// \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-
-			// $test = \Stripe\Balance::retrieve();
-
 			return \View::make('bank',['userCard' => $userCard]);
-		}
+        }
+        
+        public function addCard(Request $request) {
+			$nameOnCard = $request->input('nameOnCard');
+			$cardNumber = $request->input('cardNumber');
+			$cvv = $request->input('cvv');
+			$expiryYear = $request->input('expiryYear');
+            $expiryMonth = $request->get('expiryMonth');
+            
+            return $expiryYear;
+        }
+
+        public function editCard() {
+			$nameOnCard = $request->input('nameOnCard');
+			$cardNumber = $request->input('cardNumber');
+			$cvv = $request->input('cvv');
+			$expiryYear = $request->input('expiryYear');
+            $expiryMonth = $request->get('expiryMonth');
+            
+            return $expiryYear;
+        }
 }
