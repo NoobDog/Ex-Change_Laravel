@@ -131,4 +131,11 @@ html, body {
 .cardForm {
     display: inline-block;
     text-align: center;
+    width: 100%;
 }
+
+.cardForm table {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+ }
