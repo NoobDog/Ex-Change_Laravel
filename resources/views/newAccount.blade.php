@@ -77,7 +77,9 @@
     </body>
 </html>
 <script>
-
+$('#close').click(function() {
+    $('.message').fadeOut("slow");
+});
 
   $('input[name="psw"]').off("input").on("input", function() {
     var passwordDigits = $(this).val().length;
