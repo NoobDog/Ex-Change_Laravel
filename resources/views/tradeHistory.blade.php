@@ -23,11 +23,10 @@
                         <img src="{{asset('users/'.$trade['bookImage'])}}"/>
                         <h3>{{$trade['bookName']}}</h3>
                         <h3>$ {{number_format($trade['tradeTotal'], 2, '.', '')}} CAD</h3>
-                        <h3>{{$trade['tradeStatus']}}</h3>
+                        <p>{{$trade['tradeStatus']}}</p>
                     </li>
                 @endforeach
             </ul>
-        {{print_r($trades)}}
         @include('footer')
     </body>
     

@@ -70,6 +70,7 @@ html, body {
    
   .tradeLists li p {
     font: 200 12px/1.5 Georgia, Times New Roman, serif;
+    float: right;
   }
    
   .tradeLists li {
