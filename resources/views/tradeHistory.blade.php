@@ -12,7 +12,7 @@
         <!--Font awesome-->
         <link rel="stylesheet" href="{{asset('font-awesome/css/font-awesome.min.css')}}">
         <!-- Styles -->
-        <link rel="stylesheet" href="{{asset('css/users.css')}}">
+        <link rel="stylesheet" href="{{asset('css/tradeHistory.css')}}">
         
     </head>
     <body>
