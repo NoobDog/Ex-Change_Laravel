@@ -51,7 +51,7 @@ class newAccountController extends Controller
 						 $inputQuestion2 = $quetions[2][$inputQuestionIndex2];
 						 $inputAnswer1 = $request->input('question1');
 						 $inputAnswer2 = $request->input('question2');
-
+						 return $inputPassword.' +  '.$inputPasswordRepeat;
 						 if($inputPassword == $inputPasswordRepeat) {
 							 $inputPasswordHashed = md5($inputPassword);
 							 $checkUser = DB::select('SELECT * FROM users WHERE userEmail = ?' , [$inputEmail]);
