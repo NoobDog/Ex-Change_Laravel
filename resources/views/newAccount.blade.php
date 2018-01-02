@@ -19,6 +19,7 @@
 
     <body>
         @include('header')
+        {{print_r($errorMsg)}}
         <div class="flex-center position-ref full-height">
             <div class="content">
               <div class="Register">

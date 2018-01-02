@@ -69,7 +69,6 @@ class newAccountController extends Controller
 											[$newUserName,$inputPasswordHashed,$inputEmail,0,'::1','0.jpg',0,0,0,1,$inputQuestion1,$inputAnswer1,
 											 $inputQuestion2,$inputAnswer2,date("Y-m-d"), $newAccount['id']]
 										);
-	
 										$user = DB::select('SELECT * FROM users WHERE userEmail = ? AND userPassword = ?', [$inputEmail, $inputPasswordHashed]);
 										$user = json_decode(json_encode($user),true);
 										Session::put('userID' , $user[0]['userID']);
