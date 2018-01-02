@@ -88,7 +88,7 @@
                         <tr>
                             <th><label><b>CVV</b></label></th>
                             <td>
-                                <input type="number" name="cvv" value = "{{$userCard['cvv']}}" required>
+                                <input type="number" name="cvv" value = "{{$userCard['cvc']}}" required>
                             </td>                     
                         </tr>
                         <?php 
