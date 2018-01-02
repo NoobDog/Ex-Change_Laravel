@@ -132,8 +132,12 @@
     </body>
 
 </html>
-
 <script>
+
+    $('#close').click(function() {
+        $('.message').fadeOut("slow");
+    });
+
     var end = 2000;
     var start = new Date().getFullYear() + 3;
     var thisYear =  new Date().getFullYear();
