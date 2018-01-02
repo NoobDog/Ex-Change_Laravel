@@ -20,8 +20,7 @@
     <body>
         @include('header')
         @if(isset($errorMsg))
-                {{print_r($errorMsg)}}
-                <p class="message">{{$errorMsg}} <span style="float:right;" id="close"><i class="fa fa-times-circle" aria-hidden="true"></i></span></P>
+                <p class="message">{{$errorMsg['message']}} <span style="float:right;" id="close"><i class="fa fa-times-circle" aria-hidden="true"></i></span></P>
         @endif
         <div class="flex-center position-ref full-height">
             <div class="content">
