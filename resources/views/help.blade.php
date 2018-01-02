@@ -17,35 +17,10 @@
     <body>
         @include('header')
         <div class="flex-center position-ref full-height">
-            <!-- @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif -->
-            <form action="{{route('stripe')}}" method="post">
-            {{ csrf_field() }}
-            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                    data-key="{{env('STRIPE_KEY')}}"
-                    data-description="Access for a year"
-                    data-amount="5000"
-                    data-locale="auto"
-                    data-currency="cad"></script>
-            </form>
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel - Help
-                    {{print_r(session()->get('userID'))}}
+                    Help
                 </div>
-                <!-- stripe testing -->
-                @if (isset($test)) 
-                {{print_r($test)}}
-                @endif
-
             </div>
         </div>
         @include('footer')
