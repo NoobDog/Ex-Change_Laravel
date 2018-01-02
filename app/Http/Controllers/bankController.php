@@ -12,8 +12,10 @@ class bankController extends Controller
 
 		public function index() {
 
-			$userCard = DB::select('SELECT * FROM creditCard WHERE userID = ?', [Session::get('userID')]);
-            $userCard = json_decode(json_encode($userCard),true)[0];
+            $userCard = DB::select('SELECT * FROM creditCard WHERE userID = ?', [Session::get('userID')]);
+            if(!empty($userCard)) {
+                $userCard = json_decode(json_encode($userCard),true)[0];
+            }
 			\View::share(['page_name_active'=> 'myEx-change']);
 
 			return \View::make('bank',['userCard' => $userCard]);
