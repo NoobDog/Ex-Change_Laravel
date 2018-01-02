@@ -76,6 +76,7 @@ class newAccountController extends Controller
 										Session::put('userEmail', $user[0]['userEmail']);
 										Session::put('roleTypeID', $user[0]['roleTypeID']);
 										Session::put('userIcon' , $user[0]['userIcon']);
+										return redirect()->route('home');
 								}catch(\Stripe\Error\Card $e) {
 									// Since it's a decline, \Stripe\Error\Card will be caught
 									$body = $e->getJsonBody();
@@ -107,8 +108,6 @@ class newAccountController extends Controller
 									// yourself an email
 									$body = $e->getJsonBody();
 									$err  = $body['error'];
-
-									
 									return view('newAccount',['page_name_active'=>'newAccount','errorMsg'=>$err,'questions_1'=>$quetions[1],'questions_2'=>$quetions[2]]);
 								} catch (Exception $e) {
 									// Something else happened, completely unrelated to Stripe
@@ -117,8 +116,6 @@ class newAccountController extends Controller
 
 									return view('newAccount',['page_name_active'=>'newAccount','errorMsg'=>$err,'questions_1'=>$quetions[1],'questions_2'=>$quetions[2]]);
 								}
-
-									//return view('welcome' , ['page_name_active' => 'home','name' => Session::get('userName')]);
 									return redirect()->route('home');
 							 } else {
 								 return view('newAccount',['page_name_active'=>'newAccount','errorMsg'=>'This user is already existed!','questions_1'=>$quetions[1],'questions_2'=>$quetions[2]]);
