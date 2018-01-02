@@ -66,7 +66,7 @@ class bookDetailController extends Controller
     public function bookDetailAdminEdit($book,Request $request) {
         $isVoid = $request->input('isVoid') ?? 0;
         DB::update('UPDATE books SET isVoid = ? where bookID = ?', [$isVoid, $book]);
-        return redirect()->route('bookDetail');
+        return redirect()->route('bookDetail',$book);
     }
 
 
