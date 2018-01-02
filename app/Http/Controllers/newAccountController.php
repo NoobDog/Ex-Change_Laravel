@@ -54,9 +54,10 @@ class newAccountController extends Controller
 						 if($inputPassword == $inputPasswordRepeat) {
 							 $inputPasswordHashed = md5($inputPassword);
 							 $checkUser = DB::select('SELECT * FROM users WHERE userEmail = ?' , [$inputEmail]);
-return $inputPassword.' +  '.$inputPasswordRepeat;
+
 							 if(empty($checkUser)) {
 								 $newUserName = $inputFirstName.' '.$inputLastName;
+						return $newUserName;
 								try {
 									$newAccount = \Stripe\Account::create(array(
 										"type" => "standard",
