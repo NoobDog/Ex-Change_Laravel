@@ -51,10 +51,10 @@ class newAccountController extends Controller
 						 $inputQuestion2 = $quetions[2][$inputQuestionIndex2];
 						 $inputAnswer1 = $request->input('question1');
 						 $inputAnswer2 = $request->input('question2');
-						 return $inputPassword.' +  '.$inputPasswordRepeat;
 						 if($inputPassword == $inputPasswordRepeat) {
 							 $inputPasswordHashed = md5($inputPassword);
 							 $checkUser = DB::select('SELECT * FROM users WHERE userEmail = ?' , [$inputEmail]);
+return $inputPassword.' +  '.$inputPasswordRepeat;
 							 if(empty($checkUser)) {
 								 $newUserName = $inputFirstName.' '.$inputLastName;
 								try {
@@ -122,7 +122,7 @@ class newAccountController extends Controller
 							 }
 
 						 } else {
-							 return view('newAccount',['page_name_active'=>'newAccount','questions_1'=>$quetions[1],'questions_2'=>$quetions[2],'errorMsg'=>'test!!']);
+							 return view('newAccount',['page_name_active'=>'newAccount','questions_1'=>$quetions[1],'questions_2'=>$quetions[2],'errorMsg'=>'Password does not match.']);
 
 						 }
 
