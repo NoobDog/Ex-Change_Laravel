@@ -143,9 +143,9 @@
     var thisYear =  new Date().getFullYear();
     var options = "";
 
-    var existYear = <?php if(isset($year)) echo $year; else echo '';?>;
+    var existYear = <?php if(isset($year)) echo $year; else echo 'NULL';?>;
     for(var year = start ; year >=end; year--){
-        if(existYear !== "") {
+        if(existYear !== "NULL") {
             if(existYear == year) {
                 options += "<option selected>"+ year +"</option>";
             } else {
