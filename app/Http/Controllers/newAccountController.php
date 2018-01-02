@@ -81,27 +81,27 @@ class newAccountController extends Controller
 									$body = $e->getJsonBody();
 									$err  = $body['error'];
 									
-									return view('newAccount',['page_name_active'=>'newAccount','errorMsg'=>$err['message'],'questions_1'=>$quetions[1],'questions_2'=>$quetions[2]]);
+									return view('newAccount',['page_name_active'=>'newAccount','errorMsg'=>$err,'questions_1'=>$quetions[1],'questions_2'=>$quetions[2]]);
 								} catch (\Stripe\Error\InvalidRequest $e) {
 									// Invalid parameters were supplied to Stripe's API
 									$body = $e->getJsonBody();
 									$err  = $body['error'];
 
 									
-									return view('newAccount',['page_name_active'=>'newAccount','errorMsg'=>$err['message'],'questions_1'=>$quetions[1],'questions_2'=>$quetions[2]]);
+									return view('newAccount',['page_name_active'=>'newAccount','errorMsg'=>$err,'questions_1'=>$quetions[1],'questions_2'=>$quetions[2]]);
 								} catch (\Stripe\Error\Authentication $e) {
 									// Authentication with Stripe's API failed
 									// (maybe you changed API keys recently)
 									$body = $e->getJsonBody();
 									$err  = $body['error'];
 
-									return view('newAccount',['page_name_active'=>'newAccount','errorMsg'=>$err['message'],'questions_1'=>$quetions[1],'questions_2'=>$quetions[2]]);
+									return view('newAccount',['page_name_active'=>'newAccount','errorMsg'=>$err,'questions_1'=>$quetions[1],'questions_2'=>$quetions[2]]);
 								} catch (\Stripe\Error\ApiConnection $e) {
 									// Network communication with Stripe failed
 									$body = $e->getJsonBody();
 									$err  = $body['error'];
 
-									return view('newAccount',['page_name_active'=>'newAccount','errorMsg'=>$err['message'],'questions_1'=>$quetions[1],'questions_2'=>$quetions[2]]);
+									return view('newAccount',['page_name_active'=>'newAccount','errorMsg'=>$err,'questions_1'=>$quetions[1],'questions_2'=>$quetions[2]]);
 								} catch (\Stripe\Error\Base $e) {
 									// Display a very generic error to the user, and maybe send
 									// yourself an email
@@ -109,13 +109,13 @@ class newAccountController extends Controller
 									$err  = $body['error'];
 
 									
-									return view('newAccount',['page_name_active'=>'newAccount','errorMsg'=>$err['message'],'questions_1'=>$quetions[1],'questions_2'=>$quetions[2]]);
+									return view('newAccount',['page_name_active'=>'newAccount','errorMsg'=>$err,'questions_1'=>$quetions[1],'questions_2'=>$quetions[2]]);
 								} catch (Exception $e) {
 									// Something else happened, completely unrelated to Stripe
 									$body = $e->getJsonBody();
 									$err  = $body['error'];
 
-									return view('newAccount',['page_name_active'=>'newAccount','errorMsg'=>$err['message'],'questions_1'=>$quetions[1],'questions_2'=>$quetions[2]]);
+									return view('newAccount',['page_name_active'=>'newAccount','errorMsg'=>$err,'questions_1'=>$quetions[1],'questions_2'=>$quetions[2]]);
 								}
 
 									//return view('welcome' , ['page_name_active' => 'home','name' => Session::get('userName')]);
