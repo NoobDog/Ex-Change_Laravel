@@ -138,7 +138,7 @@
 
     var existYear = <?php echo $year;?>;
     for(var year = start ; year >=end; year--){
-        if(isset(existYear)) {
+        if(typeof existYear !== "undefined") {
             if(existYear == year) {
                 options += "<option selected>"+ year +"</option>";
             } else {
