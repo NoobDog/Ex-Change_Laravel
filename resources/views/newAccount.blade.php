@@ -19,14 +19,15 @@
 
     <body>
         @include('header')
-        {{print_r($errorMsg)}}
+        @if(isset($errorMsg))
+                {{print_r($errorMsg)}}
+                <p class="message">{{$errorMsg}} <span style="float:right;" id="close"><i class="fa fa-times-circle" aria-hidden="true"></i></span></P>
+        @endif
         <div class="flex-center position-ref full-height">
             <div class="content">
               <div class="Register">
                 <h2>Register</h2>
-                @if(isset($errorMsg))
-                <p class="message">{{$errorMsg}} <span style="float:right;" id="close"><i class="fa fa-times-circle" aria-hidden="true"></i></span></P>
-                @endif
+
                   <form action="{{route('signUpCheck')}}" style="border:1px solid #ccc" id="signinForm" method="POST">
                   {{ csrf_field() }}
                   <div class="container">
