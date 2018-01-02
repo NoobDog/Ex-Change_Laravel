@@ -29,7 +29,7 @@ class bankController extends Controller
             return $expiryYear;
         }
 
-        public function editCard() {
+        public function editCard(Request $request) {
 			$nameOnCard = $request->input('nameOnCard');
 			$cardNumber = $request->input('cardNumber');
 			$cvv = $request->input('cvv');

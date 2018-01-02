@@ -18,7 +18,7 @@
     <body>
         @include('header')
             @if (empty($userCard))
-            <form method="post" action="{{route('addCard')}}">
+            <form method="post" action="{{route('addCard')}}" class = "cardForm">
             {{csrf_field()}}
                 <table>
                     <tr>
@@ -66,11 +66,11 @@
                     </tr>
     
                 </table>
-                <button style='text-align: center;' type="submit" class="checkoutBtn">CHECK OUT</button>
+                <button style='text-align: center;' type="submit" class="btn">ADD CARD</button>
             </form>
     
             @else
-                <form method="post" action="{{route('editCard')}}">
+                <form method="post" action="{{route('editCard')}}" class = "cardForm">
                 {{csrf_field()}}
                     <table>
                         <tr>
@@ -122,7 +122,7 @@
                         </tr>
         
                     </table>
-                    <button style='text-align: center;' type="submit" class="checkoutBtn">CHECK OUT</button>
+                    <button style='text-align: center;' type="submit" class="btn">Edit Card</button>
                 </form>
             @endif
         @include('footer')
