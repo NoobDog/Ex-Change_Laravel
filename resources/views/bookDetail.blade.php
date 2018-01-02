@@ -38,9 +38,9 @@
                     <p>Type <strong>{{$book['bookType']}}</strong></p>
                     <p>Price <strong>$ {{number_format($book['bookPrice'], 2, '.', '')}} CAD</strong></p>
                     @if(Session::get('roleTypeID') == 2)
-                    <form method="POST"   action="{{route('bookDetailAdminEdit',$book['bookID'])}}">
+                    <form method="POST" action="{{route('bookDetailAdminEdit',$book['bookID'])}}">
                             {{csrf_field()}}
-                            <input type="checkbox" name="isVoid" value="1" checked = "@if($book['isVoid']) checked @endif"> Void
+                            <input type="checkbox" name="isVoid" value="1" @if($book['isVoid']) checked @endif> Void
                             <button type="submit" class ='myButton'>Update</button> 
                     </form>
                     @endif
