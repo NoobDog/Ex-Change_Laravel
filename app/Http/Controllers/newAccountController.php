@@ -96,14 +96,12 @@ class newAccountController extends Controller
 									$body = $e->getJsonBody();
 									$err  = $body['error'];
 
-									
 									return view('newAccount',['page_name_active'=>'newAccount','errorMsg'=>$err['message'],'questions_1'=>$quetions[1],'questions_2'=>$quetions[2]]);
 								} catch (\Stripe\Error\ApiConnection $e) {
 									// Network communication with Stripe failed
 									$body = $e->getJsonBody();
 									$err  = $body['error'];
 
-									
 									return view('newAccount',['page_name_active'=>'newAccount','errorMsg'=>$err['message'],'questions_1'=>$quetions[1],'questions_2'=>$quetions[2]]);
 								} catch (\Stripe\Error\Base $e) {
 									// Display a very generic error to the user, and maybe send
@@ -128,7 +126,7 @@ class newAccountController extends Controller
 							 }
 
 						 } else {
-							 return view('newAccount',['page_name_active'=>'newAccount','questions_1'=>$quetions[1],'questions_2'=>$quetions[2]]);
+							 return view('newAccount',['page_name_active'=>'newAccount','questions_1'=>$quetions[1],'questions_2'=>$quetions[2],'errorMsg'=>'test!!']);
 
 						 }
 
