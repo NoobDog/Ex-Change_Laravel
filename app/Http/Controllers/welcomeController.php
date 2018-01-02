@@ -11,7 +11,7 @@ class welcomeController extends Controller
 { 
 
 		public function index() {
-			$books = DB::select('SELECT * from books WHERE isVoid = ? AND private = ? AND sold IS NULL',[0, 0]);
+			$books = DB::select('SELECT * from books WHERE isVoid = ? AND private = ? AND sold = ?',[0, 0, 0]);
 			$books = json_decode(json_encode($books),true);
 			if(Session::has('userID')) {
 				$messages = DB::select('SELECT * FROM negotiate WHERE receiverID = ? AND isRead = ?',[Session::get('userID'), 0]);

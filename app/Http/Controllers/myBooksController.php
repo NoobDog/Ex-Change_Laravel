@@ -56,10 +56,10 @@ class myBooksController extends Controller
 									$imgPath = Session::get('userEmail').'/'.$imgFile->getClientOriginalName();
 									//insert to books table
 									DB::insert('INSERT INTO books (userID, bookName, bookTypeID, bookTitle, bookPublisher, bookAuthor, bookEdition, bookDate,
-										bookImage, bookPrice, enableUserPoint, bookPoint, isVoid, private, bookDescription)
-										values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+										bookImage, bookPrice, enableUserPoint, bookPoint, isVoid, private, bookDescription, sold)
+										values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 										[$userID, $bookName, $bookType, $bookTitle, $bookPublisher, $bookAuthor, $bookEdition, $bookDate, $imgPath,
-											$bookPrice, 0, 0, 0, 0, $bookDescription]
+											$bookPrice, 0, 0, 0, 0, $bookDescription, 0]
 									);
 
 							} else {
@@ -68,20 +68,20 @@ class myBooksController extends Controller
 									$imgPath = Session::get('userEmail').'/'.$imgFile->getClientOriginalName();
 									//insert to books table
 									DB::insert('INSERT INTO books (userID, bookName, bookTypeID, bookTitle, bookPublisher, bookAuthor, bookEdition, bookDate,
-										bookImage, bookPrice, enableUserPoint, bookPoint, isVoid, private, bookDescription)
-										values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+										bookImage, bookPrice, enableUserPoint, bookPoint, isVoid, private, bookDescription, sold)
+										values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 										[$userID, $bookName, $bookType, $bookTitle, $bookPublisher, $bookAuthor, $bookEdition, $bookDate, $imgPath,
-											$bookPrice, 0, 0, 0, 0, $bookDescription]
+											$bookPrice, 0, 0, 0, 0, $bookDescription, 0]
 									);
 							}
 		     } else {
 					 $imgPath = 'unavailable.jpg';
 					 //insert to books table
 					 DB::insert('INSERT INTO books (userID, bookName, bookTypeID, bookTitle, bookPublisher, bookAuthor, bookEdition, bookDate,
-						 bookImage, bookPrice, enableUserPoint, bookPoint, isVoid, private, bookDescription)
-						 values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+						 bookImage, bookPrice, enableUserPoint, bookPoint, isVoid, private, bookDescription, sold)
+						 values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 						 [$userID, $bookName, $bookType, $bookTitle, $bookPublisher, $bookAuthor, $bookEdition, $bookDate, $imgPath,
-							 $bookPrice, 0, 0, 0, 0, $bookDescription]
+							 $bookPrice, 0, 0, 0, 0, $bookDescription, 0]
 					 );
 				}
 				return $this->index();
