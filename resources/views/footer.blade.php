@@ -10,7 +10,7 @@
 
 <div class="footBar">
   <ul class="fb">
-    <li style="float:right;"><a @if(Session::has('userID')) onClick="getDialog()" @else href="{{url('/')}}" @endif ><i id="chatIcon" class="fa fa-envelope" aria-hidden="true"></i></a></li>
+    <li style="float:right;"><a @if(Session::has('userID')) onClick="getDialog()" @else href="{{url('/login')}}" @endif ><i id="chatIcon" class="fa fa-envelope" aria-hidden="true"></i></a></li>
   </ul>
 </div>
 
