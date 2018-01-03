@@ -2,6 +2,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/header.css')}}">
 <div class="logo">
   <img src="{{asset('img/ex-change_logo.jpg')}}" height="66px" width="100%">
+  <div class="imgTxt">Ex-Change</div>
 </div>
 @if (Session::has('userName') && Session::get('roleTypeID') == 1)
 <div class="navBar">
