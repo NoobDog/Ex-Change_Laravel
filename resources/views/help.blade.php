@@ -16,7 +16,8 @@
     </head>
     <body>
         @include('header')
-        <div id="helpDialog" hidden></div>
+        <h4>About Ex-change</h4>
+        <h4>Page Admin: </h4>
         <ul class="userLists">
             @foreach ($users as $user)
                 <li class=" @if($user['isVoid']) Void @endif @if($user['isWarning']) Warning @endif">
