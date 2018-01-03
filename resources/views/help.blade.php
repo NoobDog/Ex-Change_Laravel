@@ -16,8 +16,8 @@
     </head>
     <body>
         @include('header')
-        <h3 class="title"> About Ex-change:</h4>
-        <h3 class="title"> Contact Me: </h4>
+        <h4 class="title"> About Ex-change:</h4>
+        <h4 class="title"> Contact Me: </h4>
         <ul class="userLists">
             @foreach ($users as $user)
                 <li class=" @if($user['isVoid']) Void @endif @if($user['isWarning']) Warning @endif">
