@@ -18,7 +18,7 @@
         @include('header')
         <h3 class="sub-title"> About Ex-change:</h3>
             <p class="sub-content">
-            The book is the ladder of human progress, and most people have at least one book in their life. 
+              The book is the ladder of human progress, and most people have at least one book in their life. 
             For students, they have to buy test books for their courses. When these courses are finished, 
             those books won’t be used any more. For other people, 
             most of them have some books which are not used any more. 
