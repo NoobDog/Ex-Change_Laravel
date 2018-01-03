@@ -86,3 +86,7 @@ html, body {
   .footBar {
     position: absolute;
   }
+  .sub-content {
+      padding-left: 3%;
+      width: 90%;
+  }

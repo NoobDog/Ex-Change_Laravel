@@ -17,6 +17,16 @@
     <body>
         @include('header')
         <h3 class="sub-title"> About Ex-change:</h3>
+            <p class="sub-content">
+            The book is the ladder of human progress, and most people have at least one book in their life. 
+            For students, they have to buy test books for their courses. When these courses are finished, 
+            those books won’t be used any more. For other people, 
+            most of them have some books which are not used any more. 
+            For encouraging reading and recycling old books, there is a web application, 
+            which name is EX-change (exchange). This Web application is a good platform for people to exchange their old books. 
+            People only need to register as a member, and post their old books to this web, and their books will be showed on this page. If other people want to get those books, they can send a request to those books’ owners. This request could ask books’ owners to exchange those books with other books, or could use points to exchange those books. 
+            This Web is an idea for exchange books, and the main point is helping people get their favorite books to read.
+            </p>
         <h3 class="sub-title"> Contact Us: </h3>
         <ul class="userLists">
             @foreach ($users as $user)
