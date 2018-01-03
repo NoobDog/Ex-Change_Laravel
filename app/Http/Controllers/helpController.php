@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
-//use Stripe;
+use DB;
 class helpController extends Controller
 {
 	// public function __construct()
