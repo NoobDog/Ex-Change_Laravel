@@ -12,29 +12,10 @@ class helpController extends Controller
 	// 	View::share(['page_name_active'=> 'mypagename']);
 	// }
 		public function index() {
+			$users = DB::select('SELECT userName, userEmail, userIcon, roleTypeID, isWarning, isBlock, isVoid FROM users WHERE roleTypeID = ?',[2]);
+            $users = json_decode(json_encode($users),true);
 			\View::share(['page_name_active'=> 'help']);
-            return \View::make('help');
+            return \View::make('help',['users'=> $users]);
 		}
-		public function stripe(Request $request) {
-			\Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-			$token  = $request->input('stripeToken');
-			$customer = \Stripe\Customer::create(array(
-				'email' => 'customer@example.com',
-				'source'  => $token
-			));
-		  
-			$charge = \Stripe\Charge::create(array(
-				'customer' => $customer->id,
-				'amount'   => 5000,
-				'currency' => 'cad'
-			));
-			// $data = \Stripe\Charge::create(array(
-			// 	"amount" => 2000,
-			// 	"currency" => "cad",
-			// 	"card" => "4242424242424242", // obtained with Stripe.js
-			// 	"description" => "Charge for ella.jackson@example.com"
-			//   ));$request->input('psw-repeat');
-			return view('help',['page_name_active'=> 'help','test'=> $customer->id]);
 
-		}
 }

@@ -16,13 +16,11 @@
     </head>
     <body>
         @include('header')
-        <div class="flex-center position-ref full-height">
-            <div class="content">
-                <div class="title m-b-md">
-                    Help
-                </div>
-            </div>
-        </div>
+        <div id="helpDialog" hidden></div>
+        @foreach($users as $user)
+            print_r($user);
+
+        @endforeach
         @include('footer')
     </body>
     

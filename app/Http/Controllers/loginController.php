@@ -11,8 +11,7 @@ class loginController extends Controller
 {
 
 		public function index() {
-						\View::share(['page_name_active'=> 'login']);
-
+			\View::share(['page_name_active'=> 'login']);
             return \View::make('login');
         }
 		public function getUser(Request $request) {
