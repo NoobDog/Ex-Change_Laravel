@@ -18,7 +18,7 @@
         @include('header')
         <div id="helpDialog" hidden></div>
         @foreach($users as $user)
-            {{print_r($user);}}
+            {{print_r($user)}}
 
         @endforeach
         @include('footer')
