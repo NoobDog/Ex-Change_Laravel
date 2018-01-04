@@ -332,4 +332,7 @@ class shoppingCartController extends Controller
 			}
 
 		}
+		public function deleteCartItem($id) {
+			return $id;
+		}
 }

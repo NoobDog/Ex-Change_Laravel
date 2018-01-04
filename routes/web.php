@@ -71,6 +71,7 @@ Route::post('/addressSetting',['as'=>'addAddress','uses'=>'addressSettingControl
 Route::get('/shoppingCart',['as'=>'shoppingCart','uses'=>'shoppingCartController@index']);
 Route::post('/shoppingCart',['as'=>'addCardAndCheckOut','uses'=>'shoppingCartController@addCardAndCheckOut']);
 Route::get('/shoppingCart/checkOut',['as'=>'checkOut','uses'=>'shoppingCartController@checkOut']);
+Route::post('/shoppingCart/delete/{ID}',['as'=>'deleteCartItem','uses'=>'shoppingCartController@deleteCartItem']);
 
 //banks
 Route::get('/myBanks','bankController@index');
