@@ -199,7 +199,6 @@
             setTimeout(function(){
               $('.fa-shopping-cart').removeClass("faa-wrench animated");
             }, 10000);
-            alert('YES!!');
           } else if (msg =='sameUser') {
             alert('This is your book!');
           } else if (msg =='hasInCart') {
