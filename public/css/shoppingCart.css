@@ -132,3 +132,22 @@ select {
 .message {
     background-color: #f45042;
 }   
+.my-btn {
+    // @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+    $color: #fff;
+    $background: #000;
+    $border: #333;
+    @include button-variant($color, $background, $border);
+    // override the default darkening with lightening
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle {
+      color: $color;
+      background-color: lighten($background, 20%); //10% default
+      border-color: lighten($border, 22%); // 12% default
+    }
+  }
+  
