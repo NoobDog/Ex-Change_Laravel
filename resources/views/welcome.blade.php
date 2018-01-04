@@ -194,6 +194,11 @@
         success: function( msg ) {
           console.log(msg);
           if(msg == 'yes') {
+            $('.fa-shopping-cart').addClass("faa-wrench animated");
+
+            setTimeout(function(){
+              $('.fa-shopping-cart').removeClass("faa-wrench animated");
+            }, 10000);
             alert('YES!!');
           } else if (msg =='sameUser') {
             alert('This is your book!');
