@@ -128,10 +128,10 @@
 
     <body>
         @include('header')
-        <form class="search" >
+        <!-- <form class="search" >
           <input type="text" class="searchTerm"/>
           <button class="myButton">Search</button>
-        </form>
+        </form> -->
             <div class="content">
               <div class="testing">
                   <div id="wrapper">
