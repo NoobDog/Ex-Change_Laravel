@@ -333,6 +333,10 @@ class shoppingCartController extends Controller
 
 		}
 		public function deleteCartItem($id) {
-			return $id;
+			//delete shopping cart row
+			DB::delete('DELETE FROM shoppingCart WHERE ID = ?',[$id]);
+			//go to index function
+			return $this->index();
 		}
+
 }
