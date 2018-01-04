@@ -132,22 +132,27 @@ select {
 .message {
     background-color: #f45042;
 }   
+
 .my-btn {
-    // @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
-    $color: #fff;
-    $background: #000;
-    $border: #333;
-    @include button-variant($color, $background, $border);
-    // override the default darkening with lightening
-    &:hover,
-    &:focus,
-    &.focus,
-    &:active,
-    &.active,
-    .open > &.dropdown-toggle {
-      color: $color;
-      background-color: lighten($background, 20%); //10% default
-      border-color: lighten($border, 22%); // 12% default
-    }
-  }
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #f44336;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    float: right;
+}
   
+.my-btn:hover {background-color: #cc2d22}
+
+.my-btn:active {
+background-color: #b7291f;
+box-shadow: 0 5px #666;
+transform: translateY(4px);
+}
