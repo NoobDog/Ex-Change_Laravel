@@ -13,7 +13,13 @@
         <link rel="stylesheet" href="{{asset('font-awesome/css/font-awesome.min.css')}}">
         <!-- Styles -->
         <link rel="stylesheet" href="{{asset('css/shoppingCart.css')}}">
-        
+        @if (!empty($shoppingCart))
+            <style>
+            .footBar {
+                position: absolute;
+            }
+            </style>
+        @endif
     </head>
     <body>
         @include('header')
