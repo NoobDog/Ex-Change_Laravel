@@ -32,7 +32,7 @@
                             <h3>{{$Item['bookName']}}</h3>
                             <p>{{$Item['bookDescription']}}</p>
                             <h4><strong>$ {{number_format($Item['bookprice'], 2, '.', '')}} CAD</strong></h4>
-                            <i class="fa fa-window-close fa-5x" style="color: red; float:right;"></i>
+                            <a  style="color: red; float:right;"><i class="fa fa-window-close fa-3x"></i></a>
                         </li>
                         <?php $total += $Item['bookprice']; ?>
                     @endforeach
