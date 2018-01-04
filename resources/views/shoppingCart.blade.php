@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="{{asset('font-awesome/css/font-awesome.min.css')}}">
         <!-- Styles -->
         <link rel="stylesheet" href="{{asset('css/shoppingCart.css')}}">
-        @if (!empty($shoppingCart))
+        @if (!empty($shoppingCart) && count($shoppingCart) == 1)
             <style>
             .footBar {
                 position: absolute;
