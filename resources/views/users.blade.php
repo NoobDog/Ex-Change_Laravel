@@ -19,16 +19,15 @@
         @include('header')
             <ul class="userLists">
                 @foreach ($users as $user)
-                {{print_r($user)}}
                     <li class=" @if($user['isVoid']) Void @endif @if($user['isWarning']) Warning @endif">
                         <img src="{{asset('icons/'.$user['userIcon'])}}"/>
                         <h3>{{$user['userName']}}</h3>
                         <h3>{{$user['userEmail']}}</h3>
                         <form method="POST"  action="{{route('updateUserStatus',$user['userEmail'])}}">
                             {{csrf_field()}}
-                            <input type="radio" name="status" value="Warning"  checked = "@if($user['isVoid'] == 1) checked @endif"> Warning
-                            <input type="radio" name="status" value="Void" checked = "@if($user['isWarning'] == 1) checked @endif"> Void
-                            <input type="radio" name="status" value="Undo" checked = "@if($user['isVoid'] == 0 && $user['isWarning'] == 0) checked @endif"> Normal
+                            <input type="radio" name="status" value="Warning"  @if($user['isVoid']) checked = "checked" @endif> Warning
+                            <input type="radio" name="status" value="Void" @if($user['isWarning']) checked = "checked" @endif> Void
+                            <input type="radio" name="status" value="Undo" @if(!$user['isVoid'] && !$user['isWarning']) checked = "checked" @endif> Normal
                             <button type="submit" class ='myButton'>Update</button> 
                         </form> 
                     </li>
