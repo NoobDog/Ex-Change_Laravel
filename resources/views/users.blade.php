@@ -27,7 +27,7 @@
                             {{csrf_field()}}
                             <input type="radio" name="status" value="Warning"  checked = "@if($user['isVoid']) checked @endif"> Warning
                             <input type="radio" name="status" value="Void" checked = "@if($user['isWarning']) checked @endif"> Void
-                            <input type="radio" name="status" value="Undo" checked = "@if(!$user['isVoid'] && !$user['isWarning']) checked @endif"> Normal
+                            <input type="radio" name="status" value="Undo" checked = "@if($user['isVoid'] == 0 && $user['isWarning'] == 0) checked @endif"> Normal
                             <button type="submit" class ='myButton'>Update</button> 
                         </form> 
                     </li>
