@@ -19,6 +19,7 @@
         @include('header')
             <ul class="userLists">
                 @foreach ($users as $user)
+                {{print_r($user)}}
                     <li class=" @if($user['isVoid']) Void @endif @if($user['isWarning']) Warning @endif">
                         <img src="{{asset('icons/'.$user['userIcon'])}}"/>
                         <h3>{{$user['userName']}}</h3>
