@@ -25,8 +25,8 @@
                         <h3>{{$user['userEmail']}}</h3>
                         <form method="POST"  action="{{route('updateUserStatus',$user['userEmail'])}}">
                             {{csrf_field()}}
-                            <input type="radio" name="status" value="Warning"  @if($user['isVoid']) checked = "checked" @endif> Warning
-                            <input type="radio" name="status" value="Void" @if($user['isWarning']) checked = "checked" @endif> Void
+                            <input type="radio" name="status" value="Warning"  @if($user['isWarning']) checked = "checked" @endif> Warning
+                            <input type="radio" name="status" value="Void" @if($user['isVoid']) checked = "checked" @endif> Void
                             <input type="radio" name="status" value="Undo" @if(!$user['isVoid'] && !$user['isWarning']) checked = "checked" @endif> Normal
                             <button type="submit" class ='myButton'>Update</button> 
                         </form> 
