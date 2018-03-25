@@ -1,4 +1,9 @@
 <html>
+<head>
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
+    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+</head>
     <span class="border border-primary"></span>
     <span class="border border-secondary"></span>
     <span class="border border-success"></span>
