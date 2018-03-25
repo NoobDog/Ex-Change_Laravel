@@ -15,17 +15,17 @@
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Welcome</a>
       <div class="dropdown-menu">
-        <a lass="dropdown-item"><i class="fa fa-user" aria-hidden="true"></i> User Profile</a>
-        <a lass="dropdown-item"><i class="fa fa-map-marker" aria-hidden="true"></i> Address Settings</a>
+        <a lass="dropdown-item" href="#"><i class="fa fa-user" aria-hidden="true"></i> User Profile</a>
+        <a lass="dropdown-item" href="#"><i class="fa fa-map-marker" aria-hidden="true"></i> Address Settings</a>
         
       </div>
     </li>
     <li>
       <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">My Ex-change</a>
       <div class="dropdown-menu">
-        <a class="dropdown-item"><i class="fa fa-book" aria-hidden="true"></i> My Books</a>
-        <a class="dropdown-item"><i class="fa fa-university" aria-hidden="true"></i> My Bank Information</a>
-        <a class="dropdown-item"><i class="fa fa-trademark" aria-hidden="true"></i> My Trade Information</a>
+        <a class="dropdown-item" href="#"><i class="fa fa-book" aria-hidden="true"></i> My Books</a>
+        <a class="dropdown-item" href="#"><i class="fa fa-university" aria-hidden="true"></i> My Bank Information</a>
+        <a class="dropdown-item" href="#"><i class="fa fa-trademark" aria-hidden="true"></i> My Trade Information</a>
         <!-- <a href="#"><i class="fa fa-tint" aria-hidden="true"></i>  My Points</a> -->
       </div>
     </li>
