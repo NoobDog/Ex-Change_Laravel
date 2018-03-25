@@ -2,9 +2,10 @@
 <head>
     <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
     <!-- Styles -->
+    <script src="{{ asset('bootstrap/js/Popper.js') }}"></script>
     <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
     <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('bootstrap/js/Popper.js') }}"></script>
+   
 </head>
 <div class="logo">
   <img src="{{asset('img/ex-change_logo.jpg')}}" height="66px" width="100%">
