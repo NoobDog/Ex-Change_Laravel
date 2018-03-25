@@ -9,7 +9,7 @@
   <img src="{{asset('img/ex-change_logo.jpg')}}" height="66px" width="100%">
   <div class="imgTxt">Ex-Change</div>
 </div>
-<nav class="navbar navbar-dark bg-dark">
+<div class="nav navbar navbar-dark bg-dark">
   <ul>
     <li>
       <a class="btn btn-secondary dropdown-toggle">Welcome</a>
@@ -33,5 +33,5 @@
     <li><a>Logout</a></li>
     <li><i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i></a></li>
   </ul>
-</nav>
+</div>
 </html>
