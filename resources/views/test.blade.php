@@ -9,8 +9,8 @@
   <img src="{{asset('img/ex-change_logo.jpg')}}" height="66px" width="100%">
   <div class="imgTxt">Ex-Change</div>
 </div>
-<div class="nav navbar navbar-dark bg-dark">
-  <ul>
+<div>
+  <ul class="nav navbar navbar-dark bg-dark">
     <li>
       <a class="btn btn-secondary dropdown-toggle">Welcome</a>
       <div class="dropdown">
