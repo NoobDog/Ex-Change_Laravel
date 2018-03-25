@@ -89,4 +89,4 @@ Route::post('/allUsers/{userEmail}',['as'=>'updateUserStatus','uses'=>'usersCont
 Route::get('/tradeHistory',['as'=>'tradeHistory','uses'=>'tradeHistoryController@index']);
 
 //test
-Route::get('/test',['as'=>'test','uses'=>'test@index']);
+Route::get('/test',['as'=>'test','uses'=>'testController@index']);
