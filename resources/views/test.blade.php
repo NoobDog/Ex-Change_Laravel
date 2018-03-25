@@ -8,7 +8,7 @@
 <div class="logo">
   <img src="{{asset('img/ex-change_logo.jpg')}}" height="66px" width="100%">
 </div>
-<div>
+<div> 
   <ul class="nav nav-tabs navbar-dark bg-dark">
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Welcome</a>
