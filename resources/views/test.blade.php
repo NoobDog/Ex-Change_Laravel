@@ -15,8 +15,8 @@
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Welcome</a>
       <div class="dropdown-menu">
-        <a><i class="fa fa-user" aria-hidden="true"></i> User Profile</a>
-        <a><i class="fa fa-map-marker" aria-hidden="true"></i> Address Settings</a>
+        <a lass="dropdown-item"><i class="fa fa-user" aria-hidden="true"></i> User Profile</a>
+        <a lass="dropdown-item"><i class="fa fa-map-marker" aria-hidden="true"></i> Address Settings</a>
         
       </div>
     </li>
@@ -29,9 +29,9 @@
         <!-- <a href="#"><i class="fa fa-tint" aria-hidden="true"></i>  My Points</a> -->
       </div>
     </li>
-    <li class="nav-item"><a>Help</a></li>
-    <li class="nav-item"><a>Logout</a></li>
-    <li class="nav-item"><i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i></a></li>
+    <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+    <li class="nav-item"><a class="nav-link" href="#">Logout</a></li>
+    <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i></a></li>
   </ul>
 </div>
 </html>
