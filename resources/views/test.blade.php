@@ -13,10 +13,9 @@
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Welcome</a>
       <div class="dropdown-menu">
-        <a class="dropdown-item"><i class="fa fa-user" aria-hidden="true"></i> User Profile</a>
-        <!-- <a href="{{url('/general')}}"><i class="fa fa-info-circle" aria-hidden="true"></i> General</a> -->
-        <a class="dropdown-item"><i class="fa fa-map-marker" aria-hidden="true"></i> Address Settings</a>
-        <!-- <a href="{{url('/privacySetting')}}"><i class="fa fa-lock" aria-hidden="true"></i> Privacy Settings</a> -->
+        <a><i class="fa fa-user" aria-hidden="true"></i> User Profile</a>
+        <a><i class="fa fa-map-marker" aria-hidden="true"></i> Address Settings</a>
+        
       </div>
     </li>
     <li>
