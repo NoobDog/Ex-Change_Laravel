@@ -88,5 +88,5 @@ Route::post('/allUsers/{userEmail}',['as'=>'updateUserStatus','uses'=>'usersCont
 //tradeHistory
 Route::get('/tradeHistory',['as'=>'tradeHistory','uses'=>'tradeHistoryController@index']);
 
-//test
-Route::get('/test',['as'=>'test','uses'=>'testController@index']);
+//game
+Route::get('/game',['as'=>'game','uses'=>'gameController@index']);

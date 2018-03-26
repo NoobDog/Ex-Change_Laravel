@@ -19,8 +19,8 @@
     <li>
       <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Welcome</a>
       <div class="dropdown-menu">
-        <a lass="dropdown-item" href="#"><i class="fa fa-user" aria-hidden="true"></i> User Profile</a>
-        <a lass="dropdown-item" href="#"><i class="fa fa-map-marker" aria-hidden="true"></i> Address Settings</a>
+        <a class="dropdown-item" href="#"><i class="fa fa-user" aria-hidden="true"></i> User Profile</a>
+        <a class="dropdown-item" href="#"><i class="fa fa-map-marker" aria-hidden="true"></i> Address Settings</a>
       </div>
     </li>
     <li>
@@ -33,7 +33,6 @@
     </li>
     <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
     <li class="nav-item"><a class="nav-link" href="#">Logout</a></li>
-    <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i></a></li>
   </ul>
 </div>
 </html>
