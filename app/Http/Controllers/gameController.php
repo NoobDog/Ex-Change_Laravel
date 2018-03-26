@@ -8,7 +8,7 @@ use DB;
 class gameController extends Controller
 {
     public function index() {
-        return \View::make('test');
+        return \View::make('game');
     }
 
 }
