@@ -11,21 +11,21 @@ class weChatController extends Controller
 { 
 
 		public function saveToDataBase(Request $request) {
-      $name = $request->input('userName');
-      $country = $request->input('userCountry');
-      $IP = $request->input('userIP');
+      $name = $request->input('userName') ?? '';
+      $country = $request->input('userCountry') ?? '';
+      $IP = $request->input('userIP') ?? '';
       try {
         DB::insert(
           'INSERT INTO weChat (userName, userCountry, userIP) values (?, ?, ?)',
           [$name, $country, $IP]
         );
-        echo 'Got it~';
+        return 'Got it~';
       }
       catch (Exception $e) {
 					// Something else happened, completely unrelated to Stripe
 					$body = $e->getJsonBody();
           $err  = $body['error'];
-          echo $err;
+          return $err;
       }
 
     }
