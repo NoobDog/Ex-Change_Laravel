@@ -93,4 +93,4 @@ Route::get('/game',['as'=>'game','uses'=>'gameController@index']);
 
 
 //weChat
-Route::post('/weChat',['as'=>'weChat','uses'=>'weChatController@saveToDataBase']);
+Route::get('/weChat',['as'=>'weChat','uses'=>'weChatController@saveToDataBase']);

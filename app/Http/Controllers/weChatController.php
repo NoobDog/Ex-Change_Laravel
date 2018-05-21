@@ -10,7 +10,10 @@ class weChatController extends Controller
 { 
 
 		public function saveToDataBase(Request $request) {
-      return 'test';
+      if($request->ajax()){
+        return "AJAX";
+    }
+    return "HTTP";
       $name = $request->input('userName') ?? '';
       $country = $request->input('userCountry') ?? '';
       $IP = $request->input('userIP') ?? '';
