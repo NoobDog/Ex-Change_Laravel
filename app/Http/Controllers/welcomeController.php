@@ -20,7 +20,7 @@ class welcomeController extends Controller
 				return \View::make('welcome'); 
 			}
 			\View::share(['page_name_active'=> 'home','books'=>$books]);
-            return \View::make('welcome'); 
+			return \View::make('welcome'); 
     }
         public function logout() {
           	Session::flush();

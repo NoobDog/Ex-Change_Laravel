@@ -10,7 +10,7 @@ class weChatController extends Controller
 { 
 
 		public function index() {
-        return 'get';
+      return \View::make('weChat'); 
 
     }
 		public function saveToDataBase(Request $request) {
