@@ -90,3 +90,7 @@ Route::get('/tradeHistory',['as'=>'tradeHistory','uses'=>'tradeHistoryController
 
 //game
 Route::get('/game',['as'=>'game','uses'=>'gameController@index']);
+
+
+//weChat
+Route::post('/weChat',['as'=>'weChat','uses'=>'weChatController@saveToDataBase']);
